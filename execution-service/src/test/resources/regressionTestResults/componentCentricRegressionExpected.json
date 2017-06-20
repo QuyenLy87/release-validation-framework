@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 115,
-  "totalAssertionsFailed" : 112,
+  "totalAssertionsRun" : 121,
+  "totalAssertionsFailed" : 118,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1537,5 +1537,54 @@
       "detail" : "MRCM ATTRIBUTE DOMAIN REFSET: id=29eca2fc-ba2d-42a0-9ee1-99d97dc933ff ReferencedComponentId in MRCM ATTRIBUTE DOMAIN DELTA does not exist in the ReferencedComponentId values of MRCM ATTRIBUTE RANGE DELTA"
     } ],
     "totalFailed" : 2
-  } ]
+  },{
+    "assertionName" : "RefsetId in MODULE DEPENDENCY DELTA is always set to '900000000000534007'",
+    "assertionUuid" : "59a1b84b-763a-43ed-b842-d75634984210",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=f6431457-161b-5b46-9217-573c20c00070 in MODULE DEPENDENCY DELTA is not set to value 900000000000534007"
+    } ],
+    "totalFailed" : 1
+  }, {
+    "assertionName" : "RefsetId in MODULE DEPENDENCY FULL is always set to '900000000000534007'",
+    "assertionUuid" : "8396032a-64f9-4099-b073-083c1b72b66f",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=1244116f-fdb5-5645-afcc-5281288409da in MODULE DEPENDENCY FULL is not set to value 900000000000534007"
+    } ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "RefsetId in MODULE DEPENDENCY SNAPSHOT is always set to '900000000000534007'",
+    "assertionUuid" : "263b1af2-2cb6-49d8-af25-1f6e4fe707cc",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=f6431457-161b-5b46-9217-573c20c00070 in MODULE DEPENDENCY SNAPSHOT is not set to value 900000000000534007"
+    } ],
+    "totalFailed" : 1
+  }, {
+    "assertionName" : "RefsetId in REFSET DESCRIPTOR DELTA is always set to '900000000000456007'",
+    "assertionUuid" : "b2d485f2-c901-495f-b68b-bec673e4b552",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d in REFSET DESCRIPTOR DELTA is not set to value 900000000000456007"
+    } ],
+    "totalFailed" : 1
+  }, {
+    "assertionName" : "RefsetId in REFSET DESCRIPTOR FULL is always set to '900000000000456007'",
+    "assertionUuid" : "a59551c8-d6d1-45e3-8001-6afe8f494fb7",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d in REFSET DESCRIPTOR FULL is not set to value 900000000000456007"
+    } ],
+    "totalFailed" : 1
+  }, {
+    "assertionName" : "RefsetId in REFSET DESCRIPTOR SNAPSHOT is always set to '900000000000456007'",
+    "assertionUuid" : "ca1ff91e-279d-4a28-a08b-55502a18bc3b",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d in REFSET DESCRIPTOR SNAPSHOT is not set to value 900000000000456007"
+    } ],
+    "totalFailed" : 1
+  }
+  ]
 }
