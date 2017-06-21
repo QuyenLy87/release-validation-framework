@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 121,
-  "totalAssertionsFailed" : 118,
+  "totalAssertionsRun" : 124,
+  "totalAssertionsFailed" : 121,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1583,6 +1583,30 @@
     "firstNInstances" : [ {
       "conceptId" : "449080006",
       "detail" : "Refset: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d in REFSET DESCRIPTOR SNAPSHOT is not set to value 900000000000456007"
+    } ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR DELTA is always set to value > = 0",
+    "assertionUuid" : "8fb26e5c-7775-44c7-aabf-b01edbe789eb",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d in REFSET DESCRIPTOR DELTA is not set to value >= 0"
+    } ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR FULL is always set to value > = 0",
+    "assertionUuid" : "a0fc6610-5a16-4085-a762-cb85cd4a2353",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=57c08f90-d110-51d7-9866-687ea59213b4 in REFSET DESCRIPTOR FULL is not set to value >= 0"
+    } ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is always set to value > = 0",
+    "assertionUuid" : "a5186099-f3e4-430a-a95c-abcb6405a173",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=57c08f90-d110-51d7-9866-687ea59213b4 in REFSET DESCRIPTOR SNAPSHOT is not set to value >= 0"
     } ],
     "totalFailed" : 1
   }

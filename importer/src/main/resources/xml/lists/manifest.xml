@@ -865,6 +865,22 @@
 			<keywords>RefsetId in REFSET DESCRIPTOR SNAPSHOT is always set to '900000000000456007'</keywords>
 		</script>
 
+		<script uuid="8fb26e5c-7775-44c7-aabf-b01edbe789eb" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR DELTA is always set to value > = 0">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR DELTA is always set to value > = 0</keywords>
+		</script>
+
+		<script uuid="a0fc6610-5a16-4085-a762-cb85cd4a2353" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR FULL is always set to value > = 0">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR FULL is always set to value > = 0</keywords>
+		</script>
+
+		<script uuid="a5186099-f3e4-430a-a95c-abcb6405a173" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is always set to value > = 0">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is always set to value > = 0</keywords>
+		</script>
+
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid="" category="" sqlFile="" text=""  />-->
 
