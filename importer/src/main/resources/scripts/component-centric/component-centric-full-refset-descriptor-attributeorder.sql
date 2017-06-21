@@ -10,7 +10,7 @@
 		<RUNID>,
 		'<ASSERTIONUUID>',
 		a.moduleid,
-		concat('Refset: id=',a.id,' in REFSET DESCRIPTOR FULL is not set to value >= 0')
+		concat('AttributeOrder of: id=',a.id,' in REFSET DESCRIPTOR FULL is not set to value >= 0')
 	from curr_refsetDescriptor_f a
 	where a.attributeorder < 0;
 	commit;

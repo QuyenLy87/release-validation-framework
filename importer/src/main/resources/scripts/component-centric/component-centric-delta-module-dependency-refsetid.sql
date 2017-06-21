@@ -10,7 +10,7 @@
 		<RUNID>,
 		'<ASSERTIONUUID>',
 		a.moduleid,
-		concat('Refset: id=',a.id,' in MODULE DEPENDENCY DELTA is not set to value 900000000000534007')
+		concat('RefsetId of: id=',a.id,' in MODULE DEPENDENCY DELTA is not set to value 900000000000534007')
 	from curr_moduleDependency_d a
 	where a.refsetid <> '900000000000534007';
 	commit;
