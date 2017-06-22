@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 124,
-  "totalAssertionsFailed" : 121,
+  "totalAssertionsRun" : 127,
+  "totalAssertionsFailed" : 124,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1564,11 +1564,14 @@
   }, {
     "assertionName" : "RefsetId in REFSET DESCRIPTOR DELTA is always set to '900000000000456007'",
     "assertionUuid" : "b2d485f2-c901-495f-b68b-bec673e4b552",
-    "firstNInstances" : [ {
+    "firstNInstances" :  [ {
+      "conceptId" : "449080006",
+      "detail" : "RefsetId of: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d in REFSET DESCRIPTOR DELTA is not set to value 900000000000456007"
+    }, {
       "conceptId" : "449080006",
       "detail" : "RefsetId of: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d in REFSET DESCRIPTOR DELTA is not set to value 900000000000456007"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "RefsetId in REFSET DESCRIPTOR FULL is always set to '900000000000456007'",
     "assertionUuid" : "a59551c8-d6d1-45e3-8001-6afe8f494fb7",
@@ -1609,6 +1612,66 @@
       "detail" : "AttributeOrder of: id=57c08f90-d110-51d7-9866-687ea59213b4 in REFSET DESCRIPTOR SNAPSHOT is not set to value >= 0"
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR DELTA",
+    "assertionUuid" : "5225e890-df86-48fc-a2c7-b85b200eaf35",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da46 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR DELTA"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da47 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR DELTA"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da48 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR DELTA"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=e6283035-2e04-5292-a745-929e03a39735 with ReferencedComponentId = 447562003 + AttributeOrder = 5  is not unique pair in REFSET DESCRIPTOR DELTA"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=e6283035-2e04-5292-a745-929e03a39735 with ReferencedComponentId = 447562003 + AttributeOrder = 5  is not unique pair in REFSET DESCRIPTOR DELTA"
+    } ],
+    "totalFailed" : 5
+  }, {
+    "assertionName" : "ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR FULL",
+    "assertionUuid" : "5963e2bb-9abb-4743-9e61-253626b283b4",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da46 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR FULL"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da47 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR FULL"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da48 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR FULL"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=e6283035-2e04-5292-a745-929e03a39735 with ReferencedComponentId = 447562003 + AttributeOrder = 5  is not unique pair in REFSET DESCRIPTOR FULL"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=e6283035-2e04-5292-a745-929e03a39735 with ReferencedComponentId = 447562003 + AttributeOrder = 5  is not unique pair in REFSET DESCRIPTOR FULL"
+    } ],
+    "totalFailed" : 5
+  },{
+    "assertionName" : "ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR SNAPSHOT",
+    "assertionUuid" : "6bb8f975-bc93-41e8-9bdb-3b79ed33aad2",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da46 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR SNAPSHOT"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da47 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR SNAPSHOT"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da48 with ReferencedComponentId = 446608001 + AttributeOrder = 0  is not unique pair in REFSET DESCRIPTOR SNAPSHOT"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=e6283035-2e04-5292-a745-929e03a39735 with ReferencedComponentId = 447562003 + AttributeOrder = 5  is not unique pair in REFSET DESCRIPTOR SNAPSHOT"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset: id=e6283035-2e04-5292-a745-929e03a39735 with ReferencedComponentId = 447562003 + AttributeOrder = 5  is not unique pair in REFSET DESCRIPTOR SNAPSHOT"
+    } ],
+    "totalFailed" : 5
   }
   ]
 }
