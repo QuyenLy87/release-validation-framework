@@ -895,6 +895,21 @@
 			<keywords>ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR SNAPSHOT</keywords>
 		</script>
 
+		<script uuid="6a8863dd-b5bb-4bbc-acc1-2c581701a315" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-referencedcomponentid-unique-attributeorder-is-zero.sql" text="For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR DELTA">
+			<keywords>For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR DELTA</keywords>
+		</script>
+
+		<script uuid="6389a0db-e6d5-4eb8-95b1-813258579370" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-referencedcomponentid-unique-attributeorder-is-zero.sql" text="For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR FULL">
+			<keywords>For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR FULL</keywords>
+		</script>
+
+		<script uuid="9b118ab6-92df-4c5f-9e30-6cf895f5fa02" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-referencedcomponentid-unique-attributeorder-is-zero.sql" text="For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT">
+			<keywords>For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT</keywords>
+		</script>
+
 
 		<!-- rt added this as a template... -->
 		<!--  <script uuid="" category="" sqlFile="" text=""  />-->
