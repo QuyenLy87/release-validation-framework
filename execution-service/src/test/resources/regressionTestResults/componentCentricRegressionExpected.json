@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 130,
-  "totalAssertionsFailed" : 127,
+  "totalAssertionsRun" : 133,
+  "totalAssertionsFailed" : 130,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1714,6 +1714,30 @@
       "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da48 ReferencedComponentId = 446608001 has more than one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT"
     }  ],
     "totalFailed" : 3
+  },{
+    "assertionName" : "REFSET DESCRIPTOR DELTA contains only active rows where the referenced refset is active",
+    "assertionUuid" : "1015f315-4b0d-41ab-9f7f-a7c8d2ac42b6",
+    "firstNInstances" : [  {
+      "conceptId" : "900000000000207008",
+      "detail" : "REFSET DESCRIPTOR DELTA: id=a6417d6f-5a66-5039-8e94-698d28a4da50 contains inactive rows where the referenced refset is active"
+    }  ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "REFSET DESCRIPTOR FULL contains only active rows where the referenced refset is active",
+    "assertionUuid" : "01da5b80-3ab8-4742-83dc-dfd751ce7974",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "REFSET DESCRIPTOR FULL: id=a6417d6f-5a66-5039-8e94-698d28a4da50 contains inactive rows where the referenced refset is active"
+    }  ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "REFSET DESCRIPTOR SNAPSHOT contains only active rows where the referenced refset is active",
+    "assertionUuid" : "97579313-3203-4108-9e37-bfac9821bfa8",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "REFSET DESCRIPTOR SNAPSHOT: id=a6417d6f-5a66-5039-8e94-698d28a4da50 contains inactive rows where the referenced refset is active"
+    }  ],
+    "totalFailed" : 1
   }
   ]
 }

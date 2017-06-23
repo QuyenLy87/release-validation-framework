@@ -910,6 +910,20 @@
 			<keywords>For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT</keywords>
 		</script>
 
+		<script uuid="1015f315-4b0d-41ab-9f7f-a7c8d2ac42b6" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-referencedcomponentid-active.sql" text="REFSET DESCRIPTOR DELTA contains only active rows where the referenced refset is active">
+			<keywords>REFSET DESCRIPTOR DELTA contains only active rows where the referenced refset is active</keywords>
+		</script>
+
+		<script uuid="01da5b80-3ab8-4742-83dc-dfd751ce7974" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-referencedcomponentid-active.sql" text="REFSET DESCRIPTOR FULL contains only active rows where the referenced refset is active">
+			<keywords>REFSET DESCRIPTOR FULL contains only active rows where the referenced refset is active</keywords>
+		</script>
+
+		<script uuid="97579313-3203-4108-9e37-bfac9821bfa8" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-referencedcomponentid-active.sql" text="REFSET DESCRIPTOR SNAPSHOT contains only active rows where the referenced refset is active">
+			<keywords>REFSET DESCRIPTOR SNAPSHOT contains only active rows where the referenced refset is active</keywords>
+		</script>
 
 		<!-- rt added this as a template... -->
 		<!--  <script uuid="" category="" sqlFile="" text=""  />-->
