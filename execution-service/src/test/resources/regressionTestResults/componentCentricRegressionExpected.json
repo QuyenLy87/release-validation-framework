@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 136,
-  "totalAssertionsFailed" : 133,
+  "totalAssertionsRun" : 139,
+  "totalAssertionsFailed" : 136,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1762,6 +1762,39 @@
       "detail" : "REFSET DESCRIPTOR SNAPSHOT: id=a6417d6f-5a66-5039-8e94-698d28a4da49 contains active rows where the referenced refset is inactive"
     }  ],
     "totalFailed" : 1
+  },{
+    "assertionName" : "For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0",
+    "assertionUuid" : "26f858ba-4aea-43ed-a957-e250f72dec98",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "ReferencedComponentId=703155005 in REFSET DESCRIPTOR DELTA is not a consecutive sequence starting at 0"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "ReferencedComponentId=447562005 in REFSET DESCRIPTOR DELTA is not a consecutive sequence starting at 0"
+    }  ],
+    "totalFailed" : 2
+  },{
+    "assertionName" : "For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR FULL, the set of attributeOrder values is a consecutive sequence starting at 0",
+    "assertionUuid" : "79e83115-4a7a-47bf-826d-2e1934c25a4c",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "ReferencedComponentId=446608001 in REFSET DESCRIPTOR FULL is not a consecutive sequence starting at 0"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "ReferencedComponentId=703155005 in REFSET DESCRIPTOR FULL is not a consecutive sequence starting at 0"
+    }  ],
+    "totalFailed" : 2
+  },{
+    "assertionName" : "For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR SNAPSHOT, the set of attributeOrder values is a consecutive sequence starting at 0",
+    "assertionUuid" : "9724a87e-0b7b-41f4-a662-f67380164a39",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "ReferencedComponentId=446608001 in REFSET DESCRIPTOR SNAPSHOT is not a consecutive sequence starting at 0"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "ReferencedComponentId=703155005 in REFSET DESCRIPTOR SNAPSHOT is not a consecutive sequence starting at 0"
+    }  ],
+    "totalFailed" : 2
   }
   ]
 }

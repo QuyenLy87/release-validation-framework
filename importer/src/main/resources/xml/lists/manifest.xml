@@ -940,6 +940,21 @@
 			<keywords>REFSET DESCRIPTOR SNAPSHOT contains only inactive rows where the referenced refset is inactive</keywords>
 		</script>
 
+		<script uuid="26f858ba-4aea-43ed-a957-e250f72dec98" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-set-of-attributeorder.sql" text="For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0">
+			<keywords>For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0</keywords>
+		</script>
+
+		<script uuid="79e83115-4a7a-47bf-826d-2e1934c25a4c" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-set-of-attributeorder.sql" text="For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR FULL, the set of attributeOrder values is a consecutive sequence starting at 0">
+			<keywords>For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR FULL, the set of attributeOrder values is a consecutive sequence starting at 0</keywords>
+		</script>
+
+		<script uuid="9724a87e-0b7b-41f4-a662-f67380164a39" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-set-of-attributeorder.sql" text="For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR SNAPSHOT, the set of attributeOrder values is a consecutive sequence starting at 0">
+			<keywords>For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR SNAPSHOT, the set of attributeOrder values is a consecutive sequence starting at 0</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid="" category="" sqlFile="" text=""  />-->
 
