@@ -21,3 +21,25 @@
     where a.referencedcomponentid=c.referencedcomponentid
     and  a.attributeorder=0;
 	commit;
+
+
+	insert into qa_result (runid, assertionuuid, concept_id, details)
+	select
+		<RUNID>,
+		'<ASSERTIONUUID>',
+		a.moduleid,
+		concat('Refset: id=',a.id,' ReferencedComponentId = ',a.referencedcomponentid,' has no record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT')
+	from
+	    curr_refsetDescriptor_s a, (
+            select  referencedcomponentid ,attributeorder,count(*) total
+            from curr_refsetDescriptor_s
+            group by referencedcomponentid  ,attributeorder
+        ) b
+        where a.referencedcomponentid=b.referencedcomponentid
+        and a.attributeorder=b.attributeorder
+        and not exists (
+            select 1
+            from curr_refsetDescriptor_s c
+            where c.referencedcomponentid=a.referencedcomponentid
+            and c.attributeorder =  0 );
+    commit;
