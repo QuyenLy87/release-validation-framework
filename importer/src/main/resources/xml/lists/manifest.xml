@@ -925,6 +925,21 @@
 			<keywords>REFSET DESCRIPTOR SNAPSHOT contains only active rows where the referenced refset is active</keywords>
 		</script>
 
+		<script uuid="102d7933-86a1-41f2-875b-5ac0b25635c5" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-referencedcomponentid-inactive.sql" text="REFSET DESCRIPTOR DELTA contains only inactive rows where the referenced refset is inactive">
+			<keywords>REFSET DESCRIPTOR DELTA contains only inactive rows where the referenced refset is inactive</keywords>
+		</script>
+
+		<script uuid="b97ac77f-f0f7-4933-bdac-ba5a03a6f16e" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-referencedcomponentid-inactive.sql" text="REFSET DESCRIPTOR FULL contains only inactive rows where the referenced refset is inactive">
+			<keywords>REFSET DESCRIPTOR FULL contains only inactive rows where the referenced refset is inactive</keywords>
+		</script>
+
+		<script uuid="c7d4889f-ef9b-4668-9291-bc9e8ca8c5bc" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-referencedcomponentid-inactive.sql" text="REFSET DESCRIPTOR SNAPSHOT contains only inactive rows where the referenced refset is inactive">
+			<keywords>REFSET DESCRIPTOR SNAPSHOT contains only inactive rows where the referenced refset is inactive</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid="" category="" sqlFile="" text=""  />-->
 
