@@ -955,8 +955,23 @@
 			<keywords>For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR SNAPSHOT, the set of attributeOrder values is a consecutive sequence starting at 0</keywords>
 		</script>
 
+		<script uuid="26c3618c-778f-47c0-b2b2-a8a1e8223112" category="component-centric-validation"
+				sqlFile="component-centric-delta-all-maps-referencedcomponentid-is-active-concept.sql" text="All MAP REFSET DELTA files have valid, active SNOMED CT concepts in the ReferencedComponentId">
+			<keywords>All MAP REFSET DELTA files have valid, active SNOMED CT concepts in the ReferencedComponentId</keywords>
+		</script>
+
+		<script uuid="326f5316-b104-4254-960a-38f46abb5e06" category="component-centric-validation"
+				sqlFile="component-centric-full-all-maps-referencedcomponentid-is-active-concept.sql" text="All MAP REFSET FULL files have valid, active SNOMED CT concepts in the ReferencedComponentId">
+			<keywords>All MAP REFSET FULL files have valid, active SNOMED CT concepts in the ReferencedComponentId</keywords>
+		</script>
+
+		<script uuid="2b3433fc-dc00-4b00-9b88-02e20fe31779" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-all-maps-referencedcomponentid-is-active-concept.sql" text="All MAP REFSET SNAPSHOT files have valid, active SNOMED CT concepts in the ReferencedComponentId">
+			<keywords>All MAP REFSET SNAPSHOT files have valid, active SNOMED CT concepts in the ReferencedComponentId</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
-		<!--  <script uuid="" category="" sqlFile="" text=""  />-->
+		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 
 
 	</useCase>
