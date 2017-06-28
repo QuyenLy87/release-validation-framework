@@ -16,6 +16,10 @@
 		<script uuid="e8d87ec5-bb55-42a2-8368-f2fabd5835ca" category="resource" sqlFile="component-centric-delta-mrcm-refset-validate-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in MRCM Refsets Delta" />
 		<script uuid="8d25d6e7-e4c6-488d-b96b-df1665c968ad" category="resource" sqlFile="component-centric-full-mrcm-refset-validate-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in MRCM Refsets Full" />
 
+		<script uuid="7f80d61e-1dd5-4285-bde5-0c7621c75176" category="resource" sqlFile="component-centric-delta-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Delta" />
+		<script uuid="e632eb0d-8c99-40d3-9e3e-6cabb8f282e9" category="resource" sqlFile="component-centric-full-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Full" />
+		<script uuid="6aceb99c-d924-44b4-a1f6-7f4c396e0783" category="resource" sqlFile="component-centric-snapshot-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Snapshot" />
+
 		<!-- release-type-full-validation -->
 		<script uuid="84f5edda-1249-4d79-87da-e248e61f06a6" category="release-type-validation" sqlFile="release-type-full-validation-concept.sql" text="The current Concept full file contains all previously published data unchanged." >
 			<keywords></keywords>
@@ -968,6 +972,21 @@
 		<script uuid="2b3433fc-dc00-4b00-9b88-02e20fe31779" category="component-centric-validation"
 				sqlFile="component-centric-snapshot-all-maps-referencedcomponentid-is-active-concept.sql" text="All MAP REFSET SNAPSHOT files have valid, active SNOMED CT concepts in the ReferencedComponentId">
 			<keywords>All MAP REFSET SNAPSHOT files have valid, active SNOMED CT concepts in the ReferencedComponentId</keywords>
+		</script>
+
+		<script uuid="64b43472-92f2-4519-bb8f-a3ff721feecf" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-concept-is-valid-descendant.sql" text="Verify valid descendant in REFSET DESCRIPTOR DELTA">
+			<keywords>Verify valid descendant in REFSET DESCRIPTOR DELTA</keywords>
+		</script>
+
+		<script uuid="b3865f0a-2814-466b-b31d-1cef20ecdc27" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-concept-is-valid-descendant.sql" text="Verify valid descendant in REFSET DESCRIPTOR FULL">
+			<keywords>Verify valid descendant in REFSET DESCRIPTOR FULL</keywords>
+		</script>
+
+		<script uuid="aa82ce8b-381e-4cc8-8019-7f2eeb44957d" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-concept-is-valid-descendant.sql" text="Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT">
+			<keywords>Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT</keywords>
 		</script>
 
 		<!-- rt added this as a template... -->

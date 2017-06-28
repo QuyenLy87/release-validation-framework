@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 142,
-  "totalAssertionsFailed" : 138,
+  "totalAssertionsRun" : 145,
+  "totalAssertionsFailed" : 141,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1852,6 +1852,111 @@
       "detail" : "ComplexMap: id=79703317-411e-5d4d-b853-eef523f0109a: IFA rule references missing conceptId and term"
     } ],
     "totalFailed" : 4
+  }, {
+    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR DELTA",
+    "assertionUuid" : "64b43472-92f2-4519-bb8f-a3ff721feecf",
+    "firstNInstances" : [  {
+      "conceptId" : "446608001",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562003",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562005",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 447562005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "699765003",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 699765003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "700132008",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 700132008 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703155005",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447247004",
+      "detail" : "Refset Descriptor Delta: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000499002",
+      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000500006",
+      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000501005",
+      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    } ],
+    "totalFailed" : 17
+  }, {
+    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR FULL",
+    "assertionUuid" : "b3865f0a-2814-466b-b31d-1cef20ecdc27",
+    "firstNInstances" : [ {
+      "conceptId" : "100001001",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 100001001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "100002008",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 100002008 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "446608001",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562003",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703155005",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447247004",
+      "detail" : "Refset Descriptor Full: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000499002",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000500006",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000501005",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000502003",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000502003 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }  ],
+    "totalFailed" : 16
+  }, {
+    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT",
+    "assertionUuid" : "aa82ce8b-381e-4cc8-8019-7f2eeb44957d",
+    "firstNInstances" : [  {
+      "conceptId" : "446608001",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562003",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703155005",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703649004",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703649004 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703649005",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703649005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447247004",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000499002",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000500006",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000501005",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000502003",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000502003 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }  ],
+    "totalFailed" : 16
   }
   ]
 }
