@@ -17,6 +17,15 @@
         where b.id is not null and a.active = 1 and b.active = 0;
     commit;
 
+    insert into qa_result (runid, assertionuuid, concept_id, details)
+    select
+		<RUNID>,
+		'<ASSERTIONUUID>',
+		a.moduleid,
+		concat('EXTENDED MAP REFSET SNAPSHOT: id=',a.id,' has invalid concept in ReferencedComponentId field = ',a.referencedcomponentid)
+        from curr_extendedmaprefset_s a
+        where a.referencedcomponentid not in (select id from curr_concept_s);
+    commit;
 
     insert into qa_result (runid, assertionuuid, concept_id, details)
 	select
@@ -30,6 +39,15 @@
         where b.id is not null and a.active = 1 and b.active = 0;
     commit;
 
+    insert into qa_result (runid, assertionuuid, concept_id, details)
+    select
+		<RUNID>,
+		'<ASSERTIONUUID>',
+		a.moduleid,
+		concat('COMPLEX MAP REFSET SNAPSHOT: id=',a.id,' has invalid concept in ReferencedComponentId field = ',a.referencedcomponentid)
+        from curr_complexmaprefset_s a
+        where a.referencedcomponentid not in (select id from curr_concept_s);
+    commit;
 
 	insert into qa_result (runid, assertionuuid, concept_id, details)
 	select
@@ -43,3 +61,12 @@
         where b.id is not null and a.active = 1 and b.active = 0;
     commit;
 
+    insert into qa_result (runid, assertionuuid, concept_id, details)
+    select
+		<RUNID>,
+		'<ASSERTIONUUID>',
+		a.moduleid,
+		concat('SIMPLE MAP REFSET SNAPSHOT: id=',a.id,' has invalid concept in ReferencedComponentId field = ',a.referencedcomponentid)
+        from curr_simplemaprefset_s a
+        where a.referencedcomponentid not in (select id from curr_concept_s);
+    commit;

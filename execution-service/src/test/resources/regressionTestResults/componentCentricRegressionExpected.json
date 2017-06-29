@@ -949,13 +949,34 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET DELTA: id=eb06f231-de00-53a1-901b-f016aa4d2e65 has inactive concept in ReferencedComponentId field = 699765003"
     }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "COMPLEX MAP REFSET DELTA: id=1ef4b939-b726-571a-aa3f-9230aadb9f06 has inactive concept in ReferencedComponentId field = 699765003"
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=64d66e24-7bad-5f16-a3ae-82826c42141b has invalid concept in ReferencedComponentId field = 188001"
     }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "SIMPLE MAP REFSET DELTA: id=b977f180-396d-513b-a7e4-524645b4fecb has inactive concept in ReferencedComponentId field = 699765003"
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=f182895e-7db7-5290-88f1-f4b8c14dfa65 has invalid concept in ReferencedComponentId field = 486006"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=c94195c7-f38c-5863-97de-6fc24cbd9b6a has invalid concept in ReferencedComponentId field = 652005"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=83de4b6e-9a2a-5d8c-b9f4-aacdc0e64e01 has invalid concept in ReferencedComponentId field = 652005"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=3ae07309-e516-57c7-83c5-7a550ee74a7b has invalid concept in ReferencedComponentId field = 658009"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=f70f52e1-951e-58eb-a423-f5ab218d2de2 has invalid concept in ReferencedComponentId field = 801006"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=684b30d0-7e42-50e7-8ae6-5830ea816ce7 has invalid concept in ReferencedComponentId field = 801006"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=5ba7b2dd-e03b-5fe4-a656-0e8eb65ea05b has invalid concept in ReferencedComponentId field = 801006"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET DELTA: id=49361643-765b-54e7-8033-9b8f8426f081 has invalid concept in ReferencedComponentId field = 127009"
     } ],
-    "totalFailed" : 3
+    "totalFailed" : 30
   }, {
     "assertionName" : "For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0",
     "assertionUuid" : "26f858ba-4aea-43ed-a957-e250f72dec98",
@@ -975,15 +996,33 @@
       "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=02dc8b54-b1ce-5fbb-8b2c-9f8414042618 has inactive concept in ReferencedComponentId field = 700132008"
     }, {
       "conceptId" : "449080006",
-      "detail" : "COMPLEX MAP REFSET SNAPSHOT: id=79703317-411e-5d4d-b853-eef523f0109a has inactive concept in ReferencedComponentId field = 700132008"
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=1d507f04-26a6-5a9d-8f3c-abb34b971a61 has invalid concept in ReferencedComponentId field = 127009"
     }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "SIMPLE MAP REFSET SNAPSHOT: id=b977f180-396d-513b-a7e4-524645b4fecb has inactive concept in ReferencedComponentId field = 703649004"
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=49361643-765b-54e7-8033-9b8f8426f081 has invalid concept in ReferencedComponentId field = 127009"
     }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "SIMPLE MAP REFSET SNAPSHOT: id=e406cda8-4ffe-54d0-b0d0-b0b8f8249621 has inactive concept in ReferencedComponentId field = 700132008"
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=217a9bea-0b4e-5499-8a61-e4d661e722b0 has invalid concept in ReferencedComponentId field = 140004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=69703317-411e-5d4d-b853-eef523f0109b has invalid concept in ReferencedComponentId field = 140004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=174a7931-88f1-5fc7-99fc-f0fc8f104f87 has invalid concept in ReferencedComponentId field = 140004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=02dc8b54-b1ce-5fbb-8b2c-9f84140426ff has invalid concept in ReferencedComponentId field = 162004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=eb06f231-de00-53a1-901b-f016aa4d2e65 has invalid concept in ReferencedComponentId field = 171008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=a80af01d-cb02-58b0-a267-123144076f48 has invalid concept in ReferencedComponentId field = 177007"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 has invalid concept in ReferencedComponentId field = 177007"
     } ],
-    "totalFailed" : 4
+    "totalFailed" : 56
   }, {
     "assertionName" : "MrcmRuleRefsetId in MRCM MODULE SCOPE FULL exists in the RefsetId values of MRCM DOMAIN FULL or MRCM ATTRIBUTE DOMAIN FULL or MRCM ATTRIBUTE RANGE FULL",
     "assertionUuid" : "2bf6ec9a-7cc5-491b-99cd-0e3092ff8055",
@@ -1104,13 +1143,34 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET FULL: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 has inactive concept in ReferencedComponentId field = 100002008"
     }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "COMPLEX MAP REFSET FULL: id=11fd666e-deff-54b8-95d4-6ed135669013 has inactive concept in ReferencedComponentId field = 100002008"
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=1d507f04-26a6-5a9d-8f3c-abb34b971a61 has invalid concept in ReferencedComponentId field = 127009"
     }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "SIMPLE MAP REFSET FULL: id=165ecdba-3630-5468-986e-56da6e845f2b has inactive concept in ReferencedComponentId field = 100002008"
-    } ],
-    "totalFailed" : 3
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=49361643-765b-54e7-8033-9b8f8426f081 has invalid concept in ReferencedComponentId field = 127009"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=217a9bea-0b4e-5499-8a61-e4d661e722b0 has invalid concept in ReferencedComponentId field = 140004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=69703317-411e-5d4d-b853-eef523f0109b has invalid concept in ReferencedComponentId field = 140004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=174a7931-88f1-5fc7-99fc-f0fc8f104f87 has invalid concept in ReferencedComponentId field = 140004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=02dc8b54-b1ce-5fbb-8b2c-9f84140426ff has invalid concept in ReferencedComponentId field = 162004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=eb06f231-de00-53a1-901b-f016aa4d2e65 has invalid concept in ReferencedComponentId field = 171008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=a80af01d-cb02-58b0-a267-123144076f48 has invalid concept in ReferencedComponentId field = 177007"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "EXTENDED MAP REFSET FULL: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 has invalid concept in ReferencedComponentId field = 177007"
+    }  ],
+    "totalFailed" : 29
   }, {
     "assertionName" : "Inferred relationship modifier is always SOME.",
     "assertionUuid" : "32b41aa0-7d08-11e1-b0c4-0800200c9a66",
