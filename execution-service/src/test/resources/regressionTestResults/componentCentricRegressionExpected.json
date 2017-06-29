@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 145,
-  "totalAssertionsFailed" : 141,
+  "totalAssertionsRun" : 148,
+  "totalAssertionsFailed" : 143,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -2017,6 +2017,27 @@
       "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000502003 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
     }  ],
     "totalFailed" : 16
+  }, {
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR DELTA is set to correct value",
+    "assertionUuid" : "e99ee58b-9b6c-4eba-9e6e-8616fd4a6dc7",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR DELTA is not set to correct value "
+    } ],
+    "totalFailed" : 1
+  }, {
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR FULL is set to correct value",
+    "assertionUuid" : "a6fdaad3-0b4c-4e2f-b25f-1f01fc6de114",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  }, {
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value",
+    "assertionUuid" : "64bf8c7f-ffd6-49a9-9dc5-bdb26b0c5a02",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR SNAPSHOT is not set to correct value "
+    }  ],
+    "totalFailed" : 1
   }
   ]
 }

@@ -989,6 +989,21 @@
 			<keywords>Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT</keywords>
 		</script>
 
+		<script uuid="e99ee58b-9b6c-4eba-9e6e-8616fd4a6dc7" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-correct-number-of-values-for-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR DELTA is set to correct value">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR DELTA is set to correct value</keywords>
+		</script>
+
+		<script uuid="a6fdaad3-0b4c-4e2f-b25f-1f01fc6de114" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-correct-number-of-values-for-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR FULL is set to correct value">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR FULL is set to correct value</keywords>
+		</script>
+
+		<script uuid="64bf8c7f-ffd6-49a9-9dc5-bdb26b0c5a02" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-correct-number-of-values-for-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 
