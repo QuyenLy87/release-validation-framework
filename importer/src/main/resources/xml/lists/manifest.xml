@@ -19,6 +19,9 @@
 		<script uuid="7f80d61e-1dd5-4285-bde5-0c7621c75176" category="resource" sqlFile="component-centric-delta-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Delta" />
 		<script uuid="e632eb0d-8c99-40d3-9e3e-6cabb8f282e9" category="resource" sqlFile="component-centric-full-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Full" />
 		<script uuid="6aceb99c-d924-44b4-a1f6-7f4c396e0783" category="resource" sqlFile="component-centric-snapshot-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Snapshot" />
+		<script uuid="b96f614d-ea9b-4a60-a137-2e17cca541a5" category="resource" sqlFile="component-centric-delta-validate-referencedcomponentid-is-valid-active-concept-proc.sql" text="Defines a procedure to validate whether a concept is a valid and active concepts in all Refset Delta files" />
+		<script uuid="9679ceab-958a-4b56-8bfe-3bfa9947c254" category="resource" sqlFile="component-centric-full-validate-referencedcomponentid-is-valid-active-concept-proc.sql" text="Defines a procedure to validate whether a concept is a valid and active concepts in all Refset Full files" />
+		<script uuid="6edb505d-8703-4287-a56d-b74428e2349d" category="resource" sqlFile="component-centric-snapshot-validate-referencedcomponentid-is-valid-active-concept-proc.sql" text="Defines a procedure to validate whether a concept is a valid and active concepts in all Refset Snapshot files" />
 
 		<!-- release-type-full-validation -->
 		<script uuid="84f5edda-1249-4d79-87da-e248e61f06a6" category="release-type-validation" sqlFile="release-type-full-validation-concept.sql" text="The current Concept full file contains all previously published data unchanged." >
@@ -1004,9 +1007,23 @@
 			<keywords>AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value</keywords>
 		</script>
 
+		<script uuid="d2e01d90-ebb2-45ca-b8d8-483f6cf00f60" category="component-centric-validation"
+				sqlFile="component-centric-delta-validate-referencedcomponentid-is-valid-active-concept.sql" text="Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files">
+			<keywords>Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files</keywords>
+		</script>
+
+		<script uuid="104a5dad-2feb-4c00-b4df-06dc9adc464d" category="component-centric-validation"
+				sqlFile="component-centric-full-validate-referencedcomponentid-is-valid-active-concept.sql" text="Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Full files">
+			<keywords>Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Full files</keywords>
+		</script>
+
+		<script uuid="ff6fc730-876c-4860-abca-51d9deea292f" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-validate-referencedcomponentid-is-valid-active-concept.sql" text="Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files">
+			<keywords>Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
-
 
 	</useCase>
 </manifest>

@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 148,
-  "totalAssertionsFailed" : 143,
+  "totalAssertionsRun" : 151,
+  "totalAssertionsFailed" : 146,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -2038,6 +2038,111 @@
       "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR SNAPSHOT is not set to correct value "
     }  ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files",
+    "assertionUuid" : "d2e01d90-ebb2-45ca-b8d8-483f6cf00f60",
+    "firstNInstances" : [ {
+      "conceptId" : "1000004",
+      "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "1178005",
+      "detail" : "ConceptId=1178005 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "10123006",
+      "detail" : "ConceptId=10123006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "10171006",
+      "detail" : "ConceptId=10171006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "12793000",
+      "detail" : "ConceptId=12793000 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "109501002",
+      "detail" : "ConceptId=109501002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "109797006",
+      "detail" : "ConceptId=109797006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "112635002",
+      "detail" : "ConceptId=112635002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "123653002",
+      "detail" : "ConceptId=123653002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "128202008",
+      "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }  ],
+    "totalFailed" : 56
+  }, {
+    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Full files",
+    "assertionUuid" : "104a5dad-2feb-4c00-b4df-06dc9adc464d",
+    "firstNInstances" : [ {
+      "conceptId" : "1178005",
+      "detail" : "ConceptId=1178005 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "12793000",
+      "detail" : "ConceptId=12793000 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "109501002",
+      "detail" : "ConceptId=109501002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "109797006",
+      "detail" : "ConceptId=109797006 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "112635002",
+      "detail" : "ConceptId=112635002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "123653002",
+      "detail" : "ConceptId=123653002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "128202008",
+      "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "221150012",
+      "detail" : "ConceptId=221150012 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
+    }, {
+      "conceptId" : "250933017",
+      "detail" : "ConceptId=250933017 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
+    }, {
+      "conceptId" : "253376014",
+      "detail" : "ConceptId=253376014 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
+    }  ],
+    "totalFailed" : 50
+  }, {
+    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files",
+    "assertionUuid" : "ff6fc730-876c-4860-abca-51d9deea292f",
+    "firstNInstances" : [ {
+      "conceptId" : "703649004",
+      "detail" : "ConceptId=703649004 referenced in the column referencedcomponentid of Association Reference Snapshot file is an inactive concept."
+    }, {
+      "conceptId" : "1000004",
+      "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "10086003",
+      "detail" : "ConceptId=10086003 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "10123006",
+      "detail" : "ConceptId=10123006 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "10171006",
+      "detail" : "ConceptId=10171006 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "128534003",
+      "detail" : "ConceptId=128534003 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "700241009",
+      "detail" : "ConceptId=700241009 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "118747013",
+      "detail" : "ConceptId=118747013 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "187427009",
+      "detail" : "ConceptId=187427009 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "197095003",
+      "detail" : "ConceptId=197095003 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
+    }  ],
+    "totalFailed" : 67
   }
   ]
 }
