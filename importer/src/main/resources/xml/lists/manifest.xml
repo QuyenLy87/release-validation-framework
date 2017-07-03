@@ -1022,6 +1022,84 @@
 			<keywords>Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files</keywords>
 		</script>
 
+		<script uuid="8681f355-e406-4aea-843d-ee0c2e1bc569" category="component-centric-validation"
+				sqlFile="component-centric-delta-simple-map-refsetid-contains-ICD0-CTV3.sql" text="Simple Map Delta files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)">
+			<keywords>Simple Map Delta files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)</keywords>
+		</script>
+
+		<script uuid="fa99c92b-c6b7-4a96-89aa-9cca388667fd" category="component-centric-validation"
+				sqlFile="component-centric-full-simple-map-refsetid-contains-ICD0-CTV3.sql" text="Simple Map Full files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)">
+			<keywords>Simple Map Delta files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)</keywords>
+		</script>
+
+		<script uuid="179c7098-a690-434c-9b70-ec4f4cc25d2b" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-simple-map-refsetid-contains-ICD0-CTV3.sql" text="Simple Map Snapshot files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)">
+			<keywords>Simple Map Snapshot files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)</keywords>
+		</script>
+
+<!--
+		<script uuid="132356b0-6eca-4090-8044-17f82102f7ca" category="component-centric-validation"
+				sqlFile="component-centric-delta-extendedmap-refsetid.sql" text="Extended Map Delta file contains nothing except ICD-10 maps (International Edition only)">
+			<keywords>Extended Map Delta file contains nothing except ICD-10 maps (International Edition only)</keywords>
+		</script>
+
+		<script uuid="addb8fb3-14ad-4293-a9cd-65595649818a" category="component-centric-validation"
+				sqlFile="component-centric-full-extendedmap-refsetid.sql" text="Extended Map Full file contains nothing except ICD-10 maps (International Edition only)">
+			<keywords>Extended Map Full file contains nothing except ICD-10 maps (International Edition only)</keywords>
+		</script>
+
+		<script uuid="4e78d040-96e9-49fc-aaa5-54b4fcc13659" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-extendedmap-refsetid.sql" text="Extended Map Snapshot file contains nothing except ICD-10 maps (International Edition only)">
+			<keywords>Extended Map Snapshot file contains nothing except ICD-10 maps (International Edition only)</keywords>
+		</script>
+
+		<script uuid="c429ebe4-c84c-48f6-aad6-1acadc1781fe" category="component-centric-validation"
+				sqlFile="component-centric-delta-module-dependency-targeteffectivetime-matches-sourceeffectivetime.sql" text="For each record in Module Dependency Delta file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)">
+			<keywords>For each record in Module Dependency Delta file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)</keywords>
+		</script>
+
+		<script uuid="7d2cac3f-542b-4734-ae07-08b953be6e19" category="component-centric-validation"
+				sqlFile="component-centric-full-module-dependency-targeteffectivetime-matches-sourceeffectivetime.sql" text="For each record in Module Dependency Full file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)">
+			<keywords>For each record in Module Dependency Full file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)</keywords>
+		</script>
+
+		<script uuid="77982aaf-0ab1-449e-899a-2fbe22d3e1d8" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-module-dependency-targeteffectivetime-matches-sourceeffectivetime.sql" text="For each record in Module Dependency Snapshot file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)">
+			<keywords>For each record in Module Dependency Snapshot file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)</keywords>
+		</script>
+
+		<script uuid="5431f8be-ca3c-4ece-802f-421028bf1133" category="component-centric-validation"
+				sqlFile="component-centric-delta-module-dependency-effectivetime-matches-sourceeffectivetime-and-targeteffectivetime.sql" text="For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(for International Edition only)">
+			<keywords>For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTim(for International Edition only)</keywords>
+		</script>
+
+		<script uuid="db410e3b-4aaa-4c67-a347-03a38646f0bf" category="component-centric-validation"
+				sqlFile="component-centric-full-module-dependency-effectivetime-matches-sourceeffectivetime-and-targeteffectivetime.sql" text="For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(for International Edition only)">
+			<keywords>	For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTim(for International Edition only)</keywords>
+		</script>
+
+		<script uuid="b81aea8f-50b6-4379-85f3-3bbea3b8bfc6" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-module-dependency-effectivetime-matches-sourceeffectivetime-and-targeteffectivetime.sql" text="For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(for International Edition only)">
+			<keywords>For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTim(for International Edition only)</keywords>
+		</script>
+
+		<script uuid="eae39df0-9206-41c3-9832-cf18a805644a" category="component-centric-validation"
+				sqlFile="component-centric-delta-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+			<keywords>In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		</script>
+
+		<script uuid="dd6e270c-c3a5-4d2b-9bd9-cc49bdf6fe64" category="component-centric-validation"
+				sqlFile="component-centric-full-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+			<keywords>In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		</script>
+
+		<script uuid="0d0884a3-238f-4e6d-81b5-50b3ea3f2090" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+			<keywords>In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		</script>
+-->
+
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 

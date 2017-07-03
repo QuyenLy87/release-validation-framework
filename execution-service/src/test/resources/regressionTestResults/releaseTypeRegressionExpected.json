@@ -1,7 +1,7 @@
 {
   "assertionType" : "release-type-validation",
   "totalAssertionsRun" : 121,
-  "totalAssertionsFailed" : 120,
+  "totalAssertionsFailed" : 113,
   "results" : [ {
     "assertionName" : "There must be actual changes made to previously published complex map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "80463c76-d84e-4a1a-8abb-c5b4d12b5da4",
@@ -46,20 +46,8 @@
   }, {
     "assertionName" : "New inactive states follow active states in the SIMPLE MAP REFSET snapshot.",
     "assertionUuid" : "88315a11-4e71-49d2-977f-a5d5ac2a4dc4",
-    "firstNInstances" : [ {
-      "conceptId" : "699820000",
-      "detail" : "SimpleMap Refset: id=0314672a-f4e5-548d-bb84-f82eac418b99 should not have a new inactive state as it was inactive previously."
-    }, {
-      "conceptId" : "703568007",
-      "detail" : "SimpleMap Refset: id=cff7ca5c-286c-52b3-9322-e489c65c8ab5 is inactive but no active state found in the previous snapshot."
-    }, {
-      "conceptId" : "700132006",
-      "detail" : "SimpleMap Refset: id=82f3de7e-e15a-56c2-80a7-8ba824b9bd79 is inactive but no active state found in the previous snapshot."
-    }, {
-      "conceptId" : "700132006",
-      "detail" : "SimpleMap Refset: id=e406cda8-4ffe-54d0-b0d0-b0b8f8249623 is inactive but no active state found in the previous snapshot."
-    } ],
-    "totalFailed" : 4
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "There must be actual changes made to previously published MRCM Domain Refset components in order for them to appear in the current delta.",
     "assertionUuid" : "8864db45-0f97-4eda-b7ba-414289dd3a99",
@@ -184,17 +172,8 @@
   }, {
     "assertionName" : "The current data in the SimpleMap refset snapshot file are the same as the data in the current delta file.",
     "assertionUuid" : "959e11e7-9ff9-40b9-b833-387495e320d0",
-    "firstNInstances" : [ {
-      "conceptId" : "699765003",
-      "detail" : "SimpleMapRefset: id=b977f180-396d-513b-a7e4-524645b4fecb is in delta but not in snapshot file."
-    }, {
-      "conceptId" : "703607009",
-      "detail" : "SimpleMapRefset: id=44e48b38-b6fc-5929-96bb-87330b833af2 is in delta but not in snapshot file."
-    }, {
-      "conceptId" : "10024003",
-      "detail" : "SimpleMapRefset: id=9ec10eaa-224b-50e0-9639-e43c3a87fac0 is in delta but not in snapshot file."
-    } ],
-    "totalFailed" : 3
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "There must be actual changes made to previously published simple refset components in order for them to appear in the current delta.",
     "assertionUuid" : "9912342f-5010-40fd-9bea-301b737973a1",
@@ -459,11 +438,8 @@
   }, {
     "assertionName" : "There must be actual changes made to previously published simple map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "bc055a18-f93e-42fd-8bb2-347f2b2b8976",
-    "firstNInstances" : [ {
-      "conceptId" : "10024003",
-      "detail" : "SimpleMapRefset: id=9ec10eaa-224b-50e0-9639-e43c3a87fac0 is in the detla file, but no actual changes made since the previous release."
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current data in the Language refset snapshot file are the same as the data in the current delta file.",
     "assertionUuid" : "bd27d80a-42f1-4412-8111-fdf72fa32904",
@@ -510,35 +486,8 @@
   }, {
     "assertionName" : "The current SimpleMap refset full file contains all previously published data unchanged.",
     "assertionUuid" : "c19b9008-bbc9-4209-a3d7-896d414df565",
-    "firstNInstances" : [ {
-      "conceptId" : "699820000",
-      "detail" : "SimpleMapRefset: id=0314672a-f4e5-548d-bb84-f82eac418b99 is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "699621004",
-      "detail" : "SimpleMapRefset: id=425999cc-49c2-5e22-9ccd-928963ab1b98 is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "699960000",
-      "detail" : "SimpleMapRefset: id=530928b4-1718-527a-bba0-3826eb9232b3 is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "699596009",
-      "detail" : "SimpleMapRefset: id=5c2aefac-5d12-5858-9f7e-f94848ad7287 is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "699644001",
-      "detail" : "SimpleMapRefset: id=fad3438f-deeb-5c21-b20e-4787f220882a is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "699601000",
-      "detail" : "SimpleMapRefset: id=8ba71fba-42c6-58a8-b558-d6de111a707d is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "699610008",
-      "detail" : "SimpleMapRefset: id=14a123e1-9903-5b32-8309-85e1a0a0b5b3 is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "10144006",
-      "detail" : "SimpleMapRefset: id=f4aaf4d6-e40d-5454-983e-5f7fd809497c is in prior full file, but not in current full file."
-    }, {
-      "conceptId" : "1016002",
-      "detail" : "SimpleMapRefset: id=310e09ab-f0e7-50b1-b1ba-e7ec9fc74446 is in prior full file, but not in current full file."
-    } ],
-    "totalFailed" : 9
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current data in the Definition snapshot file are the same as the data in the current delta file.",
     "assertionUuid" : "c837a6f8-f06a-4599-944c-eaa3a6d68c18",
@@ -982,35 +931,8 @@
   }, {
     "assertionName" : "The current full simple map refset file consists of the previously published full file and the changes for the current release",
     "assertionUuid" : "13363e71-60ab-4d1b-975c-f38f7d87d106",
-    "firstNInstances" : [ {
-      "conceptId" : "10013000",
-      "detail" : "SimpleMapRefset: id=16339215-f38d-5df4-a1b0-e82da29b42ae is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "10024003",
-      "detail" : "SimpleMapRefset: id=9ec10eaa-224b-50e0-9639-e43c3a87fac0 is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "10025002",
-      "detail" : "SimpleMapRefset: id=7f8df69b-d812-5046-b90f-e19f3e78a31d is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "10026001",
-      "detail" : "SimpleMapRefset: id=dd96b855-96c0-5108-ae12-0e3d9d3c7e2f is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "10036009",
-      "detail" : "SimpleMapRefset: id=027006d2-7b27-5577-bac9-3dcc25dd09b1 is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "10042008",
-      "detail" : "SimpleMapRefset: id=6a31dc48-d478-5882-a45d-93fe5af12c32 is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "10047002",
-      "detail" : "SimpleMapRefset: id=41cabf19-1403-5522-9786-da42f98cfe55 is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "1005009",
-      "detail" : "SimpleMapRefset: id=4adf6461-1b28-55a2-b8af-adc20f05b41e is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "100002008",
-      "detail" : "SimpleMapRefset: id=165ecdba-3630-5468-986e-56da6e845f2b is in current full file, but not in prior full or current delta file."
-    } ],
-    "totalFailed" : 9
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current text definition snapshot file is an accurate derivative of the current full file",
     "assertionUuid" : "13985234-923e-4d91-911b-b3262e353cfa",
@@ -1106,38 +1028,8 @@
   }, {
     "assertionName" : "The current simple map refset snapshot file is an accurate derivative of the current full file",
     "assertionUuid" : "1d38106d-495e-4d86-8936-33c7e5a12a8f",
-    "firstNInstances" : [ {
-      "conceptId" : "703649004",
-      "detail" : "SIMPLE MAP REFSET: id=b977f180-396d-513b-a7e4-524645b4fecb is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703615007",
-      "detail" : "SIMPLE MAP REFSET: id=e855c4de-407c-56f7-865e-7423580dd95c is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703711007",
-      "detail" : "SIMPLE MAP REFSET: id=f4203391-3431-5822-bada-026ff1d45c33 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703815005",
-      "detail" : "SIMPLE MAP REFSET: id=dcfb5554-b50f-5ca0-8684-29b1b1b2ecd6 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703605001",
-      "detail" : "SIMPLE MAP REFSET: id=1cb64068-effb-5e1d-b9d4-a861f45a29d2 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703634007",
-      "detail" : "SIMPLE MAP REFSET: id=dc853820-0f73-539a-811a-e28db48e430f is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703828003",
-      "detail" : "SIMPLE MAP REFSET: id=f2e60ac2-6370-533d-921d-15ed46d0f22e is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703607009",
-      "detail" : "SIMPLE MAP REFSET: id=34e48b38-b6fc-5929-96bb-87330b833af1 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703568007",
-      "detail" : "SIMPLE MAP REFSET: id=cff7ca5c-286c-52b3-9322-e489c65c8de4 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "703568007",
-      "detail" : "SIMPLE MAP REFSET: id=cff7ca5c-286c-52b3-9322-e489c65c8de4 is in SNAPSHOT file, but not in FULL file."
-    } ],
-    "totalFailed" : 26
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current AttributeValue refset full file contains all previously published data unchanged.",
     "assertionUuid" : "1f6b5876-7714-4362-a065-3906d059a122",
@@ -1948,38 +1840,8 @@
   }, {
     "assertionName" : "The current simple map refset delta file is an accurate derivative of the current full file",
     "assertionUuid" : "659e5e7e-c84f-4c63-b95f-e5d4f26705b5",
-    "firstNInstances" : [ {
-      "conceptId" : "699765003",
-      "detail" : "SIMPLE MAP REFSET: id=b977f180-396d-513b-a7e4-524645b4fecb is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703615007",
-      "detail" : "SIMPLE MAP REFSET: id=e855c4de-407c-56f7-865e-7423580dd95c is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703711007",
-      "detail" : "SIMPLE MAP REFSET: id=f4203391-3431-5822-bada-026ff1d45c33 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703815005",
-      "detail" : "SIMPLE MAP REFSET: id=dcfb5554-b50f-5ca0-8684-29b1b1b2ecd6 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703605001",
-      "detail" : "SIMPLE MAP REFSET: id=1cb64068-effb-5e1d-b9d4-a861f45a29d2 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703634007",
-      "detail" : "SIMPLE MAP REFSET: id=dc853820-0f73-539a-811a-e28db48e430f is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703828003",
-      "detail" : "SIMPLE MAP REFSET: id=f2e60ac2-6370-533d-921d-15ed46d0f22e is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703607009",
-      "detail" : "SIMPLE MAP REFSET: id=34e48b38-b6fc-5929-96bb-87330b833af1 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "703607009",
-      "detail" : "SIMPLE MAP REFSET: id=44e48b38-b6fc-5929-96bb-87330b833af2 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "10024003",
-      "detail" : "SIMPLE MAP REFSET: id=9ec10eaa-224b-50e0-9639-e43c3a87fac0 is in DELTA file, but not in FULL file."
-    } ],
-    "totalFailed" : 10
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current Simple refset full file contains all previously published data unchanged.",
     "assertionUuid" : "673cf38a-a913-4e0e-be32-356ac433ede8",

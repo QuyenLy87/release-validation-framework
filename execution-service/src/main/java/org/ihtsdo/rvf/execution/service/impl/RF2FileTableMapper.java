@@ -32,9 +32,15 @@ public class RF2FileTableMapper {
 	private static final String DESCRIPTION_TYPE_FILE_HEADER = "der2_ciRefset_DescriptionType";
 	
 	private static final Map<String,String> tableNameMap = new HashMap<>();
+	private static final Map<String,String> editionTableNameMap = new HashMap<>();
 	private static final String DELTA = ".*Delta.*_*_\\d{8}.txt";
 	private static final String SNAPSHOT = ".*Snapshot.*_*_\\d{8}.txt";
 	private static final String FULL = ".*Full.*_*_\\d{8}.txt";
+
+	private static final String DELTA_INT = ".*Delta.*_INT.*_\\d{8}.txt";
+	private static final String SNAPSHOT_INT = ".*Snapshot.*_INT.*_\\d{8}.txt";
+	private static final String FULL_INT = ".*Full.*_INT.*_\\d{8}.txt";
+
 	//list of file name regex expressions with RVF table names
 	static {
 		//Delta
@@ -60,7 +66,7 @@ public class RF2FileTableMapper {
 		tableNameMap.put(MODULE_DEPENDENCY_FILE_HEADER + DELTA, "moduleDependency_d");
 		tableNameMap.put(REFSET_DESCRIPTOR_FILE_HEADER + DELTA, "refsetDescriptor_d");
 		tableNameMap.put(DESCRIPTION_TYPE_FILE_HEADER + DELTA, "descriptionType_d");
-		
+
 		//Full
 		tableNameMap.put(CONCEPT_FILE_HEADER + FULL, "concept_f");
 		tableNameMap.put(DESCRIPTION_FILE_HEADER + FULL, "description_f");
@@ -108,10 +114,22 @@ public class RF2FileTableMapper {
 		tableNameMap.put(MODULE_DEPENDENCY_FILE_HEADER + SNAPSHOT, "moduleDependency_s");
 		tableNameMap.put(REFSET_DESCRIPTOR_FILE_HEADER + SNAPSHOT, "refsetDescriptor_s");
 		tableNameMap.put(DESCRIPTION_TYPE_FILE_HEADER + SNAPSHOT, "descriptionType_s");
+
+		/**
+		 * Edition table map putting
+		 **/
+		editionTableNameMap.put(SIMPLE_MAP_FILE_HEADER + DELTA_INT, "simplemaprefset_int_d");
+		editionTableNameMap.put(SIMPLE_MAP_FILE_HEADER + SNAPSHOT_INT, "simplemaprefset_int_s");
+		editionTableNameMap.put(SIMPLE_MAP_FILE_HEADER + FULL_INT, "simplemaprefset_int_f");
 	}
 	
 	public static String getLegacyTableName(final String filename) {
 		final String fileName = filename.startsWith("x") ? filename.substring(1) : filename;
+		for (final String regexStr : editionTableNameMap.keySet()){
+			if (Pattern.compile(regexStr).matcher(fileName).matches()) {
+				return editionTableNameMap.get(regexStr);
+			}
+		}
 		for(final String regex : tableNameMap.keySet()) {
 			if (Pattern.compile(regex).matcher(fileName).matches()) {
 				return tableNameMap.get(regex);

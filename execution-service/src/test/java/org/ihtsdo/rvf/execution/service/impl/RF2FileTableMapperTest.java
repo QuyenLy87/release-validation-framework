@@ -49,7 +49,7 @@ public class RF2FileTableMapperTest {
 			"langrefset_d",
 			"extendedmaprefset_d",
 			"complexmaprefset_d",
-			"simplemaprefset_d",
+			"simplemaprefset_int_d",
 			"concept_d",
 			"description_d",
 			"relationship_d",

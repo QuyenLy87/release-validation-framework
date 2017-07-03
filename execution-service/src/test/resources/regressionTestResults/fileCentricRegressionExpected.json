@@ -1,7 +1,7 @@
 {
   "assertionType" : "file-centric-validation",
   "totalAssertionsRun" : 74,
-  "totalAssertionsFailed" : 70,
+  "totalAssertionsFailed" : 68,
   "results" : [ {
     "assertionName" : "RefsetId value refers to valid concept identifier in the MRCM MODULE SCOPE REFSET snapshot",
     "assertionUuid" : "844f4f15-ac5d-48a6-ba33-f11893cb7a20",
@@ -218,14 +218,8 @@
   }, {
     "assertionName" : "ID is unique in the SIMPLEMAP REFSET snapshot.",
     "assertionUuid" : "ad7ae768-d14a-4f15-a5cb-4c56b8b4fed6",
-    "firstNInstances" : [ {
-      "conceptId" : "703568007",
-      "detail" : "SM RS: id=cff7ca5c-286c-52b3-9322-e489c65c8ab5:Non unique id in current SIMPLEMAP REFSET snapshot file."
-    }, {
-      "conceptId" : "703568007",
-      "detail" : "SM RS: id=cff7ca5c-286c-52b3-9322-e489c65c8de4:Non unique id in current SIMPLEMAP REFSET snapshot file."
-    } ],
-    "totalFailed" : 2
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "ContentTypeId value refers to valid concept identifier in the MRCM ATTRIBUTE RANGE REFSET snapshot",
     "assertionUuid" : "b110b8de-53df-4387-b0ac-aecfbc01ed0d",
@@ -1171,14 +1165,8 @@
   }, {
     "assertionName" : "There is a 1:1 relationship between the id and the key values in the SIMPLE MAP REFSET snapshot.",
     "assertionUuid" : "3cb10511-33b7-4eca-ba0e-93bcccf70d86",
-    "firstNInstances" : [ {
-      "conceptId" : "703568007",
-      "detail" : "SM RS: id=cff7ca5c-286c-52b3-9322-e489c65c8ab5:Invalid keys in SIMPLE MAP REFSET snapshot file."
-    }, {
-      "conceptId" : "703568007",
-      "detail" : "SM RS: id=cff7ca5c-286c-52b3-9322-e489c65c8de4:Invalid keys in SIMPLE MAP REFSET snapshot file."
-    } ],
-    "totalFailed" : 2
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "RefsetId value refers to valid concept identifier in the MRCM ATTRIBUTE RANGE REFSET snapshot",
     "assertionUuid" : "40b0b1f3-7ed0-4074-ab0e-c5abd19f70b8",

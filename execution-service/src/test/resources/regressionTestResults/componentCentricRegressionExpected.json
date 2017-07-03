@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 151,
-  "totalAssertionsFailed" : 146,
+  "totalAssertionsRun" : 154,
+  "totalAssertionsFailed" : 144,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -28,6 +28,14 @@
     "assertionUuid" : "8479317e-8459-4362-bee8-628b8220f1e4",
     "firstNInstances" : null,
     "totalFailed" : 0
+  }, {
+    "assertionName" : "Simple Map Delta files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)",
+    "assertionUuid" : "8681f355-e406-4aea-843d-ee0c2e1bc569",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 9ec10eaa-224b-50e0-9639-e43c3a87fca0 and refsetId = 446608009 in Simple Map Delta file is not ICD-0 or CTV3 map"
+    } ],
+    "totalFailed" : 1
   }, {
     "assertionName" : "The FSN term should be unique in active content.",
     "assertionUuid" : "8d6ab114-caca-4d99-9fec-bb8fd9cea518",
@@ -323,11 +331,8 @@
   }, {
     "assertionName" : "CTV3 simple map refset members are unique.",
     "assertionUuid" : "a2e01ee0-7f25-11e1-b0c4-0800200c9a66",
-    "firstNInstances" : [ {
-      "conceptId" : "700132006",
-      "detail" : "MEMBER: id=82f3de7e-e15a-56c2-80a7-8ba824b9bd8e: CTV3 member key (referencedcomponentid, maptarget) is not unique."
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "Check that the value range is valid in MRCM Refsets Snapshot",
     "assertionUuid" : "a3e31a6c-0443-46a4-8b18-daad481247ed",
@@ -418,6 +423,46 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR FULL is set to correct value",
+    "assertionUuid" : "a6fdaad3-0b4c-4e2f-b25f-1f01fc6de114",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  }, {
+    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT",
+    "assertionUuid" : "aa82ce8b-381e-4cc8-8019-7f2eeb44957d",
+    "firstNInstances" : [ {
+      "conceptId" : "446608001",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562003",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703155005",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703649004",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703649004 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703649005",
+      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703649005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447247004",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000499002",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000500006",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000501005",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000502003",
+      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000502003 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    } ],
+    "totalFailed" : 16
+  }, {
     "assertionName" : "DomainId in MRCM ATTRIBUTE DOMAIN DELTA exists in the ReferencedComponentId values of MRCM DOMAIN DELTA",
     "assertionUuid" : "b0b3d1d7-c64e-44a0-be45-062faa1dd684",
     "firstNInstances" : [ {
@@ -472,6 +517,41 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR FULL",
+    "assertionUuid" : "b3865f0a-2814-466b-b31d-1cef20ecdc27",
+    "firstNInstances" : [ {
+      "conceptId" : "100001001",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 100001001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "100002008",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 100002008 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "446608001",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562003",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703155005",
+      "detail" : "Refset Descriptor Full: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447247004",
+      "detail" : "Refset Descriptor Full: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000499002",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000500006",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000501005",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000502003",
+      "detail" : "Refset Descriptor Full: attributedescription = 900000000000502003 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    } ],
+    "totalFailed" : 16
+  }, {
     "assertionName" : "All definitions are case sensitive.",
     "assertionUuid" : "b4930ea7-4078-4599-979c-2dde18164f01",
     "firstNInstances" : [ {
@@ -499,9 +579,6 @@
     "assertionName" : "There is one and only one CTV3 simple map refset member per concept.",
     "assertionUuid" : "bab42070-7f25-11e1-b0c4-0800200c9a66",
     "firstNInstances" : [ {
-      "conceptId" : "700132006",
-      "detail" : "CONCEPT: id=700132006: Concept has more than one associated CTV3 refset member."
-    }, {
       "conceptId" : "702411003",
       "detail" : "CONCEPT: id=702411003: Concept does not have an associated CTV3 refset member."
     }, {
@@ -511,7 +588,7 @@
       "conceptId" : "609452007",
       "detail" : "CONCEPT: id=609452007: Concept does not have an associated CTV3 refset member."
     } ],
-    "totalFailed" : 4
+    "totalFailed" : 3
   }, {
     "assertionName" : "ReferencedComponentId in MRCM ATTRIBUTE DOMAIN SNAPSHOT exists in the ReferencedComponentId values of MRCM ATTRIBUTE RANGE SNAPSHOT.",
     "assertionUuid" : "bd3bb9ec-97ae-4c53-9686-9c8c63b8d67b",
@@ -526,11 +603,8 @@
   }, {
     "assertionName" : "CTV3 simple map refset members are always active.",
     "assertionUuid" : "c0869af0-7f25-11e1-b0c4-0800200c9a66",
-    "firstNInstances" : [ {
-      "conceptId" : "700132006",
-      "detail" : "MEMBER: id=82f3de7e-e15a-56c2-80a7-8ba824b9bd79: CTV3 simple map refset member is not active."
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "No active term matches that of an inactive Description.",
     "assertionUuid" : "c2975dd5-3869-4bf7-ac75-53fd53b90144",
@@ -622,6 +696,41 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files",
+    "assertionUuid" : "d2e01d90-ebb2-45ca-b8d8-483f6cf00f60",
+    "firstNInstances" : [ {
+      "conceptId" : "1000004",
+      "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "1178005",
+      "detail" : "ConceptId=1178005 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "10123006",
+      "detail" : "ConceptId=10123006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "10171006",
+      "detail" : "ConceptId=10171006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "12793000",
+      "detail" : "ConceptId=12793000 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "109501002",
+      "detail" : "ConceptId=109501002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "109797006",
+      "detail" : "ConceptId=109797006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "112635002",
+      "detail" : "ConceptId=112635002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "123653002",
+      "detail" : "ConceptId=123653002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    }, {
+      "conceptId" : "128202008",
+      "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
+    } ],
+    "totalFailed" : 47
+  }, {
     "assertionName" : "ID is unique in MRCM ATTRIBUTE RANGE snapshot.",
     "assertionUuid" : "d51966ed-e034-4a25-90ef-1eb489c0bd37",
     "firstNInstances" : [ {
@@ -711,6 +820,14 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR DELTA is set to correct value",
+    "assertionUuid" : "e99ee58b-9b6c-4eba-9e6e-8616fd4a6dc7",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR DELTA is not set to correct value "
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "Active historical association refset members have active concepts as targets.",
     "assertionUuid" : "eb940ee0-7cd6-11e1-b0c4-0800200c9a66",
     "firstNInstances" : null,
@@ -718,11 +835,8 @@
   }, {
     "assertionName" : "CTV3 codes are unique in the CTV3 simple map refset",
     "assertionUuid" : "f14d521f-2472-4871-9c4e-356f0f075a3a",
-    "firstNInstances" : [ {
-      "conceptId" : "700132006",
-      "detail" : "CTV3 Code = XUjjkis not unique"
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "DomainId in MRCM ATTRIBUTE DOMAIN SNAPSHOT exists in the ReferencedComponentId values of MRCM DOMAIN SNAPSHOT",
     "assertionUuid" : "f1fc2c4b-9202-4a0b-9c00-49b6de7a7cc5",
@@ -851,10 +965,53 @@
     } ],
     "totalFailed" : 2
   }, {
+    "assertionName" : "Simple Map Full files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)",
+    "assertionUuid" : "fa99c92b-c6b7-4a96-89aa-9cca388667fd",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 9ec10eaa-224b-50e0-9639-e43c3a87fca0 and refsetId = 446608009 in Simple Map Full file is not ICD-0 or CTV3 map"
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "All inactive concepts have definition status of PRIMITIVE.",
     "assertionUuid" : "fdf6a1b0-7cd6-11e1-b0c4-0800200c9a66",
     "firstNInstances" : null,
     "totalFailed" : 0
+  }, {
+    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files",
+    "assertionUuid" : "ff6fc730-876c-4860-abca-51d9deea292f",
+    "firstNInstances" : [ {
+      "conceptId" : "703649004",
+      "detail" : "ConceptId=703649004 referenced in the column referencedcomponentid of Association Reference Snapshot file is an inactive concept."
+    }, {
+      "conceptId" : "1000004",
+      "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "10086003",
+      "detail" : "ConceptId=10086003 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "10123006",
+      "detail" : "ConceptId=10123006 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "10171006",
+      "detail" : "ConceptId=10171006 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "128534003",
+      "detail" : "ConceptId=128534003 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "700241009",
+      "detail" : "ConceptId=700241009 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "118747013",
+      "detail" : "ConceptId=118747013 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "187427009",
+      "detail" : "ConceptId=187427009 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
+    }, {
+      "conceptId" : "197095003",
+      "detail" : "ConceptId=197095003 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
+    } ],
+    "totalFailed" : 56
   }, {
     "assertionName" : "There is only zero or one active Definition per concept per dialect in the snapshot file.",
     "assertionUuid" : "00e87310-7e9b-11e1-b0c4-0800200c9a66",
@@ -901,6 +1058,55 @@
       "detail" : "REFSET DESCRIPTOR DELTA: id=a6417d6f-5a66-5039-8e94-698d28a4da49 contains active rows where the referenced refset is inactive"
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Full files",
+    "assertionUuid" : "104a5dad-2feb-4c00-b4df-06dc9adc464d",
+    "firstNInstances" : [ {
+      "conceptId" : "1178005",
+      "detail" : "ConceptId=1178005 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "12793000",
+      "detail" : "ConceptId=12793000 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "109501002",
+      "detail" : "ConceptId=109501002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "109797006",
+      "detail" : "ConceptId=109797006 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "112635002",
+      "detail" : "ConceptId=112635002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "123653002",
+      "detail" : "ConceptId=123653002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "128202008",
+      "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
+    }, {
+      "conceptId" : "221150012",
+      "detail" : "ConceptId=221150012 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
+    }, {
+      "conceptId" : "250933017",
+      "detail" : "ConceptId=250933017 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
+    }, {
+      "conceptId" : "253376014",
+      "detail" : "ConceptId=253376014 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
+    } ],
+    "totalFailed" : 41
+  }, {
+    "assertionName" : "Simple Map Snapshot files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)",
+    "assertionUuid" : "179c7098-a690-434c-9b70-ec4f4cc25d2b",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = e406cda8-4ffe-54d0-b0d0-b0b8f8249621 and refsetId = 900000000000498005 in Simple Map Snapshot file is not ICD-0 or CTV3 map"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = e406cda8-4ffe-54d0-b0d0-b0b8f8249623 and refsetId = 900000000000498005 in Simple Map Snapshot file is not ICD-0 or CTV3 map"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 9ec10eaa-224b-50e0-9639-e43c3a87fca0 and refsetId = 446608009 in Simple Map Snapshot file is not ICD-0 or CTV3 map"
+    } ],
+    "totalFailed" : 3
   }, {
     "assertionName" : "The mapTarget in LOINC ExpressionAssociationRefset snapshot is a valid LOINC code",
     "assertionUuid" : "18d36527-9247-406a-bd1f-d7d608b0663a",
@@ -976,7 +1182,7 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET DELTA: id=49361643-765b-54e7-8033-9b8f8426f081 has invalid concept in ReferencedComponentId field = 127009"
     } ],
-    "totalFailed" : 30
+    "totalFailed" : 20
   }, {
     "assertionName" : "For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0",
     "assertionUuid" : "26f858ba-4aea-43ed-a957-e250f72dec98",
@@ -1022,7 +1228,7 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 has invalid concept in ReferencedComponentId field = 177007"
     } ],
-    "totalFailed" : 56
+    "totalFailed" : 42
   }, {
     "assertionName" : "MrcmRuleRefsetId in MRCM MODULE SCOPE FULL exists in the RefsetId values of MRCM DOMAIN FULL or MRCM ATTRIBUTE DOMAIN FULL or MRCM ATTRIBUTE RANGE FULL",
     "assertionUuid" : "2bf6ec9a-7cc5-491b-99cd-0e3092ff8055",
@@ -1169,8 +1375,8 @@
     }, {
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET FULL: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 has invalid concept in ReferencedComponentId field = 177007"
-    }  ],
-    "totalFailed" : 29
+    } ],
+    "totalFailed" : 20
   }, {
     "assertionName" : "Inferred relationship modifier is always SOME.",
     "assertionUuid" : "32b41aa0-7d08-11e1-b0c4-0800200c9a66",
@@ -1496,11 +1702,8 @@
   }, {
     "assertionName" : "SNOMED RT codes are unique in the SNOMED RT simple map refset",
     "assertionUuid" : "5e80ea3e-c4dd-4ae3-8b75-f0567e42b962",
-    "firstNInstances" : [ {
-      "conceptId" : "700132008",
-      "detail" : "C-D1637"
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The first letter of the active definition should be capitalized.",
     "assertionUuid" : "6138248d-8cc8-4bc2-8043-cd609fdd640c",
@@ -1541,6 +1744,49 @@
     } ],
     "totalFailed" : 2
   }, {
+    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR DELTA",
+    "assertionUuid" : "64b43472-92f2-4519-bb8f-a3ff721feecf",
+    "firstNInstances" : [ {
+      "conceptId" : "446608001",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562003",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447562005",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 447562005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "699765003",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 699765003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "700132008",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 700132008 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "703155005",
+      "detail" : "Refset Descriptor Delta: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
+    }, {
+      "conceptId" : "447247004",
+      "detail" : "Refset Descriptor Delta: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000499002",
+      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000500006",
+      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    }, {
+      "conceptId" : "900000000000501005",
+      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
+    } ],
+    "totalFailed" : 17
+  }, {
+    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value",
+    "assertionUuid" : "64bf8c7f-ffd6-49a9-9dc5-bdb26b0c5a02",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR SNAPSHOT is not set to correct value "
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "Active description of active concept consists of valid characters.",
     "assertionUuid" : "6614ff12-fca2-42b7-a5da-ea26353979fe",
     "firstNInstances" : [ {
@@ -1551,11 +1797,8 @@
   }, {
     "assertionName" : "SNOMED RT identifier simple map refset refers to active components.",
     "assertionUuid" : "695cea40-7f25-11e1-b0c4-0800200c9a66",
-    "firstNInstances" : [ {
-      "conceptId" : "700132006",
-      "detail" : "SimpleMapRefset: id=e406cda8-4ffe-54d0-b0d0-b0b8f8249623 is not an active SNOMED RT member."
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR DELTA",
     "assertionUuid" : "6a8863dd-b5bb-4bbc-acc1-2c581701a315",
@@ -1912,237 +2155,7 @@
       "detail" : "ComplexMap: id=79703317-411e-5d4d-b853-eef523f0109a: IFA rule references missing conceptId and term"
     } ],
     "totalFailed" : 4
-  }, {
-    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR DELTA",
-    "assertionUuid" : "64b43472-92f2-4519-bb8f-a3ff721feecf",
-    "firstNInstances" : [  {
-      "conceptId" : "446608001",
-      "detail" : "Refset Descriptor Delta: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "447562003",
-      "detail" : "Refset Descriptor Delta: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "447562005",
-      "detail" : "Refset Descriptor Delta: referencedcomponentid = 447562005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "699765003",
-      "detail" : "Refset Descriptor Delta: referencedcomponentid = 699765003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "700132008",
-      "detail" : "Refset Descriptor Delta: referencedcomponentid = 700132008 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "703155005",
-      "detail" : "Refset Descriptor Delta: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "447247004",
-      "detail" : "Refset Descriptor Delta: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000499002",
-      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000500006",
-      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000501005",
-      "detail" : "Refset Descriptor Delta: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    } ],
-    "totalFailed" : 17
-  }, {
-    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR FULL",
-    "assertionUuid" : "b3865f0a-2814-466b-b31d-1cef20ecdc27",
-    "firstNInstances" : [ {
-      "conceptId" : "100001001",
-      "detail" : "Refset Descriptor Full: referencedcomponentid = 100001001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "100002008",
-      "detail" : "Refset Descriptor Full: referencedcomponentid = 100002008 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "446608001",
-      "detail" : "Refset Descriptor Full: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "447562003",
-      "detail" : "Refset Descriptor Full: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "703155005",
-      "detail" : "Refset Descriptor Full: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "447247004",
-      "detail" : "Refset Descriptor Full: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000499002",
-      "detail" : "Refset Descriptor Full: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000500006",
-      "detail" : "Refset Descriptor Full: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000501005",
-      "detail" : "Refset Descriptor Full: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000502003",
-      "detail" : "Refset Descriptor Full: attributedescription = 900000000000502003 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }  ],
-    "totalFailed" : 16
-  }, {
-    "assertionName" : "Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT",
-    "assertionUuid" : "aa82ce8b-381e-4cc8-8019-7f2eeb44957d",
-    "firstNInstances" : [  {
-      "conceptId" : "446608001",
-      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 446608001 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "447562003",
-      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 447562003 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "703155005",
-      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703155005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "703649004",
-      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703649004 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "703649005",
-      "detail" : "Refset Descriptor Snapshot: referencedcomponentid = 703649005 is not valid descendant of expression = < 900000000000455006 | Reference set (foundation metadata concept)|"
-    }, {
-      "conceptId" : "447247004",
-      "detail" : "Refset Descriptor Snapshot: attributedescription = 447247004 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000499002",
-      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000499002 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000500006",
-      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000500006 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000501005",
-      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000501005 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }, {
-      "conceptId" : "900000000000502003",
-      "detail" : "Refset Descriptor Snapshot: attributedescription = 900000000000502003 is not valid descendant of expression  = < 900000000000457003 | Reference set attribute (foundation metadata concept)|"
-    }  ],
-    "totalFailed" : 16
-  }, {
-    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR DELTA is set to correct value",
-    "assertionUuid" : "e99ee58b-9b6c-4eba-9e6e-8616fd4a6dc7",
-    "firstNInstances" : [ {
-      "conceptId" : "900000000000207008",
-      "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR DELTA is not set to correct value "
-    } ],
-    "totalFailed" : 1
-  }, {
-    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR FULL is set to correct value",
-    "assertionUuid" : "a6fdaad3-0b4c-4e2f-b25f-1f01fc6de114",
-    "firstNInstances" : null,
-    "totalFailed" : 0
-  }, {
-    "assertionName" : "AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value",
-    "assertionUuid" : "64bf8c7f-ffd6-49a9-9dc5-bdb26b0c5a02",
-    "firstNInstances" : [ {
-      "conceptId" : "900000000000207008",
-      "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR SNAPSHOT is not set to correct value "
-    }  ],
-    "totalFailed" : 1
-  }, {
-    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files",
-    "assertionUuid" : "d2e01d90-ebb2-45ca-b8d8-483f6cf00f60",
-    "firstNInstances" : [ {
-      "conceptId" : "1000004",
-      "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "1178005",
-      "detail" : "ConceptId=1178005 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "10123006",
-      "detail" : "ConceptId=10123006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "10171006",
-      "detail" : "ConceptId=10171006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "12793000",
-      "detail" : "ConceptId=12793000 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "109501002",
-      "detail" : "ConceptId=109501002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "109797006",
-      "detail" : "ConceptId=109797006 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "112635002",
-      "detail" : "ConceptId=112635002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "123653002",
-      "detail" : "ConceptId=123653002 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }, {
-      "conceptId" : "128202008",
-      "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }  ],
-    "totalFailed" : 56
-  }, {
-    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Full files",
-    "assertionUuid" : "104a5dad-2feb-4c00-b4df-06dc9adc464d",
-    "firstNInstances" : [ {
-      "conceptId" : "1178005",
-      "detail" : "ConceptId=1178005 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
-    }, {
-      "conceptId" : "12793000",
-      "detail" : "ConceptId=12793000 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
-    }, {
-      "conceptId" : "109501002",
-      "detail" : "ConceptId=109501002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
-    }, {
-      "conceptId" : "109797006",
-      "detail" : "ConceptId=109797006 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
-    }, {
-      "conceptId" : "112635002",
-      "detail" : "ConceptId=112635002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
-    }, {
-      "conceptId" : "123653002",
-      "detail" : "ConceptId=123653002 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
-    }, {
-      "conceptId" : "128202008",
-      "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Full file is an invalid concept."
-    }, {
-      "conceptId" : "221150012",
-      "detail" : "ConceptId=221150012 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
-    }, {
-      "conceptId" : "250933017",
-      "detail" : "ConceptId=250933017 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
-    }, {
-      "conceptId" : "253376014",
-      "detail" : "ConceptId=253376014 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
-    }  ],
-    "totalFailed" : 50
-  }, {
-    "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files",
-    "assertionUuid" : "ff6fc730-876c-4860-abca-51d9deea292f",
-    "firstNInstances" : [ {
-      "conceptId" : "703649004",
-      "detail" : "ConceptId=703649004 referenced in the column referencedcomponentid of Association Reference Snapshot file is an inactive concept."
-    }, {
-      "conceptId" : "1000004",
-      "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "10086003",
-      "detail" : "ConceptId=10086003 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "10123006",
-      "detail" : "ConceptId=10123006 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "10171006",
-      "detail" : "ConceptId=10171006 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "128534003",
-      "detail" : "ConceptId=128534003 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "700241009",
-      "detail" : "ConceptId=700241009 referenced in the column referencedcomponentid of Association Reference Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "118747013",
-      "detail" : "ConceptId=118747013 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "187427009",
-      "detail" : "ConceptId=187427009 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
-    }, {
-      "conceptId" : "197095003",
-      "detail" : "ConceptId=197095003 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
-    }  ],
-    "totalFailed" : 67
   }
   ]
+
 }
