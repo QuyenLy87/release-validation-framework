@@ -1,7 +1,7 @@
 {
   "assertionType" : "release-type-validation",
   "totalAssertionsRun" : 121,
-  "totalAssertionsFailed" : 113,
+  "totalAssertionsFailed" : 107,
   "results" : [ {
     "assertionName" : "There must be actual changes made to previously published complex map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "80463c76-d84e-4a1a-8abb-c5b4d12b5da4",
@@ -1440,92 +1440,23 @@
   }, {
     "assertionName" : "The current full extended map file consists of the previously published full file and the current delta file",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e612",
-    "firstNInstances" : [ {
-      "conceptId" : "171008",
-      "detail" : "ExtendedMap: id=eb06f231-de00-53a1-901b-f016aa4d2e65 is in current full file, but not in prior full or current delta file."
-    }, {
-      "conceptId" : "100002008",
-      "detail" : "ExtendedMap: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 is in current full file, but not in prior full or current delta file."
-    } ],
-    "totalFailed" : 2
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current extended map refset full file contains all previously published data unchanged",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e613",
-    "firstNInstances" : [ {
-      "conceptId" : "181007",
-      "detail" : "ExtendedMap: id=4586ab94-23ad-5e86-8f2c-e45fc765f3d7 is in prior full file but not in current full file."
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current extended map snapshot file contains all the data from current delta file",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e614",
-    "firstNInstances" : [ {
-      "conceptId" : "699765003",
-      "detail" : "ExtendedMap: id=eb06f231-de00-53a1-901b-f016aa4d2e65 is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "188001",
-      "detail" : "ExtendedMap: id=64d66e24-7bad-5f16-a3ae-82826c42141b is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "486006",
-      "detail" : "ExtendedMap: id=f182895e-7db7-5290-88f1-f4b8c14dfa65 is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "652005",
-      "detail" : "ExtendedMap: id=c94195c7-f38c-5863-97de-6fc24cbd9b6a is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "652005",
-      "detail" : "ExtendedMap: id=83de4b6e-9a2a-5d8c-b9f4-aacdc0e64e01 is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "658009",
-      "detail" : "ExtendedMap: id=3ae07309-e516-57c7-83c5-7a550ee74a7b is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "801006",
-      "detail" : "ExtendedMap: id=f70f52e1-951e-58eb-a423-f5ab218d2de2 is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "801006",
-      "detail" : "ExtendedMap: id=684b30d0-7e42-50e7-8ae6-5830ea816ce7 is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "801006",
-      "detail" : "ExtendedMap: id=5ba7b2dd-e03b-5fe4-a656-0e8eb65ea05b is in DELTA file, but not in SNAPSHOT file."
-    }, {
-      "conceptId" : "127009",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f081 is in DELTA file, but not in SNAPSHOT file."
-    } ],
-    "totalFailed" : 10
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current extended map snapshot file is an accurate derivative of the current full file",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e615",
-    "firstNInstances" : [ {
-      "conceptId" : "140004",
-      "detail" : "ExtendedMap: id=174a7931-88f1-5fc7-99fc-f0fc8f104f87 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "177007",
-      "detail" : "ExtendedMap: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "140004",
-      "detail" : "ExtendedMap: id=217a9bea-0b4e-5499-8a61-e4d661e722b1 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "140004",
-      "detail" : "ExtendedMap: id=69703317-411e-5d4d-b853-eef523f0109c is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "127008",
-      "detail" : "ExtendedMap: id=1d507f04-26a6-5a9d-8f3c-abb34b971a62 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "127008",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f082 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "127009",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f083 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "127010",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f084 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "127010",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f085 is in SNAPSHOT file, but not in FULL file."
-    }, {
-      "conceptId" : "127011",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f086 is in SNAPSHOT file, but not in FULL file."
-    } ],
-    "totalFailed" : 20
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current full complex map file consists of the previously published full file and the current delta file",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e617",
@@ -1649,38 +1580,8 @@
   }, {
     "assertionName" : "Changes from the the current extended map delta file must be in the current full file",
     "assertionUuid" : "5e203a1f-2b6d-462a-a6f9-93cbc3893611",
-    "firstNInstances" : [ {
-      "conceptId" : "699765003",
-      "detail" : "ExtendedMap: id=eb06f231-de00-53a1-901b-f016aa4d2e65 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "188001",
-      "detail" : "ExtendedMap: id=64d66e24-7bad-5f16-a3ae-82826c42141b is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "486006",
-      "detail" : "ExtendedMap: id=f182895e-7db7-5290-88f1-f4b8c14dfa65 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "652005",
-      "detail" : "ExtendedMap: id=c94195c7-f38c-5863-97de-6fc24cbd9b6a is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "652005",
-      "detail" : "ExtendedMap: id=83de4b6e-9a2a-5d8c-b9f4-aacdc0e64e01 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "658009",
-      "detail" : "ExtendedMap: id=3ae07309-e516-57c7-83c5-7a550ee74a7b is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "801006",
-      "detail" : "ExtendedMap: id=f70f52e1-951e-58eb-a423-f5ab218d2de2 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "801006",
-      "detail" : "ExtendedMap: id=684b30d0-7e42-50e7-8ae6-5830ea816ce7 is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "801006",
-      "detail" : "ExtendedMap: id=5ba7b2dd-e03b-5fe4-a656-0e8eb65ea05b is in DELTA file, but not in FULL file."
-    }, {
-      "conceptId" : "127009",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f081 is in DELTA file, but not in FULL file."
-    } ],
-    "totalFailed" : 10
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "Changes from the the current complex map delta file must be in the current full file",
     "assertionUuid" : "5e203a1f-2b6d-462a-a6f9-93cbc3893616",
@@ -1977,11 +1878,8 @@
   }, {
     "assertionName" : "There must be actual changes made to previously published extended map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "7a961c22-3f51-4f72-9b5e-1dc99c298719",
-    "firstNInstances" : [ {
-      "conceptId" : "127009",
-      "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f081 is in the detla file, but no actual changes made since the previous release."
-    } ],
-    "totalFailed" : 1
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current MapCorrelationOriginRefset file consists of the previously published full file and the current delta file",
     "assertionUuid" : "7c37bee7-62ad-41f9-93e3-12eb4803e617",
@@ -2074,6 +1972,5 @@
       "detail" : "ExpressionAssociation: id=39761BDC-96AB-47AF-B10F-0A57B6C01278 is in DELTA file, but not in FULL file."
     } ],
     "totalFailed" : 1
-  }
-  ]
+  } ]
 }

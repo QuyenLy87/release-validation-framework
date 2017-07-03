@@ -1435,10 +1435,82 @@ key idx_referencedcomponentid(referencedcomponentid),
 key idx_maptarget(maptarget)
 ) engine=myisam default charset=utf8;
 
+drop table if exists extendedmaprefset_int_d;
+create table extendedmaprefset_int_d(
+	id varchar(36) not null,
+	effectivetime char(8) not null,
+	active char(1) not null,
+	moduleid bigint(20) not null,
+	refsetid bigint(20) not null,
+	referencedcomponentid bigint(20) not null,
+	mapGroup smallint not null,
+	mapPriority smallint not null,
+	mapRule varchar(300),
+	mapAdvice varchar(300),
+	mapTarget varchar(10),
+	correlationId bigint(20) not null,
+	mapCategoryId bigint(20),
+	key idx_id(id),
+	key idx_effectivetime(effectivetime),
+	key idx_active(active),
+	key idx_moduleid(moduleid),
+	key idx_refsetid(refsetid),
+	key idx_referencedcomponentid(referencedcomponentid),
+	key idx_mapTarget(mapTarget)
+) engine=myisam default charset=utf8;
+
+drop table if exists extendedmaprefset_int_f;
+create table extendedmaprefset_int_f(
+	id varchar(36) not null,
+	effectivetime char(8) not null,
+	active char(1) not null,
+	moduleid bigint(20) not null,
+	refsetid bigint(20) not null,
+	referencedcomponentid bigint(20) not null,
+	mapGroup smallint not null,
+	mapPriority smallint not null,
+	mapRule varchar(300),
+	mapAdvice varchar(300),
+	mapTarget varchar(10),
+	correlationId bigint(20) not null,
+	mapCategoryId bigint(20),
+	key idx_id(id),
+	key idx_effectivetime(effectivetime),
+	key idx_active(active),
+	key idx_moduleid(moduleid),
+	key idx_refsetid(refsetid),
+	key idx_referencedcomponentid(referencedcomponentid),
+	key idx_mapTarget(mapTarget)
+) engine=myisam default charset=utf8;
+
+drop table if exists extendedmaprefset_int_s;
+create table extendedmaprefset_int_s(
+	id varchar(36) not null,
+	effectivetime char(8) not null,
+	active char(1) not null,
+	moduleid bigint(20) not null,
+	refsetid bigint(20) not null,
+	referencedcomponentid bigint(20) not null,
+	mapGroup smallint not null,
+	mapPriority smallint not null,
+	mapRule varchar(300),
+	mapAdvice varchar(300),
+	mapTarget varchar(10),
+	correlationId bigint(20) not null,
+	mapCategoryId bigint(20),
+	key idx_id(id),
+	key idx_effectivetime(effectivetime),
+	key idx_active(active),
+	key idx_moduleid(moduleid),
+	key idx_refsetid(refsetid),
+	key idx_referencedcomponentid(referencedcomponentid),
+	key idx_mapTarget(mapTarget)
+) engine=myisam default charset=utf8;
+
 drop table if exists package_info;
 create table package_info(
 	releaseversion varchar(36) not null,
 	releasetime varchar(36) not null,
 	key idx_releaseversion(releaseversion),
-    key idx_releasetime(releasetime),
+    key idx_releasetime(releasetime)
 ) engine=myisam default charset=utf8;

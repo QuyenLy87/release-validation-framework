@@ -121,6 +121,9 @@ public class RF2FileTableMapper {
 		editionTableNameMap.put(SIMPLE_MAP_FILE_HEADER + DELTA_INT, "simplemaprefset_int_d");
 		editionTableNameMap.put(SIMPLE_MAP_FILE_HEADER + SNAPSHOT_INT, "simplemaprefset_int_s");
 		editionTableNameMap.put(SIMPLE_MAP_FILE_HEADER + FULL_INT, "simplemaprefset_int_f");
+		editionTableNameMap.put(EXTENDED_MAP_FILE_HEADER + DELTA_INT, "extendedmaprefset_int_d");
+		editionTableNameMap.put(EXTENDED_MAP_FILE_HEADER + SNAPSHOT_INT, "extendedmaprefset_int_s");
+		editionTableNameMap.put(EXTENDED_MAP_FILE_HEADER + FULL_INT, "extendedmaprefset_int_f");
 	}
 	
 	public static String getLegacyTableName(final String filename) {

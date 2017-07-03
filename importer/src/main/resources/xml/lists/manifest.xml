@@ -1037,7 +1037,7 @@
 			<keywords>Simple Map Snapshot files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)</keywords>
 		</script>
 
-<!--
+
 		<script uuid="132356b0-6eca-4090-8044-17f82102f7ca" category="component-centric-validation"
 				sqlFile="component-centric-delta-extendedmap-refsetid.sql" text="Extended Map Delta file contains nothing except ICD-10 maps (International Edition only)">
 			<keywords>Extended Map Delta file contains nothing except ICD-10 maps (International Edition only)</keywords>
@@ -1053,6 +1053,7 @@
 			<keywords>Extended Map Snapshot file contains nothing except ICD-10 maps (International Edition only)</keywords>
 		</script>
 
+<!--
 		<script uuid="c429ebe4-c84c-48f6-aad6-1acadc1781fe" category="component-centric-validation"
 				sqlFile="component-centric-delta-module-dependency-targeteffectivetime-matches-sourceeffectivetime.sql" text="For each record in Module Dependency Delta file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)">
 			<keywords>For each record in Module Dependency Delta file, the targetEffectiveTime always matches the sourceEffectiveTime(for International Edition only)</keywords>
