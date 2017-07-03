@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 160,
-  "totalAssertionsFailed" : 155,
+  "totalAssertionsRun" : 163,
+  "totalAssertionsFailed" : 158,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -2248,5 +2248,30 @@
       "detail" : "ComplexMap: id=79703317-411e-5d4d-b853-eef523f0109a: IFA rule references missing conceptId and term"
     } ],
     "totalFailed" : 4
-  } ]
+  },{
+    "assertionName" : "For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
+    "assertionUuid" : "5431f8be-ca3c-4ece-802f-421028bf1133",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = f6431457-161b-5b46-9217-573c20c00070 in Module Dependency Delta file , effectiveTime = 20140730 does not match the sourceEffectiveTime and targetEffectiveTime = 20140731"
+    }  ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
+    "assertionUuid" : "db410e3b-4aaa-4c67-a347-03a38646f0bf",
+    "firstNInstances" : [  {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Full file , effectiveTime = 20020130 does not match the sourceEffectiveTime and targetEffectiveTime = 20020131"
+    }  ],
+    "totalFailed" : 1
+  },{
+    "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
+    "assertionUuid" : "b81aea8f-50b6-4379-85f3-3bbea3b8bfc6",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Snapshot file , effectiveTime = 20140730 does not match the sourceEffectiveTime and targetEffectiveTime = 20140731"
+    }  ],
+    "totalFailed" : 1
+  }
+  ]
 }
