@@ -1081,23 +1081,21 @@
 				  sqlFile="component-centric-snapshot-module-dependency-effectivetime-matches-sourceeffectivetime-and-targeteffectivetime.sql" text="For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)">
                <keywords>For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTim(International Edition only)</keywords>
 		 </script>
-		<!--
-                        <script uuid="eae39df0-9206-41c3-9832-cf18a805644a" category="component-centric-validation"
-                                sqlFile="component-centric-delta-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
-                            <keywords>In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
-                        </script>
 
-                        <script uuid="dd6e270c-c3a5-4d2b-9bd9-cc49bdf6fe64" category="component-centric-validation"
-                                sqlFile="component-centric-full-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
-                            <keywords>In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
-                        </script>
+         <script uuid="eae39df0-9206-41c3-9832-cf18a805644a" category="component-centric-validation"
+                  sqlFile="component-centric-delta-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+                <keywords>In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		 </script>
 
-                        <script uuid="0d0884a3-238f-4e6d-81b5-50b3ea3f2090" category="component-centric-validation"
-                                sqlFile="component-centric-snapshot-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
-                            <keywords>In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
-                        </script>
-                -->
+         <script uuid="dd6e270c-c3a5-4d2b-9bd9-cc49bdf6fe64" category="component-centric-validation"
+                  sqlFile="component-centric-full-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+                <keywords>In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		 </script>
 
+         <script uuid="0d0884a3-238f-4e6d-81b5-50b3ea3f2090" category="component-centric-validation"
+                 sqlFile="component-centric-snapshot-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+			    <keywords>In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		 </script>
 
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->

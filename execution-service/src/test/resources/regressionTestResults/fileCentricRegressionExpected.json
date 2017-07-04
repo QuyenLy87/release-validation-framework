@@ -116,7 +116,7 @@
       "conceptId" : "702386002",
       "detail" : "Stated Relationship: id=4768117024 contains a destination id that does not exist in the Concept snapshot file."
     } ],
-    "totalFailed" : 11
+    "totalFailed" : 12
   }, {
     "assertionName" : "ReferenceComponentIds refers to valid concepts in the LOINC MapCorrelationOriginRefset snapshot file.",
     "assertionUuid" : "9e113c74-c6a7-4e22-bff5-58827a348a31",
@@ -173,8 +173,11 @@
     }, {
       "conceptId" : "135794007",
       "detail" : "RELATIONSHIP: id=4768117023: Stated Relationship contains a source id that does not exist in the Concept snapshot file."
+    }, {
+      "conceptId" : "900000000000443000",
+      "detail" : "RELATIONSHIP: id=4768117025: Stated Relationship contains a source id that does not exist in the Concept snapshot file."
     } ],
-    "totalFailed" : 7
+    "totalFailed" : 8
   }, {
     "assertionName" : "All type ids found in the Stated Relationship snapshot file exist in the Concept snapshot file.",
     "assertionUuid" : "a4fcd810-79b9-11e1-b0c4-0800200c9a66",
@@ -209,7 +212,7 @@
       "conceptId" : "702386002",
       "detail" : "RELATIONSHIP: id=4768117024: Stated Relationship contains a type id that does not exist in the Concept snapshot file."
     } ],
-    "totalFailed" : 11
+    "totalFailed" : 12
   }, {
     "assertionName" : "Every active concept defined in the Swedish extension has a preferred FSN in the US language refset.",
     "assertionUuid" : "a733b706-a8f3-4fcf-9686-77abb2c60d64",
@@ -949,8 +952,11 @@
     }, {
       "conceptId" : "702386002",
       "detail" : "Stated relationship: id=4768117024 contains invalid characteristic type id:900000000000011006"
+    }, {
+      "conceptId" : "103143007",
+      "detail" : "Stated relationship: id=4768117025 contains invalid characteristic type id:900000000000011006"
     } ],
-    "totalFailed" : 2
+    "totalFailed" : 3
   }, {
     "assertionName" : "ID is unique in the SIMPLE REFSET snapshot.",
     "assertionUuid" : "1cd8b7f9-5730-4db9-b508-13575825b28f",

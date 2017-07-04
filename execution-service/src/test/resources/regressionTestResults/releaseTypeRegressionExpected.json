@@ -256,8 +256,11 @@
     }, {
       "conceptId" : "425630003",
       "detail" : "Stated relationship: id=3574321020 is in current full file, but not in prior full or current delta file."
+    }, {
+      "conceptId" : "103143007",
+      "detail" : "Stated relationship: id=3829438025 is in current full file, but not in prior full or current delta file."
     } ],
-    "totalFailed" : 3
+    "totalFailed" : 4
   }, {
     "assertionName" : "There must be actual changes made to previously published MRCM Attribute Domain Refset components in order for them to appear in the current delta.",
     "assertionUuid" : "b1ebc4cb-6a86-498f-a3ea-aeef250b9399",
@@ -870,8 +873,11 @@
     }, {
       "conceptId" : "698412001",
       "detail" : "StatedRelationship: id=4795108028 is in delta but not in snapshot file."
+    }, {
+      "conceptId" : "698449007",
+      "detail" : "StatedRelationship: id=4768117025 is in delta but not in snapshot file."
     } ],
-    "totalFailed" : 5
+    "totalFailed" : 6
   }, {
     "assertionName" : "The current full MRCM Module Scope Refset file consists of the previously published full file and the changes for the current release.",
     "assertionUuid" : "054bccb0-c678-4722-94dd-b664e0c6267e",
@@ -1215,7 +1221,7 @@
       "conceptId" : "702386002",
       "detail" : "Stated relationship: id=4768117024 is in SNAPSHOT file, but not in FULL file."
     } ],
-    "totalFailed" : 20
+    "totalFailed" : 22
   }, {
     "assertionName" : "The current full language refset file consists of the previously published full file and the changes for the current release",
     "assertionUuid" : "28c3a31d-7a9d-48f6-8eb9-18c25b6306fb",
@@ -1282,7 +1288,7 @@
       "conceptId" : "698412001",
       "detail" : "Stated relationship: id=4795108028 is in delta file, but not in FULL file."
     } ],
-    "totalFailed" : 11
+    "totalFailed" : 12
   }, {
     "assertionName" : "New inactive states follow active states in the ATTRIBUTEVALUE snapshot.",
     "assertionUuid" : "2aa0bea1-b1fa-4543-b277-b4392a6f864d",

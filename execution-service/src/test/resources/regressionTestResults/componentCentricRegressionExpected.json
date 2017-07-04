@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 163,
-  "totalAssertionsFailed" : 158,
+  "totalAssertionsRun" : 169,
+  "totalAssertionsFailed" : 164,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -21,8 +21,11 @@
     "firstNInstances" : [ {
       "conceptId" : "900000000000207008",
       "detail" : "RefsetId of: id=1244116f-fdb5-5645-afcc-5281288409da in MODULE DEPENDENCY FULL is not set to value 900000000000534007"
+    }, {
+      "conceptId" : "103143007",
+      "detail" : "RefsetId of: id=1244116f-fdb5-5645-afcc-5281288409da in MODULE DEPENDENCY FULL is not set to value 900000000000534007"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "Active Non-human refset members refer to active components.",
     "assertionUuid" : "8479317e-8459-4362-bee8-628b8220f1e4",
@@ -277,6 +280,41 @@
       "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da50 ReferencedComponentId = 703649004 has no record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT"
     } ],
     "totalFailed" : 5
+  }, {
+    "assertionName" : "Verify that moduleId is a valid module in Module Dependency Full",
+    "assertionUuid" : "9c8337d8-526f-4f44-afe9-811eefa663e3",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409db referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
+    } ],
+    "totalFailed" : 10
   }, {
     "assertionName" : "Grouped value is in (0,1) in MRCM ATTRIBUTE DOMAIN full file",
     "assertionUuid" : "9de8d069-2055-4c21-87bc-2fc9363045dc",
@@ -579,6 +617,14 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
+    "assertionUuid" : "b81aea8f-50b6-4379-85f3-3bbea3b8bfc6",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Snapshot file , effectiveTime = 20140730 does not match the sourceEffectiveTime and targetEffectiveTime = 20140731"
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "REFSET DESCRIPTOR FULL contains only inactive rows where the referenced refset is inactive",
     "assertionUuid" : "b97ac77f-f0f7-4933-bdac-ba5a03a6f16e",
     "firstNInstances" : [ {
@@ -586,6 +632,32 @@
       "detail" : "REFSET DESCRIPTOR FULL: id=a6417d6f-5a66-5039-8e94-698d28a4da49 contains active rows where the referenced refset is inactive"
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "Verify that moduleId is a valid module in Module Dependency Delta",
+    "assertionUuid" : "baa5b3da-3b4c-4298-8855-a053711b0fe3",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426832 referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426832 referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426833 referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426834 referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00070 referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00071 referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    } ],
+    "totalFailed" : 7
   }, {
     "assertionName" : "There is one and only one CTV3 simple map refset member per concept.",
     "assertionUuid" : "bab42070-7f25-11e1-b0c4-0800200c9a66",
@@ -802,6 +874,14 @@
     } ],
     "totalFailed" : 2
   }, {
+    "assertionName" : "For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
+    "assertionUuid" : "db410e3b-4aaa-4c67-a347-03a38646f0bf",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Full file , effectiveTime = 20020130 does not match the sourceEffectiveTime and targetEffectiveTime = 20020131"
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "The first letter of the FSN should be capitalized.",
     "assertionUuid" : "dd0d0406-7481-444a-9f04-b6fc7db49039",
     "firstNInstances" : [ {
@@ -809,6 +889,17 @@
       "detail" : "DESC: id=3004397016:First letter of the active FSN of active concept not capitalized."
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid",
+    "assertionUuid" : "dd6e270c-c3a5-4d2b-9bd9-cc49bdf6fe64",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409db in Module Dependency Full file is not same id for refsetId = 900000000000534007 moduleId = 900000000000207008 referencedComponentId = 900000000000012004"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Full file is not same id for refsetId = 900000000000534007 moduleId = 900000000000207008 referencedComponentId = 900000000000012004"
+    } ],
+    "totalFailed" : 2
   }, {
     "assertionName" : "Active descriptions do not have active inactivation indicators",
     "assertionUuid" : "e2aa5b09-5754-484f-9eb8-bb18732617ef",
@@ -852,6 +943,26 @@
       "detail" : "AttributeOrder of: id=a6417d6f-5a66-5039-8e94-698d28a4da50 in REFSET DESCRIPTOR DELTA is not set to correct value "
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid",
+    "assertionUuid" : "eae39df0-9206-41c3-9832-cf18a805644a",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 686fe392-d2f7-586d-98aa-078aba426833 in Module Dependency Delta file is not same id for refsetId = 900000000000534007 moduleId = 449080006 referencedComponentId = 900000000000207008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 686fe392-d2f7-586d-98aa-078aba426834 in Module Dependency Delta file is not same id for refsetId = 900000000000534007 moduleId = 449080006 referencedComponentId = 900000000000207008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 686fe392-d2f7-586d-98aa-078aba426832 in Module Dependency Delta file is not same id for refsetId = 900000000000534007 moduleId = 449080006 referencedComponentId = 900000000000207008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = f6431457-161b-5b46-9217-573c20c00071 in Module Dependency Delta file is not same id for refsetId = 900000000000534008 moduleId = 449080006 referencedComponentId = 900000000000012004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = f6431457-161b-5b46-9217-573c20c00070 in Module Dependency Delta file is not same id for refsetId = 900000000000534008 moduleId = 449080006 referencedComponentId = 900000000000012004"
+    } ],
+    "totalFailed" : 5
   }, {
     "assertionName" : "Active historical association refset members have active concepts as targets.",
     "assertionUuid" : "eb940ee0-7cd6-11e1-b0c4-0800200c9a66",
@@ -908,6 +1019,32 @@
       "detail" : "CONCEPT: id=702411003:Concept has only one defining relationship but the definition status is not primitive."
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "Verify that moduleId is a valid module in Module Dependency Snapshot",
+    "assertionUuid" : "f24d3377-30eb-4c7b-9d2b-b016ec5e7654",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426832 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080007",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426832 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426833 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = 686fe392-d2f7-586d-98aa-078aba426834 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00070 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00071 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    } ],
+    "totalFailed" : 7
   }, {
     "assertionName" : "AttributeInGroupCardinality value is in ('0..0', '0..1', '0..*') in MRCM ATTRIBUTE DOMAIN snapshot file",
     "assertionUuid" : "f47d1537-41dc-4cb5-ad0a-ed4caf993801",
@@ -1071,6 +1208,26 @@
     } ],
     "totalFailed" : 3
   }, {
+    "assertionName" : "In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid",
+    "assertionUuid" : "0d0884a3-238f-4e6d-81b5-50b3ea3f2090",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 686fe392-d2f7-586d-98aa-078aba426833 in Module Dependency Snapshot file is not same id for refsetId = 900000000000534007 moduleId = 449080006 referencedComponentId = 900000000000207008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 686fe392-d2f7-586d-98aa-078aba426834 in Module Dependency Snapshot file is not same id for refsetId = 900000000000534007 moduleId = 449080006 referencedComponentId = 900000000000207008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 686fe392-d2f7-586d-98aa-078aba426832 in Module Dependency Snapshot file is not same id for refsetId = 900000000000534007 moduleId = 449080006 referencedComponentId = 900000000000207008"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = f6431457-161b-5b46-9217-573c20c00071 in Module Dependency Snapshot file is not same id for refsetId = 900000000000534008 moduleId = 449080006 referencedComponentId = 900000000000012004"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = f6431457-161b-5b46-9217-573c20c00070 in Module Dependency Snapshot file is not same id for refsetId = 900000000000534008 moduleId = 449080006 referencedComponentId = 900000000000012004"
+    } ],
+    "totalFailed" : 5
+  }, {
     "assertionName" : "REFSET DESCRIPTOR DELTA contains only active rows where the referenced refset is active",
     "assertionUuid" : "1015f315-4b0d-41ab-9f7f-a7c8d2ac42b6",
     "firstNInstances" : [ {
@@ -1185,8 +1342,11 @@
     }, {
       "conceptId" : "449080006",
       "detail" : "RefsetId of: id=f6431457-161b-5b46-9217-573c20c00071 in MODULE DEPENDENCY SNAPSHOT is not set to value 900000000000534007"
+    }, {
+      "conceptId" : "103143007",
+      "detail" : "RefsetId of: id=f6431457-161b-5b46-9217-573c20c00076 in MODULE DEPENDENCY SNAPSHOT is not set to value 900000000000534007"
     } ],
-    "totalFailed" : 2
+    "totalFailed" : 3
   }, {
     "assertionName" : "All MAP REFSET DELTA files have valid, active SNOMED CT concepts in the ReferencedComponentId",
     "assertionUuid" : "26c3618c-778f-47c0-b2b2-a8a1e8223112",
@@ -1560,8 +1720,11 @@
     "firstNInstances" : [ {
       "conceptId" : "702411003",
       "detail" : "RELATIONSHIP: id=4969198024: Stated is-a relationship exists in a non-zero relationship group."
+    }, {
+      "conceptId" : "103143007",
+      "detail" : "RELATIONSHIP: id=4768117025: Stated is-a relationship exists in a non-zero relationship group."
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR DELTA",
     "assertionUuid" : "5225e890-df86-48fc-a2c7-b85b200eaf35",
@@ -1582,6 +1745,14 @@
       "detail" : "Refset: id=e6283035-2e04-5292-a745-929e03a39735 with ReferencedComponentId = 447562003 + AttributeOrder = 5  is not unique pair in REFSET DESCRIPTOR DELTA"
     } ],
     "totalFailed" : 5
+  }, {
+    "assertionName" : "For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
+    "assertionUuid" : "5431f8be-ca3c-4ece-802f-421028bf1133",
+    "firstNInstances" : [ {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = f6431457-161b-5b46-9217-573c20c00070 in Module Dependency Delta file , effectiveTime = 20140730 does not match the sourceEffectiveTime and targetEffectiveTime = 20140731"
+    } ],
+    "totalFailed" : 1
   }, {
     "assertionName" : "All concepts have at least one stated is-a relationship.",
     "assertionUuid" : "5555c400-7d08-11e1-b0c4-0800200c9a66",
@@ -1662,12 +1833,18 @@
     }, {
       "conceptId" : "449080006",
       "detail" : "RefsetId of: id=f6431457-161b-5b46-9217-573c20c00071 in MODULE DEPENDENCY DELTA is not set to value 900000000000534007"
+    }, {
+      "conceptId" : "698449007",
+      "detail" : "RefsetId of: id=f6431457-161b-5b46-9217-573c20c00072 in MODULE DEPENDENCY DELTA is not set to value 900000000000534007"
     } ],
-    "totalFailed" : 2
+    "totalFailed" : 3
   }, {
     "assertionName" : "Relationship groups contain at least 2 relationships.",
     "assertionUuid" : "59b574a0-7d08-11e1-b0c4-0800200c9a66",
     "firstNInstances" : [ {
+      "conceptId" : "103143007",
+      "detail" : "RELATIONSHIP: id=4768117025: Relationship is in a relationship group with a single active inferred member."
+    }, {
       "conceptId" : "109443007",
       "detail" : "RELATIONSHIP: id=4994338024: Relationship is in a relationship group with a single active inferred member."
     }, {
@@ -1683,7 +1860,7 @@
       "conceptId" : "703649004",
       "detail" : "RELATIONSHIP: id=4969200029: Relationship is in a relationship group with a single active inferred member."
     } ],
-    "totalFailed" : 5
+    "totalFailed" : 6
   }, {
     "assertionName" : "All FSNs end in closing parentheses.",
     "assertionUuid" : "5a605c09-db1e-453f-aa4a-064faab2d310",
@@ -2130,9 +2307,12 @@
       "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Full file , targetEffectiveTime = 20020131 does not match the sourceEffectiveTime = 20050731"
     }, {
       "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409db in Module Dependency Full file , targetEffectiveTime = 20070131 does not match the sourceEffectiveTime = 20070731"
+    }, {
+      "conceptId" : "900000000000207008",
       "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Full file , targetEffectiveTime = 20020131 does not match the sourceEffectiveTime = 20060131"
     } ],
-    "totalFailed" : 8
+    "totalFailed" : 9
   }, {
     "assertionName" : "Rule based complex MapGroup must be in sequential order and not blank",
     "assertionUuid" : "7e70ea3e-c4dd-4ae3-8b75-0f0567e42b58",
@@ -2248,30 +2428,5 @@
       "detail" : "ComplexMap: id=79703317-411e-5d4d-b853-eef523f0109a: IFA rule references missing conceptId and term"
     } ],
     "totalFailed" : 4
-  },{
-    "assertionName" : "For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
-    "assertionUuid" : "5431f8be-ca3c-4ece-802f-421028bf1133",
-    "firstNInstances" : [ {
-      "conceptId" : "449080006",
-      "detail" : "Refset with id = f6431457-161b-5b46-9217-573c20c00070 in Module Dependency Delta file , effectiveTime = 20140730 does not match the sourceEffectiveTime and targetEffectiveTime = 20140731"
-    }  ],
-    "totalFailed" : 1
-  },{
-    "assertionName" : "For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
-    "assertionUuid" : "db410e3b-4aaa-4c67-a347-03a38646f0bf",
-    "firstNInstances" : [  {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Full file , effectiveTime = 20020130 does not match the sourceEffectiveTime and targetEffectiveTime = 20020131"
-    }  ],
-    "totalFailed" : 1
-  },{
-    "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition only)",
-    "assertionUuid" : "b81aea8f-50b6-4379-85f3-3bbea3b8bfc6",
-    "firstNInstances" : [ {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 1244116f-fdb5-5645-afcc-5281288409da in Module Dependency Snapshot file , effectiveTime = 20140730 does not match the sourceEffectiveTime and targetEffectiveTime = 20140731"
-    }  ],
-    "totalFailed" : 1
-  }
-  ]
+  } ]
 }
