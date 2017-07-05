@@ -1321,6 +1321,54 @@ create table descriptionType_s(
 	key idx_descriptionlength(descriptionlength)
 ) engine=myisam default charset=utf8;
 
+drop table if exists identifier_d;
+create table identifier_d(
+	identifierschemeid varchar(36) not null,
+	alternateidentifier varchar(36) not null,
+	effectivetime char(8) not null,
+	active char(1) not null,
+	moduleid bigint(20) not null,
+	referencedcomponentid bigint(20) not null,
+	key idx_identifierschemeid(identifierschemeid),
+	key idx_alternateidentifier(alternateidentifier),
+	key idx_effectivetime(effectivetime),
+	key idx_active(active),
+	key idx_moduleid(moduleid),
+	key idx_referencedcomponentid(referencedcomponentid)
+) engine=myisam default charset=utf8;
+
+drop table if exists identifier_f;
+create table identifier_f(
+	identifierschemeid varchar(36) not null,
+	alternateidentifier varchar(36) not null,
+	effectivetime char(8) not null,
+	active char(1) not null,
+	moduleid bigint(20) not null,
+	referencedcomponentid bigint(20) not null,
+	key idx_identifierschemeid(identifierschemeid),
+	key idx_alternateidentifier(alternateidentifier),
+	key idx_effectivetime(effectivetime),
+	key idx_active(active),
+	key idx_moduleid(moduleid),
+	key idx_referencedcomponentid(referencedcomponentid)
+) engine=myisam default charset=utf8;
+
+drop table if exists identifier_s;
+create table identifier_s(
+	identifierschemeid varchar(36) not null,
+	alternateidentifier varchar(36) not null,
+	effectivetime char(8) not null,
+	active char(1) not null,
+	moduleid bigint(20) not null,
+	referencedcomponentid bigint(20) not null,
+	key idx_identifierschemeid(identifierschemeid),
+	key idx_alternateidentifier(alternateidentifier),
+	key idx_effectivetime(effectivetime),
+	key idx_active(active),
+	key idx_moduleid(moduleid),
+	key idx_referencedcomponentid(referencedcomponentid)
+) engine=myisam default charset=utf8;
+
 drop table if exists package_info;
 create table package_info(
 	releaseedition varchar(36) not null,
