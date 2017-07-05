@@ -3,7 +3,7 @@
 
 	Assertion:
 	For each record in Module Dependency Snapshot file, the targetEffectiveTime always matches the sourceEffectiveTime
-	(International Edition only)
+	(International Edition or all Derivative Packages)
 
 ********************************************************************************/
 	insert into qa_result (runid, assertionuuid, concept_id, details)
@@ -12,5 +12,13 @@
 		'<ASSERTIONUUID>',
 		a.moduleid,
 		concat('Refset with id = ',a.id, ' in Module Dependency Snapshot file , targetEffectiveTime = ',a.targeteffectivetime,' does not match the sourceEffectiveTime = ',a.sourceeffectivetime)
-	from curr_moduleDependency_s a where a.targeteffectivetime <> a.sourceeffectivetime;
+	from curr_moduleDependency_s a, package_info b
+	where a.targeteffectivetime <> a.sourceeffectivetime
+    and (
+    b.releaseedition = 'INT'
+    or b.releaseedition = 'SE'
+    or b.releaseedition = 'DK'
+    or b.releaseedition = 'GPFP'
+    or b.releaseedition = 'ICNP'
+    );
 	commit;
