@@ -281,7 +281,7 @@
     } ],
     "totalFailed" : 5
   }, {
-    "assertionName" : "Verify that moduleId is a valid module in Module Dependency Full",
+    "assertionName" : "Verify that moduleId is a valid, active module in Module Dependency Full",
     "assertionUuid" : "9c8337d8-526f-4f44-afe9-811eefa663e3",
     "firstNInstances" : [ {
       "conceptId" : "900000000000207008",
@@ -313,8 +313,8 @@
     }, {
       "conceptId" : "900000000000207008",
       "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
-    } ],
-    "totalFailed" : 10
+    }  ],
+    "totalFailed" : 11
   }, {
     "assertionName" : "Grouped value is in (0,1) in MRCM ATTRIBUTE DOMAIN full file",
     "assertionUuid" : "9de8d069-2055-4c21-87bc-2fc9363045dc",
@@ -633,7 +633,7 @@
     } ],
     "totalFailed" : 1
   }, {
-    "assertionName" : "Verify that moduleId is a valid module in Module Dependency Delta",
+    "assertionName" : "Verify that moduleId is a valid, active module in Module Dependency Delta",
     "assertionUuid" : "baa5b3da-3b4c-4298-8855-a053711b0fe3",
     "firstNInstances" : [ {
       "conceptId" : "900000000000207008",
@@ -656,8 +656,11 @@
     }, {
       "conceptId" : "449080006",
       "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00071 referenced in the column: moduleid of table: moduleDependency_d is not valid descendant of 900000000000443000 |Module|"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Module with id = f6431457-161b-5b46-9217-573c20c00071 in Module Dependency Delta file is inactive"
     } ],
-    "totalFailed" : 7
+    "totalFailed" : 8
   }, {
     "assertionName" : "There is one and only one CTV3 simple map refset member per concept.",
     "assertionUuid" : "bab42070-7f25-11e1-b0c4-0800200c9a66",
@@ -1020,7 +1023,7 @@
     } ],
     "totalFailed" : 1
   }, {
-    "assertionName" : "Verify that moduleId is a valid module in Module Dependency Snapshot",
+    "assertionName" : "Verify that moduleId is a valid, active module in Module Dependency Snapshot",
     "assertionUuid" : "f24d3377-30eb-4c7b-9d2b-b016ec5e7654",
     "firstNInstances" : [ {
       "conceptId" : "900000000000207008",
@@ -1043,8 +1046,11 @@
     }, {
       "conceptId" : "449080006",
       "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00071 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
-    } ],
-    "totalFailed" : 7
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Module with id = f6431457-161b-5b46-9217-573c20c00071 in Module Dependency Snapshot file is inactive"
+    }  ],
+    "totalFailed" : 8
   }, {
     "assertionName" : "AttributeInGroupCardinality value is in ('0..0', '0..1', '0..*') in MRCM ATTRIBUTE DOMAIN snapshot file",
     "assertionUuid" : "f47d1537-41dc-4cb5-ad0a-ed4caf993801",

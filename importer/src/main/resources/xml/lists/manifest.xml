@@ -1101,17 +1101,17 @@
 		 </script>
 
 		<script uuid="baa5b3da-3b4c-4298-8855-a053711b0fe3" category="component-centric-validation"
-				sqlFile="component-centric-delta-module-dependency-moduleid-is-valid-module.sql" text="Verify that moduleId is a valid module in Module Dependency Delta">
+				sqlFile="component-centric-delta-module-dependency-moduleid-is-valid-active-module.sql" text="Verify that moduleId is a valid, active module in Module Dependency Delta">
 			<keywords>Verify that moduleId is a valid module in Module Dependency Delta</keywords>
 		</script>
 
 		<script uuid="9c8337d8-526f-4f44-afe9-811eefa663e3" category="component-centric-validation"
-				sqlFile="component-centric-full-module-dependency-moduleid-is-valid-module.sql" text="Verify that moduleId is a valid module in Module Dependency Full">
+				sqlFile="component-centric-full-module-dependency-moduleid-is-valid-active-module.sql" text="Verify that moduleId is a valid, active module in Module Dependency Full">
 			<keywords>Verify that moduleId is a valid module in Module Dependency Full</keywords>
 		</script>
 
 		<script uuid="f24d3377-30eb-4c7b-9d2b-b016ec5e7654" category="component-centric-validation"
-				sqlFile="component-centric-snapshot-module-dependency-moduleid-is-valid-module.sql" text="Verify that moduleId is a valid module in Module Dependency Snapshot">
+				sqlFile="component-centric-snapshot-module-dependency-moduleid-is-valid-active-module.sql" text="Verify that moduleId is a valid, active module in Module Dependency Snapshot">
 			<keywords>Verify that moduleId is a valid module in Module Dependency Snapshot</keywords>
 		</script>
 
