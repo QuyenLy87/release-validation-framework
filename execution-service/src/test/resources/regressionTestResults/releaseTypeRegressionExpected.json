@@ -1,7 +1,7 @@
 {
   "assertionType" : "release-type-validation",
-  "totalAssertionsRun" : 121,
-  "totalAssertionsFailed" : 120,
+  "totalAssertionsRun" : 137,
+  "totalAssertionsFailed" : 133,
   "results" : [ {
     "assertionName" : "There must be actual changes made to previously published complex map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "80463c76-d84e-4a1a-8abb-c5b4d12b5da4",
@@ -182,6 +182,40 @@
     } ],
     "totalFailed" : 26
   }, {
+    "assertionName" : "The current data in the Refset Descriptor snapshot file are the same as the data in the current delta file.",
+    "assertionUuid" : "943256cc-edfd-4f93-98f1-c05717f4d3c3",
+    "firstNInstances" : [ {
+      "conceptId" : "447562005",
+      "detail" : "Refset Descriptor: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d is in delta file but not in snapshot file."
+    }, {
+      "conceptId" : "447562005",
+      "detail" : "Refset Descriptor: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d is in delta file but not in snapshot file."
+    }, {
+      "conceptId" : "700132008",
+      "detail" : "Refset Descriptor: id=a6417d6f-5a66-5039-8e94-698d28a4da49 is in delta file but not in snapshot file."
+    }, {
+      "conceptId" : "699765003",
+      "detail" : "Refset Descriptor: id=a6417d6f-5a66-5039-8e94-698d28a4da50 is in delta file but not in snapshot file."
+    } ],
+    "totalFailed" : 4
+  }, {
+    "assertionName" : "The current Refset Descriptor delta file is an accurate derivative of the current full file",
+    "assertionUuid" : "951b7cb3-6213-48a4-bd3b-89cdfa1014a1",
+    "firstNInstances" : [ {
+      "conceptId" : "447562005",
+      "detail" : "Refset Descriptor: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "447562005",
+      "detail" : "Refset Descriptor: id=ca083ad0-bc5b-5b7b-9641-e3c016af290d is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "700132008",
+      "detail" : "Refset Descriptor: id=a6417d6f-5a66-5039-8e94-698d28a4da49 is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "699765003",
+      "detail" : "Refset Descriptor: id=a6417d6f-5a66-5039-8e94-698d28a4da50 is in DELTA file, but not in FULL file."
+    } ],
+    "totalFailed" : 4
+  }, {
     "assertionName" : "The current data in the SimpleMap refset snapshot file are the same as the data in the current delta file.",
     "assertionUuid" : "959e11e7-9ff9-40b9-b833-387495e320d0",
     "firstNInstances" : [ {
@@ -226,6 +260,23 @@
     }, {
       "conceptId" : "10123006",
       "detail" : "ASSOCIATION REFSET: id=38cae8c9-fc5c-5a39-9f87-b2ac578296ba is in DELTA file, but not in FULL file."
+    } ],
+    "totalFailed" : 4
+  }, {
+    "assertionName" : "The current data in the Module Dependency snapshot file are the same as the data in the current delta file.",
+    "assertionUuid" : "a6d50191-45c7-4398-96a3-4daf67c22e6c",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=1244116f-fdb5-5645-afcc-5281288409da is in delta file but not in snapshot file."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=686fe392-d2f7-586d-98aa-078aba426832 is in delta file but not in snapshot file."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=f6431457-161b-5b46-9217-573c20c00070 is in delta file but not in snapshot file."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=f6431457-161b-5b46-9217-573c20c00072 is in delta file but not in snapshot file."
     } ],
     "totalFailed" : 4
   }, {
@@ -503,6 +554,14 @@
     } ],
     "totalFailed" : 10
   }, {
+    "assertionName" : "The current data in the Description Type snapshot file are the same as the data in the current delta file.",
+    "assertionUuid" : "bd6fd71b-5538-4653-85fc-f1bec1becc42",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000550004",
+      "detail" : "Description Type: id=807f775b-1d66-5069-b58e-a37ace985dcf is in delta file but not in snapshot file."
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "The current MRCM Attribute Range Refset full file contains all previously published data unchanged.",
     "assertionUuid" : "becfbeaa-5eab-4a4a-90ca-7c893b7495b2",
     "firstNInstances" : [ {
@@ -542,6 +601,11 @@
       "detail" : "SimpleMapRefset: id=310e09ab-f0e7-50b1-b1ba-e7ec9fc74446 is in prior full file, but not in current full file."
     } ],
     "totalFailed" : 9
+  }, {
+    "assertionName" : "The current data in the Identifier snapshot file are the same as the data in the current delta file.",
+    "assertionUuid" : "c336cced-eefc-4d18-be00-fa92dea2ac06",
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current data in the Definition snapshot file are the same as the data in the current delta file.",
     "assertionUuid" : "c837a6f8-f06a-4599-944c-eaa3a6d68c18",
@@ -587,6 +651,11 @@
       "detail" : "Mrcm Module Scope Refset: id=f1524dde-5466-46a7-926c-37b0e161bc7f is inactive but no active state found in the previous snapshot."
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "New inactive states follow active states in the Identifier snapshot.",
+    "assertionUuid" : "cea0df51-400f-4a25-a35b-bf1424b4a66e",
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "There must be actual changes made to previously published MRCM Attribute Range Refset components in order for them to appear in the current delta.",
     "assertionUuid" : "cec2a50e-c04b-4442-a979-e8ad8f83ff91",
@@ -856,6 +925,17 @@
     } ],
     "totalFailed" : 3
   }, {
+    "assertionName" : "New inactive states follow active states in the Description Type snapshot.",
+    "assertionUuid" : "fe8d3ab9-d3d5-4c96-a503-834756b5bb26",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000550004",
+      "detail" : "Description Type Id=807f775b-1d66-5069-b58e-a37ace985dff should not have a new inactive state as it was inactive previously."
+    }, {
+      "conceptId" : "900000000000550004",
+      "detail" : "Description Type Id=807f775b-1d66-5069-b58e-a37ace985dcc is inactive but no active state found in the previous snapshot."
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : "The current data in the Stated Relationship snapshot file are the same as the data in the current delta file. ",
     "assertionUuid" : "01ce3ac9-d168-4333-99d7-8d2f228f5ec9",
     "firstNInstances" : [ {
@@ -962,6 +1042,17 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "New inactive states follow active states in the Extended Map Refset snapshot.",
+    "assertionUuid" : "0bbf1f88-0f0b-4477-8886-ca2fa9877bfa",
+    "firstNInstances" : [ {
+      "conceptId" : "100002008",
+      "detail" : "Extended Map Refset Id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853552 should not have a new inactive state as it was inactive previously."
+    }, {
+      "conceptId" : "100002008",
+      "detail" : "Extended Map Refset Id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853553 is inactive but no active state found in the previous snapshot."
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : " There must be actual changes made to previously published descriptions in order for them to appear in the current delta.",
     "assertionUuid" : "0cc708af-6816-4370-91be-dba8da99d227",
     "firstNInstances" : [ {
@@ -1055,6 +1146,35 @@
       "detail" : "Definition: id=3008913022 is in SNAPSHOT file, but not in FULL file."
     } ],
     "totalFailed" : 17
+  }, {
+    "assertionName" : "The current Module Dependency delta file is an accurate derivative of the current full file",
+    "assertionUuid" : "1631b15a-a3d2-4ab3-ac55-7fc190e25bd5",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=1244116f-fdb5-5645-afcc-5281288409da is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Module Dependency: id=686fe392-d2f7-586d-98aa-078aba426832 is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=686fe392-d2f7-586d-98aa-078aba426832 is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Module Dependency: id=686fe392-d2f7-586d-98aa-078aba426833 is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Module Dependency: id=686fe392-d2f7-586d-98aa-078aba426834 is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=f6431457-161b-5b46-9217-573c20c00070 is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=f6431457-161b-5b46-9217-573c20c00071 is in DELTA file, but not in FULL file."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency: id=f6431457-161b-5b46-9217-573c20c00072 is in DELTA file, but not in FULL file."
+    } ],
+    "totalFailed" : 8
   }, {
     "assertionName" : "The current data in the Inferred Relationship snapshot file are the same as the data in the current delta file. ",
     "assertionUuid" : "177a7271-7986-433b-8506-fff39e6c1004",
@@ -1309,6 +1429,14 @@
     } ],
     "totalFailed" : 2
   }, {
+    "assertionName" : "The current Description Type delta file is an accurate derivative of the current full file",
+    "assertionUuid" : "317d6a66-72c2-4d69-83bc-4cbd8e16c9e0",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000550004",
+      "detail" : "Description Type: id=807f775b-1d66-5069-b58e-a37ace985dcf is in DELTA file, but not in FULL file."
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "There must be actual changes made to previously published association refset components in order for them to appear in the current delta.",
     "assertionUuid" : "35680574-3ac6-4b68-9efe-de88b677eb35",
     "firstNInstances" : [ {
@@ -1496,10 +1624,16 @@
       "conceptId" : "707685003",
       "detail" : "mapCorrelationOriginRefset: id=bba35386-acbe-4389-ab28-81d4ffe654a8 is in SNAPSHOT file, but not in FULL file."
     }, {
+      "conceptId" : "707685003",
+      "detail" : "mapCorrelationOriginRefset: id=bba35386-acbe-4389-ab28-81d4ffe654a9 is in SNAPSHOT file, but not in FULL file."
+    }, {
+      "conceptId" : "707685003",
+      "detail" : "mapCorrelationOriginRefset: id=bba35386-acbe-4389-ab28-81d4ffe654b9 is in SNAPSHOT file, but not in FULL file."
+    }, {
       "conceptId" : "707689009",
       "detail" : "mapCorrelationOriginRefset: id=9918EE37-16A7-4A8D-9C89-281DE1A1E718 is in FULL file, but not in SNAPSHOT file."
     } ],
-    "totalFailed" : 3
+    "totalFailed" : 5
   }, {
     "assertionName" : "The current MRCM Attribute Domain Refset full file contains all previously published data unchanged.",
     "assertionUuid" : "4fdf8c6a-8b58-4bf7-a8b5-71176ede7ac0",
@@ -1554,6 +1688,22 @@
       "detail" : "MRCM ATTRIBUTE RANGE REFSET: id=ec577967-d8fd-40aa-92a2-f3a35c20653f is in delta file but not in snapshot file."
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "New inactive states follow active states in the Map Correlation Origin Refset snapshot.",
+    "assertionUuid" : "57fb3169-3905-4bed-8240-f4e81c248b93",
+    "firstNInstances" : [ {
+      "conceptId" : "707685003",
+      "detail" : "Map Correlation Origin Refset Id=bba35386-acbe-4389-ab28-81d4ffe654a9 should not have a new inactive state as it was inactive previously."
+    }, {
+      "conceptId" : "707685003",
+      "detail" : "Map Correlation Origin Refset Id=bba35386-acbe-4389-ab28-81d4ffe654b9 is inactive but no active state found in the previous snapshot."
+    } ],
+    "totalFailed" : 2
+  }, {
+    "assertionName" : "The current Identifier delta file is an accurate derivative of the current full file",
+    "assertionUuid" : "5a2befb6-ed52-4aa4-8908-2eee9b4be2da",
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "The current full extended map file consists of the previously published full file and the current delta file",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e612",
@@ -1642,7 +1792,7 @@
       "conceptId" : "127011",
       "detail" : "ExtendedMap: id=49361643-765b-54e7-8033-9b8f8426f086 is in SNAPSHOT file, but not in FULL file."
     } ],
-    "totalFailed" : 20
+    "totalFailed" : 22
   }, {
     "assertionName" : "The current full complex map file consists of the previously published full file and the current delta file",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e617",
@@ -1737,7 +1887,7 @@
       "conceptId" : "140005",
       "detail" : "ComplexMap: id=317a9bea-0b4e-5499-8a61-e4d661e722b3 is in SNAPSHOT file, but not in FULL file."
     } ],
-    "totalFailed" : 15
+    "totalFailed" : 16
   }, {
     "assertionName" : "The current full inferred relationship file consists of the previously published full file and the changes for the current release",
     "assertionUuid" : "5c37bee7-62ad-41f9-93e3-12eb4803e626",
@@ -1888,6 +2038,17 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "New inactive states follow active states in the Module Dependency snapshot.",
+    "assertionUuid" : "61cbbc2c-224a-4ee9-8add-60fa6303e7a8",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Module Dependency Id=f6431457-161b-5b46-9217-573c20c00077 should not have a new inactive state as it was inactive previously."
+    }, {
+      "conceptId" : "900000000000012004",
+      "detail" : "Module Dependency Id=f6431457-161b-5b46-9217-573c20c00071 is inactive but no active state found in the previous snapshot."
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : "The current concept snapshot file is an accurate derivative of the current full file",
     "assertionUuid" : "645e3292-18d6-41df-b42a-58ba4d7240d5",
     "firstNInstances" : [ {
@@ -1990,6 +2151,17 @@
     } ],
     "totalFailed" : 12
   }, {
+    "assertionName" : "New inactive states follow active states in the Expression Association Refset snapshot.",
+    "assertionUuid" : "66ab4b69-e2e2-4fbd-80b0-0fc9e6f3d0a5",
+    "firstNInstances" : [ {
+      "conceptId" : "705114005",
+      "detail" : "Expression Association Refset Id=da1539dd-d763-4cd6-bc5c-4b52a840ae71 should not have a new inactive state as it was inactive previously."
+    }, {
+      "conceptId" : "705114005",
+      "detail" : "Expression Association Refset Id=da1539dd-d763-4cd6-bc5c-4b52a840ae72 is inactive but no active state found in the previous snapshot."
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : "The current Simple refset full file contains all previously published data unchanged.",
     "assertionUuid" : "673cf38a-a913-4e0e-be32-356ac433ede8",
     "firstNInstances" : [ {
@@ -2009,6 +2181,28 @@
       "detail" : "Simple Refset: id=22934c1b-b7dd-537c-b2cc-caa9ca5ae6f3 is in prior full file, but not in current full file."
     } ],
     "totalFailed" : 5
+  }, {
+    "assertionName" : "New inactive states follow active states in the Complex Map Refset snapshot.",
+    "assertionUuid" : "6787c235-839c-4d99-8f91-b7aee16e2b77",
+    "firstNInstances" : [ {
+      "conceptId" : "141000",
+      "detail" : "Complex Map Refset Id=11fd666e-deff-54b8-95d4-6ed13566900f should not have a new inactive state as it was inactive previously."
+    }, {
+      "conceptId" : "700132008",
+      "detail" : "Complex Map Refset Id=79703317-411e-5d4d-b853-eef523f0109b is inactive but no active state found in the previous snapshot."
+    } ],
+    "totalFailed" : 2
+  }, {
+    "assertionName" : "New inactive states follow active states in the Refset Descriptor snapshot.",
+    "assertionUuid" : "69446f0f-603f-4fd5-926e-05c92fab9748",
+    "firstNInstances" : [ {
+      "conceptId" : "703649005",
+      "detail" : "Refset Descriptor Id=a6417d6f-5a66-5039-8e94-698d28a4da49 should not have a new inactive state as it was inactive previously."
+    }, {
+      "conceptId" : "703649005",
+      "detail" : "Refset Descriptor Id=a6417d6f-5a66-5039-8e94-698d28a4da99 is inactive but no active state found in the previous snapshot."
+    } ],
+    "totalFailed" : 2
   }, {
     "assertionName" : "The current full ExpressionAssociationRefset file consists of the previously published full file and the current delta file",
     "assertionUuid" : "6c37bee7-62ad-41f9-93e3-12eb4803e617",
@@ -2056,12 +2250,18 @@
       "detail" : "ExpressionAssociationRefset: id=da1539dd-d763-4cd6-bc5c-4b52a840ae70 is in SNAPSHOT file, but not in FULL file."
     }, {
       "conceptId" : "705114005",
+      "detail" : "ExpressionAssociationRefset: id=da1539dd-d763-4cd6-bc5c-4b52a840ae71 is in SNAPSHOT file, but not in FULL file."
+    }, {
+      "conceptId" : "705114005",
+      "detail" : "ExpressionAssociationRefset: id=da1539dd-d763-4cd6-bc5c-4b52a840ae72 is in SNAPSHOT file, but not in FULL file."
+    }, {
+      "conceptId" : "705114005",
       "detail" : "ExpressionAssociationRefset: id=a4f9d42e-eb98-468b-9024-e5aa236eb16f is in FULL file, but not in SNAPSHOT file."
     }, {
       "conceptId" : "705114005",
       "detail" : "ExpressionAssociationRefset: id=C48A6D89-BF40-449D-8DB2-3B8EE0B8C57D is in FULL file, but not in SNAPSHOT file."
     } ],
-    "totalFailed" : 5
+    "totalFailed" : 7
   }, {
     "assertionName" : "The ids should be unique across the stated and inferred relationship snapshot files.",
     "assertionUuid" : "6dbaed71-f031-4290-b74f-f35561c2e283",

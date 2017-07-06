@@ -274,12 +274,9 @@
       "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da48 ReferencedComponentId = 446608001 has more than one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT"
     }, {
       "conceptId" : "900000000000207008",
-      "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da49 ReferencedComponentId = 703649005 has no record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT"
-    }, {
-      "conceptId" : "900000000000207008",
       "detail" : "Refset: id=a6417d6f-5a66-5039-8e94-698d28a4da50 ReferencedComponentId = 703649004 has no record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT"
     } ],
-    "totalFailed" : 5
+    "totalFailed" : 4
   }, {
     "assertionName" : "Verify that moduleId is a valid, active module in Module Dependency Full",
     "assertionUuid" : "9c8337d8-526f-4f44-afe9-811eefa663e3",
@@ -313,7 +310,7 @@
     }, {
       "conceptId" : "900000000000207008",
       "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
-    }  ],
+    } ],
     "totalFailed" : 11
   }, {
     "assertionName" : "Grouped value is in (0,1) in MRCM ATTRIBUTE DOMAIN full file",
@@ -735,8 +732,11 @@
     "firstNInstances" : [ {
       "conceptId" : "900000000000207008",
       "detail" : "REFSET DESCRIPTOR SNAPSHOT: id=a6417d6f-5a66-5039-8e94-698d28a4da49 contains active rows where the referenced refset is inactive"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "REFSET DESCRIPTOR SNAPSHOT: id=a6417d6f-5a66-5039-8e94-698d28a4da99 contains active rows where the referenced refset is inactive"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "Terms are unique in Description hierarchy.",
     "assertionUuid" : "c82246b1-a137-40c5-8653-554c9ce82c6b",
@@ -798,7 +798,7 @@
   }, {
     "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files",
     "assertionUuid" : "d2e01d90-ebb2-45ca-b8d8-483f6cf00f60",
-    "firstNInstances" : [  {
+    "firstNInstances" : [ {
       "conceptId" : "1000004",
       "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
     }, {
@@ -828,7 +828,7 @@
     }, {
       "conceptId" : "128202008",
       "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    }],
+    } ],
     "totalFailed" : 58
   }, {
     "assertionName" : "ID is unique in MRCM ATTRIBUTE RANGE snapshot.",
@@ -980,6 +980,11 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
+    "assertionUuid" : "f1df7304-be9b-4f29-bf95-b9fcf31c4c1c",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  }, {
     "assertionName" : "DomainId in MRCM ATTRIBUTE DOMAIN SNAPSHOT exists in the ReferencedComponentId values of MRCM DOMAIN SNAPSHOT",
     "assertionUuid" : "f1fc2c4b-9202-4a0b-9c00-49b6de7a7cc5",
     "firstNInstances" : [ {
@@ -1049,8 +1054,11 @@
     }, {
       "conceptId" : "449080006",
       "detail" : "Module with id = f6431457-161b-5b46-9217-573c20c00071 in Module Dependency Snapshot file is inactive"
-    }  ],
-    "totalFailed" : 8
+    }, {
+      "conceptId" : "103143007",
+      "detail" : "Module with id = f6431457-161b-5b46-9217-573c20c00077 in Module Dependency Snapshot file is inactive"
+    } ],
+    "totalFailed" : 9
   }, {
     "assertionName" : "AttributeInGroupCardinality value is in ('0..0', '0..1', '0..*') in MRCM ATTRIBUTE DOMAIN snapshot file",
     "assertionUuid" : "f47d1537-41dc-4cb5-ad0a-ed4caf993801",
@@ -1433,7 +1441,7 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 has invalid concept in ReferencedComponentId field = 177007"
     } ],
-    "totalFailed" : 59
+    "totalFailed" : 61
   }, {
     "assertionName" : "MrcmRuleRefsetId in MRCM MODULE SCOPE FULL exists in the RefsetId values of MRCM DOMAIN FULL or MRCM ATTRIBUTE DOMAIN FULL or MRCM ATTRIBUTE RANGE FULL",
     "assertionUuid" : "2bf6ec9a-7cc5-491b-99cd-0e3092ff8055",
@@ -1705,13 +1713,24 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
+    "assertionUuid" : "4de845c8-71cc-4ca4-89e1-6b3312be39d1",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  }, {
     "assertionName" : "Extended Map Snapshot file contains nothing except ICD-10 maps (International Edition only)",
     "assertionUuid" : "4e78d040-96e9-49fc-aaa5-54b4fcc13659",
     "firstNInstances" : [ {
       "conceptId" : "449080006",
       "detail" : "Refset with id = 9d7c45ee-5a0d-5a3c-95dd-30b8b4853551 and refsetId = 447562002 in Extended Map Snapshot file is not an ICD-10 map"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 9d7c45ee-5a0d-5a3c-95dd-30b8b4853552 and refsetId = 447562002 in Extended Map Snapshot file is not an ICD-10 map"
+    }, {
+      "conceptId" : "449080006",
+      "detail" : "Refset with id = 9d7c45ee-5a0d-5a3c-95dd-30b8b4853553 and refsetId = 447562002 in Extended Map Snapshot file is not an ICD-10 map"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 3
   }, {
     "assertionName" : "Terms contains balanced parentheses.",
     "assertionUuid" : "50907ee7-ddf6-4cb5-ba8b-be150644430b",
@@ -1875,6 +1894,11 @@
       "detail" : "DESC: Term=Epilepsy in mother complicating childbirth(disorder:Fully Specified Name not ending with closing parantheses."
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
+    "assertionUuid" : "5a8f5f5c-3bd1-4deb-a4f6-fdbdaad45024",
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "All active FSNs for a given concept have the same semantic tag.",
     "assertionUuid" : "5c0186f3-0b72-4685-8aad-eff15a7f8880",
@@ -2434,21 +2458,5 @@
       "detail" : "ComplexMap: id=79703317-411e-5d4d-b853-eef523f0109a: IFA rule references missing conceptId and term"
     } ],
     "totalFailed" : 4
-  }, {
-    "assertionName" : "For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
-    "assertionUuid" : "5a8f5f5c-3bd1-4deb-a4f6-fdbdaad45024",
-    "firstNInstances" : null,
-    "totalFailed" : 0
-  }, {
-    "assertionName" : "For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
-    "assertionUuid" : "f1df7304-be9b-4f29-bf95-b9fcf31c4c1c",
-    "firstNInstances" : null,
-    "totalFailed" : 0
-  }, {
-    "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
-    "assertionUuid" : "4de845c8-71cc-4ca4-89e1-6b3312be39d1",
-    "firstNInstances" : null,
-    "totalFailed" : 0
-  }
-  ]
+  } ]
 }

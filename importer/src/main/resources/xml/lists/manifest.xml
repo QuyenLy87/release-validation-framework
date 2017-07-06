@@ -239,6 +239,17 @@
 		<script uuid="eff30fb0-7856-11e1-b0c4-0800200c9a66" category="release-type-validation" sqlFile="release-type-snapshot-language-successive-states.sql" text="All language refset members inactivated in current snapshot must have been active in the previous release."/>
 		<script uuid="89ceaf00-79b9-11e1-b0c4-0800200c9a66" category="release-type-validation" sqlFile="release-type-snapshot-stated-relationship-successive-states.sql" text="All stated relationships inactivated in current release must have been active in the previous release."/>
 		<script uuid="5c6b6bc0-79b9-11e1-b0c4-0800200c9a66" category="release-type-validation" sqlFile="release-type-snapshot-inferred-relationship-successive-states.sql" text="All relationships inactivated in current release must have been active in the previous release."/>
+
+		<script uuid="6787c235-839c-4d99-8f91-b7aee16e2b77" category="release-type-validation" sqlFile="release-type-snapshot-complexmap-refset-successive-states.sql" text="New inactive states follow active states in the Complex Map Refset snapshot."/>
+		<script uuid="fe8d3ab9-d3d5-4c96-a503-834756b5bb26" category="release-type-validation" sqlFile="release-type-snapshot-description-type-successive-states.sql" text="New inactive states follow active states in the Description Type snapshot."/>
+		<script uuid="66ab4b69-e2e2-4fbd-80b0-0fc9e6f3d0a5" category="release-type-validation" sqlFile="release-type-snapshot-expression-association-refset-successive-states.sql" text="New inactive states follow active states in the Expression Association Refset snapshot."/>
+		<script uuid="0bbf1f88-0f0b-4477-8886-ca2fa9877bfa" category="release-type-validation" sqlFile="release-type-snapshot-extendedmap-refset-successive-states.sql" text="New inactive states follow active states in the Extended Map Refset snapshot."/>
+		<script uuid="cea0df51-400f-4a25-a35b-bf1424b4a66e" category="release-type-validation" sqlFile="release-type-snapshot-identifier-successive-states.sql" text="New inactive states follow active states in the Identifier snapshot."/>
+		<script uuid="57fb3169-3905-4bed-8240-f4e81c248b93" category="release-type-validation" sqlFile="release-type-snapshot-mapcorrelationorigin-refset-successive-states.sql" text="New inactive states follow active states in the Map Correlation Origin Refset snapshot."/>
+		<script uuid="61cbbc2c-224a-4ee9-8add-60fa6303e7a8" category="release-type-validation" sqlFile="release-type-snapshot-module-dependency-successive-states.sql" text="New inactive states follow active states in the Module Dependency snapshot."/>
+		<script uuid="69446f0f-603f-4fd5-926e-05c92fab9748" category="release-type-validation" sqlFile="release-type-snapshot-refset-descriptor-successive-states.sql" text="New inactive states follow active states in the Refset Descriptor snapshot."/>
+
+
 		<!-- across multiple files in Current snapshot-->
 		<script uuid="6dbaed71-f031-4290-b74f-f35561c2e283" category="release-type-validation" sqlFile="release-type-snapshot-unique-relationship-id.sql" text="The ids should be unique across the stated and inferred relationship snapshot files." />
 		<script uuid="560e6d0c-64e8-4726-9516-ae7a7606b0b3" category="release-type-validation" sqlFile="release-type-snapshot-unique-description-definition-id.sql" text="The ids should be unique across the description and text definition snapshot files." />
