@@ -798,7 +798,7 @@
   }, {
     "assertionName" : "Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files",
     "assertionUuid" : "d2e01d90-ebb2-45ca-b8d8-483f6cf00f60",
-    "firstNInstances" : [ {
+    "firstNInstances" : [  {
       "conceptId" : "1000004",
       "detail" : "ConceptId=1000004 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
     }, {
@@ -828,8 +828,8 @@
     }, {
       "conceptId" : "128202008",
       "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
-    } ],
-    "totalFailed" : 57
+    }],
+    "totalFailed" : 58
   }, {
     "assertionName" : "ID is unique in MRCM ATTRIBUTE RANGE snapshot.",
     "assertionUuid" : "d51966ed-e034-4a25-90ef-1eb489c0bd37",
