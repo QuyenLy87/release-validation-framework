@@ -514,7 +514,7 @@
       "conceptId" : "2608473011",
       "detail" : "ATT RF: id=900000000000495008:Invalid valueId."
     } ],
-    "totalFailed" : 21
+    "totalFailed" : 22
   }, {
     "assertionName" : "There is at most one active definition per concept per language per dialect in the DEFINITION snapshot.",
     "assertionUuid" : "de0c4d6c-6297-41be-9979-fb1c93717baa",
@@ -1328,10 +1328,13 @@
       "conceptId" : "703860006",
       "detail" : "DESCRIPTION : ids =2989790014, 2989790015, 2989790017 : Duplicated terms in DESCRIPTION snapshot."
     }, {
+      "conceptId" : "366358006",
+      "detail" : "DESCRIPTION : ids =3302888012, 3302888019 : Duplicated terms in DESCRIPTION snapshot."
+    }, {
       "conceptId" : "702386002",
       "detail" : "DESCRIPTION : ids =3008913021, 3008913022 : Duplicated terms in DESCRIPTION snapshot."
     } ],
-    "totalFailed" : 4
+    "totalFailed" : 5
   }, {
     "assertionName" : "ConceptId value refers to valid concept identifier in the DEFINITION snapshot.",
     "assertionUuid" : "5a83783e-3366-48bd-a50d-8f3a53812174",

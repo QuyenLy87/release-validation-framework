@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 177,
-  "totalAssertionsFailed" : 169,
+  "totalAssertionsRun" : 178,
+  "totalAssertionsFailed" : 170,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -856,6 +856,14 @@
     } ],
     "totalFailed" : 61
   }, {
+    "assertionName" : "'Concept non-current' inactivation indicator is missing when a concept is inactivated",
+    "assertionUuid" : "d41649b9-bac7-49a1-ac68-7f078135a029",
+    "firstNInstances" : [ {
+      "conceptId" : "700132008",
+      "detail" : "CONCEPT: id=700132008 is inactivated but inactivation indicator is missing."
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "ID is unique in MRCM ATTRIBUTE RANGE snapshot.",
     "assertionUuid" : "d51966ed-e034-4a25-90ef-1eb489c0bd37",
     "firstNInstances" : [ {
@@ -936,9 +944,12 @@
       "detail" : "Concept Snapshot file with id = 366358006 contains description with the words LOINC Unique ID"
     }, {
       "conceptId" : "900000000000207008",
+      "detail" : "Concept Snapshot file with id = 700132008 contains description with the words LOINC Unique ID"
+    }, {
+      "conceptId" : "900000000000207008",
       "detail" : "Concept Snapshot file with id = 366358006 in the LOINC module contains an FSN with (observable entity)"
     } ],
-    "totalFailed" : 2
+    "totalFailed" : 3
   }, {
     "assertionName" : "Active descriptions do not have active inactivation indicators",
     "assertionUuid" : "e2aa5b09-5754-484f-9eb8-bb18732617ef",
@@ -1232,7 +1243,7 @@
       "conceptId" : "197095003",
       "detail" : "ConceptId=197095003 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
     } ],
-    "totalFailed" : 72
+    "totalFailed" : 73
   }, {
     "assertionName" : "There is only zero or one active Definition per concept per dialect in the snapshot file.",
     "assertionUuid" : "00e87310-7e9b-11e1-b0c4-0800200c9a66",

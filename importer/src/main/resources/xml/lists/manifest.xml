@@ -1196,6 +1196,11 @@
 			<keywords>LOINC concepts never make it into the International Edition Snapshot file</keywords>
 		</script>
 
+		<script uuid="d41649b9-bac7-49a1-ac68-7f078135a029" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-concept-concept-non-current-inactivation -indicator-is-missing.sql" text="'Concept non-current' inactivation indicator is missing when a concept is inactivated">
+			<keywords>'Concept non-current' inactivation indicator is missing when a concept is inactivated</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 
