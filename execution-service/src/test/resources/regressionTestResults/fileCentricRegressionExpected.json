@@ -471,7 +471,7 @@
       "conceptId" : "2608473011",
       "detail" : "ATT RS: id=2608473011:Invalid Referencedcomponentid in ATTRIBUTEVALUE REFSET snapshot."
     } ],
-    "totalFailed" : 12
+    "totalFailed" : 13
   }, {
     "assertionName" : "Newly added active concept has one active preferred term in the Swedish language refset.",
     "assertionUuid" : "dbb49e0c-e5b0-4676-a815-70fb9f3b468e",
@@ -532,7 +532,7 @@
       "conceptId" : "2608473011",
       "detail" : "ATT RF: id=900000000000495008:Invalid valueId."
     } ],
-    "totalFailed" : 20
+    "totalFailed" : 21
   }, {
     "assertionName" : "There is at most one active definition per concept per language per dialect in the DEFINITION snapshot.",
     "assertionUuid" : "de0c4d6c-6297-41be-9979-fb1c93717baa",
@@ -548,13 +548,16 @@
     "assertionName" : "ID is unique in the ATTRIBUTE VALUE snapshot.",
     "assertionUuid" : "e202807d-915d-4c8a-8f02-c6e4e6f969fc",
     "firstNInstances" : [ {
+      "conceptId" : "2608473011",
+      "detail" : "Attribute value refset: id=00000629-2697-5041-9438-3845fb99fe93:Non unique id in snapshot file."
+    }, {
       "conceptId" : "197095003",
       "detail" : "Attribute value refset: id=00017ef3-2384-5c71-b548-7c528b43ccc5:Non unique id in snapshot file."
     }, {
       "conceptId" : "527806011",
       "detail" : "Attribute value refset: id=0001d24b-d872-5077-8955-b9c7e055b015:Non unique id in snapshot file."
     } ],
-    "totalFailed" : 2
+    "totalFailed" : 3
   }, {
     "assertionName" : "Every active concept has one active preferred term in the Danish language refset",
     "assertionUuid" : "e2651cd2-cbb1-427e-a444-f9d9ee446b3a",
@@ -644,8 +647,11 @@
     "firstNInstances" : [ {
       "conceptId" : "2608473011",
       "detail" : "Reference component id:2608473011 valueid=900000000000495008 pair is not unique in the Attribute Value snapshot"
+    }, {
+      "conceptId" : "900000000000498005",
+      "detail" : "Reference component id:900000000000498005 valueid=900000000000495008 pair is not unique in the Attribute Value snapshot"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "All members refer to a description that is referenced in either the description table or the text definition table.",
     "assertionUuid" : "f5d9ae70-7856-11e1-b0c4-0800200c9a66",
@@ -870,8 +876,17 @@
     }, {
       "conceptId" : "699400005",
       "detail" : "DESCRIPTION: id=2984057019 refers to an invalid concept identifier in the DESCRIPTION snapshot."
+    }, {
+      "conceptId" : "138875005",
+      "detail" : "DESCRIPTION: id=3335402013 refers to an invalid concept identifier in the DESCRIPTION snapshot."
+    }, {
+      "conceptId" : "138875005",
+      "detail" : "DESCRIPTION: id=3335402014 refers to an invalid concept identifier in the DESCRIPTION snapshot."
+    }, {
+      "conceptId" : "138875005",
+      "detail" : "DESCRIPTION: id=3335402015 refers to an invalid concept identifier in the DESCRIPTION snapshot."
     } ],
-    "totalFailed" : 4
+    "totalFailed" : 7
   }, {
     "assertionName" : "RefsetId value refers to valid concept identifier in the MRCM DOMAIN REFSET snapshot",
     "assertionUuid" : "14e30e46-1e7a-4655-b1ca-48254f8b7071",
@@ -1578,5 +1593,6 @@
       "detail" : "CONCEPT: id=702386002: Concept contains two or more versions of the immutable values in Stated Relationships."
     } ],
     "totalFailed" : 1
-  } ]
+  }
+  ]
 }

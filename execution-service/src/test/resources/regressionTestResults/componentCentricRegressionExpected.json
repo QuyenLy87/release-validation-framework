@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 172,
-  "totalAssertionsFailed" : 164,
+  "totalAssertionsRun" : 174,
+  "totalAssertionsFailed" : 165,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -37,8 +37,11 @@
     "firstNInstances" : [ {
       "conceptId" : "900000000000207008",
       "detail" : "Refset with id = 9ec10eaa-224b-50e0-9639-e43c3a87fca0 and refsetId = 446608009 in Simple Map Delta file is not ICD-0 or CTV3 map"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 80167395-efbd-4205-8b70-c2e0b0a46f55 and refsetId = 900000000000498005 in Simple Map Delta file is not ICD-0 or CTV3 map"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "The FSN term should be unique in active content.",
     "assertionUuid" : "8d6ab114-caca-4d99-9fec-bb8fd9cea518",
@@ -311,7 +314,7 @@
       "conceptId" : "900000000000207008",
       "detail" : "Refset with Id = 1244116f-fdb5-5645-afcc-5281288409da referenced in the column: moduleid of table: moduleDependency_f is not valid descendant of 900000000000443000 |Module|"
     } ],
-    "totalFailed" : 11
+    "totalFailed" : 12
   }, {
     "assertionName" : "Grouped value is in (0,1) in MRCM ATTRIBUTE DOMAIN full file",
     "assertionUuid" : "9de8d069-2055-4c21-87bc-2fc9363045dc",
@@ -829,7 +832,7 @@
       "conceptId" : "128202008",
       "detail" : "ConceptId=128202008 referenced in the column referencedcomponentid of Association Reference Delta file is an invalid concept."
     } ],
-    "totalFailed" : 58
+    "totalFailed" : 61
   }, {
     "assertionName" : "ID is unique in MRCM ATTRIBUTE RANGE snapshot.",
     "assertionUuid" : "d51966ed-e034-4a25-90ef-1eb489c0bd37",
@@ -1052,13 +1055,16 @@
       "conceptId" : "449080006",
       "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00071 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
     }, {
+      "conceptId" : "698449007",
+      "detail" : "Refset with Id = f6431457-161b-5b46-9217-573c20c00075 referenced in the column: moduleid of table: moduleDependency_s is not valid descendant of 900000000000443000 |Module|"
+    }, {
       "conceptId" : "449080006",
       "detail" : "Module with id = f6431457-161b-5b46-9217-573c20c00071 in Module Dependency Snapshot file is inactive"
     }, {
       "conceptId" : "103143007",
       "detail" : "Module with id = f6431457-161b-5b46-9217-573c20c00077 in Module Dependency Snapshot file is inactive"
     } ],
-    "totalFailed" : 9
+    "totalFailed" : 10
   }, {
     "assertionName" : "AttributeInGroupCardinality value is in ('0..0', '0..1', '0..*') in MRCM ATTRIBUTE DOMAIN snapshot file",
     "assertionUuid" : "f47d1537-41dc-4cb5-ad0a-ed4caf993801",
@@ -1096,29 +1102,29 @@
       "conceptId" : "700132006",
       "detail" : "Active description id=3008913019 has no active langrefset member"
     }, {
+      "conceptId" : "702411003",
+      "detail" : "Active description id=2990804014 has no langrefset member"
+    }, {
+      "conceptId" : "702769005",
+      "detail" : "Active description id=600892343 has no langrefset member"
+    }, {
       "conceptId" : "703860006",
       "detail" : "Active description id=2984057025 has no langrefset member"
+    }, {
+      "conceptId" : "703860006",
+      "detail" : "Active description id=2989790014 has no langrefset member"
+    }, {
+      "conceptId" : "703860006",
+      "detail" : "Active description id=2989790014 has no langrefset member"
+    }, {
+      "conceptId" : "703860006",
+      "detail" : "Active description id=2989790015 has no langrefset member"
     }, {
       "conceptId" : "702386002",
       "detail" : "Active description id=3004397016 has no langrefset member"
     }, {
       "conceptId" : "702386002",
       "detail" : "Active description id=2989194011 has no langrefset member"
-    }, {
-      "conceptId" : "702411003",
-      "detail" : "Active description id=2990804014 has no langrefset member"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Active description id=2989790014 has no langrefset member"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Active description id=2989790014 has no langrefset member"
-    }, {
-      "conceptId" : "703649005",
-      "detail" : "Active description id=2990804019 has no langrefset member"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Active description id=2989790015 has no langrefset member"
     } ],
     "totalFailed" : 18
   }, {
@@ -1149,8 +1155,11 @@
     "firstNInstances" : [ {
       "conceptId" : "900000000000207008",
       "detail" : "Refset with id = 9ec10eaa-224b-50e0-9639-e43c3a87fca0 and refsetId = 446608009 in Simple Map Full file is not ICD-0 or CTV3 map"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 80167395-efbd-4205-8b70-c2e0b0a46f55 and refsetId = 900000000000498005 in Simple Map Full file is not ICD-0 or CTV3 map"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "All inactive concepts have definition status of PRIMITIVE.",
     "assertionUuid" : "fdf6a1b0-7cd6-11e1-b0c4-0800200c9a66",
@@ -1190,7 +1199,7 @@
       "conceptId" : "197095003",
       "detail" : "ConceptId=197095003 referenced in the column referencedcomponentid of Attribute Value Snapshot file is an invalid concept."
     } ],
-    "totalFailed" : 69
+    "totalFailed" : 72
   }, {
     "assertionName" : "There is only zero or one active Definition per concept per dialect in the snapshot file.",
     "assertionUuid" : "00e87310-7e9b-11e1-b0c4-0800200c9a66",
@@ -1291,7 +1300,7 @@
       "conceptId" : "253376014",
       "detail" : "ConceptId=253376014 referenced in the column referencedcomponentid of Attribute Value Full file is an invalid concept."
     } ],
-    "totalFailed" : 50
+    "totalFailed" : 53
   }, {
     "assertionName" : "Extended Map Delta file contains nothing except ICD-10 maps (International Edition only)",
     "assertionUuid" : "132356b0-6eca-4090-8044-17f82102f7ca",
@@ -1312,8 +1321,11 @@
     }, {
       "conceptId" : "900000000000207008",
       "detail" : "Refset with id = 9ec10eaa-224b-50e0-9639-e43c3a87fca0 and refsetId = 446608009 in Simple Map Snapshot file is not ICD-0 or CTV3 map"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 80167395-efbd-4205-8b70-c2e0b0a46f55 and refsetId = 900000000000498005 in Simple Map Snapshot file is not ICD-0 or CTV3 map"
     } ],
-    "totalFailed" : 3
+    "totalFailed" : 4
   }, {
     "assertionName" : "The mapTarget in LOINC ExpressionAssociationRefset snapshot is a valid LOINC code",
     "assertionUuid" : "18d36527-9247-406a-bd1f-d7d608b0663a",
@@ -1395,7 +1407,7 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET DELTA: id=49361643-765b-54e7-8033-9b8f8426f081 has invalid concept in ReferencedComponentId field = 127009"
     } ],
-    "totalFailed" : 33
+    "totalFailed" : 34
   }, {
     "assertionName" : "For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0",
     "assertionUuid" : "26f858ba-4aea-43ed-a957-e250f72dec98",
@@ -1441,7 +1453,7 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET SNAPSHOT: id=9d7c45ee-5a0d-5a3c-95dd-30b8b4853550 has invalid concept in ReferencedComponentId field = 177007"
     } ],
-    "totalFailed" : 61
+    "totalFailed" : 62
   }, {
     "assertionName" : "MrcmRuleRefsetId in MRCM MODULE SCOPE FULL exists in the RefsetId values of MRCM DOMAIN FULL or MRCM ATTRIBUTE DOMAIN FULL or MRCM ATTRIBUTE RANGE FULL",
     "assertionUuid" : "2bf6ec9a-7cc5-491b-99cd-0e3092ff8055",
@@ -1451,17 +1463,22 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "The root concept synonym is now referencing the latest new release",
+    "assertionUuid" : "2c68e3e4-0228-4f61-a264-ec0f35815a3e",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  }, {
     "assertionName" : "No active Terms contain double spaces.",
     "assertionUuid" : "2d6c61e5-a04d-4115-be18-eeba2a44b835",
     "firstNInstances" : [ {
+      "conceptId" : "703860006",
+      "detail" : "CONCEPT: Term=Exposure to vibration  :Active Terms containing double spaces."
+    }, {
+      "conceptId" : "703860006",
+      "detail" : "CONCEPT: Term=Exposure to vibration  :Active Terms containing double spaces."
+    }, {
       "conceptId" : "702386002",
       "detail" : "CONCEPT: Term=  Fracture clinic:Active Terms containing double spaces."
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "CONCEPT: Term=Exposure to vibration  :Active Terms containing double spaces."
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "CONCEPT: Term=Exposure to vibration  :Active Terms containing double spaces."
     } ],
     "totalFailed" : 3
   }, {
@@ -1589,7 +1606,7 @@
       "conceptId" : "449080006",
       "detail" : "EXTENDED MAP REFSET FULL: id=a80af01d-cb02-58b0-a267-123144076f48 has invalid concept in ReferencedComponentId field = 177007"
     } ],
-    "totalFailed" : 32
+    "totalFailed" : 33
   }, {
     "assertionName" : "Inferred relationship modifier is always SOME.",
     "assertionUuid" : "32b41aa0-7d08-11e1-b0c4-0800200c9a66",
@@ -1964,6 +1981,17 @@
       "detail" : "C-D1637"
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "There are no new SNOMED Identifier Refset records (900000000000498005) in any file types in the Release package",
+    "assertionUuid" : "6075aa50-656d-4b90-becf-75edf8119c99",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000498005",
+      "detail" : "New record Id = 00000629-2697-5041-9438-3845fb99fe93,conceptid = 900000000000498005 referenced in the column referencedcomponentid of attributevaluerefset_d is existed invalidly."
+    }, {
+      "conceptId" : "900000000000498005",
+      "detail" : "New record Id = f6431457-161b-5b46-9217-573c20c00075,conceptid = 900000000000498005 referenced in the column referencedcomponentid of moduledependency_d is existed invalidly."
+    } ],
+    "totalFailed" : 2
   }, {
     "assertionName" : "The first letter of the active definition should be capitalized.",
     "assertionUuid" : "6138248d-8cc8-4bc2-8043-cd609fdd640c",
@@ -2458,5 +2486,6 @@
       "detail" : "ComplexMap: id=79703317-411e-5d4d-b853-eef523f0109a: IFA rule references missing conceptId and term"
     } ],
     "totalFailed" : 4
-  } ]
+  }
+  ]
 }

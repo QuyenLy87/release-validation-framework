@@ -1426,8 +1426,11 @@
     }, {
       "conceptId" : "703860006",
       "detail" : "DESCRIPTION: id=2984057023 is inactive but no active state found in the previous snapshot."
+    }, {
+      "conceptId" : "138875005",
+      "detail" : "DESCRIPTION: id=3335402013 is inactive but no active state found in the previous snapshot."
     } ],
-    "totalFailed" : 2
+    "totalFailed" : 3
   }, {
     "assertionName" : "The current Description Type delta file is an accurate derivative of the current full file",
     "assertionUuid" : "317d6a66-72c2-4d69-83bc-4cbd8e16c9e0",
@@ -2421,5 +2424,6 @@
       "detail" : "ExpressionAssociation: id=39761BDC-96AB-47AF-B10F-0A57B6C01278 is in DELTA file, but not in FULL file."
     } ],
     "totalFailed" : 1
-  } ]
+  }
+  ]
 }
