@@ -298,7 +298,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006: has no active preferred term in the GB language refset"
     } ],
-    "totalFailed" : 12
+    "totalFailed" : 13
   }, {
     "assertionName" : "ID is unique in the LOINC ExpressionAssociationRefset snapshot.",
     "assertionUuid" : "b9b535f0-5b68-4192-81f6-115dea2f49c0",
@@ -476,28 +476,10 @@
     "assertionName" : "Newly added active concept has one active preferred term in the Swedish language refset.",
     "assertionUuid" : "dbb49e0c-e5b0-4676-a815-70fb9f3b468e",
     "firstNInstances" : [ {
-      "conceptId" : "702411003",
-      "detail" : "Concept: id=702411003: is added in recent international release but has no active preferred term in the Swedish language refset"
-    }, {
-      "conceptId" : "702769005",
-      "detail" : "Concept: id=702769005: is added in recent international release but has no active preferred term in the Swedish language refset"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Concept: id=703860006: is added in recent international release but has no active preferred term in the Swedish language refset"
-    }, {
-      "conceptId" : "703155005",
-      "detail" : "Concept: id=703155005: is added in recent international release but has no active preferred term in the Swedish language refset"
-    }, {
-      "conceptId" : "702386002",
-      "detail" : "Concept: id=702386002: is added in recent international release but has no active preferred term in the Swedish language refset"
-    }, {
-      "conceptId" : "703649005",
-      "detail" : "Concept: id=703649005: is added in recent international release but has no active preferred term in the Swedish language refset"
-    }, {
-      "conceptId" : "703672002",
-      "detail" : "Concept: id=703672002: is added in recent international release but has no active preferred term in the Swedish language refset"
+      "conceptId" : "366358006",
+      "detail" : "Concept: id=366358006: is added in recent international release but has no active preferred term in the Swedish language refset"
     } ],
-    "totalFailed" : 7
+    "totalFailed" : 1
   }, {
     "assertionName" : "ValueId refers to valid concepts in the ATTRIBUTE VALUE snapshot.",
     "assertionUuid" : "ddc754ab-0965-4ae2-b95d-6b0f8392e276",
@@ -592,7 +574,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006: has no active preferred term in the Danish language refset"
     } ],
-    "totalFailed" : 12
+    "totalFailed" : 13
   }, {
     "assertionName" : "ReferenceComponentIds refers to valid concepts in the LOINC ExpressionAssociationRefset snapshot file.",
     "assertionUuid" : "e33922c3-5200-458b-b8f3-2cd08252234e",
@@ -720,13 +702,16 @@
       "conceptId" : "703649005",
       "detail" : "Concept: id=703649005 does not have an active FSN in any refset."
     } ],
-    "totalFailed" : 27
+    "totalFailed" : 29
   }, {
     "assertionName" : "Preferred Term exists exactly once in each language refset for each concept.",
     "assertionUuid" : "03cf9850-7857-11e1-b0c4-0800200c9a66",
     "firstNInstances" : [ {
       "conceptId" : "702386002",
       "detail" : "Concept: id=702386002 has duplicate language refsets for descrioption id=3006276018"
+    }, {
+      "conceptId" : "366358006",
+      "detail" : "Concept: id=366358006 has no active preferred terms in any language refset"
     }, {
       "conceptId" : "699765003",
       "detail" : "Concept: id=699765003 has no active preferred terms in any language refset"
@@ -751,11 +736,8 @@
     }, {
       "conceptId" : "703860006",
       "detail" : "Concept: id=703860006 has no active preferred terms in any language refset"
-    }, {
-      "conceptId" : "702386002",
-      "detail" : "Concept: id=702386002 has multiple active preferred terms in language refset=900000000000509007"
     } ],
-    "totalFailed" : 18
+    "totalFailed" : 20
   }, {
     "assertionName" : "DomainId value refers to valid concept identifier in the MRCM ATTRIBUTE DOMAIN REFSET snapshot",
     "assertionUuid" : "0bd6a234-58f9-424f-84b4-0dc800e5a70b",
@@ -825,7 +807,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006 does not have an FSN preferred in the GB language refset."
     } ],
-    "totalFailed" : 12
+    "totalFailed" : 13
   }, {
     "assertionName" : "RuleStrengthId value refers to valid concept identifier in the MRCM ATTRIBUTE DOMAIN REFSET snapshot",
     "assertionUuid" : "0e8e3549-e704-41a2-a853-fd91a60116ee",
@@ -987,28 +969,10 @@
     "assertionName" : "Newly added active concept has one active preferred term in the Danish language refset.",
     "assertionUuid" : "1cfef22e-da2c-43fd-acdf-0e0ec6ca214c",
     "firstNInstances" : [ {
-      "conceptId" : "702411003",
-      "detail" : "Concept: id=702411003: is added recently in the international release but has no active preferred term in the Danish language refset"
-    }, {
-      "conceptId" : "702769005",
-      "detail" : "Concept: id=702769005: is added recently in the international release but has no active preferred term in the Danish language refset"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Concept: id=703860006: is added recently in the international release but has no active preferred term in the Danish language refset"
-    }, {
-      "conceptId" : "703155005",
-      "detail" : "Concept: id=703155005: is added recently in the international release but has no active preferred term in the Danish language refset"
-    }, {
-      "conceptId" : "702386002",
-      "detail" : "Concept: id=702386002: is added recently in the international release but has no active preferred term in the Danish language refset"
-    }, {
-      "conceptId" : "703649005",
-      "detail" : "Concept: id=703649005: is added recently in the international release but has no active preferred term in the Danish language refset"
-    }, {
-      "conceptId" : "703672002",
-      "detail" : "Concept: id=703672002: is added recently in the international release but has no active preferred term in the Danish language refset"
+      "conceptId" : "366358006",
+      "detail" : "Concept: id=366358006: is added recently in the international release but has no active preferred term in the Danish language refset"
     } ],
-    "totalFailed" : 7
+    "totalFailed" : 1
   }, {
     "assertionName" : "ReferencedComponentId value refers to valid concept identifier in the MRCM ATTRIBUTE DOMAIN REFSET snapshot",
     "assertionUuid" : "292b4427-0cce-493d-b63c-27cd249eafea",
@@ -1333,7 +1297,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006: has no active preferred term in the Swedish language refset"
     } ],
-    "totalFailed" : 12
+    "totalFailed" : 13
   }, {
     "assertionName" : "MrcmRuleRefsetId value refers to valid concept identifier in the MRCM MODULE SCOPE REFSET snapshot",
     "assertionUuid" : "4fe314dd-6f65-4e9e-8ce1-a4c7db598c0d",

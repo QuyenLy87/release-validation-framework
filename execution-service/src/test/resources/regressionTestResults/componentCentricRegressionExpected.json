@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 174,
-  "totalAssertionsFailed" : 166,
+  "totalAssertionsRun" : 177,
+  "totalAssertionsFailed" : 169,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -264,6 +264,17 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "LOINC concepts never make it into the International Edition Full file",
+    "assertionUuid" : "9a1f6cfb-d70a-47b6-a41a-33a31a0c01e8",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Concept Full file with id = 366358006 contains description with the words LOINC Unique ID"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Concept Full file with id = 366358006 in the LOINC module contains an FSN with (observable entity)"
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : "For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT",
     "assertionUuid" : "9b118ab6-92df-4c5f-9e30-6cf895f5fa02",
     "firstNInstances" : [ {
@@ -366,6 +377,17 @@
       "detail" : "AttributeOrder of: id=57c08f90-d110-51d7-9866-687ea59213b4 in REFSET DESCRIPTOR FULL is not set to value >= 0"
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "LOINC concepts never make it into the International Edition Delta file",
+    "assertionUuid" : "a13f2b6a-c882-430a-9cad-35c3ed394577",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Concept Delta file with id = 366358006 contains description with the words LOINC Unique ID"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Concept Delta file with id = 366358006 in the LOINC module contains an FSN with (observable entity)"
+    } ],
+    "totalFailed" : 2
   }, {
     "assertionName" : "CTV3 simple map refset members are unique.",
     "assertionUuid" : "a2e01ee0-7f25-11e1-b0c4-0800200c9a66",
@@ -907,6 +929,17 @@
     } ],
     "totalFailed" : 2
   }, {
+    "assertionName" : "LOINC concepts never make it into the International Edition Snapshot file",
+    "assertionUuid" : "e0e6a404-6112-4b44-a619-3bdc90bd5817",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Concept Snapshot file with id = 366358006 contains description with the words LOINC Unique ID"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Concept Snapshot file with id = 366358006 in the LOINC module contains an FSN with (observable entity)"
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : "Active descriptions do not have active inactivation indicators",
     "assertionUuid" : "e2aa5b09-5754-484f-9eb8-bb18732617ef",
     "firstNInstances" : [ {
@@ -1126,7 +1159,7 @@
       "conceptId" : "702386002",
       "detail" : "Active description id=2989194011 has no langrefset member"
     } ],
-    "totalFailed" : 18
+    "totalFailed" : 19
   }, {
     "assertionName" : "Active historical association refset members have inactive concepts as reference components.",
     "assertionUuid" : "f7117eb0-7cd6-11e1-b0c4-0800200c9a66",
@@ -1349,8 +1382,11 @@
     }, {
       "conceptId" : "700132006",
       "detail" : "700132006 |Proglumetacin, different semantic tag (procedure)|"
+    }, {
+      "conceptId" : "366358006",
+      "detail" : "366358006 |LOINC Unique ID Testing (observable entity)|"
     } ],
-    "totalFailed" : 4
+    "totalFailed" : 5
   }, {
     "assertionName" : "AttributeInGroupCardinality value is in ('0..0', '0..1', '0..*') in MRCM ATTRIBUTE DOMAIN delta file",
     "assertionUuid" : "1f6a9168-534a-4ebe-b0e7-3f424e56a7d1",
@@ -1688,7 +1724,7 @@
       "conceptId" : "700132006",
       "detail" : "CONCEPT: id=700132006: Concept does not have an inferred is-a relationship."
     } ],
-    "totalFailed" : 11
+    "totalFailed" : 12
   }, {
     "assertionName" : "AttributeCardinality value is in ('0..1','0..*') in MRCM ATTRIBUTE DOMAIN delta file",
     "assertionUuid" : "3ffbe5e3-ef3e-4c73-983f-24e3438a8434",
@@ -1838,7 +1874,7 @@
       "conceptId" : "699765003",
       "detail" : "CONCEPT: id=699765003: Concept does not have a stated is-a relationship."
     } ],
-    "totalFailed" : 11
+    "totalFailed" : 12
   }, {
     "assertionName" : "MrcmRuleRefsetId in MRCM MODULE SCOPE SNAPSHOT exists in the RefsetId values of MRCM DOMAIN SNAPSHOT or MRCM ATTRIBUTE DOMAIN SNAPSHOT or MRCM ATTRIBUTE RANGE SNAPSHOT",
     "assertionUuid" : "57ae69cd-26f0-4001-ba2f-ae56129e2e28",

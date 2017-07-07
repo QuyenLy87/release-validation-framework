@@ -1181,6 +1181,21 @@
 			<keywords>The root concept synonym is now referencing the latest new release</keywords>
 		</script>
 
+		<script uuid="a13f2b6a-c882-430a-9cad-35c3ed394577" category="component-centric-validation"
+				sqlFile="component-centric-delta-LOINC-concept-never-made-into-INT-release.sql" text="LOINC concepts never make it into the International Edition Delta file">
+			<keywords>LOINC concepts never make it into the International Edition Delta file</keywords>
+		</script>
+
+		<script uuid="9a1f6cfb-d70a-47b6-a41a-33a31a0c01e8" category="component-centric-validation"
+				sqlFile="component-centric-full-LOINC-concept-never-made-into-INT-release.sql" text="LOINC concepts never make it into the International Edition Full file">
+			<keywords>LOINC concepts never make it into the International Edition Full file</keywords>
+		</script>
+
+		<script uuid="e0e6a404-6112-4b44-a619-3bdc90bd5817" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-LOINC-concept-never-made-into-INT-release.sql" text="LOINC concepts never make it into the International Edition Snapshot file">
+			<keywords>LOINC concepts never make it into the International Edition Snapshot file</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 
