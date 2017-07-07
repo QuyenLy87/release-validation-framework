@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
   "totalAssertionsRun" : 174,
-  "totalAssertionsFailed" : 165,
+  "totalAssertionsFailed" : 166,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1465,8 +1465,17 @@
   }, {
     "assertionName" : "The root concept synonym is now referencing the latest new release",
     "assertionUuid" : "2c68e3e4-0228-4f61-a264-ec0f35815a3e",
-    "firstNInstances" : null,
-    "totalFailed" : 0
+    "firstNInstances" : [ {
+      "conceptId" : "3335402014",
+      "detail" : "Concept id = 3335402014, root concept synonym is not referencing the latest new release"
+    }, {
+      "conceptId" : "3335402013",
+      "detail" : "Concept id = 3335402013, root concept synonym is now referencing the latest new release but is in inactivate state"
+    }, {
+      "conceptId" : "3335402015",
+      "detail" : "Concept id = 3335402015, root concept synonym is not valid"
+    } ],
+    "totalFailed" : 3
   }, {
     "assertionName" : "No active Terms contain double spaces.",
     "assertionUuid" : "2d6c61e5-a04d-4115-be18-eeba2a44b835",
