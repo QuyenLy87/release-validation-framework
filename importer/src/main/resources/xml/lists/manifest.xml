@@ -1194,7 +1194,7 @@
 		</script>
 
 		<script uuid="2c68e3e4-0228-4f61-a264-ec0f35815a3e" category="component-centric-validation"
-				sqlFile="component-centric-delta-description-root-concept-synonym-is-now-referencing-the-latest-new-release.sql" text="The root concept synonym is now referencing the latest new release">
+				sqlFile="component-centric-snapshot-description-root-concept-synonym-is-now-referencing-the-latest-new-release.sql" text="The root concept synonym is now referencing the latest new release">
 			<keywords>The root concept synonym is now referencing the latest new release</keywords>
 		</script>
 
