@@ -212,6 +212,23 @@
 			<keywords></keywords>
 		</script>
 
+		<script uuid="6caa3fb2-2192-4d2f-896e-c8d73198fe0d" category="release-type-validation" sqlFile="release-type-snapshot-concept-changed-FSN.sql" severity = "WARNING" text="There are no active concepts with changed FSNs"  >
+			<keywords>There are no active concepts with changed FSNs</keywords>
+		</script>
+		<script uuid="7a04c1b6-7d73-4122-84b7-1b84b8738f6a" category="release-type-validation" sqlFile="release-type-snapshot-concept-with-FSN-changed-semantic-tag.sql" severity = "WARNING" text="There are no concepts with FSNs with changed semantic tags"  >
+			<keywords>There are no concepts with FSNs with changed semantic tags</keywords>
+		</script>
+		<script uuid="e6819767-a9fb-4c89-8bbf-12a2deed5c87" category="release-type-validation" sqlFile="release-type-snapshot-concept-reactivated-since-last-release.sql" severity = "WARNING" text="There are no concepts that have been re-activated since the last release"  >
+			<keywords>There are no concepts that have been re-activated since the last release</keywords>
+		</script>
+		<script uuid="279e3eee-4cdf-4123-8a8a-1e68f68d534d" category="release-type-validation" sqlFile="release-type-snapshot-concept-changed-from-fully-defined-to-primitive.sql" severity = "WARNING" text="There are no concepts that changed from fully defined to primitive"  >
+			<keywords>There are no concepts that changed from fully defined to primitive</keywords>
+		</script>
+		<script uuid="b88850f2-e4f5-4495-a28c-c7a8bf4ae108" category="release-type-validation" sqlFile="release-type-snapshot-concept-changed-from-primitive-to-fully-defined.sql" severity = "WARNING" text="There are no concepts that changed from primitive to fully defined"  >
+			<keywords>There are no concepts that changed from primitive to fully defined</keywords>
+		</script>
+
+
 		<!--  release type for current delta comparing with previous snapshot -->
 
 		<script uuid="35680574-3ac6-4b68-9efe-de88b677eb35" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-association-refset.sql" text="There must be actual changes made to previously published association refset components in order for them to appear in the current delta." />

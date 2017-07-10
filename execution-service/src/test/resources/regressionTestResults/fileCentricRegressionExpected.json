@@ -298,7 +298,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006: has no active preferred term in the GB language refset"
     } ],
-    "totalFailed" : 13
+    "totalFailed" : 15
   }, {
     "assertionName" : "ID is unique in the LOINC ExpressionAssociationRefset snapshot.",
     "assertionUuid" : "b9b535f0-5b68-4192-81f6-115dea2f49c0",
@@ -574,7 +574,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006: has no active preferred term in the Danish language refset"
     } ],
-    "totalFailed" : 13
+    "totalFailed" : 15
   }, {
     "assertionName" : "ReferenceComponentIds refers to valid concepts in the LOINC ExpressionAssociationRefset snapshot file.",
     "assertionUuid" : "e33922c3-5200-458b-b8f3-2cd08252234e",
@@ -702,7 +702,7 @@
       "conceptId" : "703649005",
       "detail" : "Concept: id=703649005 does not have an active FSN in any refset."
     } ],
-    "totalFailed" : 29
+    "totalFailed" : 33
   }, {
     "assertionName" : "Preferred Term exists exactly once in each language refset for each concept.",
     "assertionUuid" : "03cf9850-7857-11e1-b0c4-0800200c9a66",
@@ -807,7 +807,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006 does not have an FSN preferred in the GB language refset."
     } ],
-    "totalFailed" : 13
+    "totalFailed" : 15
   }, {
     "assertionName" : "RuleStrengthId value refers to valid concept identifier in the MRCM ATTRIBUTE DOMAIN REFSET snapshot",
     "assertionUuid" : "0e8e3549-e704-41a2-a853-fd91a60116ee",
@@ -1297,7 +1297,7 @@
       "conceptId" : "700132006",
       "detail" : "Concept: id=700132006: has no active preferred term in the Swedish language refset"
     } ],
-    "totalFailed" : 13
+    "totalFailed" : 15
   }, {
     "assertionName" : "MrcmRuleRefsetId value refers to valid concept identifier in the MRCM MODULE SCOPE REFSET snapshot",
     "assertionUuid" : "4fe314dd-6f65-4e9e-8ce1-a4c7db598c0d",

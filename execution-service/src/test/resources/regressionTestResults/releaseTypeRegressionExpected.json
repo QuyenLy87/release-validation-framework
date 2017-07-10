@@ -1,7 +1,7 @@
 {
   "assertionType" : "release-type-validation",
-  "totalAssertionsRun" : 137,
-  "totalAssertionsFailed" : 133,
+  "totalAssertionsRun" : 142,
+  "totalAssertionsFailed" : 138,
   "results" : [ {
     "assertionName" : "There must be actual changes made to previously published complex map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "80463c76-d84e-4a1a-8abb-c5b4d12b5da4",
@@ -137,7 +137,7 @@
       "conceptId" : "703860006",
       "detail" : "Description: id=2989790014 is in SNAPSHOT file, but not in FULL file."
     } ],
-    "totalFailed" : 33
+    "totalFailed" : 35
   }, {
     "assertionName" : "New inactive states for existing components must have active states in the previous SIMPLE REFSET snapshot.",
     "assertionUuid" : "9190473a-29f7-40fc-b879-9ae0d038b681",
@@ -489,6 +489,14 @@
     } ],
     "totalFailed" : 11
   }, {
+    "assertionName" : "There are no concepts that changed from primitive to fully defined",
+    "assertionUuid" : "b88850f2-e4f5-4495-a28c-c7a8bf4ae108",
+    "firstNInstances" : [ {
+      "conceptId" : "699754008",
+      "detail" : "CONCEPT: id=699754008 has changed from primitive to fully defined."
+    } ],
+    "totalFailed" : 1
+  }, {
     "assertionName" : "New inactive states follow active states in the ASSOCIATION REFSET snapshot file.",
     "assertionUuid" : "b88b9f46-4c33-4d8e-b9ab-ddb87aef3068",
     "firstNInstances" : [ {
@@ -508,8 +516,11 @@
     }, {
       "conceptId" : "902850009",
       "detail" : "CONCEPT: id=902850009 is in current full file, but not in prior full or current delta file."
+    }, {
+      "conceptId" : "366358006",
+      "detail" : "CONCEPT: id=366358006 is in current full file, but not in prior full or current delta file."
     } ],
-    "totalFailed" : 3
+    "totalFailed" : 4
   }, {
     "assertionName" : "There must be actual changes made to previously published simple map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "bc055a18-f93e-42fd-8bb2-347f2b2b8976",
@@ -799,6 +810,17 @@
       "detail" : "TextDefinition: id=2983208019  should not have a new inactive state as it was inactive previously."
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "There are no concepts that have been re-activated since the last release",
+    "assertionUuid" : "e6819767-a9fb-4c89-8bbf-12a2deed5c87",
+    "firstNInstances" : [ {
+      "conceptId" : "699754008",
+      "detail" : "CONCEPT: id=699754008 should not have a new active state as it was active previously."
+    }, {
+      "conceptId" : "698357006",
+      "detail" : "CONCEPT: id=698357006 should not have a new active state as it was active previously."
+    } ],
+    "totalFailed" : 2
   }, {
     "assertionName" : "There must be actual changes made to previously published mapcorrelationOriginRefset components in order for them to appear in the current delta.",
     "assertionUuid" : "e77a45db-d2d7-4d48-9420-0b97579582fc",
@@ -1342,6 +1364,14 @@
       "detail" : "Stated relationship: id=4768117024 is in SNAPSHOT file, but not in FULL file."
     } ],
     "totalFailed" : 22
+  }, {
+    "assertionName" : "There are no concepts that changed from fully defined to primitive",
+    "assertionUuid" : "279e3eee-4cdf-4123-8a8a-1e68f68d534d",
+    "firstNInstances" : [ {
+      "conceptId" : "698357006",
+      "detail" : "CONCEPT: id=698357006 has changed from fully defined to primitive."
+    } ],
+    "totalFailed" : 1
   }, {
     "assertionName" : "The current full language refset file consists of the previously published full file and the changes for the current release",
     "assertionUuid" : "28c3a31d-7a9d-48f6-8eb9-18c25b6306fb",
@@ -2082,10 +2112,10 @@
       "conceptId" : "609452007",
       "detail" : "CONCEPT: id=609452007 is in SNAPSHOT file, but not in FULL file."
     }, {
-      "conceptId" : "100001001",
-      "detail" : "CONCEPT: id=100001001 is in FULL file, but not in SNAPSHOT file."
+      "conceptId" : "699754008",
+      "detail" : "CONCEPT: id=699754008 is in SNAPSHOT file, but not in FULL file."
     } ],
-    "totalFailed" : 17
+    "totalFailed" : 19
   }, {
     "assertionName" : "The current Association refset full file contains all previously published data unchanged.",
     "assertionUuid" : "653ce147-780e-4b3d-8afe-bd8d116c8c17",
@@ -2266,6 +2296,17 @@
     } ],
     "totalFailed" : 7
   }, {
+    "assertionName" : "There are no active concepts with changed FSNs",
+    "assertionUuid" : "6caa3fb2-2192-4d2f-896e-c8d73198fe0d",
+    "firstNInstances" : [ {
+      "conceptId" : "699754008",
+      "detail" : "CONCEPT: id=699754008 has changed FSN"
+    }, {
+      "conceptId" : "698357006",
+      "detail" : "CONCEPT: id=698357006 has changed FSN"
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : "The ids should be unique across the stated and inferred relationship snapshot files.",
     "assertionUuid" : "6dbaed71-f031-4290-b74f-f35561c2e283",
     "firstNInstances" : [ {
@@ -2324,6 +2365,14 @@
       "detail" : "Inferred relationship: id=1000006026 is in SNAPSHOT file, but not in FULL file."
     } ],
     "totalFailed" : 18
+  }, {
+    "assertionName" : "There are no concepts with FSNs with changed semantic tags",
+    "assertionUuid" : "7a04c1b6-7d73-4122-84b7-1b84b8738f6a",
+    "firstNInstances" : [ {
+      "conceptId" : "699754008",
+      "detail" : "CONCEPT: id=699754008 has FSN changed semantic tag"
+    } ],
+    "totalFailed" : 1
   }, {
     "assertionName" : "There must be actual changes made to previously published extended map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "7a961c22-3f51-4f72-9b5e-1dc99c298719",

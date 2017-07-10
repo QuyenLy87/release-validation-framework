@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
   "totalAssertionsRun" : 178,
-  "totalAssertionsFailed" : 170,
+  "totalAssertionsFailed" : 169,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -380,14 +380,8 @@
   }, {
     "assertionName" : "LOINC concepts never make it into the International Edition Delta file",
     "assertionUuid" : "a13f2b6a-c882-430a-9cad-35c3ed394577",
-    "firstNInstances" : [ {
-      "conceptId" : "900000000000207008",
-      "detail" : "Concept Delta file with id = 366358006 contains description with the words LOINC Unique ID"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Concept Delta file with id = 366358006 in the LOINC module contains an FSN with (observable entity)"
-    } ],
-    "totalFailed" : 2
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }, {
     "assertionName" : "CTV3 simple map refset members are unique.",
     "assertionUuid" : "a2e01ee0-7f25-11e1-b0c4-0800200c9a66",
@@ -698,8 +692,11 @@
     }, {
       "conceptId" : "609452007",
       "detail" : "CONCEPT: id=609452007: Concept does not have an associated CTV3 refset member."
+    }, {
+      "conceptId" : "699754008",
+      "detail" : "CONCEPT: id=699754008: Concept does not have an associated CTV3 refset member."
     } ],
-    "totalFailed" : 4
+    "totalFailed" : 5
   }, {
     "assertionName" : "ReferencedComponentId in MRCM ATTRIBUTE DOMAIN SNAPSHOT exists in the ReferencedComponentId values of MRCM ATTRIBUTE RANGE SNAPSHOT.",
     "assertionUuid" : "bd3bb9ec-97ae-4c53-9686-9c8c63b8d67b",
@@ -1146,31 +1143,31 @@
       "conceptId" : "700132006",
       "detail" : "Active description id=3008913019 has no active langrefset member"
     }, {
-      "conceptId" : "702411003",
-      "detail" : "Active description id=2990804014 has no langrefset member"
-    }, {
-      "conceptId" : "702769005",
-      "detail" : "Active description id=600892343 has no langrefset member"
-    }, {
       "conceptId" : "703860006",
       "detail" : "Active description id=2984057025 has no langrefset member"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Active description id=2989790014 has no langrefset member"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Active description id=2989790014 has no langrefset member"
-    }, {
-      "conceptId" : "703860006",
-      "detail" : "Active description id=2989790015 has no langrefset member"
     }, {
       "conceptId" : "702386002",
       "detail" : "Active description id=3004397016 has no langrefset member"
     }, {
       "conceptId" : "702386002",
       "detail" : "Active description id=2989194011 has no langrefset member"
+    }, {
+      "conceptId" : "702411003",
+      "detail" : "Active description id=2990804014 has no langrefset member"
+    }, {
+      "conceptId" : "703860006",
+      "detail" : "Active description id=2989790014 has no langrefset member"
+    }, {
+      "conceptId" : "703860006",
+      "detail" : "Active description id=2989790014 has no langrefset member"
+    }, {
+      "conceptId" : "703649005",
+      "detail" : "Active description id=2990804019 has no langrefset member"
+    }, {
+      "conceptId" : "703860006",
+      "detail" : "Active description id=2989790015 has no langrefset member"
     } ],
-    "totalFailed" : 19
+    "totalFailed" : 21
   }, {
     "assertionName" : "Active historical association refset members have inactive concepts as reference components.",
     "assertionUuid" : "f7117eb0-7cd6-11e1-b0c4-0800200c9a66",
@@ -1735,7 +1732,7 @@
       "conceptId" : "700132006",
       "detail" : "CONCEPT: id=700132006: Concept does not have an inferred is-a relationship."
     } ],
-    "totalFailed" : 12
+    "totalFailed" : 14
   }, {
     "assertionName" : "AttributeCardinality value is in ('0..1','0..*') in MRCM ATTRIBUTE DOMAIN delta file",
     "assertionUuid" : "3ffbe5e3-ef3e-4c73-983f-24e3438a8434",
@@ -1885,7 +1882,7 @@
       "conceptId" : "699765003",
       "detail" : "CONCEPT: id=699765003: Concept does not have a stated is-a relationship."
     } ],
-    "totalFailed" : 12
+    "totalFailed" : 14
   }, {
     "assertionName" : "MrcmRuleRefsetId in MRCM MODULE SCOPE SNAPSHOT exists in the RefsetId values of MRCM DOMAIN SNAPSHOT or MRCM ATTRIBUTE DOMAIN SNAPSHOT or MRCM ATTRIBUTE RANGE SNAPSHOT",
     "assertionUuid" : "57ae69cd-26f0-4001-ba2f-ae56129e2e28",
@@ -2295,8 +2292,11 @@
     }, {
       "conceptId" : "609452007",
       "detail" : "CONCEPT: id=609452007: Concept does not have an associated SNOMED RT refset member."
+    }, {
+      "conceptId" : "699754008",
+      "detail" : "CONCEPT: id=699754008: Concept does not have an associated SNOMED RT refset member."
     } ],
-    "totalFailed" : 3
+    "totalFailed" : 4
   }, {
     "assertionName" : "ReferencedComponentId in MRCM ATTRIBUTE RANGE SNAPSHOT exists in the ReferencedComponentId values of MRCM ATTRIBUTE DOMAIN SNAPSHOT",
     "assertionUuid" : "73772817-4654-4abf-b801-e849fbae1ba0",
