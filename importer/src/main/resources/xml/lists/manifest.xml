@@ -1218,6 +1218,21 @@
 			<keywords>'Concept non-current' inactivation indicator is missing when a concept is inactivated</keywords>
 		</script>
 
+		<script uuid="3497e4b0-5470-4766-b2fe-be8f92d09e23" category="component-centric-validation"
+				sqlFile="component-centric-delta-simple-refsetid-contains-Lateralizable-refset.sql" text="Simple Refset Delta file only contains Lateralizable refset (International Edition only)">
+			<keywords>Simple Refset Delta file only contains Lateralizable refset (International Edition only)</keywords>
+		</script>
+
+		<script uuid="5c2dd029-6e6a-4444-aa28-afeb8bcfe71b" category="component-centric-validation"
+				sqlFile="component-centric-full-simple-refsetid-contains-Lateralizable-refset.sql" text="Simple Refset Full file only contains Lateralizable refset (International Edition only)">
+			<keywords>Simple Refset Full file only contains Lateralizable refset (International Edition only)</keywords>
+		</script>
+
+		<script uuid="ec36dfaf-3fc8-4e55-a102-e44ab3e84118" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-simple-refsetid-contains-Lateralizable-refset.sql" text="Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)">
+			<keywords>Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)</keywords>
+		</script>
+
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 
