@@ -1,11 +1,13 @@
 package org.ihtsdo.rvf.entity;
 
+import org.ihtsdo.drools.response.InvalidContent;
+
 import java.util.List;
 
 /**
- * Created by NamLe on 5/29/2017.
+ * Created by TinLe on 6/27/2017.
  */
-public class MrcmValidationReport {
+public class DroolsRulesValidationReport {
     private TestType testType;
     private Long executionId;
     private long timeTakenInSeconds;
@@ -13,11 +15,11 @@ public class MrcmValidationReport {
     private int totalTestsRun;
     private int totalSkips;
     private int totalFailures;
-    private List<TestRunItem> assertionsSkipped;
-    private List<TestRunItem> assertionsFailed;
-    private List<TestRunItem> assertionsPassed;
+    private String ruleSetExecuted;
 
-    public MrcmValidationReport(TestType testType) {
+    private List<AssertionDroolRule> assertionsInvalidContent;
+
+    public DroolsRulesValidationReport(TestType testType) {
         this.testType = testType;
     }
 
@@ -77,27 +79,19 @@ public class MrcmValidationReport {
         this.totalFailures = totalFailures;
     }
 
-    public List<TestRunItem> getAssertionsSkipped() {
-        return assertionsSkipped;
+    public List<AssertionDroolRule> getAssertionsInvalidContent() {
+        return assertionsInvalidContent;
     }
 
-    public void setAssertionsSkipped(List<TestRunItem> assertionsSkipped) {
-        this.assertionsSkipped = assertionsSkipped;
+    public void setAssertionsInvalidContent(List<AssertionDroolRule> assertionsInvalidContent) {
+        this.assertionsInvalidContent = assertionsInvalidContent;
     }
 
-    public List<TestRunItem> getAssertionsFailed() {
-        return assertionsFailed;
+    public String getRuleSetExecuted() {
+        return ruleSetExecuted;
     }
 
-    public void setAssertionsFailed(List<TestRunItem> assertionsFailed) {
-        this.assertionsFailed = assertionsFailed;
-    }
-
-    public List<TestRunItem> getAssertionsPassed() {
-        return assertionsPassed;
-    }
-
-    public void setAssertionsPassed(List<TestRunItem> assertionsPassed) {
-        this.assertionsPassed = assertionsPassed;
+    public void setRuleSetExecuted(String ruleSetExecuted) {
+        this.ruleSetExecuted = ruleSetExecuted;
     }
 }
