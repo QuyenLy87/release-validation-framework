@@ -492,10 +492,13 @@
     "assertionName" : "There are no concepts that changed from primitive to fully defined",
     "assertionUuid" : "b88850f2-e4f5-4495-a28c-c7a8bf4ae108",
     "firstNInstances" : [ {
+      "conceptId" : "699765003",
+      "detail" : "CONCEPT: id=699765003 has changed from primitive to fully defined."
+    }, {
       "conceptId" : "699754008",
       "detail" : "CONCEPT: id=699754008 has changed from primitive to fully defined."
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "New inactive states follow active states in the ASSOCIATION REFSET snapshot file.",
     "assertionUuid" : "b88b9f46-4c33-4d8e-b9ab-ddb87aef3068",
@@ -931,7 +934,7 @@
       "conceptId" : "2608473011",
       "detail" : "ATTRIBUTE VALUE REFSET: id=00000629-2697-5041-9438-3845fb99fe93 is in SNAPSHOT file, but not in FULL file."
     } ],
-    "totalFailed" : 30
+    "totalFailed" : 31
   }, {
     "assertionName" : "The current Stated Relationship full file contains all previously published data unchanged.",
     "assertionUuid" : "fd8ed390-94e9-4fd9-9e20-902a24273dca",

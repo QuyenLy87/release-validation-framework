@@ -1219,18 +1219,23 @@
 		</script>
 
 		<script uuid="3497e4b0-5470-4766-b2fe-be8f92d09e23" category="component-centric-validation"
-				sqlFile="component-centric-delta-simple-refsetid-contains-Lateralizable-refset.sql" text="Simple Refset Delta file only contains Lateralizable refset (International Edition only)">
+				sqlFile="component-centric-delta-simple-refsetid-contains-Lateralizable-refset.sql" severity = "WARNING" text="Simple Refset Delta file only contains Lateralizable refset (International Edition only)">
 			<keywords>Simple Refset Delta file only contains Lateralizable refset (International Edition only)</keywords>
 		</script>
 
 		<script uuid="5c2dd029-6e6a-4444-aa28-afeb8bcfe71b" category="component-centric-validation"
-				sqlFile="component-centric-full-simple-refsetid-contains-Lateralizable-refset.sql" text="Simple Refset Full file only contains Lateralizable refset (International Edition only)">
+				sqlFile="component-centric-full-simple-refsetid-contains-Lateralizable-refset.sql" severity = "WARNING" text="Simple Refset Full file only contains Lateralizable refset (International Edition only)">
 			<keywords>Simple Refset Full file only contains Lateralizable refset (International Edition only)</keywords>
 		</script>
 
 		<script uuid="ec36dfaf-3fc8-4e55-a102-e44ab3e84118" category="component-centric-validation"
-				sqlFile="component-centric-snapshot-simple-refsetid-contains-Lateralizable-refset.sql" text="Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)">
+				sqlFile="component-centric-snapshot-simple-refsetid-contains-Lateralizable-refset.sql" severity = "WARNING" text="Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)">
 			<keywords>Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)</keywords>
+		</script>
+
+		<script uuid="8313d834-b053-4479-ae38-bf9801be55d9" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-concept-having-active-historical-association-and-reason-for-inactivation.sql" severity = "WARNING" text="There are no active concepts having active historical associations and reasons for inactivation">
+			<keywords>There are no active concepts having active historical associations and reasons for inactivation</keywords>
 		</script>
 
 		<!-- rt added this as a template... -->

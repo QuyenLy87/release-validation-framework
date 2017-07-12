@@ -1,13 +1,21 @@
 {
   "assertionType" : "component-centric-validation",
-  "totalAssertionsRun" : 181,
-  "totalAssertionsFailed" : 172,
+  "totalAssertionsRun" : 182,
+  "totalAssertionsFailed" : 173,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
     "firstNInstances" : [ {
       "conceptId" : "700132006",
       "detail" : "DESC: conceptid=700132006:has terms not sharing case-sensitivity."
+    } ],
+    "totalFailed" : 1
+  }, {
+    "assertionName" : "There are no active concepts having active historical associations and reasons for inactivation",
+    "assertionUuid" : "8313d834-b053-4479-ae38-bf9801be55d9",
+    "firstNInstances" : [ {
+      "conceptId" : "702411003",
+      "detail" : "Concept: id = 702411003: historical association refset is active, but has reason for inactivation."
     } ],
     "totalFailed" : 1
   }, {
@@ -630,8 +638,11 @@
     "firstNInstances" : [ {
       "conceptId" : "702850005",
       "detail" : "Active concept 702850005 has inactivation reason 900000000000484002"
+    }, {
+      "conceptId" : "702411003",
+      "detail" : "Active concept 702411003 has inactivation reason 900000000000484002"
     } ],
-    "totalFailed" : 1
+    "totalFailed" : 2
   }, {
     "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition or all Derivative Packages)",
     "assertionUuid" : "b81aea8f-50b6-4379-85f3-3bbea3b8bfc6",
@@ -1015,6 +1026,41 @@
     "assertionUuid" : "eb940ee0-7cd6-11e1-b0c4-0800200c9a66",
     "firstNInstances" : null,
     "totalFailed" : 0
+  }, {
+    "assertionName" : "Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)",
+    "assertionUuid" : "ec36dfaf-3fc8-4e55-a102-e44ab3e84118",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 2fe779a4-b2d1-5e0a-9fc4-90d45faf7f47 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 89e0cc2b-ba8d-55cd-bb02-6ba52dbc201f and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = da47ca01-f76c-5f22-8b48-76dd75b8b4bc and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = e143e2d3-1975-5898-88d9-7f8a0dbd41c8 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = f9732f68-2af3-555a-bc7a-fa4a852caca6 and refsetId = 447566000 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 8321561e-3e21-5b90-87f8-83fcd65310ad and refsetId = 447566000 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 74d0e838-34eb-5a9a-8f02-5584487d55db and refsetId = 447565001 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 74d0e838-34eb-5a9a-8f02-5584487d55db and refsetId = 447565001 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 65f4359b-bf19-5d99-abc1-7139bbff5d47 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 65f4359b-bf19-5d99-abc1-7139bbff5d47 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
+    } ],
+    "totalFailed" : 11
   }, {
     "assertionName" : "CTV3 codes are unique in the CTV3 simple map refset",
     "assertionUuid" : "f14d521f-2472-4871-9c4e-356f0f075a3a",
@@ -1677,6 +1723,17 @@
     } ],
     "totalFailed" : 1
   }, {
+    "assertionName" : "Simple Refset Delta file only contains Lateralizable refset (International Edition only)",
+    "assertionUuid" : "3497e4b0-5470-4766-b2fe-be8f92d09e23",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 65f4359b-bf19-5d99-abc1-7139bbff5d68 and refsetId = 447564002 in Simple Refset Delta file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 22934c1b-b7dd-537c-b2cc-caa9ca5ae6f3 and refsetId = 447564002 in Simple Refset Delta file does not contain only Lateralizable refset"
+    } ],
+    "totalFailed" : 2
+  }, {
     "assertionName" : "AttributeInGroupCardinality value is in ('0..0', '0..1', '0..*') in MRCM ATTRIBUTE DOMAIN full file",
     "assertionUuid" : "36c983cc-e355-4c5a-b14e-548959072fb4",
     "firstNInstances" : [ {
@@ -1983,6 +2040,35 @@
       "detail" : "DESC: conceptid=702386002:Active FSN for a given concept with different semantic tag."
     } ],
     "totalFailed" : 3
+  }, {
+    "assertionName" : "Simple Refset Full file only contains Lateralizable refset (International Edition only)",
+    "assertionUuid" : "5c2dd029-6e6a-4444-aa28-afeb8bcfe71b",
+    "firstNInstances" : [ {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 2fe779a4-b2d1-5e0a-9fc4-90d45faf7f47 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 2fe779a4-b2d1-5e0a-9fc4-90d45faf7f47 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 89e0cc2b-ba8d-55cd-bb02-6ba52dbc201f and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = 89e0cc2b-ba8d-55cd-bb02-6ba52dbc201f and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = da47ca01-f76c-5f22-8b48-76dd75b8b4bc and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = da47ca01-f76c-5f22-8b48-76dd75b8b4bc and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = e143e2d3-1975-5898-88d9-7f8a0dbd41c8 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    }, {
+      "conceptId" : "900000000000207008",
+      "detail" : "Refset with id = e143e2d3-1975-5898-88d9-7f8a0dbd41c8 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
+    } ],
+    "totalFailed" : 8
   }, {
     "assertionName" : "Check that the expression constraints, refinements and expression templates in multiple columns in MRCM Domain Refset include only valid SNOMED CT concept identifiers",
     "assertionUuid" : "5d0fdbf5-fef6-44b2-aa42-ebb302132178",
@@ -2542,81 +2628,6 @@
       "detail" : "ComplexMap: id=79703317-411e-5d4d-b853-eef523f0109a: IFA rule references missing conceptId and term"
     } ],
     "totalFailed" : 4
-  }, {
-    "assertionName" : "Simple Refset Delta file only contains Lateralizable refset (International Edition only)",
-    "assertionUuid" : "3497e4b0-5470-4766-b2fe-be8f92d09e23",
-    "firstNInstances" : [ {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 65f4359b-bf19-5d99-abc1-7139bbff5d68 and refsetId = 447564002 in Simple Refset Delta file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 22934c1b-b7dd-537c-b2cc-caa9ca5ae6f3 and refsetId = 447564002 in Simple Refset Delta file does not contain only Lateralizable refset"
-    } ],
-    "totalFailed" : 2
-  }, {
-    "assertionName" : "Simple Refset Full file only contains Lateralizable refset (International Edition only)",
-    "assertionUuid" : "5c2dd029-6e6a-4444-aa28-afeb8bcfe71b",
-    "firstNInstances" : [  {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 2fe779a4-b2d1-5e0a-9fc4-90d45faf7f47 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 2fe779a4-b2d1-5e0a-9fc4-90d45faf7f47 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 89e0cc2b-ba8d-55cd-bb02-6ba52dbc201f and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 89e0cc2b-ba8d-55cd-bb02-6ba52dbc201f and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = da47ca01-f76c-5f22-8b48-76dd75b8b4bc and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = da47ca01-f76c-5f22-8b48-76dd75b8b4bc and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = e143e2d3-1975-5898-88d9-7f8a0dbd41c8 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = e143e2d3-1975-5898-88d9-7f8a0dbd41c8 and refsetId = 447564002 in Simple Refset Full file does not contain only Lateralizable refset"
-    }  ],
-    "totalFailed" : 8
-  }, {
-    "assertionName" : "Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)",
-    "assertionUuid" : "ec36dfaf-3fc8-4e55-a102-e44ab3e84118",
-    "firstNInstances" : [ {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 2fe779a4-b2d1-5e0a-9fc4-90d45faf7f47 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 89e0cc2b-ba8d-55cd-bb02-6ba52dbc201f and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = da47ca01-f76c-5f22-8b48-76dd75b8b4bc and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = e143e2d3-1975-5898-88d9-7f8a0dbd41c8 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = f9732f68-2af3-555a-bc7a-fa4a852caca6 and refsetId = 447566000 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 8321561e-3e21-5b90-87f8-83fcd65310ad and refsetId = 447566000 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 74d0e838-34eb-5a9a-8f02-5584487d55db and refsetId = 447565001 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 74d0e838-34eb-5a9a-8f02-5584487d55db and refsetId = 447565001 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 65f4359b-bf19-5d99-abc1-7139bbff5d47 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }, {
-      "conceptId" : "900000000000207008",
-      "detail" : "Refset with id = 65f4359b-bf19-5d99-abc1-7139bbff5d47 and refsetId = 447564002 in Simple Refset Snapshot file does not contain only Lateralizable refset"
-    }  ],
-    "totalFailed" : 11
   }
   ]
 }
