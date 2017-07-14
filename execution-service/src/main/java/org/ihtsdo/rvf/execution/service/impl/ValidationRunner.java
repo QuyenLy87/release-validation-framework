@@ -39,11 +39,12 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.zip.ZipFile;
 
 @Service
 @Scope("prototype")
 public class ValidationRunner {
-	
+
 	private static final String RELEASE_TYPE_VALIDATION = "release-type-validation";
 
 	private static final String MMRCM_TYPE_VALIDATION = "mrcm-validation";
@@ -51,6 +52,7 @@ public class ValidationRunner {
 	private static final String VALIDATION_CONFIG = "validationConfig";
 
 	public static final String FAILURE_MESSAGE = "failureMessage";
+	public static final String COMPARE_SIZE_VALIDATION = "Compare Size Validation";
 
 	private final Logger logger = LoggerFactory.getLogger(ValidationRunner.class);
 	
@@ -152,6 +154,7 @@ public class ValidationRunner {
 				reportService.writeResults(responseMap, State.FAILED, reportStorage);
 				return;
 			}
+
 		}
 		//check version are loaded
 		//load prospective version
@@ -166,12 +169,15 @@ public class ValidationRunner {
 		ValidationReport report = new ValidationReport();
 		report.setExecutionId(validationConfig.getRunId());
 
+
+
 		if (executionConfig.isReleaseValidation() && executionConfig.isExtensionValidation()) {
 			logger.info("Run extension release validation with runId:" +  executionConfig.getExecutionId());
 			runExtensionReleaseValidation(report, responseMap, validationConfig,reportStorage, executionConfig);
 		} else {
 			runAssertionTests(report, executionConfig, reportStorage);
 		}
+		compareSizePrevious(report, validationConfig, responseMap, reportStorage);
 
 		//Run Drool Validator
 		runDroolValidator(report, validationConfig, executionConfig);
@@ -201,6 +207,56 @@ public class ValidationRunner {
 		releaseDataManager.dropVersion(executionConfig.getProspectiveVersion());
 	}
 
+	private void compareSizePrevious(final ValidationReport report, ValidationRunConfig validationRunConfig, Map<String, Object> responseMap, String reportStorage) {
+		if(responseMap.containsKey("previousVersionOutputFolder")){
+			Map<String, File> previousFileList = new HashMap<>();
+			Map<String, File> currentFileList = new HashMap<>();
+			List<String> specificFolder = new ArrayList<>();
+			specificFolder.add("Full");
+			specificFolder.add("Snapshot");
+
+			StringBuilder stringBuilder = (StringBuilder)responseMap.get("previousVersionOutputFolder");
+			File file = new File(stringBuilder.toString());
+			try {
+				File zipFile = (File)responseMap.get("previousVersionZipFile");
+				File previousOutputFolder = new File(file.getAbsolutePath() + "\\previous");
+				previousOutputFolder.mkdir();
+				ZipFileUtils.extractFilesFromZipToOneFolderWithSpecificFolder(zipFile, previousOutputFolder.getAbsolutePath(), specificFolder );
+				List<TestRunItem> failedAssertions = new ArrayList<>();
+
+				ZipFileUtils.generateFileListWithSpecificFolders(previousOutputFolder, previousFileList);
+				String currentVersionOutputFolderPath = file.getParent() + "\\current";
+				File currentVersionOutputFolder = new File(currentVersionOutputFolderPath);
+				currentVersionOutputFolder.mkdir();
+				ZipFileUtils.extractFilesFromZipToOneFolderWithSpecificFolder(validationRunConfig.getLocalProspectiveFile(), currentVersionOutputFolder.getAbsolutePath(), specificFolder);
+				ZipFileUtils.generateFileListWithSpecificFolders(currentVersionOutputFolder, currentFileList);
+				Iterator iterator = currentFileList.entrySet().iterator();
+				while (iterator.hasNext()){
+					Map.Entry pair = (Map.Entry) iterator.next();
+					if(previousFileList.containsKey(pair.getKey())){
+						File previousFile = previousFileList.get(pair.getKey());
+						File currentFile = (File) pair.getValue();
+						if(previousFile.length() > currentFile.length()){
+							TestRunItem testRunItem = new TestRunItem();
+							testRunItem.setTestCategory(COMPARE_SIZE_VALIDATION);
+							testRunItem.setTestType(TestType.JAVA);
+							testRunItem.setAssertionUuid(null);
+							testRunItem.setAssertionText(currentFile.getName() + " size should be equal or greater than " + previousFile.getName());
+							testRunItem.setExtractResultInMillis(0L);
+							failedAssertions.add(testRunItem);
+
+						}
+					}
+				}
+				report.addFailedAssertions(failedAssertions);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+	}
+
+
 	private void runDroolValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) {
 		long timeStart = System.currentTimeMillis();
 		String directoryOfRuleSetsPath = droolRulesModuleName;
@@ -215,38 +271,42 @@ public class ValidationRunner {
 			logger.error("Error: " + e);
 		}
 		HashMap<String, List<InvalidContent>> invalidContentMap = new HashMap<>();
-		for(InvalidContent invalidContent : invalidContents){
-			if(!invalidContentMap.containsKey(invalidContent.getMessage())){
-				List<InvalidContent> invalidContentArrayList = new ArrayList<>();
-				invalidContentArrayList.add(invalidContent);
-				invalidContentMap.put(invalidContent.getMessage(), invalidContentArrayList);
-			}else {
-				invalidContentMap.get(invalidContent.getMessage()).add(invalidContent);
+		if(invalidContents != null){
+			for(InvalidContent invalidContent : invalidContents){
+				if(!invalidContentMap.containsKey(invalidContent.getMessage())){
+					List<InvalidContent> invalidContentArrayList = new ArrayList<>();
+					invalidContentArrayList.add(invalidContent);
+					invalidContentMap.put(invalidContent.getMessage(), invalidContentArrayList);
+				}else {
+					invalidContentMap.get(invalidContent.getMessage()).add(invalidContent);
+				}
 			}
-		}
-		invalidContents.clear();
-		Iterator it = invalidContentMap.entrySet().iterator();
-		List<TestRunItem> failedAssertions = new ArrayList<>();
-		while (it.hasNext()){
-			Map.Entry pair = (Map.Entry)it.next();
-			TestRunItem failedAssertion = new TestRunItem();
-			failedAssertion.setTestType(TestType.DROOL_RULES);
-			failedAssertion.setTestCategory("");
-			failedAssertion.setAssertionUuid(null);
-			failedAssertion.setAssertionText((String) pair.getKey());
-			failedAssertion.setExtractResultInMillis(0L);
-			List<InvalidContent> invalidContentList = (List<InvalidContent>) pair.getValue();
-			failedAssertion.setFailureCount((long) invalidContentList.size());
-			List<FailureDetail> failureDetails = new ArrayList<>();
-			for (InvalidContent invalidContent : invalidContentList){
-				failureDetails.add(new FailureDetail(invalidContent.getConceptId(), invalidContent.getMessage(), null));
+			invalidContents.clear();
+			Iterator it = invalidContentMap.entrySet().iterator();
+			List<TestRunItem> failedAssertions = new ArrayList<>();
+			while (it.hasNext()){
+				Map.Entry pair = (Map.Entry)it.next();
+				TestRunItem failedAssertion = new TestRunItem();
+				failedAssertion.setTestType(TestType.DROOL_RULES);
+				failedAssertion.setTestCategory("");
+				failedAssertion.setAssertionUuid(null);
+				failedAssertion.setAssertionText((String) pair.getKey());
+				failedAssertion.setExtractResultInMillis(0L);
+				List<InvalidContent> invalidContentList = (List<InvalidContent>) pair.getValue();
+				failedAssertion.setFailureCount((long) invalidContentList.size());
+				List<FailureDetail> failureDetails = new ArrayList<>();
+				for (InvalidContent invalidContent : invalidContentList){
+					failureDetails.add(new FailureDetail(invalidContent.getConceptId(), invalidContent.getMessage(), null));
+				}
+				failedAssertion.setFirstNInstances(failureDetails);
+				failedAssertions.add(failedAssertion);
+				it.remove(); // avoids a ConcurrentModificationException
 			}
-			failedAssertion.setFirstNInstances(failureDetails);
-			failedAssertions.add(failedAssertion);
-			it.remove(); // avoids a ConcurrentModificationException
+			validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
+			validationReport.addFailedAssertions(failedAssertions);
 		}
-		validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
-		validationReport.addFailedAssertions(failedAssertions);
+
+
 
 	}
 

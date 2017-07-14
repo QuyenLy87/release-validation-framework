@@ -10,6 +10,7 @@ public enum TestType {
     ARCHIVE_STRUCTURAL("archiveStructural"),
     MANIFEST("manifest"),
     MRCM("mrcm"),
+    JAVA("java"),
     DROOL_RULES("droolsRules"),
     UNKNOWN("unknown");
     

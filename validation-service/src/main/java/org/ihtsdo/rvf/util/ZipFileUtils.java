@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
@@ -58,6 +59,45 @@ public class ZipFileUtils {
 				}
 			}
 		} 
+	}
+
+	public static void extractFilesFromZipToOneFolderWithSpecificFolder(final File file, final String outputDir,  List<String> specificFolderName) throws IOException {
+		//debug for investigating encoding issue
+		LOGGER.debug("deafult file.encoding:" + System.getProperty("file.encoding"));
+		LOGGER.debug("default charset:" + Charset.defaultCharset());
+		try (ZipFile zipFile = new ZipFile(file)){
+			final Enumeration<? extends ZipEntry> entries = zipFile.entries();
+			while (entries.hasMoreElements()) {
+				final ZipEntry entry = entries.nextElement();
+				StringBuilder prefix = new StringBuilder();
+				if ( checkContainName(specificFolderName, entry.getName(), prefix) && !entry.isDirectory()) {
+					InputStream in = null;
+					Writer writer = null;
+					try {
+						in = zipFile.getInputStream(entry);
+						String fileName = Paths.get(entry.getName()).getFileName().toString();
+						if (fileName.startsWith("x")) {
+							fileName = fileName.substring(1);
+						}
+						final File entryDestination = new File(outputDir,prefix + "_" + fileName);
+						writer = new FileWriter(entryDestination);
+						IOUtils.copy(in, writer, UTF_8);
+					} finally {
+						IOUtils.closeQuietly(in);
+						IOUtils.closeQuietly(writer);
+					}
+				}
+			}
+		}
+	}
+	private static boolean checkContainName(List<String> spStrings, String search, StringBuilder prefix){
+		for (String string : spStrings){
+			if(search.contains(string)){
+				prefix.append(string);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	
@@ -138,4 +178,17 @@ public class ZipFileUtils {
     		}
     	}
     }
+
+	public static void generateFileListWithSpecificFolders(final File node, final Map<String, File> fileList){
+		//add file only
+		if(node.isFile()){
+			fileList.put(node.getName(), node);
+		}
+		if(node.isDirectory()){
+			final String[] subNote = node.list();
+			for(final String filename : subNote){
+				generateFileListWithSpecificFolders(new File(node, filename),fileList);
+			}
+		}
+	}
 }

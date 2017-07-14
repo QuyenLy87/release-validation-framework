@@ -47,7 +47,7 @@ public class ResourceDataLoaderImpl implements ResourceDataLoader {
 					try (final InputStream input = getClass().getResourceAsStream("/sql/load-resource-data.sql")) {
 						for (String line : IOUtils.readLines(input)) {
 							// process line and add to output file
-							line = line.replaceAll("<data_location>", tempDataFolder.getPath());
+							line = line.replaceAll("<data_location>", tempDataFolder.getPath().replace("\\","/"));
 							FileUtils.writeStringToFile(temp, line + "\n",UTF_8, true);
 						}
 					}

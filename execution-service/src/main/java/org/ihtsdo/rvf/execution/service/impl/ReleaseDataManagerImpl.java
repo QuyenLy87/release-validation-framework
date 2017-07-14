@@ -140,7 +140,7 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 		}
 		logger.info("Loading data into schema " + RVF_DB_PREFIX + productVersion);
 		List<String> rf2FilesLoaded = new ArrayList<>();
-		final String schemaName = loadSnomedData(productVersion, rf2FilesLoaded, fileDestination);
+		final String schemaName = loadSnomedData(productVersion, rf2FilesLoaded, null, fileDestination);
 		logger.info("schemaName = " + schemaName);
 		// now add to releaseSchemaNameLookup
 		releaseSchemaNameLookup.put(productVersion, schemaName);
@@ -184,11 +184,11 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 	 * @throws BusinessServiceException 
 	 */
 	@Override
-	public String loadSnomedData(final String versionName, List<String> rf2FilesLoaded, final File... zipDataFile) throws BusinessServiceException {
-		return loadSnomedData(versionName, false, rf2FilesLoaded, zipDataFile);
+	public String loadSnomedData(final String versionName, List<String> rf2FilesLoaded, StringBuilder  previousVerisonOutputFolder, final File... zipDataFile) throws BusinessServiceException {
+		return loadSnomedData(versionName, false, rf2FilesLoaded, previousVerisonOutputFolder, zipDataFile);
 	}
 
-	private String loadSnomedData(final String versionName, boolean isAppendToVersion, List<String> rf2FilesLoaded, final File... zipDataFile) throws BusinessServiceException {
+	private String loadSnomedData(final String versionName, boolean isAppendToVersion, List<String> rf2FilesLoaded, StringBuilder  previousVerisonOutputFolder,  final File... zipDataFile) throws BusinessServiceException {
 		File outputFolder = null;
 		final String createdSchemaName = RVF_DB_PREFIX + versionName;
 		final long startTime = Calendar.getInstance().getTimeInMillis();
@@ -201,7 +201,9 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 			} 
 			outputFolder.mkdir();
 			// extract SNOMED CT content from zip file
-			
+			if(previousVerisonOutputFolder != null){
+				previousVerisonOutputFolder.append(outputFolder.getAbsolutePath());
+			}
 			for (final File zipFile : zipDataFile) {
 				ZipFileUtils.extractFilesFromZipToOneFolder(zipFile, outputFolder.getAbsolutePath());
 			}
@@ -222,7 +224,7 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 			throw new BusinessServiceException(errorMsg, e);
 		}  finally {
 			// remove output directory so it does not occupy space
-			FileUtils.deleteQuietly(outputFolder);
+			//FileUtils.deleteQuietly(outputFolder);
 		}
 		logger.info("Finished loading of data in : " + ((Calendar.getInstance().getTimeInMillis() - startTime) / 1000) + " seconds.");
 		return createdSchemaName;
@@ -501,7 +503,7 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 
 	@Override
 	public String loadSnomedDataIntoExistingDb(String productVersion, List<String> rf2FilesLoaded, File... zipDataFile) throws BusinessServiceException {
-		return loadSnomedData(productVersion, true, rf2FilesLoaded, zipDataFile);
+		return loadSnomedData(productVersion, true, rf2FilesLoaded, null, zipDataFile);
 	}
 
 	@Override

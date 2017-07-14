@@ -45,7 +45,7 @@ public class ReleaseFilesDataLoaderTestHarness {
 	        assertNotNull(extentionFile);
 	        final String versionName = "test_20150131";
 	        List<String> rf2FilesLoaded = new ArrayList<>();
-	        releaseDataManager.loadSnomedData(versionName,rf2FilesLoaded, intFile, extentionFile);
+	        releaseDataManager.loadSnomedData(versionName,rf2FilesLoaded, null, intFile, extentionFile);
 //	        releaseDataManager.combineKnownVersions(versionName, "20150131", "20141031");
 	        try (
 	        		Connection connection = dataSource.getConnection();

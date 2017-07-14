@@ -100,7 +100,7 @@ public class RVFAssertionsRegressionTestHarnesss {
             assertNotNull("Must not be null", prospectiveReleaseUrl);
             final File prospectiveFile = new File(prospectiveReleaseUrl.getFile() + "_test.zip");
 			ZipFileUtils.zip(prospectiveReleaseUrl.getFile(), prospectiveFile.getAbsolutePath());
-        	releaseDataManager.loadSnomedData(PROSPECTIVE_RELEASE,rf2FilesLoaded, prospectiveFile);
+        	releaseDataManager.loadSnomedData(PROSPECTIVE_RELEASE,rf2FilesLoaded, null, prospectiveFile);
         }
         
         releaseTypeExpectedResults = RVFAssertionsRegressionTestHarnesss.class.getResource("/regressionTestResults/releaseTypeRegressionExpected.json");
