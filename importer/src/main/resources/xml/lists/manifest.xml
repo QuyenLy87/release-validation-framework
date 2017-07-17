@@ -58,6 +58,16 @@
 		<script uuid="f0b4c712-781a-4ca5-872e-883cf1949f12" category="release-type-validation" sqlFile="release-type-full-validation-language-refset.sql" text="The current Language refset full file contains all previously published data unchanged."  >
 			<keywords>US UK EN GB language</keywords>
 		</script>
+
+		<script uuid="ad9ca038-302b-4c50-aef7-a35abd4138b0" category="release-type-validation" sqlFile="release-type-full-validation-refset-descriptor.sql" text="The current Refset Descriptor full file contains all previously published data unchanged."  >
+			<keywords></keywords>
+		</script>
+
+		<script uuid="e4d2c4ed-e9f7-45ba-b642-ce85f04c3c2a" category="release-type-validation" sqlFile="release-type-full-validation-description-type.sql" text="The current Description Type full file contains all previously published data unchanged."  >
+			<keywords></keywords>
+		</script>
+
+
 		<!-- release-type-snapshot-delta-validation -->
 		<script uuid="e2d4a6be-cd76-4e03-afe8-5c7783aaa2c7" category="release-type-validation" sqlFile="release-type-snapshot-delta-validation-concept.sql" text="The current data in the Concept snapshot file are the same as the data in the current delta file."  >
 			<keywords>concept snapshot delta</keywords>
@@ -180,6 +190,15 @@
 		<script uuid="b6926fdf-e24a-49ae-a50a-c7c972944804" category="release-type-validation" sqlFile="release-type-full-delta-validation-simple-refset.sql" text="The current full simple refset file consists of the previously published full file and the changes for the current release"  >
 			<keywords></keywords>
 		</script>
+
+		<script uuid="35f51d19-bcc9-4ecb-a111-bc6d3dd8001c" category="release-type-validation" sqlFile="release-type-full-delta-validation-refset-descriptor.sql" text="The current full Refset Descriptor file consists of the previously published full file and the changes for the current release"  >
+			<keywords>The current full Refset Descriptor file consists of the previously published full file and the changes for the current release</keywords>
+		</script>
+
+		<script uuid="dd94e2d3-864c-485b-a7e3-541e58361dab" category="release-type-validation" sqlFile="release-type-full-delta-validation-description-type.sql" text="The current full Description Type file consists of the previously published full file and the changes for the current release"  >
+			<keywords></keywords>
+		</script>
+
 <!-- release-type-snapshot-validation -->
 		<script uuid="645e3292-18d6-41df-b42a-58ba4d7240d5" category="release-type-validation" sqlFile="release-type-snapshot-validation-concept.sql" text="The current concept snapshot file is an accurate derivative of the current full file"  >
 			<keywords></keywords>
@@ -210,6 +229,14 @@
 		</script>
 		<script uuid="0988de1d-29dd-4668-bcbf-032d38692492" category="release-type-validation" sqlFile="release-type-snapshot-validation-simple-refset.sql" text="The current simple refset snapshot file is an accurate derivative of the current full file"  >
 			<keywords></keywords>
+		</script>
+
+		<script uuid="7415331a-31a4-4f69-a41c-64131fe62928" category="release-type-validation" sqlFile="release-type-snapshot-validation-refset-descriptor.sql" text="The current Refset Descriptor snapshot file is an accurate derivative of the current full file"  >
+			<keywords>The current Refset Descriptor snapshot file is an accurate derivative of the current full file</keywords>
+		</script>
+
+		<script uuid="4e9576b8-07ea-42b5-b2a1-19ef5066c1db" category="release-type-validation" sqlFile="release-type-snapshot-validation-description-type.sql" text="The current Description Type snapshot file is an accurate derivative of the current full file"  >
+			<keywords>The current Description Type snapshot file is an accurate derivative of the current full file</keywords>
 		</script>
 
 		<script uuid="6caa3fb2-2192-4d2f-896e-c8d73198fe0d" category="release-type-validation" sqlFile="release-type-snapshot-concept-changed-FSN.sql" severity = "WARNING" text="There are no active concepts with changed FSNs"  >
@@ -246,6 +273,10 @@
 		<script uuid="bc055a18-f93e-42fd-8bb2-347f2b2b8976" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-simplemap-refset.sql" text="There must be actual changes made to previously published simple map refset components in order for them to appear in the current delta." />
 		<script uuid="cab60a2f-4239-4933-91d6-dc910a8ac08b" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-stated-relationship.sql" text="There must be actual changes made to previously published stated relatioships in order for them to appear in the current delta." />
 
+		<script uuid="9f45e719-0a3e-461e-af3d-6b3c958a7d74" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-refset-descriptor.sql" text="There must be actual changes made to previously published Refset Descriptor in order for them to appear in the current delta." />
+		<script uuid="8782d5bc-d767-433c-899d-c364e1b5cbe8" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-description-type.sql" text="There must be actual changes made to previously published Description Type in order for them to appear in the current delta." />
+
+
 		<!--  Successive stated checking current snapshot against previous snapshot -->
 		<script uuid="5f1a51a3-6200-4463-8799-d75998165278" category="release-type-validation" sqlFile="release-type-snapshot-concept-successive-states.sql" text="New inactive states follow active states in the CONCEPT snapshot." />
 		<script uuid="2b193a88-8dab-4d19-b995-b556ed59398d" category="release-type-validation" sqlFile="release-type-snapshot-description-successive-states.sql" text="New inactive states follow active states in the DESCRIPTION snapshot."/>
@@ -266,6 +297,8 @@
 		<script uuid="57fb3169-3905-4bed-8240-f4e81c248b93" category="release-type-validation" sqlFile="release-type-snapshot-mapcorrelationorigin-refset-successive-states.sql" text="New inactive states follow active states in the Map Correlation Origin Refset snapshot."/>
 		<script uuid="61cbbc2c-224a-4ee9-8add-60fa6303e7a8" category="release-type-validation" sqlFile="release-type-snapshot-module-dependency-successive-states.sql" text="New inactive states follow active states in the Module Dependency snapshot."/>
 		<script uuid="69446f0f-603f-4fd5-926e-05c92fab9748" category="release-type-validation" sqlFile="release-type-snapshot-refset-descriptor-successive-states.sql" text="New inactive states follow active states in the Refset Descriptor snapshot."/>
+
+		<script uuid="17e6b84c-8650-4804-837e-b6d35fdf449c" category="release-type-validation" sqlFile="release-type-snapshot-module-dependency-new-record-with-new-effectivetime-assigned-in-targeteffectivetime.sql" text="New record for pre-existing active records with new effectiveTime is assigned to the targetEffectiveTime in Module Dependency file"/>
 
 
 		<!-- across multiple files in Current snapshot-->
@@ -1234,10 +1267,10 @@
 		</script>
 
 		<script uuid="8313d834-b053-4479-ae38-bf9801be55d9" category="component-centric-validation"
-				sqlFile="component-centric-snapshot-concept-having-active-historical-association-and-reason-for-inactivation.sql" severity = "WARNING" text="There are no active concepts having active historical associations and reasons for inactivation">
-			<keywords>There are no active concepts having active historical associations and reasons for inactivation</keywords>
+				sqlFile="component-centric-snapshot-concept-having-active-historical-association-or-reason-for-inactivation.sql" severity = "WARNING" text="There are no active concepts having active historical associations or reasons for inactivation">
+			<keywords>There are no active concepts having active historical associations or reasons for inactivation</keywords>
 		</script>
-
+		
 		<!-- rt added this as a template... -->
 		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 
