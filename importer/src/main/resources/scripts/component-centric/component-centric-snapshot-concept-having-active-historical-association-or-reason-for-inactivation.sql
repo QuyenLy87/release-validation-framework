@@ -11,7 +11,7 @@
 	select
 		<RUNID>,
 		'<ASSERTIONUUID>',
-		b.id,
+		a.referencedcomponentid,
 		concat('Concept: id = ',b.id, ': historical association refset is active, but has reason for inactivation.')
 	from curr_associationrefset_s a, curr_concept_s b, curr_attributevaluerefset_s c
 	where a.referencedcomponentid = b.id

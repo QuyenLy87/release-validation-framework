@@ -298,9 +298,6 @@
 		<script uuid="61cbbc2c-224a-4ee9-8add-60fa6303e7a8" category="release-type-validation" sqlFile="release-type-snapshot-module-dependency-successive-states.sql" text="New inactive states follow active states in the Module Dependency snapshot."/>
 		<script uuid="69446f0f-603f-4fd5-926e-05c92fab9748" category="release-type-validation" sqlFile="release-type-snapshot-refset-descriptor-successive-states.sql" text="New inactive states follow active states in the Refset Descriptor snapshot."/>
 
-		<script uuid="17e6b84c-8650-4804-837e-b6d35fdf449c" category="release-type-validation" sqlFile="release-type-snapshot-module-dependency-new-record-with-new-effectivetime-assigned-in-targeteffectivetime.sql" text="New record for pre-existing active records with new effectiveTime is assigned to the targetEffectiveTime in Module Dependency file"/>
-
-
 		<!-- across multiple files in Current snapshot-->
 		<script uuid="6dbaed71-f031-4290-b74f-f35561c2e283" category="release-type-validation" sqlFile="release-type-snapshot-unique-relationship-id.sql" text="The ids should be unique across the stated and inferred relationship snapshot files." />
 		<script uuid="560e6d0c-64e8-4726-9516-ae7a7606b0b3" category="release-type-validation" sqlFile="release-type-snapshot-unique-description-definition-id.sql" text="The ids should be unique across the description and text definition snapshot files." />

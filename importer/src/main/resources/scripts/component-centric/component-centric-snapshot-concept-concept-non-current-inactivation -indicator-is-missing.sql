@@ -11,7 +11,7 @@
 	select
 		<RUNID>,
 		'<ASSERTIONUUID>',
-		a.id,
+		b.conceptid,
 		concat('CONCEPT: id=',a.id, ' is inactivated but inactivation indicator is missing.')
 	from curr_concept_s a, curr_description_s b, package_info c
     where a.id = b.conceptid

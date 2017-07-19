@@ -1376,5 +1376,3 @@ create table package_info(
 	key idx_releaseedition(releaseedition),
     key idx_releasetime(releasetime)
 ) engine=myisam default charset=utf8;
-
-insert into package_info values ('INT', '20170731');
