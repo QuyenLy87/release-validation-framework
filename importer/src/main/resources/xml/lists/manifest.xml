@@ -255,6 +255,13 @@
 			<keywords>There are no concepts that changed from primitive to fully defined</keywords>
 		</script>
 
+		<script uuid="82cd5354-18ff-416b-a3d5-67025d8c9c5d" category="release-type-validation" sqlFile="release-type-snapshot-simplemap-refset-addition-removal-CTV3-members.sql" severity = "WARNING" text="Verify that all additions/removals of members of CTV3 Simple Map refset are valid"  >
+			<keywords>Verify that all additions/removals of members of CTV3 Simple Map refset are valid</keywords>
+		</script>
+
+		<script uuid="33dd8cdb-67e1-40e6-985f-9b0b75153436" category="release-type-validation" sqlFile="release-type-snapshot-simplemap-refset-addition-removal-ICDO-members.sql" severity = "WARNING" text="Verify that all additions/removals of members of ICD-O Simple Map refset are valid"  >
+			<keywords>Verify that all additions/removals of members of ICD-O Simple Map refset are valid</keywords>
+		</script>
 
 		<!--  release type for current delta comparing with previous snapshot -->
 

@@ -18,5 +18,5 @@
 	and b.active = 1
 	and b.id = c.referencedcomponentid
 	and a.active = 1
-	or c.refsetid='900000000000489007' /* Concept inactivation indicator attribute value  */
+	or c.refsetid='900000000000489007'; /* Concept inactivation indicator attribute value  */
 	commit;

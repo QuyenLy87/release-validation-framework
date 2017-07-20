@@ -11,7 +11,7 @@
 	select
 		<RUNID>,
 		'<ASSERTIONUUID>',
-		a.maptarget,
+		a.referencedcomponentid,
 		concat('Simple Map Refset with: id = ',a.id, ' has new ICD-O member = ',a.maptarget,' added but does not map with any new concept .')
 	from curr_simplemaprefset_s a
     left join prev_simplemaprefset_s b
@@ -34,7 +34,7 @@
 	select
 		<RUNID>,
 		'<ASSERTIONUUID>',
-		a.maptarget,
+		a.referencedcomponentid,
 		concat('Simple Map Refset with: id = ',a.id, ' has ICD-O member = ',a.maptarget,' is inactivated but still related to an active concept.')
     from curr_simplemaprefset_s a
     left join prev_simplemaprefset_s b
