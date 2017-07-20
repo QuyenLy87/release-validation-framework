@@ -22,6 +22,7 @@ import javax.naming.ConfigurationException;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 
 @Service
 public class ValidationVersionLoader {
@@ -76,8 +77,14 @@ public class ValidationVersionLoader {
 	@Value("${rvf.mysql.command.mysql}")
 	private String mysqlCommand;
 
-	private final Logger logger = LoggerFactory.getLogger(ValidationVersionLoader.class);
+	@Value("${rvf.jdbc.data.myisam.folder}")
+	private String mysqlMyISamDataFolder;
 
+	@Value("${rvf.jdbc.data.restore.file.type}")
+	private String restoreByFileType;
+
+	private final Logger logger = LoggerFactory.getLogger(ValidationVersionLoader.class);
+	private static final String FILE_TYPE_BINARY = "binary";
 
 	public boolean loadPreviousVersion(ExecutionConfig executionConfig, ValidationRunConfig validationConfig, Map<String, Object> responseMap) throws Exception {
 		boolean isSuccessful = true;
@@ -265,29 +272,34 @@ public class ValidationVersionLoader {
 			IOUtils.closeQuietly(out);
 			String createdSchemaName = releaseDataManager.loadSnomedData(rvfVersion, new ArrayList<String>(),tempFile);
 			addReleasePackageInfo(releaseType, releaseDate);
-			/**
-             * Backup database
-             */
-			File tempDir = FileUtils.getTempDirectory();
-			File backupMyISAMFile = new File(tempDir, rvfVersion + SQL_FILE_EXTENSION);
-            String backupErrorMessage = backupDatabase(createdSchemaName, backupMyISAMFile);
-            if(!StringUtils.isEmpty(backupErrorMessage)){
-            	responseMap.put(FAILURE_MESSAGE, backupErrorMessage);
-				FileUtils.deleteQuietly(backupMyISAMFile);
-            	return;
-			}
-			/**
-			 * Zip file
-			 */
-			File backupMyISAMZipFile = new File(tempDir, rvfVersion + ZIP_FILE_EXTENSION);
-			ZipFileUtils.zip(backupMyISAMFile.getAbsolutePath(), backupMyISAMZipFile.getAbsolutePath());
 
-			/**
-			 * Upload to S3
-			 */
+			File tempDir = FileUtils.getTempDirectory();
+			File backupMyISAMZipFile = new File(tempDir, rvfVersion + ZIP_FILE_EXTENSION);
+
+			File backupSQLFile = null;
+			if (FILE_TYPE_BINARY.equalsIgnoreCase(restoreByFileType)) {
+				//copy all files with extension: FRM, MYD, MYI
+				File myISAMFolder = new File(mysqlMyISamDataFolder + SEPARATOR + createdSchemaName);
+				if (myISAMFolder != null && myISAMFolder.isDirectory()) {
+					ZipFileUtils.zip(myISAMFolder.getAbsolutePath(), backupMyISAMZipFile.getAbsolutePath());
+				}
+			} else {
+				//back up database
+				backupSQLFile = new File(tempDir, rvfVersion + SQL_FILE_EXTENSION);
+				String backupErrorMessage = backupDatabase(createdSchemaName, backupSQLFile);
+				if (!StringUtils.isEmpty(backupErrorMessage)) {
+					responseMap.put(FAILURE_MESSAGE, backupErrorMessage);
+					FileUtils.deleteQuietly(backupSQLFile);
+					return;
+				}
+				ZipFileUtils.zip(backupSQLFile.getAbsolutePath(), backupMyISAMZipFile.getAbsolutePath());
+			}
+			//Upload to S3
 			final String previousMyISAMFullPath = storageLocation + File.separator + RVF + File.separator + backupMyISAMZipFile.getName();
 			s3PublishFileHelper.putFile(backupMyISAMZipFile, previousMyISAMFullPath);
-			FileUtils.deleteQuietly(backupMyISAMFile);
+			if (backupSQLFile != null) {
+				FileUtils.deleteQuietly(backupSQLFile);
+			}
 			FileUtils.deleteQuietly(backupMyISAMZipFile);
 		} else {
 			logger.error("Previous release not found in the published bucket:" + publishedFileS3Path);
@@ -453,28 +465,50 @@ public class ValidationVersionLoader {
 			IOUtils.copy(publishedFileInput, out);
 			IOUtils.closeQuietly(publishedFileInput);
 			IOUtils.closeQuietly(out);
-			/**
-			 * Unzip file downloaded from S3
-			 */
-			ZipFileUtils.extractZipFile(restoredZipFile, restoredZipFile.getParentFile().getAbsolutePath());
-			/**
-			 * Create database if not exist and restore
-			 */
 			String schemaName = RVF + "_" + rvfVersion;
-			createDbIfNotExists(schemaName);
-			/**
-			 * Restore database
-			 */
-			File restoredFile = new File(restoredZipFile.getParentFile().getAbsolutePath() + File.separator + rvfVersion + SQL_FILE_EXTENSION);
-			String restoredErrorMessage = restoreDatabase(schemaName, restoredFile);
-			if(!StringUtils.isEmpty(restoredErrorMessage)){
-				responseMap.put(FAILURE_MESSAGE, restoredErrorMessage);
-				return false;
+			if (FILE_TYPE_BINARY.equalsIgnoreCase(restoreByFileType)) {
+				File tmp = new File(restoredZipFile.getParentFile().getAbsolutePath() + File.separator + rvfVersion + new Date().getTime());
+				tmp.mkdir();
+				ZipFileUtils.unzip(restoredZipFile.getPath(), tmp.getPath());
+				File myISamDataFolder = new File(mysqlMyISamDataFolder + SEPARATOR + schemaName);
+				FileUtils.copyDirectory(tmp, myISamDataFolder);
+				FileUtils.deleteQuietly(restoredZipFile);
+				FileUtils.deleteQuietly(tmp);
+				return true;
+			} else {
+				/**
+				 * Unzip file downloaded from S3
+				 */
+				ZipFileUtils.extractZipFile(restoredZipFile, restoredZipFile.getParentFile().getAbsolutePath());
+				/**
+				 * Create database if not exist and restore
+				 */
+				createDbIfNotExists(schemaName);
+				/**
+				 * Restore database
+				 */
+				File restoredFile = new File(restoredZipFile.getParentFile().getAbsolutePath() + File.separator + rvfVersion + SQL_FILE_EXTENSION);
+				String restoredErrorMessage = restoreDatabase(schemaName, restoredFile);
+				if(!StringUtils.isEmpty(restoredErrorMessage)) {
+					responseMap.put(FAILURE_MESSAGE, restoredErrorMessage);
+					return false;
+				}
+				return true;
 			}
-			return true;
 		}
 		logger.debug("Can not download previous published MyISAM file from S3:" + previousMyISAMS3Path);
 		return false;
+	}
+
+	public static void main(String[] args) throws Exception {
+		File myISAMFolder = new File("D:\\working\\Snomed\\s3\\local.publish.bucket\\12345\\rvf\\dtphat");
+		File tempDir = FileUtils.getTempDirectory();
+		File backupMyISAMZipFile = new File(tempDir, "dtphat" + ZIP_FILE_EXTENSION);
+
+		ZipFileUtils.zip(myISAMFolder.getAbsolutePath(), backupMyISAMZipFile.getAbsolutePath());
+
+		File file = new File("D:\\working\\Snomed\\s3\\local.publish.bucket\\12345\\rvf");
+		ZipFileUtils.unzip(backupMyISAMZipFile.getPath(), file.getParentFile().getAbsolutePath());
 	}
 
 	private void uploadProspectiveVersion(final String prospectiveVersion, final String knownVersion, final File tempFile,
