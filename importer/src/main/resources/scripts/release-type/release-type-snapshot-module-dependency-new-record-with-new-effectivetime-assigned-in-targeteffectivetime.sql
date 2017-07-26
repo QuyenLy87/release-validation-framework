@@ -28,7 +28,7 @@
     select
     	<RUNID>,
     	'<ASSERTIONUUID>',
-    	a.id,
+    	a.referencedcomponentid,
     	concat('Module Dependency id = ',a.referencedcomponentid, ' new record for pre-existing active records but new effectiveTime is not assigned to targetEffectiveTime')
     from curr_moduleDependency_s a, prev_moduleDependency_s b, package_info c
     where a.id = b.id
