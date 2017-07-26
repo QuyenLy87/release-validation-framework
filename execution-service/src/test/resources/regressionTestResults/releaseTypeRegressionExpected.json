@@ -1,7 +1,7 @@
 {
   "assertionType" : "release-type-validation",
-  "totalAssertionsRun" : 142,
-  "totalAssertionsFailed" : 138,
+  "totalAssertionsRun" : 154,
+  "totalAssertionsFailed" : 146,
   "results" : [ {
     "assertionName" : "There must be actual changes made to previously published complex map refset components in order for them to appear in the current delta.",
     "assertionUuid" : "80463c76-d84e-4a1a-8abb-c5b4d12b5da4",
@@ -2476,6 +2476,54 @@
       "detail" : "ExpressionAssociation: id=39761BDC-96AB-47AF-B10F-0A57B6C01278 is in DELTA file, but not in FULL file."
     } ],
     "totalFailed" : 1
+  }, {
+    "assertionName" : "Verify that all additions/removals of members of CTV3 Simple Map refset are valid",
+    "assertionUuid" : "82cd5354-18ff-416b-a3d5-67025d8c9c5d",
+    "firstNInstances" : [ {
+      "conceptId" : "10024003",
+      "detail" : "Simple Map Refset with: id = 9ec10eaa-224b-50e0-9639-e43c3a87fc0a has new CTV3 member = C34.3 added but does not map with any new concept ."
+    }  ],
+    "totalFailed" : 1
+    }, {
+    "assertionName" : "Verify that all additions/removals of members of ICD-O Simple Map refset are valid",
+    "assertionUuid" : "33dd8cdb-67e1-40e6-985f-9b0b75153436",
+    "firstNInstances" : [ {
+      "conceptId" : "703615007",
+      "detail" : "Simple Map Refset with: id = e855c4de-407c-56f7-865e-7423580dd95c has new ICD-O member = 8825/3 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703711007",
+      "detail" : "Simple Map Refset with: id = f4203391-3431-5822-bada-026ff1d45c33 has new ICD-O member = 9750/1 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703815005",
+      "detail" : "Simple Map Refset with: id = dcfb5554-b50f-5ca0-8684-29b1b1b2ecd6 has new ICD-O member = 8150/0 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703605001",
+      "detail" : "Simple Map Refset with: id = 1cb64068-effb-5e1d-b9d4-a861f45a29d2 has new ICD-O member = 8714/3 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703634007",
+      "detail" : "Simple Map Refset with: id = dc853820-0f73-539a-811a-e28db48e430f has new ICD-O member = 8890/1 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703828003",
+      "detail" : "Simple Map Refset with: id = f2e60ac2-6370-533d-921d-15ed46d0f22e has new ICD-O member = 9740/1 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703607009",
+      "detail" : "Simple Map Refset with: id = 34e48b38-b6fc-5929-96bb-87330b833af1 has new ICD-O member = 8810/0 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703568007",
+      "detail" : "Simple Map Refset with: id = cff7ca5c-286c-52b3-9322-e489c65c8de4 has new ICD-O member = 8474/3 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703568007",
+      "detail" : "Simple Map Refset with: id = cff7ca5c-286c-52b3-9322-e489c65c8de4 has new ICD-O member = 8475/3 added but does not map with any new concept ."
+    }, {
+      "conceptId" : "703568007",
+      "detail" : "Simple Map Refset with: id = cff7ca5c-286c-52b3-9322-e489c65c8ab5 has new ICD-O member = 8474/3 added but does not map with any new concept ."
+    } ],
+    "totalFailed" : 10
+  }, {
+    "assertionName" : "In Snapshot Module Dependency file of Extension packages, sourceEffectiveTime for each record is set to the effectiveTime and targetEffectiveTime is set to the effectiveTime for the dependent International Edition.",
+    "assertionUuid" : "402ad785-fb10-4bb1-b946-7e976e768c22",
+    "firstNInstances" : null,
+    "totalFailed" : 0
   }
   ]
 }

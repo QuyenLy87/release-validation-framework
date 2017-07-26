@@ -1,7 +1,7 @@
 {
   "assertionType" : "component-centric-validation",
   "totalAssertionsRun" : 182,
-  "totalAssertionsFailed" : 173,
+  "totalAssertionsFailed" : 162,
   "results" : [ {
     "assertionName" : "Case-sensitive terms that share initial words also share caseSignificanceId value.",
     "assertionUuid" : "805ab37c-33fa-45aa-876b-f86365a828c8",
@@ -1070,11 +1070,6 @@
     } ],
     "totalFailed" : 1
   }, {
-    "assertionName" : "For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
-    "assertionUuid" : "f1df7304-be9b-4f29-bf95-b9fcf31c4c1c",
-    "firstNInstances" : null,
-    "totalFailed" : 0
-  }, {
     "assertionName" : "DomainId in MRCM ATTRIBUTE DOMAIN SNAPSHOT exists in the ReferencedComponentId values of MRCM DOMAIN SNAPSHOT",
     "assertionUuid" : "f1fc2c4b-9202-4a0b-9c00-49b6de7a7cc5",
     "firstNInstances" : [ {
@@ -1840,11 +1835,6 @@
     } ],
     "totalFailed" : 1
   }, {
-    "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
-    "assertionUuid" : "4de845c8-71cc-4ca4-89e1-6b3312be39d1",
-    "firstNInstances" : null,
-    "totalFailed" : 0
-  }, {
     "assertionName" : "Extended Map Snapshot file contains nothing except ICD-10 maps (International Edition only)",
     "assertionUuid" : "4e78d040-96e9-49fc-aaa5-54b4fcc13659",
     "firstNInstances" : [ {
@@ -2021,11 +2011,6 @@
       "detail" : "DESC: Term=Epilepsy in mother complicating childbirth(disorder:Fully Specified Name not ending with closing parantheses."
     } ],
     "totalFailed" : 1
-  }, {
-    "assertionName" : "For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
-    "assertionUuid" : "5a8f5f5c-3bd1-4deb-a4f6-fdbdaad45024",
-    "firstNInstances" : null,
-    "totalFailed" : 0
   }, {
     "assertionName" : "All active FSNs for a given concept have the same semantic tag.",
     "assertionUuid" : "5c0186f3-0b72-4685-8aad-eff15a7f8880",
@@ -2441,6 +2426,21 @@
     } ],
     "totalFailed" : 742
   }, {
+    "assertionName" : "For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
+    "assertionUuid" : "5a8f5f5c-3bd1-4deb-a4f6-fdbdaad45024",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  }, {
+    "assertionName" : "For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
+    "assertionUuid" : "f1df7304-be9b-4f29-bf95-b9fcf31c4c1c",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  }, {
+    "assertionName" : "For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)",
+    "assertionUuid" : "4de845c8-71cc-4ca4-89e1-6b3312be39d1",
+    "firstNInstances" : null,
+    "totalFailed" : 0
+  },{
     "assertionName" : "For each record in Module Dependency Snapshot file, the targetEffectiveTime always matches the sourceEffectiveTime(International Edition or all Derivative Packages)",
     "assertionUuid" : "77982aaf-0ab1-449e-899a-2fbe22d3e1d8",
     "firstNInstances" : [ {
