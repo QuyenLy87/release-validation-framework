@@ -13,5 +13,5 @@
 		concat('Refset with id = ',a.id,' and refsetId = ',a.refsetid,' in Extended Map Full file is not an ICD-10 map')
 	from curr_extendedmaprefset_f a, package_info b
 	where a.refsetid not in (447562003)
-	and b.releaseedition='INT';
+	and b.releaseedition like '%INT%';
 	commit;

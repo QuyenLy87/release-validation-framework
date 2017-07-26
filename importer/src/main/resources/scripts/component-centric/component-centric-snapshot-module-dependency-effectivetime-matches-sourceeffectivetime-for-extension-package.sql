@@ -14,10 +14,8 @@
 		concat('Refset with id = ',a.id, ' in Module Dependency Snapshot file , effectiveTime = ',a.effectivetime,' does not match the sourceEffectiveTime = ',a.sourceeffectivetime)
 	from curr_moduleDependency_s a, package_info b
 	where a.effectivetime <> a.sourceeffectivetime
-    and (
-    b.releaseedition = 'SE'
-    or b.releaseedition = 'DK'
-    or b.releaseedition = 'GPFP'
-    or b.releaseedition = 'ICNP'
-    );
+	and
+        ( b.releaseedition like '%DK%'
+	    or b.releaseedition like '%SE%'
+	    );
 	commit;

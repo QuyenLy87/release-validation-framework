@@ -12,14 +12,7 @@
 		'<ASSERTIONUUID>',
 		a.moduleid,
 		concat('Refset with id = ',a.id, ' in Module Dependency Snapshot file , effectiveTime = ',a.effectivetime,' does not match the sourceEffectiveTime and targetEffectiveTime = ',a.sourceeffectivetime)
-	from curr_moduleDependency_s a, package_info b
+	from curr_moduleDependency_s a
 	where a.effectivetime <> a.sourceeffectivetime
-    and a.sourceeffectivetime = a.targeteffectivetime
-    and (
-    b.releaseedition = 'INT'
-    or b.releaseedition = 'SE'
-    or b.releaseedition = 'DK'
-    or b.releaseedition = 'GPFP'
-    or b.releaseedition = 'ICNP'
-    );
+    and a.sourceeffectivetime = a.targeteffectivetime;
 	commit;

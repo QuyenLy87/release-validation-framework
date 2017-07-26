@@ -13,5 +13,5 @@
 		concat('Refset with id = ',a.id,' and refsetId = ',a.refsetid,' in Simple Map Delta file is not ICD-0 or CTV3 map')
 	from curr_simplemaprefset_d a, package_info b
 	where a.refsetid not in (900000000000497000,446608001)
-	and b.releaseedition='INT';
+	and b.releaseedition like '%INT%';
 	commit;
