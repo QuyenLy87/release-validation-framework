@@ -11,33 +11,33 @@ create procedure validateModuleIdIsValidModuleInModuleDependencyFull_proc(runId 
 begin
 declare currentDepth integer default 0;
 declare parentsCount integer;
-drop table if exists temp_full_concept_hierachy_tree;
-create table temp_full_concept_hierachy_tree(
+drop table if exists temp_full_concept_hierachy_tree_md;
+create table temp_full_concept_hierachy_tree_md(
     conceptId bigint(20) not null,
     parentId bigint(20) not null,
     depth integer
 );
 
-set @runSql = concat("insert into temp_full_concept_hierachy_tree(conceptId, parentId, depth)
+set @runSql = concat("insert into temp_full_concept_hierachy_tree_md(conceptId, parentId, depth)
 select sourceid, destinationid,", currentDepth ," from stated_relationship_f s
 where s.active = 1 and s.typeid = 116680003 and s.destinationid in (900000000000443000);");
 prepare statement from @runSql;
 execute statement;
-set parentsCount = (select count(distinct conceptId) from temp_full_concept_hierachy_tree where depth = currentDepth);
+set parentsCount = (select count(distinct conceptId) from temp_full_concept_hierachy_tree_md where depth = currentDepth);
 while parentsCount > 0 do
-insert into temp_full_concept_hierachy_tree(conceptId, parentId, depth)
+insert into temp_full_concept_hierachy_tree_md(conceptId, parentId, depth)
 select sourceId, destinationid, (currentDepth + 1) from stated_relationship_f s
-where s.active = 1 and s.typeid = 116680003 and s.destinationid in (select distinct conceptId from temp_full_concept_hierachy_tree where depth = currentDepth);
+where s.active = 1 and s.typeid = 116680003 and s.destinationid in (select distinct conceptId from temp_full_concept_hierachy_tree_md where depth = currentDepth);
 
 set currentDepth = currentDepth + 1;
 
-set parentsCount = (select count(distinct conceptId) from temp_full_concept_hierachy_tree where depth = currentDepth);
+set parentsCount = (select count(distinct conceptId) from temp_full_concept_hierachy_tree_md where depth = currentDepth);
 
 end while;
 
-drop table if exists temp_full_refset_conceptid;
-create table temp_full_refset_conceptid(id varchar(36),conceptId bigint(20));
-set @runSql = concat("insert into temp_full_refset_conceptid(id,conceptId) select id, ", columnName, " from ", tableName, ";");
+drop table if exists temp_full_refset_conceptid_md;
+create table temp_full_refset_conceptid_md(id varchar(36),conceptId bigint(20));
+set @runSql = concat("insert into temp_full_refset_conceptid_md(id,conceptId) select id, ", columnName, " from ", tableName, ";");
 prepare statement from @runSql;
 execute statement;
 
@@ -47,8 +47,8 @@ select
 	assertionId,
 	result.conceptId,
 	concat("Refset with Id = ",result.id, " referenced in the column: ", columnName, "of table: ", tableName, expression)
-	from  (select id, conceptId from temp_full_refset_conceptid where conceptId not in (select conceptId from temp_full_concept_hierachy_tree)) as result;
+	from  (select id, conceptId from temp_full_refset_conceptid_md where conceptId not in (select conceptId from temp_full_concept_hierachy_tree_md)) as result;
 
-drop table if exists temp_full_concept_hierachy_tree;
-drop table if exists temp_full_refset_conceptid;
+drop table if exists temp_full_concept_hierachy_tree_md;
+drop table if exists temp_full_refset_conceptid_md;
 end;
