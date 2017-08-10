@@ -29,6 +29,7 @@ public class ValidationRunConfig {
 	private boolean jiraIssueCreationFlag;
 	private String productName;
 	private String reportingStage;
+	private String confluenceUrl;
 	
 	public MultipartFile getFile() {
 		return file;
@@ -122,6 +123,15 @@ public class ValidationRunConfig {
 	public ValidationRunConfig addUrl(final String url) {
 		this.url = url;
 		return this;
+	}
+
+	public ValidationRunConfig addConfluenceUrl(final String confluenceUrl) {
+		this.confluenceUrl = confluenceUrl;
+		return this;
+	}
+
+	public String getConfluenceUrl() {
+		return confluenceUrl;
 	}
 	
 	public void setTestFileName(final String filename) {

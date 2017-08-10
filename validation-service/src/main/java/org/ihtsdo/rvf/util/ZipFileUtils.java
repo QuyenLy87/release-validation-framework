@@ -1,5 +1,6 @@
 package org.ihtsdo.rvf.util;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -58,6 +59,46 @@ public class ZipFileUtils {
 				}
 			}
 		} 
+	}
+
+	/**
+	 * Utility method for extracting a zip file to a given folder and remove the prefix "x" from file name if present.
+	 * @param file the zip file to be extracted
+	 * @param outputDir the output folder to extract the zip to.
+	 * @throws IOException
+	 */
+	public static void extractFiles(final File file, final String outputDir) throws IOException {
+		//debug for investigating encoding issue
+		LOGGER.debug("deafult file.encoding:" + System.getProperty("file.encoding"));
+		LOGGER.debug("default charset:" + Charset.defaultCharset());
+		int BUFFER_SIZE = 4096;
+		try (ZipFile zipFile = new ZipFile(file)){
+			final Enumeration<? extends ZipEntry> entries = zipFile.entries();
+			while (entries.hasMoreElements()) {
+				final ZipEntry entry = entries.nextElement();
+				if (!entry.isDirectory()) {
+					InputStream in = null;
+					BufferedOutputStream bos = null;
+					try {
+						in = zipFile.getInputStream(entry);
+						String fileName = Paths.get(entry.getName()).getFileName().toString();
+						if (fileName.startsWith("x")) {
+							fileName = fileName.substring(1);
+						}
+						final File entryDestination = new File(outputDir,fileName);
+						bos = new BufferedOutputStream(new FileOutputStream(entryDestination));
+						byte[] bytesIn = new byte[BUFFER_SIZE];
+						int read;
+						while ((read = in.read(bytesIn)) != -1) {
+							bos.write(bytesIn, 0, read);
+						}
+					} finally {
+						IOUtils.closeQuietly(in);
+						IOUtils.closeQuietly(bos);
+					}
+				}
+			}
+		}
 	}
 	
 	

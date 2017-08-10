@@ -5,6 +5,7 @@ import net.rcarz.jiraclient.JiraException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.ihtsdo.drools.RuleExecutor;
 import org.ihtsdo.drools.response.InvalidContent;
 import org.ihtsdo.drools.validator.rf2.SnomedDroolsComponentFactory;
@@ -18,7 +19,13 @@ import org.ihtsdo.otf.snomedboot.ReleaseImportException;
 import org.ihtsdo.otf.snomedboot.ReleaseImporter;
 import org.ihtsdo.otf.snomedboot.factory.LoadingProfile;
 import org.ihtsdo.otf.sqs.service.exception.ServiceException;
-import org.ihtsdo.rvf.entity.*;
+import org.ihtsdo.rvf.entity.Assertion;
+import org.ihtsdo.rvf.entity.AssertionGroup;
+import org.ihtsdo.rvf.entity.FailureDetail;
+import org.ihtsdo.rvf.entity.SeverityLevel;
+import org.ihtsdo.rvf.entity.TestRunItem;
+import org.ihtsdo.rvf.entity.TestType;
+import org.ihtsdo.rvf.entity.ValidationReport;
 import org.ihtsdo.rvf.execution.service.AssertionExecutionService;
 import org.ihtsdo.rvf.execution.service.ReleaseDataManager;
 import org.ihtsdo.rvf.execution.service.impl.ValidationReportService.State;
@@ -27,6 +34,9 @@ import org.ihtsdo.rvf.service.AssertionService;
 import org.ihtsdo.rvf.util.ZipFileUtils;
 import org.ihtsdo.rvf.validation.ColumnPatternTester;
 import org.ihtsdo.rvf.validation.StructuralTestRunner;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.snomed.quality.validator.mrcm.ValidationRun;
@@ -36,15 +46,36 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
-import java.util.concurrent.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 @Service
 @Scope("prototype")
@@ -190,6 +221,8 @@ public class ValidationRunner {
 		} else {
 			runAssertionTests(report, executionConfig, reportStorage);
 		}
+		//Run Java validator
+		runJavaPartValidator(report, validationConfig, executionConfig);
 
 		//Run Drool Validator
 		runDroolValidator(report, validationConfig, executionConfig);
@@ -225,6 +258,95 @@ public class ValidationRunner {
 				logger.error("Error while creating Jira Ticket for failed assertions. Message : " + e.getMessage());
 			}
 		}
+	}
+
+	private void runJavaPartValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws IOException {
+		checkReadMeFile(validationReport, validationConfig, executionConfig);
+	}
+
+	private void checkReadMeFile(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws IOException {
+		if (StringUtils.isBlank(validationConfig.getConfluenceUrl()) || validationConfig.getLocalManifestFile() == null) {
+			return;
+		}
+		File outputFolder = new File(FileUtils.getTempDirectory(), "rvf_loader_data_" + executionConfig.getExecutionId());
+		try {
+			if (outputFolder.exists()) {
+				outputFolder.delete();
+			}
+			outputFolder.mkdir();
+			ZipFileUtils.extractFiles(validationConfig.getLocalProspectiveFile(), outputFolder.getAbsolutePath());
+			File readMeFile = null;
+			for (File file: outputFolder.listFiles()) {
+				if (file.getName().toUpperCase().startsWith("README")) {
+					readMeFile = file;
+					break;
+				}
+			}
+			long timeStart = System.currentTimeMillis();
+			boolean isSuccess = readMeFile != null;
+			TestRunItem testRunItem = new TestRunItem();
+			testRunItem.setTestType(TestType.JAVA);
+			testRunItem.setTestCategory("readMe.txt");
+			testRunItem.setAssertionUuid(null);
+			testRunItem.setAssertionText("Verify that the Licence statement in the Readme file exactly matches that in the Confluence master record.");
+			testRunItem.setExtractResultInMillis(0L);
+
+			if (isSuccess) {
+				Document document = Jsoup.connect(validationConfig.getConfluenceUrl()).get();
+				Element root = document.select(".hideInPdfExport").last();
+				Iterator<Element> iterator = root.select("p").iterator();
+				boolean isFirst = true;
+				List<String> sourceListInConfluence = new ArrayList<>();
+				while (iterator.hasNext()) {
+					if (isFirst) {
+						isFirst = false;
+						iterator.next();
+					}
+					String html = iterator.next().html();
+					Document d = Jsoup.parse(html.replaceAll("&nbsp;", "xxxxx"));
+					sourceListInConfluence.add(d.text().replaceAll("xxxxx", " "));
+				}
+				List<String> contentList = FileUtils.readLines(readMeFile, "UTF-8");
+				List<String> destinationListInReadmeFile = new ArrayList<>();
+
+				String firstLine = contentList.get(6);
+				int i = firstLine.indexOf("-");
+				firstLine = firstLine.substring(0, i) + "-{readmeEndDate}" + firstLine.substring(i + 5);
+
+				destinationListInReadmeFile.add(firstLine);
+				destinationListInReadmeFile.add(contentList.get(8));
+				destinationListInReadmeFile.add(contentList.get(10));
+
+				isSuccess = isTwoListSameContent(sourceListInConfluence, destinationListInReadmeFile);
+				if (isSuccess) {
+					testRunItem.setFailureCount(0L);
+					validationReport.addPassedAssertions(Collections.singletonList(testRunItem));
+				} else {
+					testRunItem.setFailureMessage("Readme in zip file doesn't exactly matches with confluence.");
+					testRunItem.setFailureCount(1L);
+					validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
+				}
+			} else {
+				testRunItem.setFailureMessage("Cannot find Readme in zip file.");
+				testRunItem.setFailureCount(1L);
+				validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
+			}
+			validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
+
+		} finally {
+			FileUtils.deleteQuietly(outputFolder);
+		}
+	}
+
+	private static boolean isTwoListSameContent(List<String> sourceList, List<String> destinationList) {
+		if (CollectionUtils.isEmpty(sourceList) || CollectionUtils.isEmpty(destinationList) || sourceList.size() != destinationList.size()) {
+			return false;
+		}
+		boolean isEquals = true;
+		for (int i = 0; i < sourceList.size(); i++) {
+			isEquals = isEquals && sourceList.get(i).equals(destinationList.get(i));
+		}
+		return isEquals;
 	}
 
 	private void runDroolValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) {
@@ -442,7 +564,7 @@ public class ValidationRunner {
 		final List<Assertion> resourceAssertions = assertionService.getResourceAssertions();
 		logger.info("Found total resource assertions need to be run before test: " + resourceAssertions.size());
 		reportService.writeProgress("Start executing assertions...", reportStorage);
-		 final List<TestRunItem> items = executeAssertions(executionConfig, resourceAssertions, reportStorage);
+		final List<TestRunItem> items = executeAssertions(executionConfig, resourceAssertions, reportStorage);
 		final Set<Assertion> assertions = new HashSet<>();
 		for (final AssertionGroup group : groups) {
 			for (final Assertion assertion : assertionService.getAssertionsForGroup(group)) {

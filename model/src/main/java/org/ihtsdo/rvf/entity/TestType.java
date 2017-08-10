@@ -11,6 +11,7 @@ public enum TestType {
     MANIFEST("manifest"),
     MRCM("mrcm"),
     DROOL_RULES("droolsRules"),
+    JAVA("java"),
     UNKNOWN("unknown");
     
     private String name;
