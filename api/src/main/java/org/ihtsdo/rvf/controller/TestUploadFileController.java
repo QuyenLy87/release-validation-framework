@@ -1,18 +1,10 @@
 package org.ihtsdo.rvf.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.inject.Provider;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mangofactory.swagger.annotations.ApiIgnore;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import org.apache.commons.io.FileUtils;
 import org.ihtsdo.rvf.entity.AssertionGroup;
 import org.ihtsdo.rvf.execution.service.AssertionExecutionService;
@@ -42,11 +34,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mangofactory.swagger.annotations.ApiIgnore;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
+import javax.inject.Provider;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * The controller that handles uploaded files for the validation to run
@@ -184,6 +182,7 @@ public class TestUploadFileController {
 			@ApiParam(value = "True if require to create JIRA issue. Defaults to false.") @RequestParam(value = "jiraIssueCreationFlag", required = false) final boolean jiraIssueCreationFlag,
 			@ApiParam(value = "Release product name (e.g SNOMED CT International edition, SNOMED CT Spanish edition, SNOMED CT Managed Service - Denmark Extension (DK), SNOMED CT Managed Service - Sweden Extension (SE), SNOMED CT to GMDN Simple Map)") @RequestParam(value = "productName", required = false) final String productName,
 			@ApiParam(value = "Reproting State (e.g Pre-Alpha, Alpha feedback, Beta feedback, Pre-Production feedback, Post-Production)") @RequestParam(value = "reportingStage", required = false) final String reportingStage,
+			@ApiParam(value = "Confluence master record URL for this product, e.g: https://confluence.ihtsdotools.org/display/RMT/SNOMED+CT+International+Edition+package+license") @RequestParam(value = "confluenceUrl", required = false) final String confluenceUrl,
 			final HttpServletRequest request) throws IOException {
 
 		final String requestUrl = String.valueOf(request.getRequestURL());
@@ -202,7 +201,8 @@ public class TestUploadFileController {
 				.addJiraIssueCreationFlag(jiraIssueCreationFlag)
 				.addProductName(productName)
 				.addReportingStage(reportingStage)
-				.addProspectiveFilesInS3(false);
+				.addProspectiveFilesInS3(false)
+				.addConfluenceUrl(confluenceUrl);
 
 		// Before we start running, ensure that we've made our mark in the
 		// storage location
