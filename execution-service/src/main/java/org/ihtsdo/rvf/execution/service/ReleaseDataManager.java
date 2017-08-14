@@ -18,7 +18,7 @@ public interface ReleaseDataManager {
 
     boolean uploadPublishedReleaseData(File releasePackZip, String product, String version) throws BusinessServiceException;
 
-    String loadSnomedData(String productVersion,List<String> rf2FilesLoaded,File ... zipDataFile) throws BusinessServiceException;
+    String loadSnomedData(String productVersion,List<String> rf2FilesLoaded, StringBuilder  previousVersionOutputFolder, File ... zipDataFile) throws BusinessServiceException;
 
     boolean isKnownRelease(String releaseVersion);
 

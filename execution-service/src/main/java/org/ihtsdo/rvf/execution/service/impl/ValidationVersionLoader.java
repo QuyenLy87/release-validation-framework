@@ -107,8 +107,18 @@ public class ValidationVersionLoader {
 		String reportStorage = validationConfig.getStorageLocation();
 		if (validationConfig.isRf2DeltaOnly()) {
 			List<String> excludeTables = Arrays.asList(RELATIONSHIP_SNAPSHOT_TABLE);
+/*<<<<<<< HEAD
 			rf2FilesLoaded.addAll(loadProspectiveDeltaAndCombineWithPreviousSnapshotIntoDB(prospectiveVersion, validationConfig,excludeTables));
 			isExtensionValidation(executionConfig, validationConfig);
+=======*/
+			rf2FilesLoaded.addAll(loadProspectiveDeltaAndCombineWithPreviousSnapshotIntoDB(prospectiveVersion, validationConfig,excludeTables, null));
+			isExtensionValidation(executionConfig, validationConfig);
+			if (isExtension(validationConfig)) {
+				executionConfig.setPreviousVersion(validationConfig.getPreviousExtVersion());
+			} else {
+				executionConfig.setPreviousVersion(validationConfig.getPrevIntReleaseVersion());
+			}
+
 		} else {
 			//load prospective version alone now as used to combine with dependency for extension testing
 			uploadProspectiveVersion(prospectiveVersion, null, validationConfig.getLocalProspectiveFile(), rf2FilesLoaded);
@@ -146,10 +156,10 @@ public class ValidationVersionLoader {
 		return executionConfig;
 	}
 
-	public List<String> loadProspectiveDeltaAndCombineWithPreviousSnapshotIntoDB(String prospectiveVersion, ValidationRunConfig validationConfig, List<String> excludeTableNames) throws BusinessServiceException {
+	public List<String> loadProspectiveDeltaAndCombineWithPreviousSnapshotIntoDB(String prospectiveVersion, ValidationRunConfig validationConfig, List<String> excludeTableNames, StringBuilder previousVersionOutputFolder) throws BusinessServiceException {
 		List<String> filesLoaded = new ArrayList<>();
 		if (validationConfig.isRf2DeltaOnly()) {
-			releaseDataManager.loadSnomedData(prospectiveVersion, filesLoaded, validationConfig.getLocalProspectiveFile());
+			releaseDataManager.loadSnomedData(prospectiveVersion, filesLoaded, previousVersionOutputFolder, validationConfig.getLocalProspectiveFile());
 			if (isExtension(validationConfig)) {
 				if (!validationConfig.isFirstTimeRelease()) {
 					releaseDataManager.copyTableData(validationConfig.getPreviousExtVersion(),validationConfig.getExtensionDependency(), prospectiveVersion,SNAPSHOT_TABLE, excludeTableNames);
@@ -257,14 +267,23 @@ public class ValidationVersionLoader {
 
 		logger.debug("downloading published file from s3:" + publishedFileS3Path); //download previous ZIP file from S3
 		InputStream publishedFileInput = s3PublishFileHelper.getFileStream(publishedFileS3Path);
+		StringBuilder previousVersionOutputFolder = new StringBuilder();
 		if (publishedFileInput != null) {
 			File tempFile = File.createTempFile(publishedReleaseFilename, ZIP_FILE_EXTENSION);
 			OutputStream out = new FileOutputStream(tempFile);
 			IOUtils.copy(publishedFileInput,out);
 			IOUtils.closeQuietly(publishedFileInput);
 			IOUtils.closeQuietly(out);
+/*<<<<<<< HEAD
 			String createdSchemaName = releaseDataManager.loadSnomedData(rvfVersion, new ArrayList<String>(),tempFile);
 			addReleasePackageInfo(releaseType, releaseDate);
+=======*/
+			String createdSchemaName = releaseDataManager.loadSnomedData(rvfVersion, new ArrayList<String>(), previousVersionOutputFolder, tempFile);
+			addReleasePackageInfo(releaseType, releaseDate);
+			if(StringUtils.isNotEmpty(previousVersionOutputFolder.toString())){
+				responseMap.put("previousVersionOutputFolder", previousVersionOutputFolder);
+				responseMap.put("previousVersionZipFile", tempFile);
+			}
 			/**
              * Backup database
              */
@@ -503,13 +522,13 @@ public class ValidationVersionLoader {
 				}
 				logger.info("Start loading release version {} with release file {} and baseline {}",
 						prospectiveVersion, tempFile.getName(), preLoadedZipFile.getName());
-				releaseDataManager.loadSnomedData(prospectiveVersion,rf2FilesLoaded, tempFile, preLoadedZipFile);
+				releaseDataManager.loadSnomedData(prospectiveVersion,rf2FilesLoaded, null, tempFile, preLoadedZipFile);
 			} else {
 				throw new ConfigurationException("Can't find the cached release zip file for known version: " + versionDate);
 			}
 		} else {
 			logger.info("Start loading release version {} with release file {}", prospectiveVersion, tempFile.getName());
-			releaseDataManager.loadSnomedData(prospectiveVersion, rf2FilesLoaded, tempFile);
+			releaseDataManager.loadSnomedData(prospectiveVersion, rf2FilesLoaded, null, tempFile);
 		}
 		logger.info("Completed loading release version {}", prospectiveVersion);
 	}
