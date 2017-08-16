@@ -1,5 +1,6 @@
 package org.ihtsdo.rvf.validation;
 
+import org.ihtsdo.rvf.type.BuildType;
 import org.ihtsdo.rvf.validation.impl.CsvMetadataResultFormatter;
 import org.ihtsdo.rvf.validation.impl.StreamTestReport;
 import org.ihtsdo.rvf.validation.log.impl.TestValidationLogImpl;
@@ -23,7 +24,7 @@ public class ManifestPatternTesterTest {
 		File f = new File(getClass().getResource(manifestFilename).toURI());
 		File zipFile = new File(getClass().getResource(packageName).toURI());
 		ManifestPatternTester tester = new ManifestPatternTester(new TestValidationLogImpl(ManifestPatternTester.class),
-				new ZipFileResourceProvider(zipFile), new ManifestFile(f), testReport);
+				new ZipFileResourceProvider(zipFile), new ManifestFile(f), BuildType.RELEASE, testReport);
 		tester.runTests();
 
 		assertEquals("errors should include: 1) 1 missing Terminology under full + 5 files, " +

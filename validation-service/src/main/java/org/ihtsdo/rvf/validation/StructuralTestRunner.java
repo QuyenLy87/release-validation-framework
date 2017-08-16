@@ -13,6 +13,7 @@ import org.ihtsdo.rvf.entity.FailureDetail;
 import org.ihtsdo.rvf.entity.TestRunItem;
 import org.ihtsdo.rvf.entity.TestType;
 import org.ihtsdo.rvf.entity.ValidationReport;
+import org.ihtsdo.rvf.type.BuildType;
 import org.ihtsdo.rvf.validation.contanst.ErrorMessage;
 import org.ihtsdo.rvf.validation.impl.CsvMetadataResultFormatter;
 import org.ihtsdo.rvf.validation.impl.StreamTestReport;
@@ -41,14 +42,14 @@ public class StructuralTestRunner implements InitializingBean{
 	
 
 	public TestReportable execute(final ResourceProvider resourceManager, final PrintWriter writer, final boolean writeSuccesses,
-			final ManifestFile manifest) {
+			BuildType buildType, final ManifestFile manifest) {
 		// the information for the manifest testing
 		long start = System.currentTimeMillis();
 		final StreamTestReport testReport = new StreamTestReport(new CsvMetadataResultFormatter(), writer, writeSuccesses);
 		final ValidationLog validationLog = validationLogFactory.getValidationLog(ColumnPatternTester.class);
 		// run manifest tests
 		if ( manifest != null) {
-			runManifestTests(resourceManager, testReport, manifest, validationLogFactory.getValidationLog(ManifestPatternTester.class));
+			runManifestTests(resourceManager, testReport, manifest, buildType, validationLogFactory.getValidationLog(ManifestPatternTester.class));
 			testReport.addNewLine();
 		}
 		runColumnTests(resourceManager, testReport, validationLog);
@@ -69,13 +70,13 @@ public class StructuralTestRunner implements InitializingBean{
 		
 	}
 
-	public TestReportable execute(final ResourceProvider resourceManager, final PrintWriter writer, final boolean writeSuccesses) {
-		return execute(resourceManager, writer, writeSuccesses, null);
+	public TestReportable execute(final ResourceProvider resourceManager, final PrintWriter writer, final boolean writeSuccesses, final BuildType buildType) {
+		return execute(resourceManager, writer, writeSuccesses, buildType, null);
 	}
 
 	private void runManifestTests(final ResourceProvider resourceManager, final TestReportable report,
-			final ManifestFile manifest, final ValidationLog validationLog) {
-		final ManifestPatternTester manifestPatternTester = new ManifestPatternTester(validationLog, resourceManager, manifest, report);
+			final ManifestFile manifest, BuildType buildType, final ValidationLog validationLog) {
+		final ManifestPatternTester manifestPatternTester = new ManifestPatternTester(validationLog, resourceManager, manifest, buildType, report);
 		manifestPatternTester.runTests();
 	}
 
@@ -86,7 +87,7 @@ public class StructuralTestRunner implements InitializingBean{
 	}
 	
 	public boolean verifyZipFileStructure(final Map<String, Object> responseMap, final File tempFile, final Long runId, final File manifestFile, 
-			final boolean writeSucceses, final String urlPrefix, String storageLocation ) throws IOException {
+			final boolean writeSucceses, final String urlPrefix, String storageLocation, BuildType buildType ) throws IOException {
 		 boolean isFailed = false;
 		 final long timeStart = System.currentTimeMillis();
 		 if (tempFile != null) {
@@ -109,7 +110,7 @@ public class StructuralTestRunner implements InitializingBean{
 				File tempManifestFile  = null;
 				try {
 					final ManifestFile mf = new ManifestFile(manifestFile);
-					report = execute(resourceManager, writer, writeSucceses, mf);
+					report = execute(resourceManager, writer, writeSucceses, buildType, mf);
 				} finally {
 					FileUtils.deleteQuietly(tempManifestFile);
 				}

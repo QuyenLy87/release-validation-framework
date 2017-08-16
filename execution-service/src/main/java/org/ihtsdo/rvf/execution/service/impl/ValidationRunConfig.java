@@ -3,6 +3,7 @@ package org.ihtsdo.rvf.execution.service.impl;
 import java.io.File;
 import java.util.List;
 
+import org.ihtsdo.rvf.type.BuildType;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ValidationRunConfig {
@@ -26,6 +27,8 @@ public class ValidationRunConfig {
 	private transient File localManifestFile;
 	private String s3PublishBucketName;
 	private boolean isRf2DeltaOnly;
+	private BuildType buildType;
+	
 	public MultipartFile getFile() {
 		return file;
 	}
@@ -229,5 +232,11 @@ public class ValidationRunConfig {
 	}
 	public void setExtensionDependency(String extensionDependency) {
 		this.extensionDependency = extensionDependency;
+	}
+	public BuildType getBuildType() {
+		return buildType;
+	}
+	public void setBuildType(BuildType buildType) {
+		this.buildType = buildType;
 	}
 }

@@ -22,6 +22,7 @@ import org.ihtsdo.rvf.execution.service.impl.ValidationRunner;
 import org.ihtsdo.rvf.messaging.ValidationQueueManager;
 import org.ihtsdo.rvf.service.AssertionService;
 import org.ihtsdo.rvf.service.EntityService;
+import org.ihtsdo.rvf.type.BuildType;
 import org.ihtsdo.rvf.validation.StructuralTestRunner;
 import org.ihtsdo.rvf.validation.TestReportable;
 import org.ihtsdo.rvf.validation.model.ManifestFile;
@@ -85,13 +86,14 @@ public class TestUploadFileController {
 	public ResponseEntity uploadTestPackage(
 			@RequestParam(value = "file") final MultipartFile file,
 			@RequestParam(value = "writeSuccesses", required = false) final boolean writeSucceses,
+			@ApiParam(required = false, value = "Defaults to RELEASE when not provided", defaultValue = "RELEASE") @RequestParam(value = "writeSuccesses", required = false, defaultValue = "RELEASE") final BuildType buildType,
 			@RequestParam(value = "manifest", required = false) final MultipartFile manifestFile,
 			final HttpServletResponse response) throws IOException {
 		// load the filename
 		final String filename = file.getOriginalFilename();
 		// must be a zip
 		if (filename.endsWith(ZIP)) {
-			return uploadPostTestPackage(file, writeSucceses, manifestFile,
+			return uploadPostTestPackage(file, writeSucceses, buildType, manifestFile,
 					response);
 
 		} else if (filename.endsWith(".txt")) {
@@ -106,8 +108,9 @@ public class TestUploadFileController {
 	@ResponseBody
 	@ApiOperation(position = 2, value = "Structure tests for RF2 release files", notes = "Structure tests for RF2 release files in zip file format. The manifest file is optional.")
 	public ResponseEntity uploadPostTestPackage(
-			@ApiParam(value="RF2 release file in zip format")@RequestParam(value = "file") final MultipartFile file,
+			@ApiParam(value = "RF2 release file in zip format") @RequestParam(value = "file") final MultipartFile file,
 			@ApiParam(required = false, value = "Defaults to false when not provided") @RequestParam(value = "writeSuccesses", required = false) final boolean writeSucceses,
+			@ApiParam(required = false, value = "Defaults to RELEASE when not provided", defaultValue = "RELEASE") @RequestParam(value = "writeSuccesses", required = false, defaultValue = "RELEASE") final BuildType buildType,
 			@ApiParam(required = false, value = "manifest.xml file") @RequestParam(value = "manifest", required = false) final MultipartFile manifestFile,
 			final HttpServletResponse response) throws IOException {
 		// load the filename
@@ -136,7 +139,7 @@ public class TestUploadFileController {
 
 				if (manifestFile == null) {
 					report = structureTestRunner.execute(resourceManager,
-							writer, writeSucceses);
+							writer, writeSucceses, buildType);
 				} else {
 					final String originalFilename = manifestFile
 							.getOriginalFilename();
@@ -145,7 +148,7 @@ public class TestUploadFileController {
 					manifestFile.transferTo(tempManifestFile);
 					final ManifestFile mf = new ManifestFile(tempManifestFile);
 					report = structureTestRunner.execute(resourceManager,
-							writer, writeSucceses, mf);
+							writer, writeSucceses, buildType, mf);
 				}
 				// store the report to disk for now with a timestamp
 				if (report.getNumErrors() > 0) {
@@ -174,13 +177,13 @@ public class TestUploadFileController {
 			@ApiParam(value = "True if the test file contains RF2 delta files only. Defaults to false.") @RequestParam(value = "rf2DeltaOnly", required = false) final boolean isRf2DeltaOnly,
 			@ApiParam(value = "Default to false to reduce the size of report file") @RequestParam(value = "writeSuccesses", required = false) final boolean writeSucceses,
 			@ApiParam(value = "manifest.xml file") @RequestParam(value = "manifest", required = false) final MultipartFile manifestFile,
-			@ApiParam(value = "Assertion group names separated by a comma.") @RequestParam(value = "groups") final List<String> groupsList,
+			@ApiParam(value = "Assertion group names separated by a comma.") @RequestParam(value = "groups", defaultValue="common-authoring") final List<String> groupsList,
 			@ApiParam(value = "Required for non-first time international release testing") @RequestParam(value = "previousIntReleaseVersion", required = false) final String prevIntReleaseVersion,
 			@ApiParam(value = "Required for non-first time extension release testing") @RequestParam(value = "previousExtensionReleaseVersion", required = false) final String previousExtVersion,
 			@ApiParam(value = "Required for extension release testing") @RequestParam(value = "extensionDependencyReleaseVersion", required = false) final String extensionDependency,
-			@ApiParam(value = "Unique number e.g Timestamp") @RequestParam(value = "runId") final Long runId,
+			@ApiParam(value = "Unique number e.g Timestamp") @RequestParam(value = "runId", defaultValue="1") final Long runId,
 			@ApiParam(value = "Defaults to 10 when not set") @RequestParam(value = "failureExportMax", required = false) final Integer exportMax,
-			@ApiParam(value = "The sub folder for validaiton reports") @RequestParam(value = "storageLocation") final String storageLocation,
+			@ApiParam(value = "The sub folder for validaiton reports") @RequestParam(value = "storageLocation", defaultValue="report.file") final String storageLocation,
 			final HttpServletRequest request) throws IOException {
 
 		final String requestUrl = String.valueOf(request.getRequestURL());
@@ -225,13 +228,13 @@ public class TestUploadFileController {
 			@ApiParam(value = "True if the test file contains RF2 delta files only. Defaults to false.") @RequestParam(value = "rf2DeltaOnly", required = false) final boolean isRf2DeltaOnly,
 			@ApiParam(value = "Defaults to false to reduce the size of report file") @RequestParam(value = "writeSuccesses", required = false) final boolean writeSucceses,
 			@ApiParam(value = "manifest.xml file path in AWS S3") @RequestParam(value = "manifestFileS3Path", required = false) final String manifestFileS3Path,
-			@ApiParam(value = "Assertion group names") @RequestParam(value = "groups") final List<String> groupsList,
+			@ApiParam(value = "Assertion group names") @RequestParam(value = "groups", defaultValue="common-authoring") final List<String> groupsList,
 			@ApiParam(value = "Required for non-first time international release testing") @RequestParam(value = "previousIntReleaseVersion", required = false) final String prevIntReleaseVersion,
 			@ApiParam(value = "Required for non-first time extension release testing") @RequestParam(value = "previousExtensionReleaseVersion", required = false) final String previousExtVersion,
 			@ApiParam(value = "Required for extension release testing") @RequestParam(value = "extensionDependencyReleaseVersion", required = false) final String extensionDependency,
-			@ApiParam(value = "Unique run id e.g Timestamp") @RequestParam(value = "runId") final Long runId,
+			@ApiParam(value = "Unique run id e.g Timestamp") @RequestParam(value = "runId", defaultValue="1") final Long runId,
 			@ApiParam(value = "Defaults to 10") @RequestParam(value = "failureExportMax", required = false) final Integer exportMax,
-			@ApiParam(value = "The sub folder for validaiton reports") @RequestParam(value = "storageLocation") final String storageLocation,
+			@ApiParam(value = "The sub folder for validaiton reports") @RequestParam(value = "storageLocation", defaultValue="report.s3") final String storageLocation,
 			final HttpServletRequest request) throws IOException {
 
 		final String requestUrl = String.valueOf(request.getRequestURL());
