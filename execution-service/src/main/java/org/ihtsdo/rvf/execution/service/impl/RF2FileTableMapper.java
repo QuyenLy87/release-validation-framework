@@ -1,5 +1,8 @@
 package org.ihtsdo.rvf.execution.service.impl;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -94,6 +97,11 @@ public class RF2FileTableMapper {
 		tableNameMap.put(MRCM_ATRRIBUTE_RANGE_FILE_HEADER + SNAPSHOT, "mrcmAttributeRangeRefset_s");
 		tableNameMap.put(MRCM_DOMAIN_FILE_HEADER + SNAPSHOT, "mrcmDomainRefset_s");
 	}
+
+	private static final String INTERNATIONAL = "international";
+	private static final String SEPARATOR = "/";
+	private static final String EXTENSIONS = "extensions";
+	private static final String INT = "INT";
 	
 	public static String getLegacyTableName(final String filename) {
 		final String fileName = filename.startsWith("x") ? filename.substring(1) : filename;
@@ -107,5 +115,24 @@ public class RF2FileTableMapper {
 	
 	public static Collection<String> getAllTableNames() {
 		return tableNameMap.values();
+	}
+
+	public static String getPathFileForDownloadMaintainedRefset(final String releasePackageFileName) {
+		if (StringUtils.isBlank(releasePackageFileName)) {
+			return null;
+		}
+		String[] splits = releasePackageFileName.split("_");
+		int index = splits.length - 2;
+		if(index >= 0) {
+			String publishedFileS3Path;
+			String dateVersion = splits[splits.length -1].substring(0, 8);
+			if (INT.equalsIgnoreCase(splits[index])) {
+				publishedFileS3Path = INTERNATIONAL + SEPARATOR + dateVersion;
+			} else {
+				publishedFileS3Path = EXTENSIONS + SEPARATOR + splits[index] + SEPARATOR + dateVersion;
+			}
+			return publishedFileS3Path;
+		}
+		return null;
 	}
 }

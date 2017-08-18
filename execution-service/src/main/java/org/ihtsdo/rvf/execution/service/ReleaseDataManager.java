@@ -1,11 +1,16 @@
 package org.ihtsdo.rvf.execution.service;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
 import org.ihtsdo.otf.rest.exception.BusinessServiceException;
+import org.ihtsdo.rvf.execution.service.util.RvfDynamicDataSource;
 
 /**
  * Utility service that manages a repository of published SNOMED CT releases. Note that we have deliberately not
@@ -42,4 +47,10 @@ public interface ReleaseDataManager {
 	String loadSnomedDataIntoExistingDb(String productVersion,List<String> rf2FilesLoaded,File ... zipDataFile) throws BusinessServiceException;
 
 	String createSchema(String versionName);
+
+	void loadReleaseFilesToDB(final File rf2TextFilesDir, final RvfDynamicDataSource dataSource, List<String> rf2FilesLoaded, String schemaName) throws SQLException, FileNotFoundException;
+
+	void createDBAndTables(final String schemaName, final Connection connection) throws SQLException, IOException;
+
+	void dropDatabase(String schema, final Connection connection) throws SQLException;
 }

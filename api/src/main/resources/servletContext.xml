@@ -37,6 +37,10 @@
 	<bean class="java.lang.String" id="s3PublishBucketName">
 		<constructor-arg value="${publishBucketName}" />
 	</bean>
+
+	<bean class="java.lang.String" id="s3MaintainedRefsetBucketName">
+		<constructor-arg value="${maintainedRefsetBucketName}" />
+	</bean>
 	
 	<bean class="java.lang.String" id="imageId">
 		<constructor-arg value="${rvf.autoscaling.imageId}"/>

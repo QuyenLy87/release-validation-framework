@@ -58,9 +58,9 @@ import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
@@ -77,10 +77,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.zip.ZipFile;
 
 
 @Service
@@ -223,8 +219,6 @@ public class ValidationRunner {
 		ValidationReport report = new ValidationReport();
 		report.setExecutionId(validationConfig.getRunId());
 
-
-
 		if (executionConfig.isReleaseValidation() && executionConfig.isExtensionValidation()) {
 			logger.info("Run extension release validation with runId:" +  executionConfig.getExecutionId());
 			runExtensionReleaseValidation(report, responseMap, validationConfig,reportStorage, executionConfig);
@@ -233,11 +227,8 @@ public class ValidationRunner {
 		}
 
 		//Run Java validator
-		runJavaPartValidator(report, validationConfig, executionConfig);
+		verifyMaintainedRefset(report, validationConfig, executionConfig);
 		compareSizePrevious(report, validationConfig, responseMap, reportStorage);
-
-
-
 
 		//Run Drool Validator
 		runDroolValidator(report, validationConfig, executionConfig);
@@ -275,13 +266,14 @@ public class ValidationRunner {
 		}
 	}
 
-	private void runJavaPartValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws IOException {
-		checkReadMeFile(validationReport, validationConfig, executionConfig);
 
+	private void verifyMaintainedRefset(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws SQLException, IOException, BusinessServiceException {
+		releaseVersionLoader.verifyExternallyMaintainedRefsetDelta(validationReport, validationConfig, executionConfig, Collections.singletonList("_d"));
+		releaseVersionLoader.verifyExternallyMaintainedRefsetDelta(validationReport, validationConfig, executionConfig, Arrays.asList("_f", "_s"));
 	}
 
 	private void checkReadMeFile(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws IOException {
-		if (StringUtils.isBlank(validationConfig.getConfluenceUrl()) || validationConfig.getLocalManifestFile() == null) {
+		if (StringUtils.isBlank(validationConfig.getConfluenceUrl())) {
 			return;
 		}
 		File outputFolder = new File(FileUtils.getTempDirectory(), "rvf_loader_data_" + executionConfig.getExecutionId());
@@ -302,7 +294,7 @@ public class ValidationRunner {
 			boolean isSuccess = readMeFile != null;
 			TestRunItem testRunItem = new TestRunItem();
 			testRunItem.setTestType(TestType.JAVA);
-			testRunItem.setTestCategory("readMe.txt");
+			testRunItem.setTestCategory((readMeFile != null)? readMeFile.getName(): "readMe.txt");
 			testRunItem.setAssertionUuid(null);
 			testRunItem.setAssertionText("Verify that the Licence statement in the Readme file exactly matches that in the Confluence master record.");
 			testRunItem.setExtractResultInMillis(0L);
@@ -348,7 +340,6 @@ public class ValidationRunner {
 				validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
 			}
 			validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
-
 		} finally {
 			FileUtils.deleteQuietly(outputFolder);
 		}
