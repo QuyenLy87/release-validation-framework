@@ -222,7 +222,7 @@ public class ValidationRunner {
 			runAssertionTests(report, executionConfig, reportStorage);
 		}
 		//Run Java validator
-		runJavaPartValidator(report, validationConfig, executionConfig);
+		checkReadMeFile(report, validationConfig, executionConfig);
 
 		//Run Drool Validator
 		runDroolValidator(report, validationConfig, executionConfig);
@@ -260,12 +260,8 @@ public class ValidationRunner {
 		}
 	}
 
-	private void runJavaPartValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws IOException {
-		checkReadMeFile(validationReport, validationConfig, executionConfig);
-	}
-
 	private void checkReadMeFile(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws IOException {
-		if (StringUtils.isBlank(validationConfig.getConfluenceUrl()) || validationConfig.getLocalManifestFile() == null) {
+		if (StringUtils.isBlank(validationConfig.getConfluenceUrl())) {
 			return;
 		}
 		File outputFolder = new File(FileUtils.getTempDirectory(), "rvf_loader_data_" + executionConfig.getExecutionId());
