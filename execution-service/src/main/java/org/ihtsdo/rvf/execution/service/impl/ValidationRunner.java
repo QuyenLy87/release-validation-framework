@@ -282,9 +282,9 @@ public class ValidationRunner {
 			boolean isSuccess = readMeFile != null;
 			TestRunItem testRunItem = new TestRunItem();
 			testRunItem.setTestType(TestType.JAVA);
-			testRunItem.setTestCategory("readMe.txt");
+			testRunItem.setTestCategory(readMeFile.getName());
 			testRunItem.setAssertionUuid(null);
-			testRunItem.setAssertionText("Verify that the Licence statement in the Readme file exactly matches that in the Confluence master record.");
+			testRunItem.setAssertionText("Verify that the Licence statement in the " + readMeFile.getName() + " file exactly matches that in the Confluence master record.");
 			testRunItem.setExtractResultInMillis(0L);
 
 			if (isSuccess) {
@@ -318,7 +318,7 @@ public class ValidationRunner {
 					testRunItem.setFailureCount(0L);
 					validationReport.addPassedAssertions(Collections.singletonList(testRunItem));
 				} else {
-					testRunItem.setFailureMessage("Readme in zip file doesn't exactly matches with confluence.");
+					testRunItem.setFailureMessage(readMeFile.getName() + " in zip file doesn't exactly matches with confluence.");
 					testRunItem.setFailureCount(1L);
 					validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
 				}
