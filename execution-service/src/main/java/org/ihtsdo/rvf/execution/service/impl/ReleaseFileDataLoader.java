@@ -1,16 +1,5 @@
 package org.ihtsdo.rvf.execution.service.impl;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
 import org.ihtsdo.rvf.execution.service.util.RvfDynamicDataSource;
 import org.ihtsdo.snomed.util.rf2.schema.ComponentType;
 import org.ihtsdo.snomed.util.rf2.schema.DataType;
@@ -20,6 +9,20 @@ import org.ihtsdo.snomed.util.rf2.schema.SchemaFactory;
 import org.ihtsdo.snomed.util.rf2.schema.TableSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.regex.Matcher;
 
 /**
  * Load release files into DB tables.
@@ -84,10 +87,16 @@ public class ReleaseFileDataLoader {
 					final String configStr = "SET bulk_insert_buffer_size= 1024 * 1024 * 256;";
 					final String disableIndex = "ALTER TABLE " + rvfTableName + " DISABLE KEYS;";
 					final String enableIndex = "ALTER TABLE " + rvfTableName + " ENABLE KEYS;";
+					//Linux
 					final String loadFile = "load data local infile '" + rf2TextFileRootPath + "/" + rf2FileName + "' into table " + rvfTableName
 							+ " columns terminated by '\\t' "
 							+ " lines terminated by '\\r\\n' "
 							+ " ignore 1 lines";
+					//windows
+					/*final String loadFile = "load data local infile '" + rf2TextFileRootPath.replaceAll("\\\\", Matcher.quoteReplacement("\\\\")) + "\\\\" + rf2FileName + "' into table " + rvfTableName
+							+ " columns terminated by '\\t' "
+							+ " lines terminated by '\\r\\n' "
+							+ " ignore 1 lines";*/
 					LOGGER.info(loadFile);
 					
 					try (Connection connection =dataSource.getConnection(schemaName); 
@@ -112,19 +121,65 @@ public class ReleaseFileDataLoader {
 		final long end = System.currentTimeMillis();
 		LOGGER.info("Time taken to load in seconds " + (end-start)/1000);
 	}
-	
-	/* "create table concept_d(\n" + 
-				"id bigint(20) not null,\n" + 
-				"effectivetime char(8) not null,\n" + 
-				"active char(1) not null,\n" + 
-				"moduleid bigint(20) not null,\n" + 
-				"definitionstatusid bigint(20) not null,\n" + 
-				"key idx_id(id),\n" + 
-				"key idx_effectivetime(effectivetime),\n" + 
-				"key idx_active(active),\n" + 
-				"key idx_moduleid(moduleid),\n" + 
-				"key idx_definitionstatusid(definitionstatusid)\n" + 
-				") engine=myisam default charset=utf8;"*/
+
+	/**
+	 * Get all columns of table and then concat them into string.
+	 * @param schemaName
+	 * @param tableName
+	 * @return
+	 */
+	public String getAllColumnsOfTable(String schemaName, String tableName) {
+		String allColumns = null;
+		try {
+			Connection connection = dataSource.getConnection(schemaName);
+			String sql = new StringBuilder()
+					.append("SELECT GROUP_CONCAT(CONCAT('").append(schemaName).append(".").append(tableName).append(".', column_name, '')) ")
+					.append("FROM information_schema.columns ")
+					.append("WHERE table_schema = DATABASE() AND table_name = '").append(tableName).append("'")
+					.toString();
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery(sql);
+			while(resultSet.next()) {
+				allColumns = resultSet.getString(1);
+				break;
+			}
+		} catch (Exception e) {
+			LOGGER.error("Exception: {}", e);
+		}
+		return allColumns;
+	}
+
+	/**
+	 * Get all rows which represent in source's table and not exist on destinationSchema's table
+	 * OR difference between source's table and destinationSchema's table.
+	 * @param sourceSchema
+	 * @param destinationSchema
+	 * @param tableName
+	 * @param sourceAllColumns
+	 * @param destinationAllColumns
+	 * @return
+	 */
+	public List<String> getDifferenceDataBetweenTwoTables(String sourceSchema, String destinationSchema, String tableName, String sourceAllColumns, String destinationAllColumns) {
+		List<String> result = new ArrayList<>();
+		try {
+			Connection connection = dataSource.getConnection(sourceSchema);
+			String sql = new StringBuilder()
+					.append("SELECT CONCAT_WS('\\t', " + sourceAllColumns + ") ")
+					.append(" FROM " + sourceSchema + "." + tableName)
+					.append(" LEFT OUTER JOIN " + destinationSchema + "." + tableName + " ON " + destinationSchema + "." + tableName + ".id = " + sourceSchema + "." + tableName + ".id")
+					.append(" WHERE " + destinationSchema + "." + tableName + ".id is null ")
+					.append(" OR CONCAT(" + sourceAllColumns + ") != CONCAT(" + destinationAllColumns + ")")
+					.toString();
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery(sql);
+			while(resultSet.next()) {
+				result.add(resultSet.getString(1));
+			}
+		} catch (Exception e) {
+			LOGGER.error("Exception: {}", e);
+		}
+		return result;
+	}
 	
 	private String createTable(final TableSchema tableSchema) throws SQLException {
 		final String rvfTableName = RF2FileTableMapper.getLegacyTableName(tableSchema.getFilename());

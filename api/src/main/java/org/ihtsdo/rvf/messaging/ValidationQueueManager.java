@@ -42,6 +42,8 @@ public class ValidationQueueManager {
 	@Autowired
 	private String s3PublishBucketName;
 	@Autowired
+	private String s3MaintainedRefsetBucketName;
+	@Autowired
 	private Boolean isAutoScalingEnabled;
 
 	private static final Logger LOGGER = LoggerFactory
@@ -57,6 +59,7 @@ public class ValidationQueueManager {
 		try {
 			config.setS3ExecutionBucketName(s3ExecutionBucketName);
 			config.setS3PublishBucketName(s3PublishBucketName);
+			config.setS3MaintainedRefsetBucketName(s3MaintainedRefsetBucketName);
 			if (saveUploadedFiles(config, responseMap)) {
 				Gson gson = new Gson();
 				String configJson = gson.toJson(config);

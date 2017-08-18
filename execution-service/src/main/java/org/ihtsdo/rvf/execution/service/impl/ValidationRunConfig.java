@@ -25,6 +25,7 @@ public class ValidationRunConfig {
 	private transient File localProspectiveFile;
 	private transient File localManifestFile;
 	private String s3PublishBucketName;
+	private String s3MaintainedRefsetBucketName;
 	private boolean isRf2DeltaOnly;
 	private boolean jiraIssueCreationFlag;
 	private String productName;
@@ -255,7 +256,15 @@ public class ValidationRunConfig {
 	public void setS3PublishBucketName(String s3PublishBucketName) {
 		this.s3PublishBucketName = s3PublishBucketName;
 	}
-	
+
+	public String getS3MaintainedRefsetBucketName() {
+		return s3MaintainedRefsetBucketName;
+	}
+
+	public void setS3MaintainedRefsetBucketName(String s3MaintainedRefsetBucketName) {
+		this.s3MaintainedRefsetBucketName = s3MaintainedRefsetBucketName;
+	}
+
 	public boolean isRf2DeltaOnly() {
 		return isRf2DeltaOnly;
 	}

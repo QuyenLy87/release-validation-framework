@@ -27,6 +27,7 @@ import javax.annotation.Resource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.ihtsdo.otf.rest.exception.BusinessServiceException;
 import org.ihtsdo.rvf.execution.service.ReleaseDataManager;
@@ -47,7 +48,7 @@ import org.springframework.stereotype.Service;
 public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingBean {
 
 	private static final Logger logger = LoggerFactory.getLogger(ReleaseDataManagerImpl.class);
-	private static final String RVF_DB_PREFIX = "rvf_";
+	public static final String RVF_DB_PREFIX = "rvf_";
 	private String sctDataLocation;
 	private File sctDataFolder;
 	@Resource(name = "snomedDataSource")
@@ -228,7 +229,7 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 		return createdSchemaName;
 	}
 
-	private void createDBAndTables(final String schemaName, final Connection connection) throws SQLException, IOException {
+	public void createDBAndTables(final String schemaName, final Connection connection) throws SQLException, IOException {
 		//clean and create database
 		String dropStr = "drop database if exists " + schemaName + ";";
 		String createDbStr = "create database if not exists "+ schemaName + ";";
@@ -244,7 +245,15 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 		}
 	}
 
-	private void loadReleaseFilesToDB(final File rf2TextFilesDir, final RvfDynamicDataSource dataSource, List<String> rf2FilesLoaded, String schemaName) throws SQLException, FileNotFoundException {
+	@Override
+	public void dropDatabase(String schema, final Connection connection) throws SQLException {
+		String dropStr = "drop database if exists " + schema + ";";
+		try(Statement statement = connection.createStatement()) {
+			statement.execute(dropStr);
+		}
+	}
+
+	public void loadReleaseFilesToDB(final File rf2TextFilesDir, final RvfDynamicDataSource dataSource, List<String> rf2FilesLoaded, String schemaName) throws SQLException, FileNotFoundException {
 		if (rf2TextFilesDir != null) {
 			final String[] rf2Files = rf2TextFilesDir.list( new FilenameFilter() {
 				

@@ -43,8 +43,25 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
-import java.util.concurrent.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 @Service
 @Scope("prototype")
@@ -190,6 +207,8 @@ public class ValidationRunner {
 		} else {
 			runAssertionTests(report, executionConfig, reportStorage);
 		}
+		//Run Java validator
+		verifyMaintainedRefset(report, validationConfig, executionConfig);
 
 		//Run Drool Validator
 		runDroolValidator(report, validationConfig, executionConfig);
@@ -225,6 +244,12 @@ public class ValidationRunner {
 				logger.error("Error while creating Jira Ticket for failed assertions. Message : " + e.getMessage());
 			}
 		}
+	}
+
+
+	private void verifyMaintainedRefset(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws SQLException, IOException, BusinessServiceException {
+		releaseVersionLoader.verifyExternallyMaintainedRefsetDelta(validationReport, validationConfig, executionConfig, Collections.singletonList("_d"));
+		releaseVersionLoader.verifyExternallyMaintainedRefsetDelta(validationReport, validationConfig, executionConfig, Arrays.asList("_f", "_s"));
 	}
 
 	private void runDroolValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) {

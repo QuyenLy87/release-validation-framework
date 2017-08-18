@@ -7,9 +7,14 @@ import org.apache.commons.lang.StringUtils;
 import org.ihtsdo.otf.dao.s3.S3Client;
 import org.ihtsdo.otf.dao.s3.helper.FileHelper;
 import org.ihtsdo.otf.rest.exception.BusinessServiceException;
+import org.ihtsdo.rvf.entity.FailureDetail;
+import org.ihtsdo.rvf.entity.TestRunItem;
+import org.ihtsdo.rvf.entity.TestType;
+import org.ihtsdo.rvf.entity.ValidationReport;
 import org.ihtsdo.rvf.execution.service.ReleaseDataManager;
 import org.ihtsdo.rvf.execution.service.ResourceDataLoader;
 import org.ihtsdo.rvf.execution.service.impl.ValidationReportService.State;
+import org.ihtsdo.rvf.execution.service.util.RvfDynamicDataSource;
 import org.ihtsdo.rvf.util.ZipFileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +27,7 @@ import javax.naming.ConfigurationException;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 
 @Service
 public class ValidationVersionLoader {
@@ -49,6 +55,8 @@ public class ValidationVersionLoader {
 	private static final String DELTA_TABLE = "%_d";
 	private static final String FULL_TABLE = "%_f";
 
+	private static final String JAVA_TMP_DIR = "java.io.tmpdir";
+
     @Autowired
 	private ReleaseDataManager releaseDataManager;
 
@@ -60,6 +68,9 @@ public class ValidationVersionLoader {
 
 	@Autowired
 	private ResourceDataLoader resourceLoader;
+
+	@Autowired
+	private RvfDynamicDataSource rvfDynamicDataSource;
 
 	@Resource(name = "snomedDataSource")
 	private BasicDataSource snomedDataSource;
@@ -90,7 +101,7 @@ public class ValidationVersionLoader {
 			isExtensionValidation(executionConfig, validationConfig);
 		}
 		return isSuccessful;
-		}
+	}
 
 	private void isExtensionValidation(ExecutionConfig executionConfig, ValidationRunConfig validationConfig) {
 		if (isExtension(validationConfig)) {
@@ -109,6 +120,11 @@ public class ValidationVersionLoader {
 			List<String> excludeTables = Arrays.asList(RELATIONSHIP_SNAPSHOT_TABLE);
 			rf2FilesLoaded.addAll(loadProspectiveDeltaAndCombineWithPreviousSnapshotIntoDB(prospectiveVersion, validationConfig,excludeTables));
 			isExtensionValidation(executionConfig, validationConfig);
+			if (isExtension(validationConfig)) {
+				executionConfig.setPreviousVersion(validationConfig.getPreviousExtVersion());
+			} else {
+				executionConfig.setPreviousVersion(validationConfig.getPrevIntReleaseVersion());
+			}
 		} else {
 			//load prospective version alone now as used to combine with dependency for extension testing
 			uploadProspectiveVersion(prospectiveVersion, null, validationConfig.getLocalProspectiveFile(), rf2FilesLoaded);
@@ -550,5 +566,147 @@ public class ValidationVersionLoader {
 				throw new BusinessServiceException(errorMsg, e);
 			}
 		}
+	}
+
+	/**
+	 *
+	 * @param validationReport
+	 * @param validationConfig
+	 * @param executionConfig
+	 * @param postfixList
+	 * @throws SQLException
+	 * @throws IOException
+	 * @throws BusinessServiceException
+	 */
+	public void verifyExternallyMaintainedRefsetDelta(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig, List<String> postfixList) throws SQLException, IOException, BusinessServiceException {
+		long timeStart = System.currentTimeMillis();
+
+		//Download file from S3 then create & load data from maintained refset files to database.
+		String productVersion = executionConfig.getExecutionId().toString() + "_maintained_refset";
+		String maintainedRefsetSchema = ReleaseDataManagerImpl.RVF_DB_PREFIX + productVersion;
+		List<String> rf2FilesLoaded = new ArrayList<>();
+		File extractFolder = loadMaintainedRefsetFilesFromS3AndLoadToDB(validationConfig, maintainedRefsetSchema, rf2FilesLoaded);
+
+		//Compare two database maintained refset schema and release schema.
+		String releaseSchema = ReleaseDataManagerImpl.RVF_DB_PREFIX + executionConfig.getExecutionId().toString();
+		boolean isSuccess = true;
+		Map<String, List<String>> differenceContentMap = compareDifferenceBetweenTwoDatabases(rf2FilesLoaded, maintainedRefsetSchema, releaseSchema, postfixList);
+
+		//Write result to report file.
+		TestRunItem testRunItem = new TestRunItem();
+		testRunItem.setTestType(TestType.JAVA);
+		testRunItem.setTestCategory("ExternallyMaintainedRefset");
+		testRunItem.setAssertionUuid(null);
+		if (postfixList.size() == 1) {
+			testRunItem.setAssertionText("Verify all files in the ExternallyMaintainedRefset repo match exactly all Delta files that have been automatically created in the final package (by the SRS).");
+		} else {
+			testRunItem.setAssertionText("Verify all files in the ExternallyMaintainedRefset repo match exactly all Full and Snapshot files that have been automatically created in the final package (by the SRS).");
+		}
+		testRunItem.setExtractResultInMillis(0L);
+		Long totalFailure = 0L;
+		List<FailureDetail> failedDetails = new ArrayList();
+		for (String fileName: differenceContentMap.keySet()) {
+			List<String> differenceList = differenceContentMap.get(fileName);
+			for (String diff: differenceList) {
+				totalFailure ++;
+				if (failedDetails.size() > executionConfig.getFailureExportMax()) {
+					continue;
+				}
+				failedDetails.add(new FailureDetail("", "File " + fileName + " in ExternallyMaintainedRefset doesnt match exactly with final package.",
+						"Row: " + diff + " in ExternallyMaintainedRefset repo doesnt match exactly with final package."));
+			}
+		}
+		testRunItem.setFailureCount(totalFailure);
+		if (totalFailure > 0) {
+			if (postfixList.size() == 1) {
+				testRunItem.setFailureMessage("All files in ExternallyMaintainedRefset repo dont match exactly all Delta files that have been automatically created in the final package (by the SRS).");
+			} else {
+				testRunItem.setFailureMessage("All files in ExternallyMaintainedRefset repo dont match exactly all Full and Snapshot files that have been automatically created in the final package (by the SRS).");
+			}
+			testRunItem.setFirstNInstances(failedDetails);
+			validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
+		} else {
+			validationReport.addPassedAssertions(Collections.singletonList(testRunItem));
+		}
+		validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
+		extractFolder.deleteOnExit();
+
+		//drop database maintained refset.
+		releaseDataManager.dropDatabase(maintainedRefsetSchema, snomedDataSource.getConnection());
+	}
+
+	/**
+	 * Download maintained refset files from S3 then load them into database.
+	 * @param validationConfig
+	 * @param maintainedRefsetSchema
+	 * @param rf2FilesLoaded
+	 * @return
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	private File loadMaintainedRefsetFilesFromS3AndLoadToDB(ValidationRunConfig validationConfig, String maintainedRefsetSchema, List<String> rf2FilesLoaded) throws IOException, SQLException {
+		//Create database for maintained refset.
+		releaseDataManager.createDBAndTables(maintainedRefsetSchema, snomedDataSource.getConnection());
+
+		//Create folder to store all download files from S3
+		File tempDir = new File(System.getProperty(JAVA_TMP_DIR));
+		File extractFolder = new File(tempDir.getPath()+ File.separator + new Date().getTime());
+		if (!extractFolder.exists()) {
+			extractFolder.delete();
+		}
+		extractFolder.mkdir();
+
+		//Download file from S3 and then store them at extract folder.
+		FileHelper fileHelper = new FileHelper(validationConfig.getS3MaintainedRefsetBucketName(), s3Client);
+		String s3Root = RF2FileTableMapper.getPathFileForDownloadMaintainedRefset(validationConfig.getTestFileName());
+		List<String> fileList = fileHelper.listFiles(s3Root);
+		for (String fileName: fileList) {
+			InputStream inputStream = fileHelper.getFileStream(s3Root + fileName);
+			File file = new File(extractFolder + File.separator + fileName);
+			if (inputStream != null) {
+				OutputStream out = new FileOutputStream(file);
+				IOUtils.copy(inputStream, out);
+				IOUtils.closeQuietly(inputStream);
+				IOUtils.closeQuietly(out);
+			}
+		}
+		//Load data from maintained refset files to database.
+		releaseDataManager.loadReleaseFilesToDB(extractFolder, rvfDynamicDataSource, rf2FilesLoaded, maintainedRefsetSchema);
+		return extractFolder;
+	}
+
+	/**
+	 * Compare two databases base on table name to get difference data.
+	 * @param rf2FilesLoaded
+	 * @param maintainedRefsetSchema
+	 * @param releaseSchema
+	 * @param postfixList
+	 * @return
+	 */
+	private Map<String, List<String>> compareDifferenceBetweenTwoDatabases(List<String> rf2FilesLoaded, String maintainedRefsetSchema,
+																		   String releaseSchema, List<String> postfixList) {
+		//Compare two database maintained refset schema and release schema.
+		final ReleaseFileDataLoader dataLoader = new ReleaseFileDataLoader(rvfDynamicDataSource, maintainedRefsetSchema, new MySqlDataTypeConverter());
+		Map<String, List<String>> differenceContentMap = new HashMap<>();
+		for (String fileName: rf2FilesLoaded) {
+			final String rvfTableName = RF2FileTableMapper.getLegacyTableName(fileName);
+			if (StringUtils.isNotEmpty(rvfTableName)) {
+				boolean isContinue = false;
+				for (String postfix: postfixList) {
+					if (rvfTableName.endsWith(postfix)) {
+						isContinue = true;
+						break;
+					}
+				}
+				if (!isContinue) {
+					continue;
+				}
+				String sourceAllColumns = dataLoader.getAllColumnsOfTable(maintainedRefsetSchema, rvfTableName);
+				String destinationAllColumns = dataLoader.getAllColumnsOfTable(releaseSchema, rvfTableName);
+				List<String> diffList = dataLoader.getDifferenceDataBetweenTwoTables(maintainedRefsetSchema, releaseSchema, rvfTableName, sourceAllColumns, destinationAllColumns);
+				differenceContentMap.put(fileName, diffList);
+			}
+		}
+		return differenceContentMap;
 	}
 }
