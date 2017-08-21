@@ -154,20 +154,22 @@ public class ReleaseFileDataLoader {
 	 * OR difference between source's table and destinationSchema's table.
 	 * @param sourceSchema
 	 * @param destinationSchema
-	 * @param tableName
+	 * @param sourceTable
+	 * @param destinationTable
 	 * @param sourceAllColumns
 	 * @param destinationAllColumns
 	 * @return
 	 */
-	public List<String> getDifferenceDataBetweenTwoTables(String sourceSchema, String destinationSchema, String tableName, String sourceAllColumns, String destinationAllColumns) {
+	public List<String> getDifferenceDataBetweenTwoTables(String sourceSchema, String destinationSchema, String sourceTable, String destinationTable,
+														  String sourceAllColumns, String destinationAllColumns) {
 		List<String> result = new ArrayList<>();
 		try {
 			Connection connection = dataSource.getConnection(sourceSchema);
 			String sql = new StringBuilder()
 					.append("SELECT CONCAT_WS('\\t', " + sourceAllColumns + ") ")
-					.append(" FROM " + sourceSchema + "." + tableName)
-					.append(" LEFT OUTER JOIN " + destinationSchema + "." + tableName + " ON " + destinationSchema + "." + tableName + ".id = " + sourceSchema + "." + tableName + ".id")
-					.append(" WHERE " + destinationSchema + "." + tableName + ".id is null ")
+					.append(" FROM " + sourceSchema + "." + sourceTable)
+					.append(" LEFT OUTER JOIN " + destinationSchema + "." + destinationTable + " ON " + destinationSchema + "." + destinationTable + ".id = " + sourceSchema + "." + sourceTable + ".id")
+					.append(" WHERE " + destinationSchema + "." + destinationTable + ".id is null ")
 					.append(" OR CONCAT(" + sourceAllColumns + ") != CONCAT(" + destinationAllColumns + ")")
 					.toString();
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);

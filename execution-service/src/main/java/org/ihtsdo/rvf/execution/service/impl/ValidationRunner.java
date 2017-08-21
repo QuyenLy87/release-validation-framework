@@ -248,8 +248,8 @@ public class ValidationRunner {
 
 
 	private void verifyMaintainedRefset(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws SQLException, IOException, BusinessServiceException {
-		releaseVersionLoader.verifyExternallyMaintainedRefsetDelta(validationReport, validationConfig, executionConfig, Collections.singletonList("_d"));
-		releaseVersionLoader.verifyExternallyMaintainedRefsetDelta(validationReport, validationConfig, executionConfig, Arrays.asList("_f", "_s"));
+		releaseVersionLoader.verifyExternallyMaintainedRefsetDelta(validationReport, validationConfig, executionConfig);
+		releaseVersionLoader.verifyExternallyMaintainedRefsetFullAndSnapshot(validationReport, validationConfig, executionConfig);
 	}
 
 	private void runDroolValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) {
