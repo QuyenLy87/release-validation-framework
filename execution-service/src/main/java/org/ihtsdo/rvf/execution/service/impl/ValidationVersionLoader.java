@@ -589,7 +589,7 @@ public class ValidationVersionLoader {
 		//Compare two database maintained refset schema and release schema.
 		String releaseSchema = ReleaseDataManagerImpl.RVF_DB_PREFIX + executionConfig.getExecutionId().toString();
 		boolean isSuccess = true;
-		Map<String, List<String>> differenceContentMap = compareDifferenceBetweenTwoDatabases(rf2FilesLoaded, maintainedRefsetSchema, releaseSchema, true);
+		Map<String, List<String>> differenceContentMap = compareDifferenceBetweenTwoDatabases(rf2FilesLoaded, maintainedRefsetSchema, releaseSchema, 0);
 
 		//Write result to report file.
 		TestRunItem testRunItem = new TestRunItem();
@@ -607,13 +607,13 @@ public class ValidationVersionLoader {
 				if (failedDetails.size() > executionConfig.getFailureExportMax()) {
 					continue;
 				}
-				failedDetails.add(new FailureDetail("", "File " + fileName + " in ExternallyMaintainedRefset doesnt match exactly with final package.",
-						"Row: " + diff + " in ExternallyMaintainedRefset repo doesnt match exactly with final package."));
+				failedDetails.add(new FailureDetail("", "File " + fileName + " in ExternallyMaintainedRefset does not match exactly with final package.",
+						"Row: " + diff + " in ExternallyMaintainedRefset repo does not match exactly with final package."));
 			}
 		}
 		testRunItem.setFailureCount(totalFailure);
 		if (totalFailure > 0) {
-			testRunItem.setFailureMessage("All files in ExternallyMaintainedRefset repo dont match exactly all Delta files that have been automatically created in the final package (by the SRS).");
+			testRunItem.setFailureMessage("All files in ExternallyMaintainedRefset repo do not match exactly all Delta files that have been automatically created in the final package (by the SRS).");
 			testRunItem.setFirstNInstances(failedDetails);
 			validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
 		} else {
@@ -646,42 +646,70 @@ public class ValidationVersionLoader {
 
 		//Compare two database maintained refset schema and release schema.
 		String releaseSchema = ReleaseDataManagerImpl.RVF_DB_PREFIX + executionConfig.getExecutionId().toString();
-		Map<String, List<String>> differenceContentMap = compareDifferenceBetweenTwoDatabases(rf2FilesLoaded, maintainedRefsetSchema, releaseSchema, false);
+		Map<String, List<String>> differenceContentMapFull = compareDifferenceBetweenTwoDatabases(rf2FilesLoaded, maintainedRefsetSchema, releaseSchema, 1);
+		Map<String, List<String>> differenceContentMapSnapshot = compareDifferenceBetweenTwoDatabases(rf2FilesLoaded, maintainedRefsetSchema, releaseSchema, 2);
 
 		//Write result to report file.
-		TestRunItem testRunItem = new TestRunItem();
-		testRunItem.setTestType(TestType.JAVA);
-		testRunItem.setTestCategory("ExternallyMaintainedRefset");
-		testRunItem.setAssertionUuid(null);
-		testRunItem.setAssertionText("Verify all files in the ExternallyMaintainedRefset repo match exactly all Full and Snapshot files that have been automatically created in the final package (by the SRS).");
+		writeReportMaintainedRefsetFullAndSnapshot(validationReport, differenceContentMapFull, executionConfig, 1);
+		writeReportMaintainedRefsetFullAndSnapshot(validationReport, differenceContentMapSnapshot, executionConfig, 2);
 
-		testRunItem.setExtractResultInMillis(0L);
-		Long totalFailure = 0L;
-		List<FailureDetail> failedDetails = new ArrayList();
-		for (String fileName: differenceContentMap.keySet()) {
-			List<String> differenceList = differenceContentMap.get(fileName);
-			for (String diff: differenceList) {
-				totalFailure ++;
-				if (failedDetails.size() > executionConfig.getFailureExportMax()) {
-					continue;
-				}
-				failedDetails.add(new FailureDetail("", "File " + fileName + " in ExternallyMaintainedRefset doesnt match exactly with final package.",
-						"Row: " + diff + " in ExternallyMaintainedRefset repo doesnt match exactly with final package."));
-			}
-		}
-		testRunItem.setFailureCount(totalFailure);
-		if (totalFailure > 0) {
-			testRunItem.setFailureMessage("All files in ExternallyMaintainedRefset repo dont match exactly all Full and Snapshot files that have been automatically created in the final package (by the SRS).");
-			testRunItem.setFirstNInstances(failedDetails);
-			validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
-		} else {
-			validationReport.addPassedAssertions(Collections.singletonList(testRunItem));
-		}
 		validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
 		extractFolder.deleteOnExit();
 
 		//drop database maintained refset.
 		releaseDataManager.dropDatabase(maintainedRefsetSchema, snomedDataSource.getConnection());
+	}
+
+	/**
+	 *
+	 * @param validationReport
+	 * @param differenceContentMapFull
+	 * @param executionConfig
+	 * @param type 1: full, 2: snapshot
+	 */
+	private void writeReportMaintainedRefsetFullAndSnapshot(ValidationReport validationReport, Map<String, List<String>> differenceContentMapFull, ExecutionConfig executionConfig, int type) {
+		//Write result to report file.
+		TestRunItem testRunItem = new TestRunItem();
+		testRunItem.setTestType(TestType.JAVA);
+		testRunItem.setTestCategory("ExternallyMaintainedRefset");
+		testRunItem.setAssertionUuid(null);
+		if (type == 1) {
+			testRunItem.setAssertionText("Verify SRS Full files represent Delta files in the ExternallyMaintainedRefset repo.");
+		} else {
+			testRunItem.setAssertionText("Verify SRS Snapshot files represent Delta files in the ExternallyMaintainedRefset repo.");
+		}
+
+		testRunItem.setExtractResultInMillis(0L);
+		Long totalFailure = 0L;
+		List<FailureDetail> failedDetails = new ArrayList();
+		for (String fileName: differenceContentMapFull.keySet()) {
+			List<String> differenceList = differenceContentMapFull.get(fileName);
+			for (String diff: differenceList) {
+				totalFailure ++;
+				if (failedDetails.size() > executionConfig.getFailureExportMax()) {
+					continue;
+				}
+				if (type == 1) {
+					failedDetails.add(new FailureDetail("", "File " + fileName + " in ExternallyMaintainedRefset does not match exactly with Full files in SRS.",
+							"Row: " + diff + " in ExternallyMaintainedRefset repo does not match exactly with Full files in SRS."));
+				} else {
+					failedDetails.add(new FailureDetail("", "File " + fileName + " in ExternallyMaintainedRefset does not match exactly with Snapshot files in SRS.",
+							"Row: " + diff + " in ExternallyMaintainedRefset does not match exactly with Full files in SRS."));
+				}
+			}
+		}
+		testRunItem.setFailureCount(totalFailure);
+		if (totalFailure > 0) {
+			if (type == 1) {
+				testRunItem.setFailureMessage("All files in ExternallyMaintainedRefset repo do not match exactly all Full files that have been automatically created in the final package (by the SRS).");
+			} else {
+				testRunItem.setFailureMessage("All files in ExternallyMaintainedRefset repo do not match exactly all Snapshot files that have been automatically created in the final package (by the SRS).");
+			}
+			testRunItem.setFirstNInstances(failedDetails);
+			validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
+		} else {
+			validationReport.addPassedAssertions(Collections.singletonList(testRunItem));
+		}
 	}
 
 	/**
@@ -729,10 +757,10 @@ public class ValidationVersionLoader {
 	 * @param rf2FilesLoaded
 	 * @param maintainedRefsetSchema
 	 * @param releaseSchema
-	 * @param isDelta
+	 * @param type, 0: delta, 1: full, 2: snapshot
 	 * @return
 	 */
-	private Map<String, List<String>> compareDifferenceBetweenTwoDatabases(List<String> rf2FilesLoaded, String maintainedRefsetSchema, String releaseSchema, boolean isDelta) {
+	private Map<String, List<String>> compareDifferenceBetweenTwoDatabases(List<String> rf2FilesLoaded, String maintainedRefsetSchema, String releaseSchema, int type) {
 		//Compare two database maintained refset schema and release schema.
 		final ReleaseFileDataLoader dataLoader = new ReleaseFileDataLoader(rvfDynamicDataSource, maintainedRefsetSchema, new MySqlDataTypeConverter());
 		Map<String, List<String>> differenceContentMap = new HashMap<>();
@@ -745,16 +773,14 @@ public class ValidationVersionLoader {
 				String sourceAllColumns = dataLoader.getAllColumnsOfTable(maintainedRefsetSchema, rvfTableName);
 				String destinationAllColumns = dataLoader.getAllColumnsOfTable(releaseSchema, rvfTableName);
 				List<String> diffList;
-				if (isDelta) {
+				if (type == 0) {
 					diffList = dataLoader.getDifferenceDataBetweenTwoTables(maintainedRefsetSchema, releaseSchema, rvfTableName, rvfTableName, sourceAllColumns, destinationAllColumns);
-				} else {
+				} else if (type == 1) {
 					String destinationTableName = rvfTableName.replace("_d", "_f");
 					diffList = dataLoader.getDifferenceDataBetweenTwoTables(maintainedRefsetSchema, releaseSchema, rvfTableName, destinationTableName, sourceAllColumns, destinationAllColumns.replaceAll("_d", "_f"));
-					destinationTableName = rvfTableName.replace("_d", "_s");
-					List<String> tempDiffList = dataLoader.getDifferenceDataBetweenTwoTables(maintainedRefsetSchema, releaseSchema, rvfTableName, destinationTableName, sourceAllColumns, destinationAllColumns.replaceAll("_d", "_s"));
-					if (tempDiffList != null && !tempDiffList.isEmpty()) {
-						diffList.addAll(tempDiffList);
-					}
+				} else {
+					String destinationTableName = rvfTableName.replace("_d", "_s");
+					diffList = dataLoader.getDifferenceDataBetweenTwoTables(maintainedRefsetSchema, releaseSchema, rvfTableName, destinationTableName, sourceAllColumns, destinationAllColumns.replaceAll("_d", "_s"));
 				}
 				differenceContentMap.put(fileName, diffList);
 			}
