@@ -694,7 +694,7 @@ public class ValidationVersionLoader {
 							"Row: " + diff + " in ExternallyMaintainedRefset repo does not match exactly with Full files in SRS."));
 				} else {
 					failedDetails.add(new FailureDetail("", "File " + fileName + " in ExternallyMaintainedRefset does not match exactly with Snapshot files in SRS.",
-							"Row: " + diff + " in ExternallyMaintainedRefset does not match exactly with Full files in SRS."));
+							"Row: " + diff + " in ExternallyMaintainedRefset does not match exactly with Snapshot files in SRS."));
 				}
 			}
 		}
