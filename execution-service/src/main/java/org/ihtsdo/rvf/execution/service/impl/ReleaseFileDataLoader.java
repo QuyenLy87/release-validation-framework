@@ -1,6 +1,8 @@
 package org.ihtsdo.rvf.execution.service.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.regex.Matcher;
 
 import org.ihtsdo.rvf.execution.service.util.RvfDynamicDataSource;
 import org.ihtsdo.snomed.util.rf2.schema.ComponentType;
@@ -84,10 +87,16 @@ public class ReleaseFileDataLoader {
 					final String configStr = "SET bulk_insert_buffer_size= 1024 * 1024 * 256;";
 					final String disableIndex = "ALTER TABLE " + rvfTableName + " DISABLE KEYS;";
 					final String enableIndex = "ALTER TABLE " + rvfTableName + " ENABLE KEYS;";
+					//Linux
 					final String loadFile = "load data local infile '" + rf2TextFileRootPath + "/" + rf2FileName + "' into table " + rvfTableName
 							+ " columns terminated by '\\t' "
 							+ " lines terminated by '\\r\\n' "
 							+ " ignore 1 lines";
+					//windows
+					/*final String loadFile = "load data local infile '" + rf2TextFileRootPath.replaceAll("\\\\", Matcher.quoteReplacement("\\\\")) + "\\\\" + rf2FileName + "' into table " + rvfTableName
+							+ " columns terminated by '\\t' "
+							+ " lines terminated by '\\r\\n' "
+							+ " ignore 1 lines";*/
 					LOGGER.info(loadFile);
 					
 					try (Connection connection =dataSource.getConnection(schemaName); 
@@ -176,5 +185,53 @@ public class ReleaseFileDataLoader {
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * Get all columns of table and then concat them into string.
+	 * @param schemaName
+	 * @param tableName
+	 * @return
+	 */
+	public String getAllColumnsOfTable(String schemaName, String tableName) {
+		String allColumns = null;
+		try {
+			Connection connection = dataSource.getConnection(schemaName);
+			String sql = new StringBuilder()
+					.append("SELECT GROUP_CONCAT(CONCAT('").append(schemaName).append(".").append(tableName).append(".', column_name, '')) ")
+					.append("FROM information_schema.columns ")
+					.append("WHERE table_schema = DATABASE() AND table_name = '").append(tableName).append("'")
+					.toString();
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery(sql);
+			while(resultSet.next()) {
+				allColumns = resultSet.getString(1);
+				break;
+			}
+		} catch (Exception e) {
+			LOGGER.error("Exception: {}", e);
+		}
+		return allColumns;
+	}
+
+	public List<String> getDifferenceData2VerifyEffectiveTime(String schema, String tableName, String columnName, String effectiveTime) {
+		List<String> result = new ArrayList<>();
+		try {
+			String allColumns = getAllColumnsOfTable(schema, tableName);
+			Connection connection = dataSource.getConnection(schema);
+			String sql = new StringBuilder()
+					.append("SELECT CONCAT_WS('\\t', " + allColumns + ") ")
+					.append(" FROM " + schema + "." + tableName)
+					.append(" WHERE " + schema + "." + tableName + "." + columnName + " != '" + effectiveTime + "'")
+					.toString();
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery(sql);
+			while(resultSet.next()) {
+				result.add(resultSet.getString(1));
+			}
+		} catch (Exception e) {
+			LOGGER.error("Exception: {}", e);
+		}
+		return result;
 	}
 }

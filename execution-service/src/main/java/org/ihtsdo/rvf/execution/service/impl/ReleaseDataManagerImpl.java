@@ -47,7 +47,7 @@ import org.springframework.stereotype.Service;
 public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingBean {
 
 	private static final Logger logger = LoggerFactory.getLogger(ReleaseDataManagerImpl.class);
-	private static final String RVF_DB_PREFIX = "rvf_";
+	public static final String RVF_DB_PREFIX = "rvf_";
 	private String sctDataLocation;
 	private File sctDataFolder;
 	@Resource(name = "snomedDataSource")

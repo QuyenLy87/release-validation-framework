@@ -7,9 +7,14 @@ import org.apache.commons.lang.StringUtils;
 import org.ihtsdo.otf.dao.s3.S3Client;
 import org.ihtsdo.otf.dao.s3.helper.FileHelper;
 import org.ihtsdo.otf.rest.exception.BusinessServiceException;
+import org.ihtsdo.rvf.entity.FailureDetail;
+import org.ihtsdo.rvf.entity.TestRunItem;
+import org.ihtsdo.rvf.entity.TestType;
+import org.ihtsdo.rvf.entity.ValidationReport;
 import org.ihtsdo.rvf.execution.service.ReleaseDataManager;
 import org.ihtsdo.rvf.execution.service.ResourceDataLoader;
 import org.ihtsdo.rvf.execution.service.impl.ValidationReportService.State;
+import org.ihtsdo.rvf.execution.service.util.RvfDynamicDataSource;
 import org.ihtsdo.rvf.util.ZipFileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,6 +65,9 @@ public class ValidationVersionLoader {
 
 	@Autowired
 	private ResourceDataLoader resourceLoader;
+
+	@Autowired
+	private RvfDynamicDataSource rvfDynamicDataSource;
 
 	@Resource(name = "snomedDataSource")
 	private BasicDataSource snomedDataSource;
@@ -550,5 +558,56 @@ public class ValidationVersionLoader {
 				throw new BusinessServiceException(errorMsg, e);
 			}
 		}
+	}
+
+	public void verifyEffectiveTimeForModuleDependency(File outputFolder, ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig,
+													   String effectiveTime, String columnName) throws Exception {
+		TestRunItem testRunItem = new TestRunItem();
+		testRunItem.setTestType(TestType.JAVA);
+		testRunItem.setTestCategory("EffectiveTime");
+		testRunItem.setAssertionUuid(null);
+		testRunItem.setAssertionText("Verify effective time for final package (SRS).");
+		testRunItem.setExtractResultInMillis(0L);
+		Long totalFailure = 0L;
+
+		List<FailureDetail> failedDetails = new ArrayList();
+		for (String fileName: outputFolder.list()) {
+			String tableName = RF2FileTableMapper.getLegacyTableNameByModuleDependencyFileName(fileName);
+			if (StringUtils.isNotEmpty(tableName)) {
+				List<String> diffList = getDifferenceData2VerifyEffective(executionConfig, tableName, columnName, effectiveTime);
+				for (String diff: diffList) {
+					totalFailure ++;
+					if (failedDetails.size() > executionConfig.getFailureExportMax()) {
+						continue;
+					}
+					if ("sourceEffectiveTime".equals(columnName)) {
+						failedDetails.add(new FailureDetail("", "Field sourceEffectiveTime in file " + fileName + " is not set to the effectiveTime for the Extension Package release.",
+								"Row: " + diff + " is not set to the effectiveTime for the Extension Package release."));
+					} else {
+						failedDetails.add(new FailureDetail("", "Field targetEffectiveTime in file " + fileName + " is not set to the effectiveTime for the dependent International Edition.",
+								"Row: " + diff + " is not set to the effectiveTime for the dependent International Edition."));
+					}
+				}
+			}
+		}
+		testRunItem.setFailureCount(totalFailure);
+		if (totalFailure > 0) {
+			if ("sourceEffectiveTime".equals(columnName)) {
+				testRunItem.setFailureMessage("sourceEffectiveTime in All files in the ModuleDependency files is not set to the effectiveTime for the Extension Package release.");
+			} else {
+				testRunItem.setFailureMessage("targetEffectiveTime in All files in the ModuleDependency files is not set to the effectiveTime for the dependent International Edition.");
+			}
+			testRunItem.setFirstNInstances(failedDetails);
+			validationReport.addFailedAssertions(Collections.singletonList(testRunItem));
+		} else {
+			validationReport.addPassedAssertions(Collections.singletonList(testRunItem));
+		}
+	}
+
+	private List<String> getDifferenceData2VerifyEffective(ExecutionConfig executionConfig, String tableName, String columnName, String effectiveTime) {
+		String schema = ReleaseDataManagerImpl.RVF_DB_PREFIX + executionConfig.getExecutionId().toString();
+		final ReleaseFileDataLoader dataLoader = new ReleaseFileDataLoader(rvfDynamicDataSource, schema, new MySqlDataTypeConverter());
+
+		return dataLoader.getDifferenceData2VerifyEffectiveTime(schema, tableName, columnName, effectiveTime);
 	}
 }

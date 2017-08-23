@@ -5,6 +5,7 @@ import net.rcarz.jiraclient.JiraException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.ihtsdo.drools.RuleExecutor;
 import org.ihtsdo.drools.response.InvalidContent;
 import org.ihtsdo.drools.validator.rf2.SnomedDroolsComponentFactory;
@@ -191,6 +192,7 @@ public class ValidationRunner {
 			runAssertionTests(report, executionConfig, reportStorage);
 		}
 
+		verifyEffectiveTimeForModuleDependency(report, validationConfig, executionConfig);
 		//Run Drool Validator
 		runDroolValidator(report, validationConfig, executionConfig);
 
@@ -211,6 +213,38 @@ public class ValidationRunner {
 		responseMap.put("endTime", endTime.getTime());
 		reportService.writeResults(responseMap, State.COMPLETE, reportStorage);
 		releaseDataManager.dropVersion(executionConfig.getProspectiveVersion());
+	}
+
+	private void verifyEffectiveTimeForModuleDependency(ValidationReport report, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws Exception {
+		String[] splitterName;
+		String columnName;
+		if (StringUtils.isNotBlank(validationConfig.getExtensionDependency())) {
+			splitterName = validationConfig.getExtensionDependency().split("_");
+			columnName = "targetEffectiveTime";
+		} else {
+			splitterName = validationConfig.getTestFileName().split("_");
+			columnName = "sourceEffectiveTime";
+		}
+		String effectiveTime = splitterName[splitterName.length -1].substring(0, 8);
+
+		File zipFile = validationConfig.getLocalProspectiveFile();
+		if (zipFile == null || !zipFile.exists()) {
+			return;
+		}
+		File outputFolder = null;
+		try {
+			outputFolder = new File(FileUtils.getTempDirectoryPath(), "rvf_loader_data_" + new Date().getTime());
+			if (outputFolder.exists()) {
+				outputFolder.delete();
+			}
+			outputFolder.mkdir();
+			ZipFileUtils.extractFilesFromZipToOneFolder(zipFile, outputFolder.getAbsolutePath());
+			releaseVersionLoader.verifyEffectiveTimeForModuleDependency(outputFolder, report, validationConfig, executionConfig, effectiveTime, columnName);
+		} finally {
+			if (outputFolder != null) {
+				FileUtils.deleteQuietly(outputFolder);
+			}
+		}
 	}
 
 	private void addJiraLinkToReport(ExecutionConfig executionConfig, ValidationReport report) {
