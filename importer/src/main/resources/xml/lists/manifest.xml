@@ -671,6 +671,10 @@
 			<keywords>New inactive states follow active states in the MRCM MODULE SCOPE REFSET snapshot.</keywords>
 		</script>
 
+		<script uuid="470051c4-c313-471d-91dc-e4046767eb48" category="release-type-validation"
+				sqlFile="release-type-snapshot-extension-module-dependency-effective-time.sql"
+				text="Verify effective time for extension module dependency." />
+
 		 <!-- component-centric-validation-mrcm -->
 		<script uuid="5d0fdbf5-fef6-44b2-aa42-ebb302132178" category="component-centric-validation"
 				  sqlFile="component-centric-snapshot-mrcm-domain-refset-validate-concept-ids.sql"

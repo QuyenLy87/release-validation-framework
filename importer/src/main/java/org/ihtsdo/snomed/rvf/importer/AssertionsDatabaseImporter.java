@@ -299,6 +299,8 @@
 				// we strip the suffix
 				ratSchema = ratSchema.substring(0, ratSchema.length() - 2);
 				rvfSchema = rvfSchema + "." + ratSchema + "_<FULL>";
+			} else if ("package_info".equals(ratSchema)) {
+				rvfSchema = rvfSchema + "." + ratSchema;
 			}
 
 			if (rvfSchema.length() > 0) {

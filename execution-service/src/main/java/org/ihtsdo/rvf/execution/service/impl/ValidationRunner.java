@@ -178,7 +178,7 @@ public class ValidationRunner {
 		}
 
 		storeLatestVersion(validationConfig.getLocalProspectiveFile().getName());
-		
+		updateEffectiveTimeForExtensionModuleDependency(validationConfig, executionConfig);
 		// for extension release validation we need to test the release-type validations first using previous extension against current extension
 		// first then loading the international snapshot for the file-centric and component-centric validations.
 
@@ -192,7 +192,6 @@ public class ValidationRunner {
 			runAssertionTests(report, executionConfig, reportStorage);
 		}
 
-		verifyEffectiveTimeForModuleDependency(report, validationConfig, executionConfig);
 		//Run Drool Validator
 		runDroolValidator(report, validationConfig, executionConfig);
 
@@ -215,36 +214,18 @@ public class ValidationRunner {
 		releaseDataManager.dropVersion(executionConfig.getProspectiveVersion());
 	}
 
-	private void verifyEffectiveTimeForModuleDependency(ValidationReport report, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) throws Exception {
-		String[] splitterName;
-		String columnName;
-		if (StringUtils.isNotBlank(validationConfig.getExtensionDependency())) {
-			splitterName = validationConfig.getExtensionDependency().split("_");
-			columnName = "targetEffectiveTime";
-		} else {
-			splitterName = validationConfig.getTestFileName().split("_");
-			columnName = "sourceEffectiveTime";
-		}
-		String effectiveTime = splitterName[splitterName.length -1].substring(0, 8);
 
-		File zipFile = validationConfig.getLocalProspectiveFile();
-		if (zipFile == null || !zipFile.exists()) {
+	private void updateEffectiveTimeForExtensionModuleDependency(ValidationRunConfig validationConfig, ExecutionConfig executionConfig)  {
+		if (StringUtils.isEmpty(validationConfig.getTestFileName()) || validationConfig.getTestFileName().toUpperCase().contains("INT")) {
 			return;
 		}
-		File outputFolder = null;
-		try {
-			outputFolder = new File(FileUtils.getTempDirectoryPath(), "rvf_loader_data_" + new Date().getTime());
-			if (outputFolder.exists()) {
-				outputFolder.delete();
-			}
-			outputFolder.mkdir();
-			ZipFileUtils.extractFilesFromZipToOneFolder(zipFile, outputFolder.getAbsolutePath());
-			releaseVersionLoader.verifyEffectiveTimeForModuleDependency(outputFolder, report, validationConfig, executionConfig, effectiveTime, columnName);
-		} finally {
-			if (outputFolder != null) {
-				FileUtils.deleteQuietly(outputFolder);
-			}
+		if (StringUtils.isEmpty(validationConfig.getExtensionDependency())) {
+			logger.info("Missing parameter previousExtensionReleaseVersion");
+			return;
 		}
+		String[] splitterNameDependent = validationConfig.getExtensionDependency().split("_");
+		String effectiveTimeDependent = splitterNameDependent[splitterNameDependent.length - 1].substring(0, 8);
+		releaseVersionLoader.updateEffectiveTimeForExtensionModuleDependency(executionConfig, effectiveTimeDependent);
 	}
 
 	private void addJiraLinkToReport(ExecutionConfig executionConfig, ValidationReport report) {
@@ -586,7 +567,7 @@ public class ValidationRunner {
 			lastestVersion = lastestVersion.substring(0, lastestVersion.indexOf("."));
 			if(lastestVersion.matches(ColumnPatternTester.DATE_PATTERN.pattern())){
 				//clean and create database
-				String createDbStr = "insert into package_info values ('"+ releaseEdition + "', '" + lastestVersion + "'); ";
+				String createDbStr = "insert into package_info(releaseedition, releasetime) values ('"+ releaseEdition + "', '" + lastestVersion + "'); ";
 				try(Statement statement = connection.createStatement()) {
 					statement.execute(createDbStr);
 				}

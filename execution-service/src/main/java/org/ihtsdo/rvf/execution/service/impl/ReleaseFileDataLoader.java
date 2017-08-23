@@ -187,51 +187,28 @@ public class ReleaseFileDataLoader {
 		return true;
 	}
 
-	/**
-	 * Get all columns of table and then concat them into string.
-	 * @param schemaName
-	 * @param tableName
-	 * @return
-	 */
-	public String getAllColumnsOfTable(String schemaName, String tableName) {
-		String allColumns = null;
+
+	public void updateEffectiveTimeForExtensionModuleDependency(String schema, String effectiveTimeDependent) {
 		try {
-			Connection connection = dataSource.getConnection(schemaName);
-			String sql = new StringBuilder()
-					.append("SELECT GROUP_CONCAT(CONCAT('").append(schemaName).append(".").append(tableName).append(".', column_name, '')) ")
-					.append("FROM information_schema.columns ")
-					.append("WHERE table_schema = DATABASE() AND table_name = '").append(tableName).append("'")
-					.toString();
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			ResultSet resultSet = preparedStatement.executeQuery(sql);
-			while(resultSet.next()) {
-				allColumns = resultSet.getString(1);
+			Connection connection = dataSource.getConnection(schema);
+			String checkExist = "select 1 from package_info ";
+			PreparedStatement preparedStatement = connection.prepareStatement(checkExist);
+			ResultSet resultSet = preparedStatement.executeQuery(checkExist);
+			boolean isExist = false;
+			while (resultSet.next()) {
+				isExist = true;
 				break;
 			}
-		} catch (Exception e) {
-			LOGGER.error("Exception: {}", e);
-		}
-		return allColumns;
-	}
-
-	public List<String> getDifferenceData2VerifyEffectiveTime(String schema, String tableName, String columnName, String effectiveTime) {
-		List<String> result = new ArrayList<>();
-		try {
-			String allColumns = getAllColumnsOfTable(schema, tableName);
-			Connection connection = dataSource.getConnection(schema);
-			String sql = new StringBuilder()
-					.append("SELECT CONCAT_WS('\\t', " + allColumns + ") ")
-					.append(" FROM " + schema + "." + tableName)
-					.append(" WHERE " + schema + "." + tableName + "." + columnName + " != '" + effectiveTime + "'")
-					.toString();
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			ResultSet resultSet = preparedStatement.executeQuery(sql);
-			while(resultSet.next()) {
-				result.add(resultSet.getString(1));
+			String sql;
+			if (isExist) {
+				sql = "UPDATE package_info SET dependentreleasetime = '" + effectiveTimeDependent + "'";
+			} else {
+				sql = "INSERT INTO package_info (dependentreleasetime) values('" + effectiveTimeDependent + "')";
 			}
+			Statement statement = connection.createStatement();
+			statement.execute(sql);
 		} catch (Exception e) {
 			LOGGER.error("Exception: {}", e);
 		}
-		return result;
 	}
 }
