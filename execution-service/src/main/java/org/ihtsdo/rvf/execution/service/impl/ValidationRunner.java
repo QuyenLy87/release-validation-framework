@@ -546,8 +546,11 @@ public class ValidationRunner {
 			connection.setAutoCommit(true);
 			String[] fileNameStrArray = fileName.split("_");
 			String lastestVersion = fileNameStrArray[fileNameStrArray.length - 1];
-			String releaseEdition = fileNameStrArray[fileNameStrArray.length - 2];
+			String releaseEdition = fileNameStrArray[fileNameStrArray.length - 3]  + "_" + fileNameStrArray[fileNameStrArray.length - 2];
 			lastestVersion = lastestVersion.substring(0, lastestVersion.indexOf("."));
+			if(lastestVersion.length() > 8){
+				lastestVersion = lastestVersion.substring(0, 8);
+			}
 			if(lastestVersion.matches(ColumnPatternTester.DATE_PATTERN.pattern())){
 				//clean and create database
 				String createDbStr = "insert into package_info values ('"+ releaseEdition + "', '" + lastestVersion + "'); ";

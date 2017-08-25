@@ -32,6 +32,7 @@ import org.ihtsdo.otf.rest.exception.BusinessServiceException;
 import org.ihtsdo.rvf.execution.service.ReleaseDataManager;
 import org.ihtsdo.rvf.execution.service.util.RvfDynamicDataSource;
 import org.ihtsdo.rvf.util.ZipFileUtils;
+import org.ihtsdo.rvf.validation.ColumnPatternTester;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -128,6 +129,7 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 			return false;
 			
 		} finally {
+			storeLatestVersion(fileName);
 			IOUtils.closeQuietly(inputStream);
 			IOUtils.closeQuietly(out);
 		}
@@ -399,9 +401,31 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 			throw new BusinessServiceException(msg, e);
 		}
 	}
-	
-	
-	
+
+
+	private void storeLatestVersion(String fileName){
+		try {
+			Connection connection = snomedDataSource.getConnection();
+			connection.setAutoCommit(true);
+			String[] fileNameStrArray = fileName.split("_");
+			String lastestVersion = fileNameStrArray[fileNameStrArray.length - 1];
+			String releaseEdition = fileNameStrArray[fileNameStrArray.length - 3]  + "_" + fileNameStrArray[fileNameStrArray.length - 2];
+			lastestVersion = lastestVersion.substring(0, lastestVersion.indexOf("."));
+			if(lastestVersion.length() > 8){
+				lastestVersion = lastestVersion.substring(0, 8);
+			}
+			if(lastestVersion.matches(ColumnPatternTester.DATE_PATTERN.pattern())){
+				//clean and create database
+				String createDbStr = "insert into package_info values ('"+ releaseEdition + "', '" + lastestVersion + "'); ";
+				try(Statement statement = connection.createStatement()) {
+					statement.execute(createDbStr);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	private void copyData(String tableName, String sourceSchema, String targetSchema) throws BusinessServiceException {
 		final String disableIndex = "ALTER TABLE " + tableName + " DISABLE KEYS";
