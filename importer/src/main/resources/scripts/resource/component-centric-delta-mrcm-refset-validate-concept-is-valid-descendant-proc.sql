@@ -10,26 +10,26 @@ begin
 declare currentDepth integer default 0;
 declare parentsCount integer;
 
-drop table if exists temp_delta_concept_hierachy_tree;
-create table temp_delta_concept_hierachy_tree(
+drop table if exists temp_delta_concept_hierachy_tree_mrcm;
+create table temp_delta_concept_hierachy_tree_mrcm(
 conceptId bigint(20) not null,
   parentId bigint(20) not null,
   depth integer
 );
 
-set @runSql = concat("insert into temp_delta_concept_hierachy_tree(conceptId, parentId, depth)
+set @runSql = concat("insert into temp_delta_concept_hierachy_tree_mrcm(conceptId, parentId, depth)
 select sourceId, destinationId,", currentDepth ," from stated_relationship_d s
 where s.active = 1 and s.typeid = 116680003 and s.destinationId in (",rootConceptIds,");");
 
 prepare statement from @runSql;
 execute statement;
-set parentsCount = (select count(distinct conceptId) from temp_delta_concept_hierachy_tree where depth = currentDepth);
+set parentsCount = (select count(distinct conceptId) from temp_delta_concept_hierachy_tree_mrcm where depth = currentDepth);
 
 while parentsCount > 0 do
-insert into temp_delta_concept_hierachy_tree(conceptId, parentId, depth)
+insert into temp_delta_concept_hierachy_tree_mrcm(conceptId, parentId, depth)
 select sourceId, destinationId, (currentDepth + 1) from stated_relationship_d s
-where s.active = 1 and s.typeid = 116680003 and s.destinationId in (select distinct conceptId from temp_delta_concept_hierachy_tree where depth = currentDepth);
-set parentsCount = (select count(distinct conceptId) from temp_delta_concept_hierachy_tree where depth = currentDepth);
+where s.active = 1 and s.typeid = 116680003 and s.destinationId in (select distinct conceptId from temp_delta_concept_hierachy_tree_mrcm where depth = currentDepth);
+set parentsCount = (select count(distinct conceptId) from temp_delta_concept_hierachy_tree_mrcm where depth = currentDepth);
 set currentDepth = currentDepth + 1;
 end while;
 
@@ -45,8 +45,8 @@ select
 	assertionId,
 	result.conceptId,
 	concat(refsetName,":id=",result.id,":ConceptId=",result.conceptId, " referenced in the column ", columnName ," in DELTA is not valid descendant of expression ", expression)
-	from  (select id, conceptId from temp_delta_refset_conceptid where conceptId not in (select conceptId from temp_delta_concept_hierachy_tree)) as result;
+	from  (select id, conceptId from temp_delta_refset_conceptid where conceptId not in (select conceptId from temp_delta_concept_hierachy_tree_mrcm)) as result;
 
-drop table if exists temp_delta_concept_hierachy_tree;
+drop table if exists temp_delta_concept_hierachy_tree_mrcm;
 drop table if exists temp_delta_refset_conceptId;
 end;

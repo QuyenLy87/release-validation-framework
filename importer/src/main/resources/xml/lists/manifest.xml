@@ -16,6 +16,17 @@
 		<script uuid="e8d87ec5-bb55-42a2-8368-f2fabd5835ca" category="resource" sqlFile="component-centric-delta-mrcm-refset-validate-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in MRCM Refsets Delta" />
 		<script uuid="8d25d6e7-e4c6-488d-b96b-df1665c968ad" category="resource" sqlFile="component-centric-full-mrcm-refset-validate-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in MRCM Refsets Full" />
 
+		<script uuid="7f80d61e-1dd5-4285-bde5-0c7621c75176" category="resource" sqlFile="component-centric-delta-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Delta" />
+		<script uuid="e632eb0d-8c99-40d3-9e3e-6cabb8f282e9" category="resource" sqlFile="component-centric-full-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Full" />
+		<script uuid="6aceb99c-d924-44b4-a1f6-7f4c396e0783" category="resource" sqlFile="component-centric-snapshot-refset-descriptor-concept-is-valid-descendant-proc.sql" text="Defines a procedure to validate whether a concept is a descendant of specified concepts in RefsetDescriptor Snapshot" />
+		<script uuid="b96f614d-ea9b-4a60-a137-2e17cca541a5" category="resource" sqlFile="component-centric-delta-validate-referencedcomponentid-is-valid-active-concept-proc.sql" text="Defines a procedure to validate whether a concept is a valid and active concepts in all Refset Delta files" />
+		<script uuid="9679ceab-958a-4b56-8bfe-3bfa9947c254" category="resource" sqlFile="component-centric-full-validate-referencedcomponentid-is-valid-active-concept-proc.sql" text="Defines a procedure to validate whether a concept is a valid and active concepts in all Refset Full files" />
+		<script uuid="6edb505d-8703-4287-a56d-b74428e2349d" category="resource" sqlFile="component-centric-snapshot-validate-referencedcomponentid-is-valid-active-concept-proc.sql" text="Defines a procedure to validate whether a concept is a valid and active concepts in all Refset Snapshot files" />
+		<script uuid="948aeddc-d39c-43c8-81e7-385e39de8288" category="resource" sqlFile="component-centric-delta-module-dependency-validate-moduleid-is-valid-module-proc.sql" text="Defines a procedure to validate whether a moduleId is a valid descendant concept in Module Dependency Delta file" />
+		<script uuid="94686273-0446-4e60-93e6-ec28b4974e5b" category="resource" sqlFile="component-centric-full-module-dependency-validate-moduleid-is-valid-module-proc.sql" text="Defines a procedure to validate whether a moduleId is a valid descendant concept in Module Dependency Full file" />
+		<script uuid="1078db94-8e05-44b6-8b3f-72d7d4e6b7f2" category="resource" sqlFile="component-centric-snapshot-module-dependency-validate-moduleid-is-valid-module-proc.sql" text="Defines a procedure to validate whether a moduleId is a valid descendant concept in Module Dependency Snapshot file" />
+		<script uuid="104e240a-9e4c-4e95-9e2b-50dbd40ea5c1" category="resource" sqlFile="component-centric-delta-validate-new-identifier-refset-records-proc.sql" text="Defines a procedure to validate there are no new SNOMED Identifier Refset records (900000000000498005) in any file types in the Release package" />
+
 		<!-- release-type-full-validation -->
 		<script uuid="84f5edda-1249-4d79-87da-e248e61f06a6" category="release-type-validation" sqlFile="release-type-full-validation-concept.sql" text="The current Concept full file contains all previously published data unchanged." >
 			<keywords></keywords>
@@ -47,6 +58,16 @@
 		<script uuid="f0b4c712-781a-4ca5-872e-883cf1949f12" category="release-type-validation" sqlFile="release-type-full-validation-language-refset.sql" text="The current Language refset full file contains all previously published data unchanged."  >
 			<keywords>US UK EN GB language</keywords>
 		</script>
+
+		<script uuid="ad9ca038-302b-4c50-aef7-a35abd4138b0" category="release-type-validation" sqlFile="release-type-full-validation-refset-descriptor.sql" text="The current Refset Descriptor full file contains all previously published data unchanged."  >
+			<keywords></keywords>
+		</script>
+
+		<script uuid="e4d2c4ed-e9f7-45ba-b642-ce85f04c3c2a" category="release-type-validation" sqlFile="release-type-full-validation-description-type.sql" text="The current Description Type full file contains all previously published data unchanged."  >
+			<keywords></keywords>
+		</script>
+
+
 		<!-- release-type-snapshot-delta-validation -->
 		<script uuid="e2d4a6be-cd76-4e03-afe8-5c7783aaa2c7" category="release-type-validation" sqlFile="release-type-snapshot-delta-validation-concept.sql" text="The current data in the Concept snapshot file are the same as the data in the current delta file."  >
 			<keywords>concept snapshot delta</keywords>
@@ -78,6 +99,20 @@
 		<script uuid="bd27d80a-42f1-4412-8111-fdf72fa32904" category="release-type-validation" sqlFile="release-type-snapshot-delta-validation-language-refset.sql" text="The current data in the Language refset snapshot file are the same as the data in the current delta file."  >
 			<keywords></keywords>
 		</script>
+
+		<script uuid="bd6fd71b-5538-4653-85fc-f1bec1becc42" category="release-type-validation" sqlFile="release-type-snapshot-delta-validation-description-type.sql" text="The current data in the Description Type snapshot file are the same as the data in the current delta file."  >
+			<keywords></keywords>
+		</script>
+		<script uuid="c336cced-eefc-4d18-be00-fa92dea2ac06" category="release-type-validation" sqlFile="release-type-snapshot-delta-validation-identifier.sql" text="The current data in the Identifier snapshot file are the same as the data in the current delta file."  >
+			<keywords></keywords>
+		</script>
+		<script uuid="a6d50191-45c7-4398-96a3-4daf67c22e6c" category="release-type-validation" sqlFile="release-type-snapshot-delta-validation-module-dependency.sql" text="The current data in the Module Dependency snapshot file are the same as the data in the current delta file."  >
+			<keywords></keywords>
+		</script>
+		<script uuid="943256cc-edfd-4f93-98f1-c05717f4d3c3" category="release-type-validation" sqlFile="release-type-snapshot-delta-validation-refset-descriptor.sql" text="The current data in the Refset Descriptor snapshot file are the same as the data in the current delta file."  >
+			<keywords></keywords>
+		</script>
+
 		<!-- release-type-delta-validation -->
 		<script uuid="1be975bb-2a1b-4c21-ae61-6e9fcd556718" category="release-type-validation" sqlFile="release-type-delta-validation-concept.sql" text="The current delta file is an accurate derivative of the current full file"  >
 			<keywords></keywords>
@@ -109,6 +144,21 @@
 		<script uuid="4789c1f0-1776-448e-9ddf-8d1b9986a5cc" category="release-type-validation" sqlFile="release-type-delta-validation-simple-refset.sql" text="The current simple refset delta file is an accurate derivative of the current full file"  >
 			<keywords></keywords>
 		</script>
+		<script uuid="317d6a66-72c2-4d69-83bc-4cbd8e16c9e0" category="release-type-validation" sqlFile="release-type-delta-validation-description-type.sql" text="The current Description Type delta file is an accurate derivative of the current full file"  >
+			<keywords></keywords>
+		</script>
+		<script uuid="5a2befb6-ed52-4aa4-8908-2eee9b4be2da" category="release-type-validation" sqlFile="release-type-delta-validation-identifier.sql" text="The current Identifier delta file is an accurate derivative of the current full file"  >
+			<keywords></keywords>
+		</script>
+		<script uuid="1631b15a-a3d2-4ab3-ac55-7fc190e25bd5" category="release-type-validation" sqlFile="release-type-delta-validation-module-dependency.sql" text="The current Module Dependency delta file is an accurate derivative of the current full file"  >
+			<keywords></keywords>
+		</script>
+		<script uuid="951b7cb3-6213-48a4-bd3b-89cdfa1014a1" category="release-type-validation" sqlFile="release-type-delta-validation-refset-descriptor.sql" text="The current Refset Descriptor delta file is an accurate derivative of the current full file"  >
+			<keywords></keywords>
+		</script>
+
+
+
 <!-- release-type-full-delta-validation -->
 		<script uuid="bbfbeae4-4b58-465a-9c16-1e8c4454384c" category="release-type-validation" sqlFile="release-type-full-delta-validation-concept.sql" text="The current full concept file consists of the previously published full file and the changes for the current release"  >
 			<keywords></keywords>
@@ -140,6 +190,15 @@
 		<script uuid="b6926fdf-e24a-49ae-a50a-c7c972944804" category="release-type-validation" sqlFile="release-type-full-delta-validation-simple-refset.sql" text="The current full simple refset file consists of the previously published full file and the changes for the current release"  >
 			<keywords></keywords>
 		</script>
+
+		<script uuid="35f51d19-bcc9-4ecb-a111-bc6d3dd8001c" category="release-type-validation" sqlFile="release-type-full-delta-validation-refset-descriptor.sql" text="The current full Refset Descriptor file consists of the previously published full file and the changes for the current release"  >
+			<keywords>The current full Refset Descriptor file consists of the previously published full file and the changes for the current release</keywords>
+		</script>
+
+		<script uuid="dd94e2d3-864c-485b-a7e3-541e58361dab" category="release-type-validation" sqlFile="release-type-full-delta-validation-description-type.sql" text="The current full Description Type file consists of the previously published full file and the changes for the current release"  >
+			<keywords></keywords>
+		</script>
+
 <!-- release-type-snapshot-validation -->
 		<script uuid="645e3292-18d6-41df-b42a-58ba4d7240d5" category="release-type-validation" sqlFile="release-type-snapshot-validation-concept.sql" text="The current concept snapshot file is an accurate derivative of the current full file"  >
 			<keywords></keywords>
@@ -172,6 +231,42 @@
 			<keywords></keywords>
 		</script>
 
+		<script uuid="7415331a-31a4-4f69-a41c-64131fe62928" category="release-type-validation" sqlFile="release-type-snapshot-validation-refset-descriptor.sql" text="The current Refset Descriptor snapshot file is an accurate derivative of the current full file"  >
+			<keywords>The current Refset Descriptor snapshot file is an accurate derivative of the current full file</keywords>
+		</script>
+
+		<script uuid="4e9576b8-07ea-42b5-b2a1-19ef5066c1db" category="release-type-validation" sqlFile="release-type-snapshot-validation-description-type.sql" text="The current Description Type snapshot file is an accurate derivative of the current full file"  >
+			<keywords>The current Description Type snapshot file is an accurate derivative of the current full file</keywords>
+		</script>
+
+		<script uuid="6caa3fb2-2192-4d2f-896e-c8d73198fe0d" category="release-type-validation" sqlFile="release-type-snapshot-concept-changed-FSN.sql" severity = "WARNING" text="There are no active concepts with changed FSNs"  >
+			<keywords>There are no active concepts with changed FSNs</keywords>
+		</script>
+		<script uuid="7a04c1b6-7d73-4122-84b7-1b84b8738f6a" category="release-type-validation" sqlFile="release-type-snapshot-concept-with-FSN-changed-semantic-tag.sql" severity = "WARNING" text="There are no concepts with FSNs with changed semantic tags"  >
+			<keywords>There are no concepts with FSNs with changed semantic tags</keywords>
+		</script>
+		<script uuid="e6819767-a9fb-4c89-8bbf-12a2deed5c87" category="release-type-validation" sqlFile="release-type-snapshot-concept-reactivated-since-last-release.sql" severity = "WARNING" text="There are no concepts that have been re-activated since the last release"  >
+			<keywords>There are no concepts that have been re-activated since the last release</keywords>
+		</script>
+		<script uuid="279e3eee-4cdf-4123-8a8a-1e68f68d534d" category="release-type-validation" sqlFile="release-type-snapshot-concept-changed-from-fully-defined-to-primitive.sql" severity = "WARNING" text="There are no concepts that changed from fully defined to primitive"  >
+			<keywords>There are no concepts that changed from fully defined to primitive</keywords>
+		</script>
+		<script uuid="b88850f2-e4f5-4495-a28c-c7a8bf4ae108" category="release-type-validation" sqlFile="release-type-snapshot-concept-changed-from-primitive-to-fully-defined.sql" severity = "WARNING" text="There are no concepts that changed from primitive to fully defined"  >
+			<keywords>There are no concepts that changed from primitive to fully defined</keywords>
+		</script>
+
+		<script uuid="82cd5354-18ff-416b-a3d5-67025d8c9c5d" category="release-type-validation" sqlFile="release-type-snapshot-simplemap-refset-addition-removal-CTV3-members.sql" severity = "WARNING" text="Verify that all additions/removals of members of CTV3 Simple Map refset are valid"  >
+			<keywords>Verify that all additions/removals of members of CTV3 Simple Map refset are valid</keywords>
+		</script>
+
+		<script uuid="33dd8cdb-67e1-40e6-985f-9b0b75153436" category="release-type-validation" sqlFile="release-type-snapshot-simplemap-refset-addition-removal-ICDO-members.sql" severity = "WARNING" text="Verify that all additions/removals of members of ICD-O Simple Map refset are valid"  >
+			<keywords>Verify that all additions/removals of members of ICD-O Simple Map refset are valid</keywords>
+		</script>
+
+		<script uuid="efba2e9b-c4e0-4a47-9188-553eb5cef627" category="release-type-validation" sqlFile="release-type-snapshot-module-dependency-new-record-with-new-effectivetime-assigned-in-targeteffectivetime.sql" text="New record for each of the pre-existing active record with new effectiveTime assigned to it in the targetEffectiveTime field in Module Dependency Snapshot file"  >
+			<keywords>New record for each of the pre-existing active record with new effectiveTime assigned to it in the targetEffectiveTime field in Module Dependency Snapshot file</keywords>
+		</script>
+
 		<!--  release type for current delta comparing with previous snapshot -->
 
 		<script uuid="35680574-3ac6-4b68-9efe-de88b677eb35" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-association-refset.sql" text="There must be actual changes made to previously published association refset components in order for them to appear in the current delta." />
@@ -189,6 +284,10 @@
 		<script uuid="bc055a18-f93e-42fd-8bb2-347f2b2b8976" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-simplemap-refset.sql" text="There must be actual changes made to previously published simple map refset components in order for them to appear in the current delta." />
 		<script uuid="cab60a2f-4239-4933-91d6-dc910a8ac08b" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-stated-relationship.sql" text="There must be actual changes made to previously published stated relatioships in order for them to appear in the current delta." />
 
+		<script uuid="9f45e719-0a3e-461e-af3d-6b3c958a7d74" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-refset-descriptor.sql" text="There must be actual changes made to previously published Refset Descriptor in order for them to appear in the current delta." />
+		<script uuid="8782d5bc-d767-433c-899d-c364e1b5cbe8" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-description-type.sql" text="There must be actual changes made to previously published Description Type in order for them to appear in the current delta." />
+
+
 		<!--  Successive stated checking current snapshot against previous snapshot -->
 		<script uuid="5f1a51a3-6200-4463-8799-d75998165278" category="release-type-validation" sqlFile="release-type-snapshot-concept-successive-states.sql" text="New inactive states follow active states in the CONCEPT snapshot." />
 		<script uuid="2b193a88-8dab-4d19-b995-b556ed59398d" category="release-type-validation" sqlFile="release-type-snapshot-description-successive-states.sql" text="New inactive states follow active states in the DESCRIPTION snapshot."/>
@@ -200,12 +299,25 @@
 		<script uuid="eff30fb0-7856-11e1-b0c4-0800200c9a66" category="release-type-validation" sqlFile="release-type-snapshot-language-successive-states.sql" text="All language refset members inactivated in current snapshot must have been active in the previous release."/>
 		<script uuid="89ceaf00-79b9-11e1-b0c4-0800200c9a66" category="release-type-validation" sqlFile="release-type-snapshot-stated-relationship-successive-states.sql" text="All stated relationships inactivated in current release must have been active in the previous release."/>
 		<script uuid="5c6b6bc0-79b9-11e1-b0c4-0800200c9a66" category="release-type-validation" sqlFile="release-type-snapshot-inferred-relationship-successive-states.sql" text="All relationships inactivated in current release must have been active in the previous release."/>
+
+		<script uuid="6787c235-839c-4d99-8f91-b7aee16e2b77" category="release-type-validation" sqlFile="release-type-snapshot-complexmap-refset-successive-states.sql" text="New inactive states follow active states in the Complex Map Refset snapshot."/>
+		<script uuid="fe8d3ab9-d3d5-4c96-a503-834756b5bb26" category="release-type-validation" sqlFile="release-type-snapshot-description-type-successive-states.sql" text="New inactive states follow active states in the Description Type snapshot."/>
+		<script uuid="66ab4b69-e2e2-4fbd-80b0-0fc9e6f3d0a5" category="release-type-validation" sqlFile="release-type-snapshot-expression-association-refset-successive-states.sql" text="New inactive states follow active states in the Expression Association Refset snapshot."/>
+		<script uuid="0bbf1f88-0f0b-4477-8886-ca2fa9877bfa" category="release-type-validation" sqlFile="release-type-snapshot-extendedmap-refset-successive-states.sql" text="New inactive states follow active states in the Extended Map Refset snapshot."/>
+		<script uuid="cea0df51-400f-4a25-a35b-bf1424b4a66e" category="release-type-validation" sqlFile="release-type-snapshot-identifier-successive-states.sql" text="New inactive states follow active states in the Identifier snapshot."/>
+		<script uuid="57fb3169-3905-4bed-8240-f4e81c248b93" category="release-type-validation" sqlFile="release-type-snapshot-mapcorrelationorigin-refset-successive-states.sql" text="New inactive states follow active states in the Map Correlation Origin Refset snapshot."/>
+		<script uuid="61cbbc2c-224a-4ee9-8add-60fa6303e7a8" category="release-type-validation" sqlFile="release-type-snapshot-module-dependency-successive-states.sql" text="New inactive states follow active states in the Module Dependency snapshot."/>
+		<script uuid="69446f0f-603f-4fd5-926e-05c92fab9748" category="release-type-validation" sqlFile="release-type-snapshot-refset-descriptor-successive-states.sql" text="New inactive states follow active states in the Refset Descriptor snapshot."/>
+
 		<!-- across multiple files in Current snapshot-->
 		<script uuid="6dbaed71-f031-4290-b74f-f35561c2e283" category="release-type-validation" sqlFile="release-type-snapshot-unique-relationship-id.sql" text="The ids should be unique across the stated and inferred relationship snapshot files." />
 		<script uuid="560e6d0c-64e8-4726-9516-ae7a7606b0b3" category="release-type-validation" sqlFile="release-type-snapshot-unique-description-definition-id.sql" text="The ids should be unique across the description and text definition snapshot files." />
 		<script uuid="1852b9d6-38cf-11e7-8b36-3c15c2c6e32e" category="release-type-validation" sqlFile="release-type-delta-previous-snapshot-validation-association-refset_unique_checking.sql" text="Previously published historical association components should not be modified."/>
-    
-    <!--  release type for complex and extended maps-->
+
+		<script uuid="402ad785-fb10-4bb1-b946-7e976e768c22" category="release-type-validation" sqlFile="release-type-snapshot-sourceeffectivetime-is-set-to-effectivetime-targeteffectivetime-is-set-to-effectivetime-of-dependent-INT.sql" text="In Snapshot Module Dependency file of Extension packages, sourceEffectiveTime for each record is set to the effectiveTime and targetEffectiveTime is set to the effectiveTime for the dependent International Edition."/>
+
+
+		<!--  release type for complex and extended maps-->
 
 		<script uuid="5e203a1f-2b6d-462a-a6f9-93cbc3893611" category="release-type-validation,ICD-MAP,INT" sqlFile="release-type-delta-validation-extendedmap-refset.sql" text="Changes from the the current extended map delta file must be in the current full file" />
 		<script uuid="5c37bee7-62ad-41f9-93e3-12eb4803e612" category="release-type-validation,ICD-MAP,INT" sqlFile="release-type-full-delta-validation-extendedmap-refset.sql" text="The current full extended map file consists of the previously published full file and the current delta file"/>
@@ -230,8 +342,6 @@
 		<script uuid="7c37bee7-62ad-41f9-93e3-12eb4803e618" category="release-type-validation,LOINC" sqlFile="release-type-full-validation-mapCorrelationOrigin-refset.sql" text="The current MapCorrelationOriginRefset full file contains all previously published data unchanged"/>
 		<script uuid="7c37bee7-62ad-41f9-93e3-12eb4803e619" category="release-type-validation,LOINC" sqlFile="release-type-snapshot-delta-validation-mapCorrelationOrigin-refset.sql" text="The current MapCorrelationOriginRefset snapshot file contains all the data from current delta file"/>
 		<script uuid="4BDB1E4D-0EE9-4B5B-A486-CF8C561A3BC1" category="release-type-validation,LOINC" sqlFile="release-type-snapshot-validation-mapCorrelationOrigin-refset.sql" text="The current MapCorrelationOriginRefset snapshot file is an accurate derivative of the current full file"/>
-
-
 
 		<!-- file-centric-snapshot-concept -->
 		<script uuid="369de68f-6d44-4137-9768-5e9afc6e95f0" category="file-centric-validation" sqlFile="file-centric-snapshot-concept-right-module.sql" text="Snapshot concepts assigned to the right module."  >
@@ -259,8 +369,6 @@
 		<script uuid="50e773f8-072c-4426-a8e3-50b0f942822c" category="file-centric-validation" sqlFile="file-centric-snapshot-description-term-duplicated.sql" text="Same terms but using different cases will be considered as duplicates in the DESCRIPTION snapshot ."  >
 			<keywords>Same terms but using different cases will be considered as duplicates in the DESCRIPTION snapshot.</keywords>
 		</script>
-		
-		
 
 		<script uuid="4ba823ce-8ae4-4b2e-beb5-e119b822cfe2" category="file-centric-validation" sqlFile="file-centric-snapshot-definition-unique-id.sql" text="ID is unique in the DEFINITION snapshot."  >
 			<keywords>ID is unique in the DEFINITION snapshot.</keywords>
@@ -833,9 +941,345 @@
 			<keywords>MrcmRuleRefsetId in MRCM MODULE SCOPE DELTA exists in the RefsetId values of MRCM DOMAIN DELTA or MRCM ATTRIBUTE DOMAIN DELTA or MRCM ATTRIBUTE RANGE DELTA</keywords>
 		</script>
 
-		<!-- rt added this as a template... -->
-		<!--  <script uuid="" category="" sqlFile="" text=""  />-->
+		<!-- component-centric-validation-module-dependency -->
+		<script uuid="59a1b84b-763a-43ed-b842-d75634984210" category="component-centric-validation"
+				sqlFile="component-centric-delta-module-dependency-refsetid.sql" text="RefsetId in MODULE DEPENDENCY DELTA is always set to '900000000000534007'">
+			<keywords>RefsetId in MODULE DEPENDENCY DELTA is always set to '900000000000534007'</keywords>
+		</script>
 
+		<script uuid="8396032a-64f9-4099-b073-083c1b72b66f" category="component-centric-validation"
+				sqlFile="component-centric-full-module-dependency-refsetid.sql" text="RefsetId in MODULE DEPENDENCY FULL is always set to '900000000000534007'">
+			<keywords>RefsetId in MODULE DEPENDENCY FULL is always set to '900000000000534007'</keywords>
+		</script>
+
+		<script uuid="263b1af2-2cb6-49d8-af25-1f6e4fe707cc" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-module-dependency-refsetid.sql" text="RefsetId in MODULE DEPENDENCY SNAPSHOT is always set to '900000000000534007'">
+			<keywords>RefsetId in MODULE DEPENDENCY SNAPSHOT is always set to '900000000000534007'</keywords>
+		</script>
+
+		<!-- component-centric-validation-refset-descriptor -->
+		<script uuid="b2d485f2-c901-495f-b68b-bec673e4b552" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-refsetid.sql" text="RefsetId in REFSET DESCRIPTOR DELTA is always set to '900000000000456007'">
+			<keywords>RefsetId in REFSET DESCRIPTOR DELTA is always set to '900000000000456007'</keywords>
+		</script>
+
+		<script uuid="a59551c8-d6d1-45e3-8001-6afe8f494fb7" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-refsetid.sql" text="RefsetId in REFSET DESCRIPTOR FULL is always set to '900000000000456007'">
+			<keywords>RefsetId in REFSET DESCRIPTOR FULL is always set to '900000000000456007'</keywords>
+		</script>
+
+		<script uuid="ca1ff91e-279d-4a28-a08b-55502a18bc3b" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-refsetid.sql" text="RefsetId in REFSET DESCRIPTOR SNAPSHOT is always set to '900000000000456007'">
+			<keywords>RefsetId in REFSET DESCRIPTOR SNAPSHOT is always set to '900000000000456007'</keywords>
+		</script>
+
+		<script uuid="8fb26e5c-7775-44c7-aabf-b01edbe789eb" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR DELTA is always set to value > = 0">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR DELTA is always set to value > = 0</keywords>
+		</script>
+
+		<script uuid="a0fc6610-5a16-4085-a762-cb85cd4a2353" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR FULL is always set to value > = 0">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR FULL is always set to value > = 0</keywords>
+		</script>
+
+		<script uuid="a5186099-f3e4-430a-a95c-abcb6405a173" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is always set to value > = 0">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is always set to value > = 0</keywords>
+		</script>
+
+		<script uuid="5225e890-df86-48fc-a2c7-b85b200eaf35" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-referencedcomponentid-attributeorder-pair-is-unique.sql" text="ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR DELTA">
+			<keywords>ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR DELTA</keywords>
+		</script>
+
+		<script uuid="5963e2bb-9abb-4743-9e61-253626b283b4" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-referencedcomponentid-attributeorder-pair-is-unique.sql" text="ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR FULL">
+			<keywords>ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR FULL</keywords>
+		</script>
+
+		<script uuid="6bb8f975-bc93-41e8-9bdb-3b79ed33aad2" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-referencedcomponentid-attributeorder-pair-is-unique.sql" text="ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR SNAPSHOT">
+			<keywords>ReferencedComponentId and AttributeOrder pair is unique in REFSET DESCRIPTOR SNAPSHOT</keywords>
+		</script>
+
+		<script uuid="6a8863dd-b5bb-4bbc-acc1-2c581701a315" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-referencedcomponentid-unique-attributeorder-is-zero.sql" text="For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR DELTA">
+			<keywords>For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR DELTA</keywords>
+		</script>
+
+		<script uuid="6389a0db-e6d5-4eb8-95b1-813258579370" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-referencedcomponentid-unique-attributeorder-is-zero.sql" text="For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR FULL">
+			<keywords>For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR FULL</keywords>
+		</script>
+
+		<script uuid="9b118ab6-92df-4c5f-9e30-6cf895f5fa02" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-referencedcomponentid-unique-attributeorder-is-zero.sql" text="For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT">
+			<keywords>For each referencedComponentId there is one record where attributeOrder = 0 in REFSET DESCRIPTOR SNAPSHOT</keywords>
+		</script>
+
+		<script uuid="1015f315-4b0d-41ab-9f7f-a7c8d2ac42b6" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-referencedcomponentid-active.sql" text="REFSET DESCRIPTOR DELTA contains only active rows where the referenced refset is active">
+			<keywords>REFSET DESCRIPTOR DELTA contains only active rows where the referenced refset is active</keywords>
+		</script>
+
+		<script uuid="01da5b80-3ab8-4742-83dc-dfd751ce7974" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-referencedcomponentid-active.sql" text="REFSET DESCRIPTOR FULL contains only active rows where the referenced refset is active">
+			<keywords>REFSET DESCRIPTOR FULL contains only active rows where the referenced refset is active</keywords>
+		</script>
+
+		<script uuid="97579313-3203-4108-9e37-bfac9821bfa8" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-referencedcomponentid-active.sql" text="REFSET DESCRIPTOR SNAPSHOT contains only active rows where the referenced refset is active">
+			<keywords>REFSET DESCRIPTOR SNAPSHOT contains only active rows where the referenced refset is active</keywords>
+		</script>
+
+		<script uuid="102d7933-86a1-41f2-875b-5ac0b25635c5" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-referencedcomponentid-inactive.sql" text="REFSET DESCRIPTOR DELTA contains only inactive rows where the referenced refset is inactive">
+			<keywords>REFSET DESCRIPTOR DELTA contains only inactive rows where the referenced refset is inactive</keywords>
+		</script>
+
+		<script uuid="b97ac77f-f0f7-4933-bdac-ba5a03a6f16e" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-referencedcomponentid-inactive.sql" text="REFSET DESCRIPTOR FULL contains only inactive rows where the referenced refset is inactive">
+			<keywords>REFSET DESCRIPTOR FULL contains only inactive rows where the referenced refset is inactive</keywords>
+		</script>
+
+		<script uuid="c7d4889f-ef9b-4668-9291-bc9e8ca8c5bc" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-referencedcomponentid-inactive.sql" text="REFSET DESCRIPTOR SNAPSHOT contains only inactive rows where the referenced refset is inactive">
+			<keywords>REFSET DESCRIPTOR SNAPSHOT contains only inactive rows where the referenced refset is inactive</keywords>
+		</script>
+
+		<script uuid="26f858ba-4aea-43ed-a957-e250f72dec98" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-set-of-attributeorder.sql" text="For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0">
+			<keywords>For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR DELTA, the set of attributeOrder values is a consecutive sequence starting at 0</keywords>
+		</script>
+
+		<script uuid="79e83115-4a7a-47bf-826d-2e1934c25a4c" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-set-of-attributeorder.sql" text="For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR FULL, the set of attributeOrder values is a consecutive sequence starting at 0">
+			<keywords>For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR FULL, the set of attributeOrder values is a consecutive sequence starting at 0</keywords>
+		</script>
+
+		<script uuid="9724a87e-0b7b-41f4-a662-f67380164a39" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-set-of-attributeorder.sql" text="For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR SNAPSHOT, the set of attributeOrder values is a consecutive sequence starting at 0">
+			<keywords>For each referencedComponentId group by referencedComponentId in REFSET DESCRIPTOR SNAPSHOT, the set of attributeOrder values is a consecutive sequence starting at 0</keywords>
+		</script>
+
+		<script uuid="26c3618c-778f-47c0-b2b2-a8a1e8223112" category="component-centric-validation"
+				sqlFile="component-centric-delta-all-maps-referencedcomponentid-is-active-concept.sql" text="All MAP REFSET DELTA files have valid, active SNOMED CT concepts in the ReferencedComponentId">
+			<keywords>All MAP REFSET DELTA files have valid, active SNOMED CT concepts in the ReferencedComponentId</keywords>
+		</script>
+
+		<script uuid="326f5316-b104-4254-960a-38f46abb5e06" category="component-centric-validation"
+				sqlFile="component-centric-full-all-maps-referencedcomponentid-is-active-concept.sql" text="All MAP REFSET FULL files have valid, active SNOMED CT concepts in the ReferencedComponentId">
+			<keywords>All MAP REFSET FULL files have valid, active SNOMED CT concepts in the ReferencedComponentId</keywords>
+		</script>
+
+		<script uuid="2b3433fc-dc00-4b00-9b88-02e20fe31779" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-all-maps-referencedcomponentid-is-active-concept.sql" text="All MAP REFSET SNAPSHOT files have valid, active SNOMED CT concepts in the ReferencedComponentId">
+			<keywords>All MAP REFSET SNAPSHOT files have valid, active SNOMED CT concepts in the ReferencedComponentId</keywords>
+		</script>
+
+		<script uuid="64b43472-92f2-4519-bb8f-a3ff721feecf" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-concept-is-valid-descendant.sql" text="Verify valid descendant in REFSET DESCRIPTOR DELTA">
+			<keywords>Verify valid descendant in REFSET DESCRIPTOR DELTA</keywords>
+		</script>
+
+		<script uuid="b3865f0a-2814-466b-b31d-1cef20ecdc27" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-concept-is-valid-descendant.sql" text="Verify valid descendant in REFSET DESCRIPTOR FULL">
+			<keywords>Verify valid descendant in REFSET DESCRIPTOR FULL</keywords>
+		</script>
+
+		<script uuid="aa82ce8b-381e-4cc8-8019-7f2eeb44957d" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-concept-is-valid-descendant.sql" text="Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT">
+			<keywords>Verify valid descendant in REFSET DESCRIPTOR SNAPSHOT</keywords>
+		</script>
+
+		<script uuid="e99ee58b-9b6c-4eba-9e6e-8616fd4a6dc7" category="component-centric-validation"
+				sqlFile="component-centric-delta-refset-descriptor-correct-number-of-values-for-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR DELTA is set to correct value">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR DELTA is set to correct value</keywords>
+		</script>
+
+		<script uuid="a6fdaad3-0b4c-4e2f-b25f-1f01fc6de114" category="component-centric-validation"
+				sqlFile="component-centric-full-refset-descriptor-correct-number-of-values-for-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR FULL is set to correct value">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR FULL is set to correct value</keywords>
+		</script>
+
+		<script uuid="64bf8c7f-ffd6-49a9-9dc5-bdb26b0c5a02" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-refset-descriptor-correct-number-of-values-for-attributeorder.sql" text="AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value">
+			<keywords>AttributeOrder in REFSET DESCRIPTOR SNAPSHOT is set to correct value</keywords>
+		</script>
+
+		<script uuid="d2e01d90-ebb2-45ca-b8d8-483f6cf00f60" category="component-centric-validation"
+				sqlFile="component-centric-delta-validate-referencedcomponentid-is-valid-active-concept.sql" text="Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files">
+			<keywords>Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Delta files</keywords>
+		</script>
+
+		<script uuid="104a5dad-2feb-4c00-b4df-06dc9adc464d" category="component-centric-validation"
+				sqlFile="component-centric-full-validate-referencedcomponentid-is-valid-active-concept.sql" text="Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Full files">
+			<keywords>Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Full files</keywords>
+		</script>
+
+		<script uuid="ff6fc730-876c-4860-abca-51d9deea292f" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-validate-referencedcomponentid-is-valid-active-concept.sql" text="Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files">
+			<keywords>Verify that referencedcomponentid is referenced to a valid and active SNOMED CT concept in all Snapshot files</keywords>
+		</script>
+
+		<script uuid="8681f355-e406-4aea-843d-ee0c2e1bc569" category="component-centric-validation"
+				sqlFile="component-centric-delta-simple-map-refsetid-contains-ICD0-CTV3.sql" text="Simple Map Delta files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)">
+			<keywords>Simple Map Delta files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)</keywords>
+		</script>
+
+		<script uuid="fa99c92b-c6b7-4a96-89aa-9cca388667fd" category="component-centric-validation"
+				sqlFile="component-centric-full-simple-map-refsetid-contains-ICD0-CTV3.sql" text="Simple Map Full files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)">
+			<keywords>Simple Map Delta files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)</keywords>
+		</script>
+
+		<script uuid="179c7098-a690-434c-9b70-ec4f4cc25d2b" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-simple-map-refsetid-contains-ICD0-CTV3.sql" text="Simple Map Snapshot files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)">
+			<keywords>Simple Map Snapshot files contains both ICD-0 + CTV3 maps, but nothing else (International Edition only)</keywords>
+		</script>
+
+		<script uuid="132356b0-6eca-4090-8044-17f82102f7ca" category="component-centric-validation"
+				sqlFile="component-centric-delta-extendedmap-refsetid.sql" text="Extended Map Delta file contains nothing except ICD-10 maps (International Edition only)">
+			<keywords>Extended Map Delta file contains nothing except ICD-10 maps (International Edition only)</keywords>
+		</script>
+
+		<script uuid="addb8fb3-14ad-4293-a9cd-65595649818a" category="component-centric-validation"
+				sqlFile="component-centric-full-extendedmap-refsetid.sql" text="Extended Map Full file contains nothing except ICD-10 maps (International Edition only)">
+			<keywords>Extended Map Full file contains nothing except ICD-10 maps (International Edition only)</keywords>
+		</script>
+
+		<script uuid="4e78d040-96e9-49fc-aaa5-54b4fcc13659" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-extendedmap-refsetid.sql" text="Extended Map Snapshot file contains nothing except ICD-10 maps (International Edition only)">
+			<keywords>Extended Map Snapshot file contains nothing except ICD-10 maps (International Edition only)</keywords>
+		</script>
+
+		<script uuid="c429ebe4-c84c-48f6-aad6-1acadc1781fe" category="component-centric-validation"
+                sqlFile="component-centric-delta-module-dependency-targeteffectivetime-matches-sourceeffectivetime.sql" text="For each record in Module Dependency Delta file, the targetEffectiveTime always matches the sourceEffectiveTime(International Edition or all Derivative Packages)">
+             <keywords>For each record in Module Dependency Delta file, the targetEffectiveTime always matches the sourceEffectiveTime(International Edition or all Derivative Packages)</keywords>
+		</script>
+
+        <script uuid="7d2cac3f-542b-4734-ae07-08b953be6e19" category="component-centric-validation"
+                 sqlFile="component-centric-full-module-dependency-targeteffectivetime-matches-sourceeffectivetime.sql" text="For each record in Module Dependency Full file, the targetEffectiveTime always matches the sourceEffectiveTime(International Edition or all Derivative Packages)">
+              <keywords>For each record in Module Dependency Full file, the targetEffectiveTime always matches the sourceEffectiveTime(International Edition or all Derivative Packages)</keywords>
+        </script>
+
+         <script uuid="77982aaf-0ab1-449e-899a-2fbe22d3e1d8" category="component-centric-validation"
+                 sqlFile="component-centric-snapshot-module-dependency-targeteffectivetime-matches-sourceeffectivetime.sql" text="For each record in Module Dependency Snapshot file, the targetEffectiveTime always matches the sourceEffectiveTime(International Edition or all Derivative Packages)">
+			 <keywords>For each record in Module Dependency Snapshot file, the targetEffectiveTime always matches the sourceEffectiveTime(International Edition or all Derivative Packages)</keywords>
+		 </script>
+
+         <script uuid="5431f8be-ca3c-4ece-802f-421028bf1133" category="component-centric-validation"
+                 sqlFile="component-centric-delta-module-dependency-effectivetime-matches-sourceeffectivetime-and-targeteffectivetime.sql" text="For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition or all Derivative Packages)">
+              <keywords>For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTim(International Edition or all Derivative Packages)</keywords>
+          </script>
+
+		 <script uuid="db410e3b-4aaa-4c67-a347-03a38646f0bf" category="component-centric-validation"
+                  sqlFile="component-centric-full-module-dependency-effectivetime-matches-sourceeffectivetime-and-targeteffectivetime.sql" text="For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition or all Derivative Packages)">
+			  <keywords>For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTim(International Edition or all Derivative Packages)</keywords>
+		 </script>
+
+         <script uuid="b81aea8f-50b6-4379-85f3-3bbea3b8bfc6" category="component-centric-validation"
+				  sqlFile="component-centric-snapshot-module-dependency-effectivetime-matches-sourceeffectivetime-and-targeteffectivetime.sql" text="For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTime(International Edition or all Derivative Packages)">
+               <keywords>For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime and targetEffectiveTim(International Edition or all Derivative Packages)</keywords>
+		 </script>
+
+         <script uuid="eae39df0-9206-41c3-9832-cf18a805644a" category="component-centric-validation"
+                  sqlFile="component-centric-delta-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+                <keywords>In Module Dependency Delta, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		 </script>
+
+         <script uuid="dd6e270c-c3a5-4d2b-9bd9-cc49bdf6fe64" category="component-centric-validation"
+                  sqlFile="component-centric-full-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+                <keywords>In Module Dependency Full, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		 </script>
+
+         <script uuid="0d0884a3-238f-4e6d-81b5-50b3ea3f2090" category="component-centric-validation"
+                 sqlFile="component-centric-snapshot-module-dependency-id-is-same-for-the-same-moduledependency.sql" text="In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid">
+			    <keywords>In Module Dependency Snapshot, UUID is same for the same record identified by the index of the three fields moduleid + refsetid + referencedcomponentid</keywords>
+		 </script>
+
+		<script uuid="baa5b3da-3b4c-4298-8855-a053711b0fe3" category="component-centric-validation"
+				sqlFile="component-centric-delta-module-dependency-moduleid-is-valid-active-module.sql" text="Verify that moduleId is a valid, active module in Module Dependency Delta">
+			<keywords>Verify that moduleId is a valid module in Module Dependency Delta</keywords>
+		</script>
+
+		<script uuid="9c8337d8-526f-4f44-afe9-811eefa663e3" category="component-centric-validation"
+				sqlFile="component-centric-full-module-dependency-moduleid-is-valid-active-module.sql" text="Verify that moduleId is a valid, active module in Module Dependency Full">
+			<keywords>Verify that moduleId is a valid module in Module Dependency Full</keywords>
+		</script>
+
+		<script uuid="f24d3377-30eb-4c7b-9d2b-b016ec5e7654" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-module-dependency-moduleid-is-valid-active-module.sql" text="Verify that moduleId is a valid, active module in Module Dependency Snapshot">
+			<keywords>Verify that moduleId is a valid module in Module Dependency Snapshot</keywords>
+		</script>
+
+		<script uuid="6075aa50-656d-4b90-becf-75edf8119c99" category="component-centric-validation"
+				sqlFile="component-centric-delta-validate-new-identifier-refset-records.sql" text="There are no new SNOMED Identifier Refset records (900000000000498005) in any file types in the Release package">
+			<keywords>There are no new SNOMED Identifier Refset records (900000000000498005) in any file types in the Release package</keywords>
+		</script>
+
+		<script uuid="2c68e3e4-0228-4f61-a264-ec0f35815a3e" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-description-root-concept-synonym-is-now-referencing-the-latest-new-release.sql" text="The root concept synonym is now referencing the latest new release">
+			<keywords>The root concept synonym is now referencing the latest new release</keywords>
+		</script>
+
+		<script uuid="a13f2b6a-c882-430a-9cad-35c3ed394577" category="component-centric-validation"
+				sqlFile="component-centric-delta-LOINC-concept-never-made-into-INT-release.sql" text="LOINC concepts never make it into the International Edition Delta file">
+			<keywords>LOINC concepts never make it into the International Edition Delta file</keywords>
+		</script>
+
+		<script uuid="9a1f6cfb-d70a-47b6-a41a-33a31a0c01e8" category="component-centric-validation"
+				sqlFile="component-centric-full-LOINC-concept-never-made-into-INT-release.sql" text="LOINC concepts never make it into the International Edition Full file">
+			<keywords>LOINC concepts never make it into the International Edition Full file</keywords>
+		</script>
+
+		<script uuid="e0e6a404-6112-4b44-a619-3bdc90bd5817" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-LOINC-concept-never-made-into-INT-release.sql" text="LOINC concepts never make it into the International Edition Snapshot file">
+			<keywords>LOINC concepts never make it into the International Edition Snapshot file</keywords>
+		</script>
+
+		<script uuid="d41649b9-bac7-49a1-ac68-7f078135a029" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-concept-concept-non-current-inactivation -indicator-is-missing.sql" text="'Concept non-current' inactivation indicator is missing when a concept is inactivated">
+			<keywords>'Concept non-current' inactivation indicator is missing when a concept is inactivated</keywords>
+		</script>
+
+		<script uuid="3497e4b0-5470-4766-b2fe-be8f92d09e23" category="component-centric-validation"
+				sqlFile="component-centric-delta-simple-refsetid-contains-Lateralizable-refset.sql" severity = "WARNING" text="Simple Refset Delta file only contains Lateralizable refset (International Edition only)">
+			<keywords>Simple Refset Delta file only contains Lateralizable refset (International Edition only)</keywords>
+		</script>
+
+		<script uuid="5c2dd029-6e6a-4444-aa28-afeb8bcfe71b" category="component-centric-validation"
+				sqlFile="component-centric-full-simple-refsetid-contains-Lateralizable-refset.sql" severity = "WARNING" text="Simple Refset Full file only contains Lateralizable refset (International Edition only)">
+			<keywords>Simple Refset Full file only contains Lateralizable refset (International Edition only)</keywords>
+		</script>
+
+		<script uuid="ec36dfaf-3fc8-4e55-a102-e44ab3e84118" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-simple-refsetid-contains-Lateralizable-refset.sql" severity = "WARNING" text="Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)">
+			<keywords>Simple Refset Snapshot file only contains Lateralizable refset (International Edition only)</keywords>
+		</script>
+
+		<script uuid="8313d834-b053-4479-ae38-bf9801be55d9" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-concept-having-active-historical-association-or-reason-for-inactivation.sql" severity = "WARNING" text="There are no active concepts having active historical associations or reasons for inactivation">
+			<keywords>There are no active concepts having active historical associations or reasons for inactivation</keywords>
+		</script>
+
+		<script uuid="5a8f5f5c-3bd1-4deb-a4f6-fdbdaad45024" category="component-centric-validation"
+				sqlFile="component-centric-delta-module-dependency-effectivetime-matches-sourceeffectivetime-for-extension-package.sql" text="For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)">
+			<keywords>For each record in Module Dependency Delta file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)</keywords>
+		</script>
+
+		<script uuid="f1df7304-be9b-4f29-bf95-b9fcf31c4c1c" category="component-centric-validation"
+				sqlFile="component-centric-full-module-dependency-effectivetime-matches-sourceeffectivetime-for-extension-package.sql" text="For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)">
+			<keywords>For each record in Module Dependency Full file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)</keywords>
+		</script>
+
+		<script uuid="4de845c8-71cc-4ca4-89e1-6b3312be39d1" category="component-centric-validation"
+				sqlFile="component-centric-snapshot-module-dependency-effectivetime-matches-sourceeffectivetime-for-extension-package.sql" text="For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)">
+			<keywords>For each record in Module Dependency Snapshot file, the effectiveTime always matches the sourceEffectiveTime(Extension Packages)</keywords>
+		</script>
+
+		<!-- rt added this as a template... -->
+		<!--  <script uuid=""s category="" sqlFile="" text=""  />-->
 
 	</useCase>
 </manifest>

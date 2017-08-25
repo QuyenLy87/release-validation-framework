@@ -18,7 +18,7 @@ conceptId bigint(20) not null,
 );
 
 set @runSql = concat("insert into temp_full_concept_hierachy_tree(conceptId, parentId, depth)
-select sourceId, destinationId,", currentDepth ," from stated_relationship_s s
+select sourceId, destinationId,", currentDepth ," from stated_relationship_f s
 where s.active = 1 and s.typeid = 116680003 and s.destinationId in (",rootConceptIds,");");
 
 prepare statement from @runSql;

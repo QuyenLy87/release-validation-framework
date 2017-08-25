@@ -537,9 +537,11 @@ public class ValidationVersionLoader {
 		}
 		if (isExtension(validationConfig)) {
 			try {
+				List<String> excludeTableNames = new ArrayList<>();
+				excludeTableNames.add("identifier_s");
 				releaseDataManager.copyTableData(extensionVersion, combinedVersion, DELTA_TABLE, null);
 				releaseDataManager.copyTableData(extensionVersion, combinedVersion,FULL_TABLE, null);
-				releaseDataManager.copyTableData(executionConfig.getExtensionDependencyVersion(),extensionVersion, combinedVersion,SNAPSHOT_TABLE, null);
+				releaseDataManager.copyTableData(executionConfig.getExtensionDependencyVersion(),extensionVersion, combinedVersion,SNAPSHOT_TABLE, excludeTableNames);
 				resourceLoader.loadResourceData(combinedSchema);
 			} catch (Exception e) {
 				String errorMsg = e.getMessage();

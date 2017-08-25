@@ -197,10 +197,16 @@ public class ValidationRunner {
 		//Run MRCM Validator
 		runMRCMAssertionTests(report, validationConfig, executionConfig);
 
-		addJiraLinkToReport(executionConfig, report);
-		ValidationReport structuralReport = (ValidationReport) responseMap.get(TestType.ARCHIVE_STRUCTURAL.toString() + "TestResult");
-		if(structuralReport != null){
-			addJiraLinkToReport(executionConfig, structuralReport);
+		if(executionConfig.isJiraIssueCreationFlag()) {
+			// Add Jira ticket for each fail assertions
+			try {
+				String relaseYear = executionConfig.getReleaseDate().substring(0,4);
+				String relaseMonth = executionConfig.getReleaseDate().substring(4,6);
+				String dateMonth = executionConfig.getReleaseDate().substring(6,8);
+				jiraService.addJiraTickets(executionConfig.getProductName(),relaseYear + "-" + relaseMonth + "-"  +dateMonth,executionConfig.getReportingStage(), report.getAssertionsFailed());
+			} catch (JiraException e) {
+				logger.error("Error while creating Jira Ticket for failed assertions. Message : " + e.getMessage());
+			}
 		}
 
 		responseMap.put("TestResult", report);
@@ -213,20 +219,6 @@ public class ValidationRunner {
 		releaseDataManager.dropVersion(executionConfig.getProspectiveVersion());
 	}
 
-	private void addJiraLinkToReport(ExecutionConfig executionConfig, ValidationReport report) {
-		if(executionConfig.isJiraIssueCreationFlag()) {
-			// Add Jira ticket for each fail assertions
-			try {
-				String relaseYear = executionConfig.getReleaseDate().substring(0,4);
-				String relaseMonth = executionConfig.getReleaseDate().substring(4,6);
-				String dateMonth = executionConfig.getReleaseDate().substring(6,8);
-				jiraService.addJiraTickets(executionConfig.getProductName(),relaseYear + "-" + relaseMonth + "-"  +dateMonth,executionConfig.getReportingStage(), report.getAssertionsFailed());
-			} catch (JiraException e) {
-				logger.error("Error while creating Jira Ticket for failed assertions. Message : " + e.getMessage());
-			}
-		}
-	}
-
 	private void runDroolValidator(ValidationReport validationReport, ValidationRunConfig validationConfig, ExecutionConfig executionConfig) {
 		long timeStart = System.currentTimeMillis();
 		String directoryOfRuleSetsPath = droolRulesModuleName;
@@ -235,46 +227,49 @@ public class ValidationRunner {
 		List<InvalidContent> invalidContents = null;
 		try {
 			invalidContents = validateRF2(new FileInputStream(validationConfig.getLocalProspectiveFile()), directoryOfRuleSetsPath, ruleSetNamesToRun);
-		} catch (Exception e){
+		} catch (ReleaseImportException e) {
+			logger.error("Error: " + e);
+		} catch (FileNotFoundException e) {
 			logger.error("Error: " + e);
 		}
-		HashMap<String, List<InvalidContent>> invalidContentMap = new HashMap<>();
-		for(InvalidContent invalidContent : invalidContents){
-			if(!invalidContentMap.containsKey(invalidContent.getMessage())){
-				List<InvalidContent> invalidContentArrayList = new ArrayList<>();
-				invalidContentArrayList.add(invalidContent);
-				invalidContentMap.put(invalidContent.getMessage(), invalidContentArrayList);
-			}else {
-				invalidContentMap.get(invalidContent.getMessage()).add(invalidContent);
+		if(invalidContents != null) {
+			HashMap<String, List<InvalidContent>> invalidContentMap = new HashMap<>();
+			for (InvalidContent invalidContent : invalidContents) {
+				if (!invalidContentMap.containsKey(invalidContent.getMessage())) {
+					List<InvalidContent> invalidContentArrayList = new ArrayList<>();
+					invalidContentArrayList.add(invalidContent);
+					invalidContentMap.put(invalidContent.getMessage(), invalidContentArrayList);
+				} else {
+					invalidContentMap.get(invalidContent.getMessage()).add(invalidContent);
+				}
 			}
-		}
-		invalidContents.clear();
-		Iterator it = invalidContentMap.entrySet().iterator();
-		List<TestRunItem> failedAssertions = new ArrayList<>();
-		while (it.hasNext()){
-			Map.Entry pair = (Map.Entry)it.next();
-			TestRunItem failedAssertion = new TestRunItem();
-			failedAssertion.setTestType(TestType.DROOL_RULES);
-			failedAssertion.setTestCategory("");
-			failedAssertion.setAssertionUuid(null);
-			failedAssertion.setAssertionText((String) pair.getKey());
-			failedAssertion.setExtractResultInMillis(0L);
-			List<InvalidContent> invalidContentList = (List<InvalidContent>) pair.getValue();
-			failedAssertion.setFailureCount((long) invalidContentList.size());
-			List<FailureDetail> failureDetails = new ArrayList<>();
-			for (InvalidContent invalidContent : invalidContentList){
-				failureDetails.add(new FailureDetail(invalidContent.getConceptId(), invalidContent.getMessage(), null));
+			invalidContents.clear();
+			Iterator it = invalidContentMap.entrySet().iterator();
+			List<TestRunItem> failedAssertions = new ArrayList<>();
+			while (it.hasNext()) {
+				Map.Entry pair = (Map.Entry) it.next();
+				TestRunItem failedAssertion = new TestRunItem();
+				failedAssertion.setTestType(TestType.DROOL_RULES);
+				failedAssertion.setTestCategory("");
+				failedAssertion.setAssertionUuid(null);
+				failedAssertion.setAssertionText((String) pair.getKey());
+				failedAssertion.setExtractResultInMillis(0L);
+				List<InvalidContent> invalidContentList = (List<InvalidContent>) pair.getValue();
+				failedAssertion.setFailureCount((long) invalidContentList.size());
+				List<FailureDetail> failureDetails = new ArrayList<>();
+				for (InvalidContent invalidContent : invalidContentList) {
+					failureDetails.add(new FailureDetail(invalidContent.getConceptId(), invalidContent.getMessage(), null));
+				}
+				failedAssertion.setFirstNInstances(failureDetails.subList(0, failureDetails.size() > 10 ? 10 : failedAssertions.size()));
+				failedAssertions.add(failedAssertion);
+				it.remove(); // avoids a ConcurrentModificationException
 			}
-			failedAssertion.setFirstNInstances(failureDetails.subList(0, failureDetails.size() > 10 ? 10 : failedAssertions.size()));
-			failedAssertions.add(failedAssertion);
-			it.remove(); // avoids a ConcurrentModificationException
+			validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
+			validationReport.addFailedAssertions(failedAssertions);
 		}
-		validationReport.addTimeTaken((System.currentTimeMillis() - timeStart) / 1000);
-		validationReport.addFailedAssertions(failedAssertions);
-
 	}
 
-	private List<InvalidContent> validateRF2(InputStream fileInputStream, String directoryOfRuleSetsPath, HashSet<String> ruleSetNamesToRun) throws Exception {
+	private List<InvalidContent> validateRF2(InputStream fileInputStream, String directoryOfRuleSetsPath, HashSet<String> ruleSetNamesToRun) throws ReleaseImportException {
 		long start = (new Date()).getTime();
 		Assert.isTrue((new File(directoryOfRuleSetsPath)).isDirectory(), "The rules directory is not accessible.");
 		Assert.isTrue(ruleSetNamesToRun != null && !ruleSetNamesToRun.isEmpty(), "The name of at least one rule set must be specified.");
@@ -322,14 +317,14 @@ public class ValidationRunner {
 		File outputFolder = null;
 		try {
 			outputFolder = extractZipFile(validationConfig, executionConfig.getExecutionId());
-			if(outputFolder != null){
-				validationService.loadMRCM(outputFolder, validationRun);
-				validationService.validateRelease(outputFolder, validationRun);
-				FileUtils.deleteQuietly(outputFolder);
-			}
 
 		} catch (BusinessServiceException ex) {
 			logger.error("Error:" + ex);
+		}
+		if(outputFolder != null){
+			validationService.loadMRCM(outputFolder, validationRun);
+			validationService.validateRelease(outputFolder, validationRun);
+			FileUtils.deleteQuietly(outputFolder);
 		}
 
 		TestRunItem testRunItem;
@@ -371,7 +366,7 @@ public class ValidationRunner {
 			for (Long conceptId : assertion.getConceptIdsWithInvalidAttributeValue()){
 				failedDetails.add(new FailureDetail(String.valueOf(conceptId), assertion.getAssertionText(), null));
 			}
-			testRunItem.setFirstNInstances(failedDetails.subList(0, failedDetails.size() > 10 ? 10 : failedDetails.size()));
+			testRunItem.setFirstNInstances(failedDetails);
 			failedAssertions.add(testRunItem);
 		}
 
