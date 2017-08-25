@@ -129,7 +129,6 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 			return false;
 			
 		} finally {
-			storeLatestVersion(fileName);
 			IOUtils.closeQuietly(inputStream);
 			IOUtils.closeQuietly(out);
 		}
@@ -146,6 +145,7 @@ public class ReleaseDataManagerImpl implements ReleaseDataManager, InitializingB
 		logger.info("schemaName = " + schemaName);
 		// now add to releaseSchemaNameLookup
 		releaseSchemaNameLookup.put(productVersion, schemaName);
+		storeLatestVersion(fileName);
 		return true;
 	}
 
