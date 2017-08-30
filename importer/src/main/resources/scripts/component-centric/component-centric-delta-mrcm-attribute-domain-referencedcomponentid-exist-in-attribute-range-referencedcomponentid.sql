@@ -12,6 +12,6 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('MRCM ATTRIBUTE DOMAIN REFSET: id=',a.id,' ReferencedComponentId in MRCM ATTRIBUTE DOMAIN DELTA does not exist in the ReferencedComponentId values of MRCM ATTRIBUTE RANGE DELTA') 	
-	from curr_mrcmAttributeDomainRefset_d a	
-	where a.referencedcomponentid NOT IN (select b.referencedcomponentid from curr_mrcmAttributeRangeRefset_d b);
+	from curr_mrcmattributedomainrefset_d a
+	where a.referencedcomponentid NOT IN (select b.referencedcomponentid from curr_mrcmattributerangerefset_d b);
 	commit;

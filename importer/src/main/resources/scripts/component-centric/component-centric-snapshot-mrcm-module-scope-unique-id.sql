@@ -12,7 +12,7 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('MRCM MODULE SCOPE REFSET: id=',a.id,':Non unique id in current MRCM Module Scope snapshot file.') 	
-	from curr_mrcmModuleScopeRefset_s a
+	from curr_mrcmmodulescoperefset_s a
 	group by a.id
 	having  count(a.id) > 1;
 	commit;

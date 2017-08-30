@@ -12,6 +12,6 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('MRCM ATTRIBUTE DOMAIN REFSET: id=',a.id,' AttributeInGroupCardinality value is not in ("0..0", "0..1", "0..*") in MRCM ATTRIBUTE DOMAIN snapshot file') 	
-	from curr_mrcmAttributeDomainRefset_s a	
+	from curr_mrcmattributedomainrefset_s a
 	where a.attributeingroupcardinality NOT IN ('0..0','0..1','0..*');
 	commit;

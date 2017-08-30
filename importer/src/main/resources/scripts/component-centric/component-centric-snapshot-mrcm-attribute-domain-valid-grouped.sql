@@ -12,6 +12,6 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('MRCM ATTRIBUTE DOMAIN REFSET: id=',a.id,' Grouped value is not in (0,1) in MRCM ATTRIBUTE DOMAIN snapshot file') 	
-	from curr_mrcmAttributeDomainRefset_s a	
+	from curr_mrcmattributedomainrefset_s a
 	where a.grouped NOT IN (0,1);
 	commit;

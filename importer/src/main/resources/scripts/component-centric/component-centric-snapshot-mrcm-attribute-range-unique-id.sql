@@ -12,7 +12,7 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('MRCM ATTRIBUTE RANGE REFSET: id=',a.id,':Non unique id in current MRCM Attribute Range snapshot file.') 	
-	from curr_mrcmAttributeRangeRefset_s a
+	from curr_mrcmattributerangerefset_s a
 	group by a.id
 	having  count(a.id) > 1;
 	commit;

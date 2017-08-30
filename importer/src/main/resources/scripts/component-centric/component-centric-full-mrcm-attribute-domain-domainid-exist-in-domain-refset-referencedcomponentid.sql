@@ -12,6 +12,6 @@
 		'<ASSERTIONUUID>',
 		a.moduleid,
 		concat('MRCM ATTRIBUTE DOMAIN REFSET: id=',a.id,' DomainId in MRCM ATTRIBUTE DOMAIN FULL does not exist in the ReferencedComponentId values of MRCM DOMAIN FULL') 	
-	from curr_mrcmAttributeDomainRefset_f a	
-	where a.moduleid NOT IN (select b.referencedcomponentid from curr_mrcmDomainRefset_f b);
+	from curr_mrcmattributedomainRefset_f a
+	where a.moduleid NOT IN (select b.referencedcomponentid from curr_mrcmdomainrefset_f b);
 	commit;

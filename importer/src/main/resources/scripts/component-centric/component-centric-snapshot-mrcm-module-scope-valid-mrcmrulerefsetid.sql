@@ -12,8 +12,8 @@
 		'<ASSERTIONUUID>',
 		a.mrcmrulerefsetid,
 		concat('MRCM MODULE SCOPE REFSET: id=',a.id,' MrcmRuleRefsetId in MRCM MODULE SCOPE SNAPSHOT does not exist in the RefsetId values of MRCM DOMAIN SNAPSHOT or MRCM ATTRIBUTE DOMAIN SNAPSHOT or MRCM ATTRIBUTE RANGE SNAPSHOT') 	
-	from curr_mrcmModuleScopeRefset_s a	
-	where a.mrcmrulerefsetid NOT IN (select b.refsetid from curr_mrcmDomainRefset_s b
-									union all select c.refsetid from curr_mrcmAttributeDomainRefset_s c
-									union all select d.refsetid from curr_mrcmAttributeRangeRefset_s d);
+	from curr_mrcmmodulescoperefset_s a
+	where a.mrcmrulerefsetid NOT IN (select b.refsetid from curr_mrcmdomainrefset_s b
+									union all select c.refsetid from curr_mrcmattributedomainrefset_s c
+									union all select d.refsetid from curr_mrcmattributerangerefset_s d);
 	commit;

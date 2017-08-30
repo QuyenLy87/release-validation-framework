@@ -12,7 +12,7 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('MRCM DOMAIN REFSET: id=',a.id,':Non unique id in current MRCM Domain snapshot file.') 	
-	from curr_mrcmDomainRefset_s a
+	from curr_mrcmdomainrefset_s a
 	group by a.id
 	having  count(a.id) > 1;
 	commit;
