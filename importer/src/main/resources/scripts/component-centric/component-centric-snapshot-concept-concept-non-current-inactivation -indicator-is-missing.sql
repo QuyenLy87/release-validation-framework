@@ -13,7 +13,7 @@
 		'<ASSERTIONUUID>',
 		b.conceptid,
 		concat('CONCEPT: id=',a.id, ' is inactivated but inactivation indicator is missing.')
-	from curr_concept_s a, curr_description_s b, package_info c
+	from curr_concept_s a, curr_description_s b, curr_package_info c
     where a.id = b.conceptid
     and a.effectivetime = c.releasetime
     and a.active = 0

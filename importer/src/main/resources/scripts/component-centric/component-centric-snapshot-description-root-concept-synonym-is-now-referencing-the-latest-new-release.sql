@@ -14,7 +14,7 @@
             from
             (select a.id,
                      concat('Concept id = ',a.id,', root concept synonym is not referencing the latest new release') expression
-                     from curr_description_s a, package_info b
+                     from curr_description_s a, curr_package_info b
                      where a.conceptid= '138875005'
                      and a.typeid = '900000000000013009'
                      and a.active = 1
@@ -31,7 +31,7 @@
         from
         (select a.id,
                   concat('Concept id = ',a.id,', root concept synonym is now referencing the latest new release but is in inactivate state') expression
-                  from curr_description_s a, package_info b
+                  from curr_description_s a, curr_package_info b
                   where a.conceptid= '138875005'
                   and a.typeid = '900000000000013009'
                   and a.active = 0
@@ -48,7 +48,7 @@
             from
             (select a.id,
                       concat('Concept id = ',a.id,', root concept synonym is not valid') expression
-                      from curr_description_s a, package_info b
+                      from curr_description_s a, curr_package_info b
                       where a.conceptid= '138875005'
                       and a.typeid = '900000000000013009'
                       and a.active = 1

@@ -27,10 +27,10 @@ public class RF2FileTableMapper {
 	private static final String MRCM_ATRRIBUTE_RANGE_FILE_HEADER = "der2_ssccRefset_MRCMAttributeRange";
 	private static final String MRCM_DOMAIN_FILE_HEADER = "der2_sssssssRefset_MRCMDomain";
 
-	private static final String MODULE_DEPENDENCY_FILE_HEADER = "der2_ssRefset_ModuleDependency";
-	private static final String REFSET_DESCRIPTOR_FILE_HEADER = "der2_cciRefset_RefsetDescriptor";
-	private static final String DESCRIPTION_TYPE_FILE_HEADER = "der2_ciRefset_DescriptionType";
-	private static final String IDENTIFIER_FILE_HEADER = "sct2_Identifier_";
+	private static final String MODULE_DEPENDENCY_FILE_HEADER = "der2_ssRefset_.*ModuleDependency";
+	private static final String REFSET_DESCRIPTOR_FILE_HEADER = "der2_cciRefset_.*RefsetDescriptor";
+	private static final String DESCRIPTION_TYPE_FILE_HEADER = "der2_ciRefset_.*DescriptionType";
+	private static final String IDENTIFIER_FILE_HEADER = "sct2_.*Identifier_";
 	
 	private static final Map<String,String> tableNameMap = new HashMap<>();
 	private static final String DELTA = ".*Delta.*_*_\\d{8}.txt";

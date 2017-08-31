@@ -12,7 +12,7 @@
 		'<ASSERTIONUUID>',
 		a.moduleid,
 		concat('Refset with id = ',a.id, ' in Module Dependency Full file , effectiveTime = ',a.effectivetime,' does not match the sourceEffectiveTime = ',a.sourceeffectivetime)
-	from curr_moduleDependency_f a, package_info b
+	from curr_moduleDependency_f a, curr_package_info b
 	where a.effectivetime <> a.sourceeffectivetime
 	and
 	    ( b.releaseedition like '%DK%'

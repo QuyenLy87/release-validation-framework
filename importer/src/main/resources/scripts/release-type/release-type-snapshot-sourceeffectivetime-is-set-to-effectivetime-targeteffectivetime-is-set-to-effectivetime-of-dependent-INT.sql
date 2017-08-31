@@ -14,7 +14,7 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('Module Dependency Refset with: id = ',a.id, ' does not have sourceEffectiveTime matched with effectiveTime.')
-	from curr_moduleDependency_s a, package_info b
+	from curr_moduleDependency_s a, curr_package_info b
 	where a.sourceeffectivetime <> a.effectivetime
 	and
 		( b.releaseedition like '%DK%'
@@ -29,7 +29,7 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('Module Dependency Refset with: id = ',a.id, ' does not have targetEffectiveTime matched with effectiveTime of the dependent International Edition.')
-	from curr_moduleDependency_s a, dependant_moduleDependency_s b, package_info c
+	from curr_moduleDependency_s a, dependant_moduleDependency_s b, curr_package_info c
 	where a.targeteffectivetime <> b.effectivetime
 	and
 	    ( c.releaseedition like '%DK%'

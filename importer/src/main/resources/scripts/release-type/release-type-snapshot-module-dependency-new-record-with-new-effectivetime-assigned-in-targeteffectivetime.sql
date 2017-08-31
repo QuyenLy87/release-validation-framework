@@ -14,7 +14,7 @@
 		'<ASSERTIONUUID>',
 		a.referencedcomponentid,
 		concat('Module Dependency id = ',a.referencedcomponentid, ' has new record for pre-existing active records but new effectiveTime is not updated')
-	from curr_moduleDependency_s a, prev_moduleDependency_s b, package_info c
+	from curr_moduleDependency_s a, prev_moduleDependency_s b, curr_package_info c
     where a.id = b.id
     and a.moduleid = b.moduleid
     and a.refsetid = b.refsetid
@@ -30,7 +30,7 @@
     	'<ASSERTIONUUID>',
     	a.referencedcomponentid,
     	concat('Module Dependency id = ',a.referencedcomponentid, ' new record for pre-existing active records but new effectiveTime is not assigned to targetEffectiveTime')
-    from curr_moduleDependency_s a, prev_moduleDependency_s b, package_info c
+    from curr_moduleDependency_s a, prev_moduleDependency_s b, curr_package_info c
     where a.id = b.id
     and a.moduleid = b.moduleid
     and a.refsetid = b.refsetid

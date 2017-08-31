@@ -11,7 +11,7 @@
 		'<ASSERTIONUUID>',
 		a.moduleid,
 		concat('Refset with id = ',a.id,' and refsetId = ',a.refsetid,' in Simple Map Full file is not ICD-0 or CTV3 map')
-	from curr_simplemaprefset_f a, package_info b
+	from curr_simplemaprefset_f a, curr_package_info b
 	where a.refsetid not in (900000000000497000,446608001)
 	and b.releaseedition like '%INT%';
 	commit;
